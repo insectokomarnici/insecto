@@ -165,7 +165,7 @@ The primary CTA is a phone call. The confirmed number is `061 132 1324`, represe
 
 | Component / state | Appearance and behavior |
 | --- | --- |
-| Primary button | Approved blue gradient, white Manrope 700, 0.5rem radius, no shadow |
+| Primary button | Approved blue gradient, white Manrope 700, 0.5rem radius, no border or shadow |
 | Hover / pressed | Solid brand blue; no layout shift |
 | Secondary action | White surface, dark-blue border and text; light surface on hover |
 | Text link | Dark blue and always underlined; lighter blue on hover |
