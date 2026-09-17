@@ -69,7 +69,7 @@ export async function GoogleRating() {
         rel="noopener noreferrer"
         aria-label={`Google ocena ${place.rating.toFixed(1)} od 5 na osnovu ${reviewCount} recenzija`}
       >
-        <span className="google-rating-brand">Google</span>
+        <span className="google-rating-brand" translate="no">Google Maps</span>
         <span className="google-rating-value">{place.rating.toFixed(1)}</span>
         <StarFilled className="google-rating-star" aria-hidden="true" />
         <Review className="google-rating-review" aria-hidden="true" />

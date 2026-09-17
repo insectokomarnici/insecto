@@ -185,7 +185,7 @@
 .google-rating { display: inline-flex; width: fit-content; margin-top: calc(var(--space-2) * -1); }
 .google-rating-link { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-body); font-size: var(--text-small); line-height: var(--text-small--line-height); text-decoration: none; }
 .google-rating-link:hover { color: var(--color-brand); text-decoration: underline; text-underline-offset: 0.2em; }
-.google-rating-brand { color: var(--color-brand); font-family: var(--font-heading); font-weight: 700; }
+.google-rating-brand { color: var(--color-body); font-family: var(--font-body); font-weight: 400; white-space: nowrap; }
 .google-rating-value { color: var(--color-heading); font-weight: 700; }
 .google-rating-star, .google-rating-review { width: var(--icon-inline); height: var(--icon-inline); flex: none; }
 .google-rating-star { color: var(--color-accent); }
