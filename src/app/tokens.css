@@ -115,7 +115,7 @@
   --focus-ring: 0 0 0 var(--focus-gap) var(--color-surface), 0 0 0 calc(var(--focus-gap) + var(--focus-width)) var(--color-brand-light);
   --primary-gradient: linear-gradient(110deg in srgb, var(--color-brand-light), var(--color-brand));
   --icon-inline: 1rem;
-  --icon-action: 1rem;
+  --icon-action: 1.25rem;
   --icon-menu: 1.25rem;
   --logo-width: 8.4rem;
   --header-logo-width: 7rem;

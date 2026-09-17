@@ -1,7 +1,8 @@
 "use client";
 
-import { Close, Email, Phone, Time } from "@carbon/icons-react";
+import { Email, Phone, Time } from "@carbon/icons-react";
 import { useEffect, useState } from "react";
+import { CloseIcon } from "@/components/ui/close-icon";
 
 const BANNER_ROTATION_INTERVAL_MS = 5000;
 
@@ -63,7 +64,7 @@ export function SiteBanner() {
         </div>
       </div>
       <button className="site-banner-close" type="button" aria-label="Zatvori banner" onClick={() => setOpen(false)}>
-        <Close aria-hidden="true" />
+        <CloseIcon />
       </button>
     </div>
   </aside>;

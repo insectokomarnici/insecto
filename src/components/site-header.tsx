@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, Close, PhoneFilled } from "@carbon/icons-react";
+import { ChevronDown, PhoneFilled } from "@carbon/icons-react";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { Container } from "@/components/ui/layout";
 import { ButtonLink } from "@/components/ui/button";
 import { CarbonMenuThreeIcon } from "@/components/ui/menu-icon";
+import { CloseIcon } from "@/components/ui/close-icon";
 
 const productLinks = [
   ["/komarnici/plise", "Plise komarnici"],
@@ -85,7 +86,7 @@ export function SiteHeader() {
         </ButtonLink>
 
         <details className="site-menu">
-          <summary className="site-menu-trigger" aria-label="Otvori ili zatvori meni"><CarbonMenuThreeIcon className="site-menu-icon site-menu-icon-menu" aria-hidden="true" /><Close className="site-menu-icon site-menu-icon-close" aria-hidden="true" /><span className="sr-only">Meni</span></summary>
+          <summary className="site-menu-trigger" aria-label="Otvori ili zatvori meni"><CarbonMenuThreeIcon className="site-menu-icon site-menu-icon-menu" aria-hidden="true" /><CloseIcon className="site-menu-icon site-menu-icon-close" /><span className="sr-only">Meni</span></summary>
           <div className="site-menu-panel">
             <nav aria-label="Glavna navigacija">
               <details className="site-menu-products">
