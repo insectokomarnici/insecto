@@ -2,6 +2,7 @@
 @theme static {
   --font-body: "Manrope Variable", sans-serif;
   --font-heading: "Montserrat Variable", sans-serif;
+  --font-button: "Montserrat Variable", sans-serif;
   --color-brand: #1e3b6f;
   --color-brand-light: #3f73b8;
   --color-accent: #e7a23b;

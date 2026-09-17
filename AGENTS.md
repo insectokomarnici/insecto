@@ -6,7 +6,7 @@ Next.js App Router, TypeScript, Tailwind CSS. Develop locally; GitHub and deploy
 - src/app/tokens.css is the canonical source for colors, typography, spacing, breakpoints, radii, shadows and control dimensions. Tailwind theme values are mapped there.
 - Reuse src/components/ui and shared layout primitives. New sections should use semantic tokens; add a reusable token when a real need arises.
 - Use rem for text and layout, unitless line-height, em for letter spacing. Thin borders may use px.
-- Montserrat Variable is for headings; Manrope Variable for body text, navigation, CTA buttons and form controls. Both fonts are self-hosted through installed Fontsource packages.
+- Montserrat Variable is for headings and CTA buttons through the dedicated `--font-button` token; CTA buttons use weight 600. Manrope Variable is for body text, navigation and form controls. Both fonts are self-hosted through installed Fontsource packages.
 - Review one section at a time with the user. The homepage is being designed section by section; the first Hero is now implemented.
 - The design-system contact demo is a clearly labeled local simulation. Never pretend a message was delivered or invent a phone number, reviews, service areas or business claims.
 - Keep keyboard focus visible, pair errors with text, preserve form entries on failed submission and guard duplicate requests.

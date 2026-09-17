@@ -54,7 +54,7 @@ Calculated contrast ratios: white on lighter blue 4.82:1; white on dark blue 10.
 
 ## Typography
 
-Montserrat is used for headings; Manrope is used for body text, navigation, CTA buttons, form controls and supporting text. Available weight ranges: Montserrat 100–900, Manrope 200–800. The initial weights below can be changed consistently by role.
+Montserrat is used for headings and CTA buttons; Manrope is used for body text, navigation, form controls and supporting text. Available weight ranges: Montserrat 100–900, Manrope 200–800. The initial weights below can be changed consistently by role.
 
 Site base: `html { font-size: 100%; }`. `rem` follows the root font size. Initial conversions use the common 16px base; user font-size settings are respected. The layout must also be checked with enlarged text.
 
@@ -69,7 +69,7 @@ Site base: `html { font-size: 100%; }`. `rem` follows the root font size. Initia
 | Banner text | Manrope | 0.875 | 0.875 | 1.5714 / 1.5714 | 600 | 0 |
 | Supporting text | Manrope | 0.875 | 0.875 | 1.5714 / 1.5714 | 400 | 0 |
 | Field label | Manrope | 0.875 | 0.875 | 1.4286 / 1.4286 | 600 | 0 |
-| Button | Manrope | 1 | 1 | 1.5 / 1.5 | 700 | 0 |
+| Button | Montserrat | 1 | 1 | 1.5 / 1.5 | 600 | 0 |
 
 Line-height values in the table are rounded for readability. The visual sample keeps the exact relationships from the initial scale. Headings are planned to scale gradually between the endpoint sizes; exact formulas and wrapping are checked on real sections. The HTML heading level follows content structure independently from visual style. Navigation uses the base `1rem` size with weight 600; emphasized text also uses 600. The shared `--text-nav` token keeps Header, dropdown and mobile menu links aligned, while the smaller `--text-banner` token keeps the announcement banner visually secondary.
 
@@ -175,7 +175,7 @@ The primary CTA is a phone call. The confirmed number is `061 132 1324`, represe
 | Unavailable | Light surface and gray text; use native `disabled` when a button is genuinely unavailable |
 | Submission | Serbian UI label `Šalje se…`, `aria-disabled`, duplicate activation blocked; the button keeps focus |
 
-Buttons use Manrope 700, have a minimum height of 3.25rem and use 1rem / 1.5 line-height text with 0.875rem vertical and 1.375rem horizontal padding. These control tokens preserve the proportions of the approved CTA. Height is a minimum, so text may wrap when enlarged. An icon is decorative next to clear text. Actions use `button`; navigation and calls use `a` with a real destination.
+Buttons use the `--font-button` token with Montserrat 600, have a minimum height of 3.25rem and use 1rem / 1.5 line-height text with 0.875rem vertical and 1.375rem horizontal padding. These control tokens preserve the proportions of the approved CTA. Height is a minimum, so text may wrap when enlarged. An icon is decorative next to clear text. Actions use `button`; navigation and calls use `a` with a real destination.
 
 Focus uses blue `#3F73B8`, a 0.125rem gap and a 0.1875rem ring. Do not remove the browser outline. This ring is separate from decorative shadows. During implementation, check visibility on the real surfaces.
 
