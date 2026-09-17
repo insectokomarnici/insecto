@@ -137,7 +137,7 @@
 .site-banner-item svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; }
 .site-banner-close { position: absolute; top: 50%; right: 0; display: inline-flex; align-items: center; justify-content: center; width: var(--banner-close-size); height: var(--banner-close-size); transform: translateY(-50%); border: 0; border-radius: var(--radius-button); color: var(--color-surface); background: transparent; cursor: pointer; }
 .site-banner-close:hover { background: var(--color-brand-light); }
-.site-banner-close svg { width: var(--icon-close); height: var(--icon-close); }
+.site-banner-close svg { width: var(--icon-banner-close); height: var(--icon-banner-close); }
 .site-banner-close:focus-visible { box-shadow: 0 0 0 var(--focus-gap) var(--color-brand), 0 0 0 calc(var(--focus-gap) + var(--focus-width)) var(--color-surface); outline: none; }
 @media (prefers-reduced-motion: reduce) {
   .site-banner-slide { transform: none; transition: none; }
