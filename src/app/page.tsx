@@ -39,10 +39,6 @@ export default function Home() {
                 <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži izlazak na teren</ButtonLink>
               </div>
             </div>
-            <div className="hero-stat" aria-label="Rok izrade i ugradnje">
-              <strong>3–5</strong>
-              <span>dana do ugradnje</span>
-            </div>
           </div>
         </Container>
       </section>

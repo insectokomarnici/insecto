@@ -185,9 +185,6 @@
 .hero-copy .heading-hero { max-width: 38rem; }
 .hero-description { max-width: var(--content-text); font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .hero-actions { display: flex; flex-wrap: wrap; gap: var(--cta-gap); margin-top: var(--space-2); }
-.hero-stat { position: absolute; right: var(--space-4); bottom: var(--space-4); display: inline-flex; align-items: baseline; gap: var(--space-2); max-width: calc(100% - var(--space-8)); padding: var(--space-3) var(--space-4); border-radius: var(--radius-card); background: var(--color-surface); color: var(--color-brand); box-shadow: var(--shadow-soft); }
-.hero-stat strong { font-family: var(--font-heading); font-size: var(--text-card); line-height: var(--leading-card); font-weight: 700; }
-.hero-stat span { font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: 600; white-space: nowrap; }
 .hero-panel { min-height: 16rem; padding: var(--card-padding); border-radius: var(--radius-panel); background: var(--color-brand); color: var(--color-surface); box-shadow: var(--shadow-soft); }
 .hero-panel .text-small { color: var(--color-surface); opacity: 0.86; }
 .hero-list { display: grid; gap: var(--space-4); margin: var(--space-8) 0 0; padding: 0; list-style: none; font-family: var(--font-heading); font-size: var(--text-card); line-height: var(--leading-card); font-weight: 600; }
@@ -195,12 +192,11 @@
 .hero-list li:last-child { border-bottom: 0; }
 @media (min-width: 40rem) { .ds-palette { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 64rem) {
-  .hero-stat { right: var(--space-6); bottom: var(--space-6); }
   .ds-palette { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .ds-spec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 63.99rem) {
-  .hero-background { top: auto; bottom: 0; width: 100%; height: 48%; }
+  .hero-background { top: auto; bottom: 0; width: 100%; height: 56%; }
   .hero-overlay { background: linear-gradient(180deg, var(--color-surface-subtle) 0%, rgb(246 248 251 / 0.96) 54%, rgb(246 248 251 / 0.22) 100%); }
   .hero-image { object-position: 65% center; }
   .hero-content { align-items: flex-start; min-height: auto; }
