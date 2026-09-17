@@ -190,7 +190,7 @@
 .google-rating-value { color: var(--color-heading); font-weight: 700; }
 .google-rating-stars { display: inline-flex; align-items: center; gap: var(--space-1); color: var(--color-rating-star); }
 .google-rating-stars svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; }
-.google-rating-separator { display: inline-flex; align-items: center; justify-content: center; width: var(--space-2); flex: none; color: var(--color-body); text-align: center; }
+.google-rating-separator { display: inline-flex; align-items: center; justify-content: center; width: var(--space-1); flex: none; color: var(--color-body); text-align: center; }
 .google-rating-count { white-space: nowrap; }
 .hero-panel { min-height: 16rem; padding: var(--card-padding); border-radius: var(--radius-panel); background: var(--color-brand); color: var(--color-surface); box-shadow: var(--shadow-soft); }
 .hero-panel .text-small { color: var(--color-surface); opacity: 0.86; }
