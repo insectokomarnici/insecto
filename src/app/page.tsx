@@ -18,16 +18,6 @@ export default function Home() {
     <SiteHeader />
     <main id="main">
       <section className="hero-section" aria-labelledby="hero-title">
-        <div className="hero-background" aria-hidden="true">
-          <Image
-            src="/hero-komarnici.png"
-            alt=""
-            fill
-            preload
-            sizes="100vw"
-            className="hero-image"
-          />
-        </div>
         <div className="hero-overlay" aria-hidden="true" />
         <Container>
           <div className="hero-content">
@@ -38,6 +28,16 @@ export default function Home() {
               <div className="hero-actions">
                 <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži izlazak na teren</ButtonLink>
               </div>
+            </div>
+            <div className="hero-background" aria-hidden="true">
+              <Image
+                src="/hero-komarnici.png"
+                alt=""
+                fill
+                preload
+                sizes="(min-width: 64rem) 56vw, 100vw"
+                className="hero-image"
+              />
             </div>
           </div>
         </Container>
