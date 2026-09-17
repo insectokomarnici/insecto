@@ -127,18 +127,14 @@
 }
 
 .site-banner { position: relative; z-index: 30; overflow: hidden; background: var(--color-brand); color: var(--color-surface); }
-.site-banner-inner { position: relative; min-height: var(--banner-min-height); }
-.site-banner-viewport { width: 100%; min-width: 0; overflow: hidden; padding-inline: var(--banner-close-size); }
+.site-banner-inner { min-height: var(--banner-min-height); }
+.site-banner-viewport { width: 100%; min-width: 0; overflow: hidden; }
 .site-banner-slides { display: grid; min-height: var(--banner-min-height); place-items: center; }
 .site-banner-slide { grid-area: 1 / 1; display: inline-flex; align-items: center; opacity: 0; visibility: hidden; transform: translateY(0.375rem); pointer-events: none; transition: opacity var(--banner-transition-duration) ease, transform var(--banner-transition-duration) ease, visibility 0s linear var(--banner-transition-duration); }
 .site-banner-slide.is-active { opacity: 1; visibility: visible; transform: translateY(0); pointer-events: auto; transition-delay: 0s; }
 .site-banner-item { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-surface); font-size: var(--text-banner); font-weight: 600; line-height: var(--text-banner--line-height); white-space: nowrap; text-decoration: none; }
 .site-banner-item:hover { color: var(--color-surface); text-decoration: underline; text-underline-offset: 0.2em; }
 .site-banner-item svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; }
-.site-banner-close { position: absolute; top: 50%; right: 0; display: inline-flex; align-items: center; justify-content: center; width: var(--banner-close-size); height: var(--banner-close-size); transform: translateY(-50%); border: 0; border-radius: var(--radius-button); color: var(--color-surface); background: transparent; cursor: pointer; }
-.site-banner-close:hover { background: var(--color-brand-light); }
-.site-banner-close svg { width: var(--icon-inline); height: var(--icon-inline); }
-.site-banner-close:focus-visible { box-shadow: 0 0 0 var(--focus-gap) var(--color-brand), 0 0 0 calc(var(--focus-gap) + var(--focus-width)) var(--color-surface); outline: none; }
 @media (prefers-reduced-motion: reduce) {
   .site-banner-slide { transform: none; transition: none; }
 }

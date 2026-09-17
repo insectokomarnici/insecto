@@ -1,6 +1,6 @@
 "use client";
 
-import { Close, Email, Phone, Time } from "@carbon/icons-react";
+import { Email, Phone, Time } from "@carbon/icons-react";
 import { useEffect, useState } from "react";
 
 const BANNER_ROTATION_INTERVAL_MS = 5000;
@@ -29,21 +29,18 @@ function ContactItem({
 }
 
 export function SiteBanner() {
-  const [open, setOpen] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (!open || paused) return;
+    if (paused) return;
 
     const interval = window.setInterval(() => {
       setActiveIndex((current) => (current + 1) % contactItems.length);
     }, BANNER_ROTATION_INTERVAL_MS);
 
     return () => window.clearInterval(interval);
-  }, [open, paused]);
-
-  if (!open) return null;
+  }, [paused]);
 
   return <aside className="site-banner" aria-label="Kontakt informacije">
     <div className="site-banner-inner site-container">
@@ -62,9 +59,6 @@ export function SiteBanner() {
           </div>)}
         </div>
       </div>
-      <button className="site-banner-close" type="button" aria-label="Zatvori banner" onClick={() => setOpen(false)}>
-        <Close aria-hidden="true" />
-      </button>
     </div>
   </aside>;
 }

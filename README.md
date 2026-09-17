@@ -25,7 +25,7 @@ npm start
 - `src/app/tokens.css`: canonical design tokens and Tailwind theme mappings.
 - `src/app/globals.css`: component and internal showcase styles.
 - `src/components/site-header.tsx`: reusable site Header with product dropdown and phone CTA.
-- `src/components/site-banner.tsx`: dismissible rotating contact-information banner above the Header.
+- `src/components/site-banner.tsx`: rotating contact-information banner above the Header.
 - `src/components/ui/`: shared buttons, links, fields, notices and layout primitives.
 - `src/components/contact-form.tsx`: reusable contact form. A submission callback is required; no fake success fallback.
 - `src/components/design-system/demos.tsx`: isolated local simulations and weight comparisons.
@@ -35,7 +35,7 @@ npm start
 
 Montserrat Variable and Manrope Variable are self-hosted through Fontsource packages. Headings use Montserrat; body text, navigation, CTA buttons and form controls use Manrope. No Google Fonts request is needed to build or view this project. All supported font weights are available.
 
-Carbon Design System icons from `@carbon/icons-react` are the shared icon source for navigation, calls, Banner close and form feedback. The Banner uses Carbon's standard `Close` icon at the same `1rem` size token as inline Banner icons. The package's four-line `Menu` variant is replaced by a local three-line SVG on the same 16px visible canvas as the mobile menu close icon, so both states use the same size.
+Carbon Design System icons from `@carbon/icons-react` are the shared icon source for navigation, calls and form feedback. The package's four-line `Menu` variant is replaced by a local three-line SVG on the same 16px visible canvas as the mobile menu close icon, so both states use the same size.
 
 The shared button API supports `small`, `medium` and `large` sizes. Header uses `small`, standard actions and the form use `medium`, and the prominent Hero CTA uses `large`.
 
