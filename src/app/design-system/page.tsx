@@ -7,7 +7,7 @@ import { SiteBanner } from "@/components/site-banner";
 
 const colors = [
   ["Brand", "brand"], ["Lighter blue", "brand-light"], ["Accent", "accent"], ["Accent surface", "accent-surface"],
-  ["Headings", "heading"], ["Body text", "body"], ["White", "surface"], ["Subtle surface", "surface-subtle"],
+  ["Headings", "heading"], ["Body text", "body"], ["Google rating star", "rating-star"], ["White", "surface"], ["Subtle surface", "surface-subtle"],
   ["Decorative border", "border"], ["Control border", "control-border"], ["Success", "success"], ["Success surface", "success-surface"], ["Error", "error"], ["Error surface", "error-surface"],
 ] as const;
 const navigation = [["header", "Header"], ["colors", "Colors"], ["typography", "Typography"], ["layout", "Layout"], ["surfaces", "Surfaces"], ["actions", "Actions"], ["form", "Form"]] as const;

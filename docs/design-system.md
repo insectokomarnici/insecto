@@ -10,6 +10,8 @@ Breakpoints: `sm` 40rem, `md` 48rem, `lg` 64rem, `xl` 80rem, `2xl` 96rem. The ea
 
 The first homepage foundation is now implemented with the announcement banner, Header and Hero. The Hero uses the approved Serbian copy, a large phone CTA and the supplied mosquito-screen installation photo as a right-side background layer at desktop widths; on narrow screens the background layer moves to the lower half so the copy remains readable. The image is rendered through Next.js `Image` optimization, and the longer Hero description uses the existing `--text-body` token so it remains secondary to the H1 and CTA. The design-system review remains available at `/design-system`. The form requires an explicit submission function; only the design-system demo supplies a local simulation. The phone CTA is connected to `tel:+381611321324`; the GitHub repository is connected, while Vercel deployment and real form delivery remain separate operational steps. Carbon Design System icons from `@carbon/icons-react` are the shared icon source. Because the package's standard `Menu` has four lines, the mobile Header uses a local three-line SVG built on Carbon's 16px grid. The announcement banner uses the brand color and a centered rotating contact item for phone, email and opening hours. Banner text uses the smaller `--text-banner` token and its informational icons use the shared `--icon-inline` token.
 
+The Hero CTA and the Google rating row share the same left alignment within the copy column at every viewport width. The rating uses the shared `--text-small`, `--icon-inline`, spacing and rating-star color tokens, while the CTA uses the shared button size and action tokens.
+
 Icon sizing is semantic: `--icon-inline` is `1rem` for icons beside text and navigation chevrons, `--icon-action` is `1.25rem` for buttons and feedback notices, `--icon-menu` is `1rem` for the standalone mobile menu trigger, and `--icon-close` is `1rem` for the mobile menu X. The custom three-line menu path and the close path share the same visible 16px canvas and 2px visual weight. CTA buttons use Carbon's filled `PhoneFilled` icon for action emphasis, while the informational banner uses the outline `Phone` icon alongside Email and Time.
 
 The product is a local business website for mosquito-screen installation. The primary action is a phone call; the site will also include a contact form. Planned technology: Next.js, TypeScript and Tailwind CSS; hosting: Vercel.
@@ -37,6 +39,7 @@ The product is a local business website for mosquito-screen installation. The pr
 | Accent surface | `color-accent-background` | `#FEF2DF` |
 | Headings | `color-heading` | `#111111` |
 | Body text | `color-body` | `#484848` |
+| Google rating star | `color-rating-star` | `#FBBC04` |
 | Subtle surface | `color-surface-subtle` | `#F6F8FB` |
 | Base surface / text on dark surfaces | `color-white` | `#FFFFFF` |
 | Subtle decorative border — proposal | `color-border-subtle` | `#E1E6EE` |

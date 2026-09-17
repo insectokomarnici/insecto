@@ -181,15 +181,14 @@
 .hero-copy { max-width: 42rem; padding-block: var(--space-8); }
 .hero-copy .heading-hero { max-width: 38rem; }
 .hero-description { max-width: var(--content-text); font-size: var(--text-body); line-height: var(--text-body--line-height); }
-.hero-actions { display: flex; flex-wrap: wrap; gap: var(--cta-gap); margin-top: var(--space-2); }
-.google-rating { display: inline-flex; width: fit-content; margin-top: calc(var(--space-2) * -1); }
-.google-rating-link { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-body); font-size: var(--text-small); line-height: var(--text-small--line-height); text-decoration: none; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: flex-start; gap: var(--cta-gap); margin-top: var(--space-2); }
+.google-rating { display: inline-flex; width: fit-content; max-width: 100%; justify-self: start; align-self: start; margin-top: calc(var(--space-2) * -1); }
+.google-rating-link { display: inline-flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); max-width: 100%; color: var(--color-body); font-size: var(--text-small); line-height: var(--text-small--line-height); text-decoration: none; }
 .google-rating-link:hover { color: var(--color-brand); text-decoration: underline; text-underline-offset: 0.2em; }
-.google-rating-brand { color: var(--color-body); font-family: var(--font-body); font-weight: 400; white-space: nowrap; }
 .google-rating-value { color: var(--color-heading); font-weight: 700; }
-.google-rating-star, .google-rating-review { width: var(--icon-inline); height: var(--icon-inline); flex: none; }
-.google-rating-star { color: var(--color-accent); }
-.google-rating-review { color: var(--color-brand); margin-left: var(--space-1); }
+.google-rating-stars { display: inline-flex; align-items: center; gap: var(--space-1); color: var(--color-rating-star); }
+.google-rating-stars svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; }
+.google-rating-separator { color: var(--color-body); }
 .google-rating-count { white-space: nowrap; }
 .hero-panel { min-height: 16rem; padding: var(--card-padding); border-radius: var(--radius-panel); background: var(--color-brand); color: var(--color-surface); box-shadow: var(--shadow-soft); }
 .hero-panel .text-small { color: var(--color-surface); opacity: 0.86; }

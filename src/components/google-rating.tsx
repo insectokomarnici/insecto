@@ -1,4 +1,4 @@
-import { Review, StarFilled } from "@carbon/icons-react";
+import { StarFilled } from "@carbon/icons-react";
 
 type PlaceRating = {
   rating: number;
@@ -69,11 +69,12 @@ export async function GoogleRating() {
         rel="noopener noreferrer"
         aria-label={`Google ocena ${place.rating.toFixed(1)} od 5 na osnovu ${reviewCount} recenzija`}
       >
-        <span className="google-rating-brand" translate="no">Google Maps</span>
+        <span className="google-rating-stars" aria-hidden="true">
+          {Array.from({ length: 5 }, (_, index) => <StarFilled key={index} />)}
+        </span>
         <span className="google-rating-value">{place.rating.toFixed(1)}</span>
-        <StarFilled className="google-rating-star" aria-hidden="true" />
-        <Review className="google-rating-review" aria-hidden="true" />
-        <span className="google-rating-count">{reviewCount} recenzija</span>
+        <span className="google-rating-separator" aria-hidden="true">·</span>
+        <span className="google-rating-count">{reviewCount} Google recenzije</span>
       </a>
     </div>
   );
