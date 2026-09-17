@@ -26,7 +26,7 @@ async function getPlaceRating(): Promise<PlaceRating | null> {
           "X-Goog-Api-Key": apiKey,
           "X-Goog-FieldMask": "rating,userRatingCount,googleMapsUri",
         },
-        next: { revalidate: 3600 },
+        next: { revalidate: 604800 },
       },
     );
 
