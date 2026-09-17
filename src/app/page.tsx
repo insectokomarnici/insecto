@@ -4,6 +4,7 @@ import { PhoneFilled, StopFilled } from "@carbon/icons-react";
 import { SiteBanner } from "@/components/site-banner";
 import { SiteHeader } from "@/components/site-header";
 import { GoogleRating } from "@/components/google-rating";
+import { ProductsSection } from "@/components/products-section";
 import { Badge, Container, Heading } from "@/components/ui/layout";
 import { ButtonLink } from "@/components/ui/button";
 
@@ -46,6 +47,7 @@ export default function Home() {
           </div>
         </Container>
       </section>
+      <ProductsSection />
     </main>
   </>;
 }
