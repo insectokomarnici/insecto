@@ -1,0 +1,70 @@
+"use client";
+
+import { Close, Email, Phone, Time } from "@carbon/icons-react";
+import { useEffect, useState } from "react";
+
+const BANNER_ROTATION_INTERVAL_MS = 5000;
+
+const contactItems = [
+  { href: "tel:+381611321324", label: "061 132 1324", Icon: Phone },
+  { href: "mailto:kontakt@insecto.rs", label: "kontakt@insecto.rs", Icon: Email },
+  { label: "Pon-Pet: 8:00 - 20:00", Icon: Time },
+] as const;
+
+function ContactItem({
+  item,
+  active,
+}: {
+  item: (typeof contactItems)[number];
+  active: boolean;
+}) {
+  const { label, Icon } = item;
+  const content = <><Icon aria-hidden="true" /><span>{label}</span></>;
+
+  if ("href" in item) {
+    return <a className="site-banner-item" href={item.href} tabIndex={active ? 0 : -1}>{content}</a>;
+  }
+
+  return <span className="site-banner-item">{content}</span>;
+}
+
+export function SiteBanner() {
+  const [open, setOpen] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (!open || paused) return;
+
+    const interval = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % contactItems.length);
+    }, BANNER_ROTATION_INTERVAL_MS);
+
+    return () => window.clearInterval(interval);
+  }, [open, paused]);
+
+  if (!open) return null;
+
+  return <aside className="site-banner" aria-label="Kontakt informacije">
+    <div className="site-banner-inner site-container">
+      <div
+        className="site-banner-viewport"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+        onFocus={() => setPaused(true)}
+        onBlur={(event) => {
+          if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
+        }}
+      >
+        <div className="site-banner-slides" aria-live="polite">
+          {contactItems.map((item, index) => <div className={`site-banner-slide${index === activeIndex ? " is-active" : ""}`} aria-hidden={index !== activeIndex} key={item.label}>
+            <ContactItem item={item} active={index === activeIndex} />
+          </div>)}
+        </div>
+      </div>
+      <button className="site-banner-close" type="button" aria-label="Zatvori banner" onClick={() => setOpen(false)}>
+        <Close aria-hidden="true" />
+      </button>
+    </div>
+  </aside>;
+}
