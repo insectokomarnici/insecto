@@ -203,4 +203,5 @@
   .hero-background { top: auto; bottom: 0; width: 100%; height: 48%; }
   .hero-overlay { background: linear-gradient(180deg, var(--color-surface-subtle) 0%, rgb(246 248 251 / 0.96) 54%, rgb(246 248 251 / 0.22) 100%); }
   .hero-image { object-position: 65% center; }
+  .hero-content { align-items: flex-start; min-height: auto; }
 }
