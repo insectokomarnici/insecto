@@ -3,6 +3,7 @@ import Image from "next/image";
 import { PhoneFilled } from "@carbon/icons-react";
 import { SiteBanner } from "@/components/site-banner";
 import { SiteHeader } from "@/components/site-header";
+import { GoogleRating } from "@/components/google-rating";
 import { Badge, Container, Heading } from "@/components/ui/layout";
 import { ButtonLink } from "@/components/ui/button";
 
@@ -28,6 +29,7 @@ export default function Home() {
               <div className="hero-actions">
                 <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži izlazak na teren</ButtonLink>
               </div>
+              <GoogleRating />
             </div>
             <div className="hero-background" aria-hidden="true">
               <Image

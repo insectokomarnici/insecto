@@ -32,6 +32,7 @@ npm start
 - `src/app/design-system/page.tsx`: internal review page.
 - `src/app/page.tsx`: current homepage Header and Hero foundation.
 - `docs/design-system.md`: decision history and implementation notes.
+- `docs/google-rating.md`: server-side Google Places rating setup.
 
 Montserrat Variable and Manrope Variable are self-hosted through Fontsource packages. Headings use Montserrat; CTA buttons use the dedicated `--font-button` token with Montserrat 600; body text, navigation and form controls use Manrope. No Google Fonts request is needed to build or view this project. All supported font weights are available.
 
@@ -40,5 +41,7 @@ Carbon Design System icons from `@carbon/icons-react` are the shared icon source
 The shared button API supports `small`, `medium` and `large` sizes. Header uses `small`, standard actions and the form use `medium`, and the prominent Hero CTA uses `large`.
 
 The phone CTA is connected to `tel:+381611321324` and displays `061 132 1324`. The contact demo never sends or persists entered data; a form delivery service must be supplied before the public site is launched. The project is connected to the `insectokomarnici/insecto` GitHub repository; deployment, analytics and real form delivery remain separate setup steps.
+
+The optional Hero Google rating uses the server-side Places API (New) integration described in `docs/google-rating.md`. Configure `GOOGLE_MAPS_API_KEY` and `GOOGLE_PLACE_ID` in `.env.local` and Vercel Environment Variables; do not expose the API key with a `NEXT_PUBLIC_` prefix.
 
 The design-system page is `noindex`, not authenticated. Decide whether to remove or protect it before any public deployment. Revisit global robots metadata when the real homepage is ready.
