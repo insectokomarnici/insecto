@@ -54,7 +54,7 @@ Calculated contrast ratios: white on lighter blue 4.82:1; white on dark blue 10.
 
 ## Typography
 
-Montserrat is used for headings; Manrope is used for all other text. Available weight ranges: Montserrat 100–900, Manrope 200–800. The initial weights below can be changed consistently by role.
+Montserrat is used for headings; Manrope is used for body text, navigation, CTA buttons, form controls and supporting text. Available weight ranges: Montserrat 100–900, Manrope 200–800. The initial weights below can be changed consistently by role.
 
 Site base: `html { font-size: 100%; }`. `rem` follows the root font size. Initial conversions use the common 16px base; user font-size settings are respected. The layout must also be checked with enlarged text.
 
@@ -133,12 +133,12 @@ The visual direction is lightly rounded and orderly. Radii use `rem` and stay th
 | --- | --- | --- |
 | `--radius-none` | 0 | Sections that extend to the viewport edges |
 | `--radius-sm` | 0.25rem | Small badges: `--radius-badge` |
-| `--radius-md` | 0.5rem | Buttons and controls: `--radius-button`, `--radius-input` |
+| `--radius-md` | 0.5rem | Compact controls: `--radius-button`; form inputs: `--radius-input` |
 | `--radius-lg` | 0.75rem | Cards and standalone media: `--radius-card`, `--radius-media` |
 | `--radius-xl` | 1rem | Larger featured panel, such as contact: `--radius-panel` |
-| `--radius-pill` | 999rem | Fully rounded primary CTA buttons |
+| `--radius-pill` | 999rem | Fully rounded shared CTA buttons |
 
-The primary button keeps 0.5rem from the approved example. Apply each radius consistently by role. A media element that touches the top edge of a card inherits the card's outer radius; media inside a padded card follows that relationship. Use a wrapper for image clipping so an interactive card's focus ring is not cut off.
+Shared CTA buttons use the pill radius; compact controls and form inputs keep their smaller radii. Apply each radius consistently by role. A media element that touches the top edge of a card inherits the card's outer radius; media inside a padded card follows that relationship. Use a wrapper for image clipping so an interactive card's focus ring is not cut off.
 
 ## Shadows — proposal
 
@@ -175,7 +175,7 @@ The primary CTA is a phone call. The confirmed number is `061 132 1324`, represe
 | Unavailable | Light surface and gray text; use native `disabled` when a button is genuinely unavailable |
 | Submission | Serbian UI label `Šalje se…`, `aria-disabled`, duplicate activation blocked; the button keeps focus |
 
-Buttons have a minimum height of 3.25rem and use 1rem / 1.5 line-height text with 0.875rem vertical and 1.375rem horizontal padding. These control tokens preserve the proportions of the approved CTA. Height is a minimum, so text may wrap when enlarged. An icon is decorative next to clear text. Actions use `button`; navigation and calls use `a` with a real destination.
+Buttons use Manrope 700, have a minimum height of 3.25rem and use 1rem / 1.5 line-height text with 0.875rem vertical and 1.375rem horizontal padding. These control tokens preserve the proportions of the approved CTA. Height is a minimum, so text may wrap when enlarged. An icon is decorative next to clear text. Actions use `button`; navigation and calls use `a` with a real destination.
 
 Focus uses blue `#3F73B8`, a 0.125rem gap and a 0.1875rem ring. Do not remove the browser outline. This ring is separate from decorative shadows. During implementation, check visibility on the real surfaces.
 

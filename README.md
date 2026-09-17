@@ -33,7 +33,7 @@ npm start
 - `src/app/page.tsx`: current homepage Header and Hero foundation.
 - `docs/design-system.md`: decision history and implementation notes.
 
-Montserrat Variable and Manrope Variable are self-hosted through Fontsource packages. No Google Fonts request is needed to build or view this project. All supported font weights are available.
+Montserrat Variable and Manrope Variable are self-hosted through Fontsource packages. Headings use Montserrat; body text, navigation, CTA buttons and form controls use Manrope. No Google Fonts request is needed to build or view this project. All supported font weights are available.
 
 Carbon Design System icons from `@carbon/icons-react` are the shared icon source for navigation, calls and form feedback. The package's four-line `Menu` variant is replaced by a local three-line SVG on Carbon's 16px grid to match the approved mobile Header pattern.
 
