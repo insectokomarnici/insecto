@@ -13,4 +13,6 @@ export function Card({ elevation = "soft", className, ...props }: HTMLAttributes
 export function Heading({ as: Tag = "h2", size = "section", className, ...props }: HTMLAttributes<HTMLHeadingElement> & { as?: "h1" | "h2" | "h3" | "h4"; size?: "hero" | "section" | "card" }) {
   return <Tag className={cn("heading", `heading-${size}`, className)} {...props} />;
 }
-export function Badge({ children }: { children: ReactNode }) { return <span className="badge">{children}</span>; }
+export function Badge({ children, variant = "accent" }: { children: ReactNode; variant?: "accent" | "error" }) {
+  return <span className={cn("badge", `badge-${variant}`)}>{children}</span>;
+}

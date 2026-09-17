@@ -30,7 +30,9 @@
   .card-flat { box-shadow: none; }
   .card-raised { box-shadow: var(--shadow-raised); }
   .auto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--grid-item-min)), 1fr)); gap: var(--grid-gap); }
-  .badge { display: inline-block; width: fit-content; padding: var(--space-1) var(--space-2); background: var(--color-accent-surface); color: var(--color-brand); border-radius: var(--radius-sm); font-size: var(--text-small); font-weight: 600; }
+  .badge { display: inline-flex; align-items: center; gap: var(--space-1); width: fit-content; padding: var(--space-1) var(--space-2); background: var(--color-accent-surface); color: var(--color-brand); border-radius: var(--radius-sm); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: 600; }
+  .badge-error { background: var(--color-error-surface); color: var(--color-error); }
+  .badge svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; }
   .button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); max-width: 100%; border: 0; border-radius: var(--radius-pill); line-height: var(--control-line-height); font-family: var(--font-button); font-weight: 600; text-decoration: none; cursor: pointer; text-align: center; overflow-wrap: anywhere; }
   .button-small { min-height: var(--button-height-small); padding: var(--button-padding-block-small) var(--button-padding-inline-small); font-size: var(--button-text-small); }
   .button-medium { min-height: var(--button-height-medium); padding: var(--button-padding-block-medium) var(--button-padding-inline-medium); font-size: var(--button-text-medium); }
