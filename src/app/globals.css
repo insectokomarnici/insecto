@@ -31,7 +31,7 @@
   .card-raised { box-shadow: var(--shadow-raised); }
   .auto-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--grid-item-min)), 1fr)); gap: var(--grid-gap); }
   .badge { display: inline-block; width: fit-content; padding: var(--space-1) var(--space-2); background: var(--color-accent-surface); color: var(--color-brand); border-radius: var(--radius-sm); font-size: var(--text-small); font-weight: 600; }
-  .button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); max-width: 100%; border: 0; border-radius: var(--radius-button); line-height: var(--control-line-height); font-weight: 700; text-decoration: none; cursor: pointer; text-align: center; overflow-wrap: anywhere; }
+  .button { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); max-width: 100%; border: 0; border-radius: var(--radius-pill); line-height: var(--control-line-height); font-weight: 700; text-decoration: none; cursor: pointer; text-align: center; overflow-wrap: anywhere; }
   .button-small { min-height: var(--button-height-small); padding: var(--button-padding-block-small) var(--button-padding-inline-small); font-size: var(--button-text-small); }
   .button-medium { min-height: var(--button-height-medium); padding: var(--button-padding-block-medium) var(--button-padding-inline-medium); font-size: var(--button-text-medium); }
   .button-large { min-height: var(--button-height-large); padding: var(--button-padding-block-large) var(--button-padding-inline-large); font-size: var(--button-text-large); }

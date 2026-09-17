@@ -136,6 +136,7 @@ The visual direction is lightly rounded and orderly. Radii use `rem` and stay th
 | `--radius-md` | 0.5rem | Buttons and controls: `--radius-button`, `--radius-input` |
 | `--radius-lg` | 0.75rem | Cards and standalone media: `--radius-card`, `--radius-media` |
 | `--radius-xl` | 1rem | Larger featured panel, such as contact: `--radius-panel` |
+| `--radius-pill` | 999rem | Fully rounded primary CTA buttons |
 
 The primary button keeps 0.5rem from the approved example. Apply each radius consistently by role. A media element that touches the top edge of a card inherits the card's outer radius; media inside a padded card follows that relationship. Use a wrapper for image clipping so an interactive card's focus ring is not cut off.
 
@@ -166,9 +167,9 @@ The primary CTA is a phone call. The confirmed number is `061 132 1324`, represe
 
 | Component / state | Appearance and behavior |
 | --- | --- |
-| Primary button | Approved blue gradient, white Manrope 700, 0.5rem radius, no border or shadow |
+| Primary button | Approved blue gradient, white Manrope 700, fully rounded pill radius, no border or shadow |
 | Hover / pressed | Solid brand blue; no layout shift |
-| Secondary action | White surface, dark-blue border and text; light surface on hover |
+| Secondary action | White surface, dark-blue border and text, fully rounded pill radius; light surface on hover |
 | Text link | Dark blue and always underlined; lighter blue on hover |
 | Keyboard focus | Preserve the native browser outline, with an additional blue ring and white gap |
 | Unavailable | Light surface and gray text; use native `disabled` when a button is genuinely unavailable |

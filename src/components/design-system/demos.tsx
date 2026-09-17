@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { PhoneFilled } from "@carbon/icons-react";
+import { ArrowRight, PhoneFilled } from "@carbon/icons-react";
 import { Button, ButtonLink, TextLink } from "@/components/ui/button";
 import { ContactForm } from "@/components/contact-form";
 
@@ -8,7 +8,7 @@ export function ActionDemo() {
   return <div className="stack">
     <div className="ds-button-size-grid">
       <div className="stack"><p className="text-small">Button icon</p><ButtonLink size="small" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Pozovite nas</ButtonLink></div>
-      <div className="stack"><p className="text-small">Button secondary</p><ButtonLink size="medium" variant="secondary" href="#form">Pošaljite upit</ButtonLink></div>
+      <div className="stack"><p className="text-small">Button secondary</p><ButtonLink size="medium" variant="secondary" href="#form">Pošaljite upit<ArrowRight aria-hidden="true" /></ButtonLink></div>
       <div className="stack"><p className="text-small">Button primary</p><ButtonLink size="large" href="#form">Zakažite ugradnju</ButtonLink></div>
       <div className="stack"><p className="text-small">Disabled</p><Button disabled size="small" variant="secondary">Nedostupno</Button></div>
     </div>
