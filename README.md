@@ -35,7 +35,7 @@ npm start
 
 Montserrat Variable and Manrope Variable are self-hosted through Fontsource packages. Headings use Montserrat; body text, navigation, CTA buttons and form controls use Manrope. No Google Fonts request is needed to build or view this project. All supported font weights are available.
 
-Carbon Design System icons from `@carbon/icons-react` are the shared icon source for navigation, calls, Banner close and form feedback. The Banner uses Carbon's standard `Close` icon, scaled so its visible X matches the inline Banner icons. The package's four-line `Menu` variant is replaced by a local three-line SVG on Carbon's 16px grid to match the approved mobile Header pattern. The mobile menu close icon remains a separate treatment for later review.
+Carbon Design System icons from `@carbon/icons-react` are the shared icon source for navigation, calls, Banner close and form feedback. The Banner uses Carbon's standard `Close` icon at the same `1rem` size token as inline Banner icons. The package's four-line `Menu` variant is replaced by a local three-line SVG on Carbon's 16px grid to match the approved mobile Header pattern. The mobile menu close icon remains a separate treatment for later review.
 
 The shared button API supports `small`, `medium` and `large` sizes. Header uses `small`, standard actions and the form use `medium`, and the prominent Hero CTA uses `large`.
 
