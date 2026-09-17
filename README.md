@@ -1,6 +1,6 @@
 # Insecto
 
-Local Next.js + TypeScript + Tailwind CSS project. The current deliverable is the design-system foundation; marketing sections and real form delivery come later.
+Local Next.js + TypeScript + Tailwind CSS project. The first homepage Hero, announcement banner and Header are implemented; remaining marketing sections and real form delivery are built section by section.
 
 ## Run locally
 
@@ -11,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open http://localhost:3000/design-system. The root route redirects there while the homepage is being planned. The server binds to the local machine. If port 3000 is occupied, Next prints the selected alternate port.
+Open http://localhost:3000/ to review the homepage, or http://localhost:3000/design-system for the token and component review page. The server binds to the local machine. If port 3000 is occupied, Next prints the selected alternate port.
 
 ```sh
 npm run lint
@@ -39,6 +39,6 @@ Carbon Design System icons from `@carbon/icons-react` are the shared icon source
 
 The shared button API supports `small`, `medium` and `large` sizes. Header uses `small`, standard actions and the form use `medium`, and the prominent Hero CTA uses `large`.
 
-The phone CTA is connected to `tel:+381611321324` and displays `061 132 1324`. The contact demo never sends or persists entered data; a form delivery service must be supplied before the public site is launched. No GitHub repository, deployment, analytics or external accounts have been created or connected.
+The phone CTA is connected to `tel:+381611321324` and displays `061 132 1324`. The contact demo never sends or persists entered data; a form delivery service must be supplied before the public site is launched. The project is connected to the `insectokomarnici/insecto` GitHub repository; deployment, analytics and real form delivery remain separate setup steps.
 
 The design-system page is `noindex`, not authenticated. Decide whether to remove or protect it before any public deployment. Revisit global robots metadata when the real homepage is ready.

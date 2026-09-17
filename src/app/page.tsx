@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { PhoneFilled } from "@carbon/icons-react";
 import { SiteBanner } from "@/components/site-banner";
 import { SiteHeader } from "@/components/site-header";
@@ -16,25 +17,33 @@ export default function Home() {
     <SiteBanner />
     <SiteHeader />
     <main id="main">
-      <section className="hero-section">
+      <section className="hero-section" aria-labelledby="hero-title">
         <Container>
           <div className="hero-grid">
             <div className="hero-copy stack">
-              <Badge>Komarnici po meri</Badge>
-              <Heading as="h1" size="hero">Svež vazduh bez insekata.</Heading>
-              <p className="text-lead prose-width">Izrada i ugradnja komarnika za prozore i vrata, prilagođenih vašem prostoru.</p>
+              <Badge>Komarnici Novi Sad</Badge>
+              <Heading as="h1" size="hero" id="hero-title">Komarnici Novi Sad: Prodaja i ugradnja komarnika po meri</Heading>
+              <p className="text-lead prose-width">Izrada fiksnih, rolo i plise komarnika po tvojoj meri. Ceo proces, od prvog poziva do ugradnje komarnika, završavamo u roku od 3 do 5 dana. Nema čekanja nedeljama zato nas nazovi danas kako bismo izmerili tvoje prozore i vrata.</p>
               <div className="hero-actions">
-                <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Pozovite nas</ButtonLink>
+                <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži izlazak na teren</ButtonLink>
               </div>
             </div>
-            <div className="hero-panel" aria-label="Vrste komarnika u ponudi">
-              <p className="text-small">Naša ponuda</p>
-              <ul className="hero-list">
-                <li>Plise komarnici</li>
-                <li>Fiksni komarnici</li>
-                <li>Rolo komarnici</li>
-              </ul>
-            </div>
+            <figure className="hero-visual">
+              <div className="hero-image-frame">
+                <Image
+                  src="/hero-komarnici.png"
+                  alt="Komarnik na balkonskim vratima u svetlom dnevnom boravku"
+                  fill
+                  preload
+                  sizes="(min-width: 64rem) 55vw, (min-width: 40rem) 50vw, 100vw"
+                  className="hero-image"
+                />
+              </div>
+              <figcaption className="hero-stat">
+                <strong>3–5</strong>
+                <span>dana do ugradnje</span>
+              </figcaption>
+            </figure>
           </div>
         </Container>
       </section>
