@@ -206,6 +206,15 @@
 .hero-list li { padding-bottom: var(--space-4); border-bottom: 1px solid rgb(255 255 255 / 0.25); }
 .hero-list li:last-child { border-bottom: 0; }
 .products-section { background: var(--color-surface-subtle); }
+.process-section { background: var(--color-surface); }
+.process-steps { display: grid; gap: var(--grid-gap); }
+.process-step { display: grid; justify-items: center; align-content: start; gap: var(--space-3); min-width: 0; text-align: center; }
+.process-step-icon { display: grid; place-items: center; width: 3.5rem; height: 3.5rem; margin-bottom: var(--space-1); border-radius: var(--radius-pill); background: var(--color-accent-surface); color: var(--color-brand); }
+.process-step-icon svg { width: var(--icon-action); height: var(--icon-action); }
+.process-step-number, .process-step h3, .process-step-body { margin: 0; }
+.process-step-number { color: var(--color-brand-light); font-family: var(--font-heading); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: 700; letter-spacing: 0.08em; }
+.process-step-body { max-width: var(--content-text); color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
+.process-actions { display: flex; justify-content: center; }
 .products-grid { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--grid-gap); }
 .product-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: 0; border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); }
 .product-card-media { position: relative; aspect-ratio: 1; background: var(--color-surface); }
@@ -248,6 +257,7 @@
 .product-detail-copy > .button { width: fit-content; }
 @media (min-width: 64rem) { .product-detail { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; } }
 @media (min-width: 48rem) { .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 48rem) { .process-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gap); } }
 @media (min-width: 64rem) { .products-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 40rem) { .ds-palette { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 64rem) {
