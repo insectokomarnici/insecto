@@ -200,10 +200,10 @@
 .hero-list li { padding-bottom: var(--space-4); border-bottom: 1px solid rgb(255 255 255 / 0.25); }
 .hero-list li:last-child { border-bottom: 0; }
 .products-section { background: var(--color-surface-subtle); }
-.products-intro { max-width: var(--content-text); }
+.products-intro { max-width: var(--content-text); margin-inline: auto; justify-items: center; text-align: center; }
 .products-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--grid-gap); }
 .product-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); }
-.product-card-media { position: relative; aspect-ratio: 4 / 3; background: var(--color-surface); }
+.product-card-media { position: relative; aspect-ratio: 1; background: var(--color-surface); }
 .product-card-media img { object-fit: cover; }
 .product-card-body { display: flex; flex: 1; flex-direction: column; gap: var(--space-6); padding: var(--card-padding); }
 .product-card-copy { gap: var(--space-2); }
