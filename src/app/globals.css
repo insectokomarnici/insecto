@@ -230,14 +230,6 @@
 .calculator-diagrams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gap); max-width: 20rem; }
 .calculator-diagram-item { display: grid; justify-items: center; gap: var(--space-2); text-align: center; }
 .calculator-diagram { width: 6.875rem; height: 10rem; color: var(--color-brand-light); }
-.calculator-diagram-frame { fill: var(--color-surface); stroke: var(--color-border); stroke-width: 2; }
-.calculator-diagram-screen { fill: var(--color-surface-subtle); stroke: var(--color-brand-light); stroke-width: 1; }
-.calculator-diagram-screen-shade { fill: var(--color-brand-light); opacity: 0.35; }
-.calculator-diagram-handle { fill: var(--color-surface); stroke: var(--color-border); stroke-width: 1; }
-.calculator-diagram-handle-detail, .calculator-diagram-handle-stem { fill: var(--color-surface); stroke: var(--color-border); stroke-width: 0.5; }
-.calculator-diagram-handle-stem { fill: var(--color-surface-subtle); }
-.calculator-diagram-measure-width, .calculator-diagram-measure-height { fill: currentColor; stroke: currentColor; stroke-width: 2.5; }
-.calculator-diagram-measure-height { color: var(--color-error); }
 .calculator-panel { display: grid; gap: var(--space-8); }
 .calculator-form { display: grid; gap: var(--form-field-gap); }
 .calculator-field-grid { display: grid; gap: var(--form-field-gap); }
