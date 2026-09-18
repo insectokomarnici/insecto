@@ -19,7 +19,7 @@ export default function Home() {
     <SiteBanner />
     <SiteHeader />
     <main id="main">
-      <section className="hero-section" aria-labelledby="hero-title">
+      <section className="section hero-section" aria-labelledby="hero-title">
         <div className="hero-overlay" aria-hidden="true" />
         <Container>
           <div className="hero-content">

@@ -80,9 +80,9 @@ export function ProductsSection() {
     <section className="section products-section" id="products" aria-labelledby="products-title">
       <Container>
         <div className="section-inner">
-          <div className="products-intro stack">
+          <div className="section-intro stack">
             <Heading as="h2" size="section" id="products-title">Komarnici po meri</Heading>
-            <p className="text-lead prose-width">Za prozore i vrata svih dimenzija, prilagođeni tvom prostoru.</p>
+            <p className="text-body prose-width">Za prozore i vrata svih dimenzija, prilagođeni tvom prostoru.</p>
           </div>
           <div className="products-grid">
             {products.map((product) => <ProductCard key={product.slug} product={product} />)}

@@ -73,7 +73,7 @@
   --content-text: 38rem;
   --grid-item-min: 18rem;
   --page-gutter: var(--space-5);
-  --section-padding: var(--space-12);
+  --section-padding: var(--space-10);
   --section-content-gap: var(--space-8);
   --grid-gap: var(--space-4);
   --card-padding: var(--space-6);
@@ -130,7 +130,7 @@
 @media (min-width: 48rem) {
   :root {
     --page-gutter: var(--space-6);
-    --section-padding: var(--space-16);
+    --section-padding: var(--space-12);
     --section-content-gap: var(--space-10);
     --grid-gap: var(--space-6);
   }
@@ -138,7 +138,7 @@
 @media (min-width: 64rem) {
   :root {
     --page-gutter: var(--space-8);
-    --section-padding: var(--space-20);
+    --section-padding: var(--space-16);
     --section-content-gap: var(--space-12);
     --grid-gap: var(--space-8);
     --card-padding: var(--space-8);
