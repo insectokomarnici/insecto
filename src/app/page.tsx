@@ -6,6 +6,7 @@ import { SiteHeader } from "@/components/site-header";
 import { GoogleRating } from "@/components/google-rating";
 import { ProductsSection } from "@/components/products-section";
 import { ProcessSection } from "@/components/process-section";
+import { AboutSection } from "@/components/about-section";
 import { Badge, Container, Heading } from "@/components/ui/layout";
 import { ButtonLink } from "@/components/ui/button";
 
@@ -50,6 +51,7 @@ export default function Home() {
       </section>
       <ProductsSection />
       <ProcessSection />
+      <AboutSection />
     </main>
   </>;
 }
