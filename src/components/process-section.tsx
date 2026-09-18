@@ -1,6 +1,7 @@
 import { Phone, PhoneFilled, Ruler, Tools } from "@carbon/icons-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
+import { GoogleRating } from "@/components/google-rating";
 
 type ProcessIcon = typeof Phone | typeof Ruler | typeof Tools;
 
@@ -42,7 +43,10 @@ export function ProcessSection() {
             ))}
           </div>
           <div className="process-actions">
-            <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
+            <div className="process-cta-group">
+              <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
+              <GoogleRating />
+            </div>
           </div>
         </div>
       </Container>

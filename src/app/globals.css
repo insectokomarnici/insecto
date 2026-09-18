@@ -220,6 +220,7 @@
 .process-step-brand { background: var(--color-brand); }
 .process-step-body { color: inherit; font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .process-actions { display: flex; justify-content: center; }
+.process-cta-group { display: flex; flex-direction: column; align-items: center; gap: var(--space-2); }
 .products-grid { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--grid-gap); }
 .product-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: 0; border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); }
 .product-card-media { position: relative; aspect-ratio: 1; background: var(--color-surface); }
