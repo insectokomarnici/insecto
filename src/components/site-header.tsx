@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/layout";
 import { ButtonLink } from "@/components/ui/button";
 import { CarbonMenuThreeIcon } from "@/components/ui/menu-icon";
 import { CloseIcon } from "@/components/ui/close-icon";
-import { MOTION_TRANSITION_DURATION_MS } from "@/lib/motion";
+import { useAnimatedDisclosure } from "@/lib/use-animated-disclosure";
 
 const productLinks = [
   ["/plise-komarnici-novi-sad", "Plise komarnici"],
@@ -70,43 +70,15 @@ function ProductDropdown() {
 }
 
 function MobileMenu() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isClosing, setIsClosing] = useState(false);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-  }, []);
-
-  function toggle(event: MouseEvent<HTMLElement>) {
-    event.preventDefault();
-    if (isClosing) return;
-
-    if (!isOpen) {
-      setIsOpen(true);
-      return;
-    }
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setIsOpen(false);
-      return;
-    }
-
-    setIsClosing(true);
-    closeTimer.current = setTimeout(() => {
-      setIsOpen(false);
-      setIsClosing(false);
-      closeTimer.current = null;
-    }, MOTION_TRANSITION_DURATION_MS);
-  }
+  const { isOpen, isClosing, contentRef, toggle, onTransitionEnd } = useAnimatedDisclosure<HTMLDivElement>();
 
   return <details className={cn("site-menu", isOpen && "is-open", isClosing && "is-closing")} open={isOpen || isClosing}>
-    <summary className="site-menu-trigger" aria-label="Otvori ili zatvori meni" aria-expanded={isOpen && !isClosing} onClick={toggle}>
+    <summary className="site-menu-trigger" aria-label="Otvori ili zatvori meni" aria-expanded={isOpen && !isClosing} onClick={(event) => { event.preventDefault(); toggle(); }}>
       <CarbonMenuThreeIcon className="site-menu-icon site-menu-icon-menu" aria-hidden="true" />
       <CloseIcon className="site-menu-icon site-menu-icon-close" />
       <span className="sr-only">Meni</span>
     </summary>
-    <div className="site-menu-panel">
+    <div ref={contentRef} className="site-menu-panel" onTransitionEnd={onTransitionEnd}>
       <nav aria-label="Glavna navigacija">
         <details className="site-menu-products">
           <summary>Komarnici <ChevronDown aria-hidden="true" /></summary>
