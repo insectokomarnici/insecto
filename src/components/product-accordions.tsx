@@ -15,7 +15,7 @@ function ProductAccordionItem({ item, id }: { item: Product["accordions"][number
         <span>{item.title}</span>
         <ChevronDown aria-hidden="true" />
       </summary>
-      <div ref={contentRef} id={id} className="product-accordion-content" role="region" aria-labelledby={summaryId} onTransitionEnd={onTransitionEnd}><div className="product-accordion-content-inner"><p>{item.body}</p></div></div>
+      <div ref={contentRef} id={id} className="product-accordion-content" role="region" aria-labelledby={summaryId} onTransitionEnd={onTransitionEnd}><div className="product-accordion-content-inner">{item.body.split(/\r?\n\r?\n+/).map((paragraph, index) => <p key={`${id}-${index}`}>{paragraph}</p>)}</div></div>
     </details>
   );
 }
