@@ -61,9 +61,9 @@ function ProductCard({ product }: { product: Product }) {
           <ButtonLink
             size="medium"
             href="tel:+381611321324"
-            aria-label={`Zakaži ugradnju za ${product.title}`}
+            aria-label={`Zakaži merenje na adresi za ${product.title}`}
           >
-            <PhoneFilled aria-hidden="true" />Zakaži ugradnju
+            <PhoneFilled aria-hidden="true" />Zakaži merenje na adresi
           </ButtonLink>
           <ButtonLink variant="secondary" size="medium" href={product.path}>
             Saznaj više<ArrowRight aria-hidden="true" />

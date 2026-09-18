@@ -9,7 +9,7 @@ export function ActionDemo() {
     <div className="ds-button-size-grid">
       <div className="stack"><p className="text-small">Button icon</p><ButtonLink size="small" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Pozovite nas</ButtonLink></div>
       <div className="stack"><p className="text-small">Button secondary</p><ButtonLink size="medium" variant="secondary" href="#form">Pošaljite upit<ArrowRight aria-hidden="true" /></ButtonLink></div>
-      <div className="stack"><p className="text-small">Button primary</p><ButtonLink size="large" href="#form">Zakažite ugradnju</ButtonLink></div>
+      <div className="stack"><p className="text-small">Button primary</p><ButtonLink size="large" href="#form">Zakaži merenje na adresi</ButtonLink></div>
       <div className="stack"><p className="text-small">Disabled</p><Button disabled size="small" variant="secondary">Nedostupno</Button></div>
     </div>
     <p><TextLink href="#form">Pređite na kontakt formu</TextLink></p>

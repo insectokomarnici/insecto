@@ -29,7 +29,7 @@ export default function Home() {
               <p className="hero-description prose-width">Izrada fiksnih, rolo i plise komarnika po tvojoj meri. Ceo proces, od prvog poziva do ugradnje komarnika, završavamo u roku od 3 do 5 dana. Nema čekanja nedeljama zato nas nazovi danas kako bismo izmerili tvoje prozore i vrata.</p>
               <div className="hero-cta-group">
                 <div className="hero-actions">
-                  <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži izlazak na teren</ButtonLink>
+                  <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje na adresi</ButtonLink>
                 </div>
                 <GoogleRating />
               </div>
