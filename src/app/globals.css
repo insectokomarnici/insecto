@@ -205,7 +205,7 @@
 .hero-list li { padding-bottom: var(--space-4); border-bottom: 1px solid rgb(255 255 255 / 0.25); }
 .hero-list li:last-child { border-bottom: 0; }
 .products-section { background: var(--color-surface-subtle); }
-.products-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--grid-gap); }
+.products-grid { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--grid-gap); }
 .product-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: 0; border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); }
 .product-card-media { position: relative; aspect-ratio: 1; background: var(--color-surface); }
 .product-card-media img { object-fit: cover; }
