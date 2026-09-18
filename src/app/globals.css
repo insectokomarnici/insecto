@@ -228,7 +228,7 @@
 .product-accordion summary::-webkit-details-marker { display: none; }
 .product-accordion summary svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; transition: transform 160ms ease; }
 .product-accordion[open] summary svg { transform: rotate(180deg); }
-.product-accordion-content { padding: 0 0 var(--space-4); color: var(--color-body); font-size: var(--text-small); line-height: var(--text-small--line-height); }
+.product-accordion-content { padding: 0 0 var(--space-4); color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .product-accordion-content p { margin: 0; }
 .product-accordion summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .product-detail-section { background: var(--color-surface-subtle); }
