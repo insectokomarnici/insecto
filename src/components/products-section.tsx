@@ -2,57 +2,23 @@
 
 import Image from "next/image";
 import { PhoneFilled } from "@carbon/icons-react";
+import { ArrowRight } from "@carbon/icons-react";
 import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
+import { ProductAccordions } from "@/components/product-accordions";
+import { productColors, products, type ProductColor, type Product } from "@/lib/products";
 
-const colorOptions = [
-  { id: "bela", label: "Bela", swatchClass: "product-color-swatch-white" },
-  { id: "braon", label: "Braon", swatchClass: "product-color-swatch-brown" },
-  { id: "antracit", label: "Antracit", swatchClass: "product-color-swatch-anthracite" },
-] as const;
-
-type ProductColor = (typeof colorOptions)[number]["id"];
-
-const products = [
-  {
-    id: "plise",
-    title: "Plise komarnici",
-    description: "Plise ili klizni komarnici su odličan izbor za prozore, ulazna i balkonska vrata.",
-    images: {
-      bela: "/products/plise-komarnici-bela-boja.avif",
-      braon: "/products/plise-komarnici-braon-boja.avif",
-      antracit: "/products/plise-komarnici-antracit-boja.avif",
-    },
-  },
-  {
-    id: "rolo",
-    title: "Rolo komarnici",
-    description: "Rolo komarnici su praktičan izbor za standardne prozore i kada želiš da se mrežica skloni u kutiju.",
-    images: {
-      bela: "/products/rolo-komarnici-bela-boja.avif",
-      braon: "/products/rolo-komarnici-braon-boja.avif",
-      antracit: "/products/rolo-komarnici-antracit-boja.avif",
-    },
-  },
-  {
-    id: "fiksni",
-    title: "Fiksni komarnici",
-    description: "Fiksni komarnici su idealni za prozore koje koristiš za provetravanje bez potrebe za prolazom.",
-    images: {
-      bela: "/products/fiksni-komarnici-bela-boja.avif",
-      braon: "/products/fiksni-komarnici-braon-boja.avif",
-      antracit: "/products/fiksni-komarnici-antracit-boja.avif",
-    },
-  },
-] as const;
-
-type Product = (typeof products)[number];
+const colorSwatchClasses: Record<ProductColor, string> = {
+  bela: "product-color-swatch-white",
+  braon: "product-color-swatch-brown",
+  antracit: "product-color-swatch-anthracite",
+};
 
 function ProductCard({ product }: { product: Product }) {
   const [selectedColor, setSelectedColor] = useState<ProductColor>("bela");
-  const selectedOption = colorOptions.find(({ id }) => id === selectedColor) ?? colorOptions[0];
+  const selectedOption = productColors.find(({ id }) => id === selectedColor) ?? productColors[0];
 
   return (
     <article className="product-card">
@@ -73,7 +39,7 @@ function ProductCard({ product }: { product: Product }) {
         <div className="product-card-options">
           <p className="product-option-label">Boja</p>
           <div className="product-color-list" role="group" aria-label={`Izaberi boju za ${product.title}`}>
-            {colorOptions.map((option) => {
+            {productColors.map((option) => {
               const isSelected = option.id === selectedColor;
               return (
                 <button
@@ -83,7 +49,7 @@ function ProductCard({ product }: { product: Product }) {
                   aria-pressed={isSelected}
                   onClick={() => setSelectedColor(option.id)}
                 >
-                  <span className={cn("product-color-swatch", option.swatchClass)} aria-hidden="true" />
+                  <span className={cn("product-color-swatch", colorSwatchClasses[option.id])} aria-hidden="true" />
                   <span>{option.label}</span>
                 </button>
               );
@@ -99,7 +65,11 @@ function ProductCard({ product }: { product: Product }) {
           >
             <PhoneFilled aria-hidden="true" />Zakaži ugradnju
           </ButtonLink>
+          <ButtonLink variant="secondary" size="medium" href={`/komarnici/${product.slug}`}>
+            Saznaj više<ArrowRight aria-hidden="true" />
+          </ButtonLink>
         </div>
+        <ProductAccordions product={product} />
       </div>
     </article>
   );
@@ -115,7 +85,7 @@ export function ProductsSection() {
             <p className="text-lead prose-width">Za prozore i vrata svih dimenzija, prilagođeni tvom prostoru.</p>
           </div>
           <div className="products-grid">
-            {products.map((product) => <ProductCard key={product.id} product={product} />)}
+            {products.map((product) => <ProductCard key={product.slug} product={product} />)}
           </div>
         </div>
       </Container>

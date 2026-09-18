@@ -219,8 +219,25 @@
 .product-color-swatch-white { background: var(--color-product-white); }
 .product-color-swatch-brown { background: var(--color-product-brown); }
 .product-color-swatch-anthracite { background: var(--color-product-anthracite); }
-.product-card-actions { margin-top: auto; }
+.product-card-actions { display: grid; gap: var(--space-3); margin-top: auto; }
 .product-card-actions .button { width: 100%; }
+.product-card-accordions { border-top: var(--border-width) solid var(--color-border); }
+.product-accordion { border-bottom: var(--border-width) solid var(--color-border); }
+.product-accordion summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: var(--button-height-medium); padding-block: var(--space-3); color: var(--color-heading); font-family: var(--font-heading); font-size: var(--text-body); font-weight: 600; line-height: var(--text-body--line-height); cursor: pointer; list-style: none; }
+.product-accordion summary::-webkit-details-marker { display: none; }
+.product-accordion summary svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; transition: transform 160ms ease; }
+.product-accordion[open] summary svg { transform: rotate(180deg); }
+.product-accordion-content { padding: 0 0 var(--space-4); color: var(--color-body); font-size: var(--text-small); line-height: var(--text-small--line-height); }
+.product-accordion-content p { margin: 0; }
+.product-accordion summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.product-detail-section { background: var(--color-surface-subtle); }
+.product-detail { display: grid; gap: var(--section-content-gap); align-items: start; }
+.product-detail-media { position: relative; aspect-ratio: 1; overflow: hidden; border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); }
+.product-detail-media img { object-fit: cover; }
+.product-detail-copy { max-width: var(--content-text); }
+.product-detail-kicker { margin: 0; color: var(--color-brand); font-weight: 600; }
+.product-detail-copy > .button { width: fit-content; }
+@media (min-width: 64rem) { .product-detail { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; } }
 @media (min-width: 48rem) { .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 64rem) { .products-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 40rem) { .ds-palette { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
