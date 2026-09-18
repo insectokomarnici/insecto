@@ -4,10 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, PhoneFilled } from "@carbon/icons-react";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
+import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/layout";
 import { ButtonLink } from "@/components/ui/button";
 import { CarbonMenuThreeIcon } from "@/components/ui/menu-icon";
 import { CloseIcon } from "@/components/ui/close-icon";
+import { MOTION_TRANSITION_DURATION_MS } from "@/lib/motion";
 
 const productLinks = [
   ["/plise-komarnici-novi-sad", "Plise komarnici"],
@@ -67,6 +69,59 @@ function ProductDropdown() {
   </details>;
 }
 
+function MobileMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+  }, []);
+
+  function toggle(event: MouseEvent<HTMLElement>) {
+    event.preventDefault();
+    if (isClosing) return;
+
+    if (!isOpen) {
+      setIsOpen(true);
+      return;
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setIsOpen(false);
+      return;
+    }
+
+    setIsClosing(true);
+    closeTimer.current = setTimeout(() => {
+      setIsOpen(false);
+      setIsClosing(false);
+      closeTimer.current = null;
+    }, MOTION_TRANSITION_DURATION_MS);
+  }
+
+  return <details className={cn("site-menu", isOpen && "is-open", isClosing && "is-closing")} open={isOpen || isClosing}>
+    <summary className="site-menu-trigger" aria-label="Otvori ili zatvori meni" aria-expanded={isOpen && !isClosing} onClick={toggle}>
+      <CarbonMenuThreeIcon className="site-menu-icon site-menu-icon-menu" aria-hidden="true" />
+      <CloseIcon className="site-menu-icon site-menu-icon-close" />
+      <span className="sr-only">Meni</span>
+    </summary>
+    <div className="site-menu-panel">
+      <nav aria-label="Glavna navigacija">
+        <details className="site-menu-products">
+          <summary>Komarnici <ChevronDown aria-hidden="true" /></summary>
+          <div className="site-menu-products-list"><ProductLinks /></div>
+        </details>
+        <Link href="/o-nama">O nama</Link>
+        <Link href="/kontakt">Kontakt</Link>
+      </nav>
+      <ButtonLink size="medium" className="site-menu-phone" href="tel:+381611321324" aria-label="Pozovite Insecto Komarnici na broj 061 132 1324">
+        <PhoneFilled aria-hidden="true" /><span>061 132 1324</span>
+      </ButtonLink>
+    </div>
+  </details>;
+}
+
 export function SiteHeader() {
   return <header className="site-header">
     <Container className="site-header-inner">
@@ -85,22 +140,7 @@ export function SiteHeader() {
           <PhoneFilled aria-hidden="true" /><span>061 132 1324</span>
         </ButtonLink>
 
-        <details className="site-menu">
-          <summary className="site-menu-trigger" aria-label="Otvori ili zatvori meni"><CarbonMenuThreeIcon className="site-menu-icon site-menu-icon-menu" aria-hidden="true" /><CloseIcon className="site-menu-icon site-menu-icon-close" /><span className="sr-only">Meni</span></summary>
-          <div className="site-menu-panel">
-            <nav aria-label="Glavna navigacija">
-              <details className="site-menu-products">
-                <summary>Komarnici <ChevronDown aria-hidden="true" /></summary>
-                <div className="site-menu-products-list"><ProductLinks /></div>
-              </details>
-              <Link href="/o-nama">O nama</Link>
-              <Link href="/kontakt">Kontakt</Link>
-            </nav>
-            <ButtonLink size="medium" className="site-menu-phone" href="tel:+381611321324" aria-label="Pozovite Insecto Komarnici na broj 061 132 1324">
-              <PhoneFilled aria-hidden="true" /><span>061 132 1324</span>
-            </ButtonLink>
-          </div>
-        </details>
+        <MobileMenu />
       </div>
     </Container>
   </header>;

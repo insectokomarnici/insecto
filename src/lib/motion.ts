@@ -1,0 +1,1 @@
+export const MOTION_TRANSITION_DURATION_MS = 420;
