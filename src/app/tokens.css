@@ -121,6 +121,7 @@
   --primary-gradient: linear-gradient(110deg in srgb, var(--color-brand-light), var(--color-brand));
   --icon-inline: 1rem;
   --icon-action: 1.25rem;
+  --icon-feature: 1.5rem;
   --icon-menu: 1rem;
   --icon-close: 1rem;
   --logo-width: 8.4rem;

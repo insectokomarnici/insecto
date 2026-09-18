@@ -14,7 +14,7 @@ The Hero CTA and the Google rating row share the same centered axis within the C
 
 Product accordions and the mobile hamburger panel use the shared `--motion-transition-duration` token for matched open and close animations. The reduced-motion media query disables the transition while native `<details>` semantics and keyboard behavior remain intact.
 
-Icon sizing is semantic: `--icon-inline` is `1rem` for icons beside text and navigation chevrons, `--icon-action` is `1.25rem` for buttons and feedback notices, `--icon-menu` is `1rem` for the standalone mobile menu trigger, and `--icon-close` is `1rem` for the mobile menu X. The custom three-line menu path and the close path share the same visible 16px canvas and 2px visual weight. CTA buttons use Carbon's filled `PhoneFilled` icon for action emphasis, while the informational banner uses the outline `Phone` icon alongside Email and Time.
+Icon sizing is semantic: `--icon-inline` is `1rem` for icons beside text and navigation chevrons, `--icon-action` is `1.25rem` for buttons and feedback notices, `--icon-feature` is `1.5rem` for process-card heading icons, `--icon-menu` is `1rem` for the standalone mobile menu trigger, and `--icon-close` is `1rem` for the mobile menu X. The custom three-line menu path and the close path share the same visible 16px canvas and 2px visual weight. CTA buttons use Carbon's filled `PhoneFilled` icon for action emphasis, while the informational banner uses the outline `Phone` icon alongside Email and Time.
 
 The product is a local business website for mosquito-screen installation. The primary action is a phone call; the site will also include a contact form. Planned technology: Next.js, TypeScript and Tailwind CSS; hosting: Vercel.
 

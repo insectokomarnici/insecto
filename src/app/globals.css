@@ -211,7 +211,7 @@
 .process-step { display: grid; align-content: start; gap: var(--space-3); min-width: 0; padding: var(--card-padding); border-radius: var(--radius-card); text-align: left; }
 .process-step h3, .process-step-body { margin: 0; }
 .process-step-heading { display: grid; justify-items: start; gap: var(--space-3); }
-.process-step-heading svg { width: var(--icon-action); height: var(--icon-action); flex: none; }
+.process-step-heading svg { width: var(--icon-feature); height: var(--icon-feature); flex: none; }
 .process-step-soft { border: var(--border-width) solid var(--color-brand); background: var(--color-surface); color: var(--color-brand); }
 .process-step-soft .heading { color: var(--color-brand); }
 .process-step-brand-light, .process-step-brand { color: var(--color-surface); }
