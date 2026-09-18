@@ -8,7 +8,7 @@ type ProcessIcon = ComponentType<SVGProps<SVGSVGElement>>;
 const steps: Array<{ number: string; title: string; body: string; Icon: ProcessIcon }> = [
   {
     number: "1",
-    title: "Pozovi nas",
+    title: "Zakaži merenje",
     body: "Za početak nas nazovi da zakažemo tvoj termin za uzimanje mera. Oko vremena dolaska se dogovaramo prema tvom rasporedu.",
     Icon: Phone,
   },
