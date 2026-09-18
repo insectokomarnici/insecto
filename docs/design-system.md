@@ -12,6 +12,8 @@ The first homepage foundation is now implemented with the announcement banner, H
 
 The Hero CTA and the Google rating row share the same centered axis within the CTA group at every viewport width. The rating uses the shared `--text-small`, `--icon-inline`, spacing and rating-star color tokens, while the CTA uses the shared button size and action tokens.
 
+Product accordions use the shared `--accordion-transition-duration` token for a restrained open animation. The reduced-motion media query disables the transition while native `<details>` semantics and keyboard behavior remain intact.
+
 Icon sizing is semantic: `--icon-inline` is `1rem` for icons beside text and navigation chevrons, `--icon-action` is `1.25rem` for buttons and feedback notices, `--icon-menu` is `1rem` for the standalone mobile menu trigger, and `--icon-close` is `1rem` for the mobile menu X. The custom three-line menu path and the close path share the same visible 16px canvas and 2px visual weight. CTA buttons use Carbon's filled `PhoneFilled` icon for action emphasis, while the informational banner uses the outline `Phone` icon alongside Email and Time.
 
 The product is a local business website for mosquito-screen installation. The primary action is a phone call; the site will also include a contact form. Planned technology: Next.js, TypeScript and Tailwind CSS; hosting: Vercel.

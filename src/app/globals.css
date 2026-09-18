@@ -226,10 +226,12 @@
 .product-accordion { border-bottom: var(--border-width) solid var(--color-border); }
 .product-accordion summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-height: var(--button-height-medium); padding-block: var(--space-3); color: var(--color-heading); font-family: var(--font-heading); font-size: var(--text-body); font-weight: 600; line-height: var(--text-body--line-height); cursor: pointer; list-style: none; }
 .product-accordion summary::-webkit-details-marker { display: none; }
-.product-accordion summary svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; transition: transform 160ms ease; }
+.product-accordion summary svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; transition: transform var(--accordion-transition-duration) ease; }
 .product-accordion[open] summary svg { transform: rotate(180deg); }
-.product-accordion-content { padding: 0 0 var(--space-4); color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
+.product-accordion-content { display: grid; grid-template-rows: 0fr; padding: 0; color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); opacity: 0; transition: grid-template-rows var(--accordion-transition-duration) ease, opacity var(--accordion-transition-duration) ease, padding-bottom var(--accordion-transition-duration) ease; }
+.product-accordion[open] .product-accordion-content { grid-template-rows: 1fr; padding-bottom: var(--space-4); opacity: 1; }
 .product-accordion-content p { margin: 0; }
+.product-accordion-content > p { min-height: 0; overflow: hidden; }
 .product-accordion summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .product-detail-section { background: var(--color-surface-subtle); }
 .product-detail { display: grid; gap: var(--section-content-gap); align-items: start; }
@@ -253,4 +255,7 @@
   .hero-background::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, var(--color-surface-subtle), rgb(246 248 251 / 0) 18%); }
   .hero-overlay { display: none; }
   .hero-image { object-position: 65% center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .product-accordion summary svg, .product-accordion-content { transition: none; }
 }
