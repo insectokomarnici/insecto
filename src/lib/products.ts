@@ -25,7 +25,7 @@ export const products: Product[] = [
     slug: "plise",
     path: "/plise-komarnici-novi-sad",
     title: "Plise komarnici",
-    description: "Plise ili klizni komarnici su odličan izbor za prozore, ulazna i balkonska vrata.",
+    description: "Plise ili klizni komarnici su odličan izbor za sve tipove otvora: prozore, ulazna i balkonska vrata.",
     images: {
       bela: "/products/plise-komarnici-bela-boja.avif",
       braon: "/products/plise-komarnici-braon-boja.avif",
@@ -41,7 +41,7 @@ export const products: Product[] = [
     slug: "rolo",
     path: "/rolo-komarnici-novi-sad",
     title: "Rolo komarnici",
-    description: "Rolo komarnici su praktičan izbor za standardne prozore i kada želiš da se mrežica skloni u kutiju.",
+    description: "Rolo komarnici su najpopularniji izbor za standardne prozore. Kada se ne koriste, skupljaju se u kutiju poput roletne.",
     images: {
       bela: "/products/rolo-komarnici-bela-boja.avif",
       braon: "/products/rolo-komarnici-braon-boja.avif",
@@ -57,7 +57,7 @@ export const products: Product[] = [
     slug: "fiksni",
     path: "/fiksni-komarnici-novi-sad",
     title: "Fiksni komarnici",
-    description: "Fiksni komarnici su idealni za prozore koje koristiš za provetravanje bez potrebe za prolazom.",
+    description: "Fiksni komarnici se stavljaju na prozore koje koristiš isključivo za provetravanje, tj. ne treba ti prolaznost kroz njih.",
     images: {
       bela: "/products/fiksni-komarnici-bela-boja.avif",
       braon: "/products/fiksni-komarnici-braon-boja.avif",
