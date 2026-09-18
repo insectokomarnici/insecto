@@ -65,7 +65,7 @@ function ProductCard({ product }: { product: Product }) {
           >
             <PhoneFilled aria-hidden="true" />Zakaži ugradnju
           </ButtonLink>
-          <ButtonLink variant="secondary" size="medium" href={`/komarnici/${product.slug}`}>
+          <ButtonLink variant="secondary" size="medium" href={product.path}>
             Saznaj više<ArrowRight aria-hidden="true" />
           </ButtonLink>
         </div>

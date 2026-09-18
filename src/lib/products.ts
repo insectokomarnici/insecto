@@ -13,6 +13,7 @@ export type ProductAccordion = {
 
 export type Product = {
   slug: string;
+  path: string;
   title: string;
   description: string;
   images: Record<ProductColor, string>;
@@ -22,6 +23,7 @@ export type Product = {
 export const products: Product[] = [
   {
     slug: "plise",
+    path: "/plise-komarnici-novi-sad",
     title: "Plise komarnici",
     description: "Plise ili klizni komarnici su odličan izbor za prozore, ulazna i balkonska vrata.",
     images: {
@@ -37,6 +39,7 @@ export const products: Product[] = [
   },
   {
     slug: "rolo",
+    path: "/rolo-komarnici-novi-sad",
     title: "Rolo komarnici",
     description: "Rolo komarnici su praktičan izbor za standardne prozore i kada želiš da se mrežica skloni u kutiju.",
     images: {
@@ -52,6 +55,7 @@ export const products: Product[] = [
   },
   {
     slug: "fiksni",
+    path: "/fiksni-komarnici-novi-sad",
     title: "Fiksni komarnici",
     description: "Fiksni komarnici su idealni za prozore koje koristiš za provetravanje bez potrebe za prolazom.",
     images: {
@@ -66,7 +70,3 @@ export const products: Product[] = [
     ],
   },
 ];
-
-export function getProduct(slug: string) {
-  return products.find((product) => product.slug === slug);
-}

@@ -10,9 +10,9 @@ import { CarbonMenuThreeIcon } from "@/components/ui/menu-icon";
 import { CloseIcon } from "@/components/ui/close-icon";
 
 const productLinks = [
-  ["/komarnici/plise", "Plise komarnici"],
-  ["/komarnici/fiksni", "Fiksni komarnici"],
-  ["/komarnici/rolo", "Rolo komarnici"],
+  ["/plise-komarnici-novi-sad", "Plise komarnici"],
+  ["/fiksni-komarnici-novi-sad", "Fiksni komarnici"],
+  ["/rolo-komarnici-novi-sad", "Rolo komarnici"],
 ] as const;
 
 function ProductLinks() {
