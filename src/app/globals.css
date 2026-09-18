@@ -208,12 +208,14 @@
 .products-section { background: var(--color-surface-subtle); }
 .process-section { background: var(--color-surface); }
 .process-steps { display: grid; gap: var(--grid-gap); }
-.process-step { position: relative; display: grid; align-content: start; gap: var(--space-3); min-width: 0; padding: var(--space-10) var(--card-padding) var(--card-padding); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); text-align: left; }
-.process-step-icon { display: grid; place-items: center; width: var(--icon-action); height: var(--icon-action); margin-bottom: var(--space-1); color: var(--color-heading); }
-.process-step-icon svg { width: var(--icon-action); height: var(--icon-action); }
-.process-step-number, .process-step h3, .process-step-body { margin: 0; }
-.process-step-number { position: absolute; top: 0; right: var(--card-padding); display: grid; place-items: center; min-width: 2.75rem; height: 3.25rem; padding-inline: var(--space-2); transform: translateY(-50%); border-radius: var(--radius-pill); background: var(--color-brand); color: var(--color-surface); font-family: var(--font-heading); font-size: var(--text-card); line-height: 1; font-weight: 700; }
-.process-step-body { color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
+.process-step { display: grid; align-content: start; gap: var(--space-3); min-width: 0; padding: var(--card-padding); border-radius: var(--radius-card); text-align: left; }
+.process-step h3, .process-step-body { margin: 0; }
+.process-step-soft { background: var(--color-surface-subtle); color: var(--color-heading); }
+.process-step-brand-light, .process-step-brand { color: var(--color-surface); }
+.process-step-brand-light .heading, .process-step-brand .heading { color: var(--color-surface); }
+.process-step-brand-light { background: var(--color-brand-light); }
+.process-step-brand { background: var(--color-brand); }
+.process-step-body { color: inherit; font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .process-actions { display: flex; justify-content: center; }
 .products-grid { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--grid-gap); }
 .product-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: 0; border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); }

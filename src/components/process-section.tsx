@@ -1,28 +1,22 @@
-import { Phone, PhoneFilled, Ruler, Tools } from "@carbon/icons-react";
-import type { ComponentType, SVGProps } from "react";
+import { PhoneFilled } from "@carbon/icons-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 
-type ProcessIcon = ComponentType<SVGProps<SVGSVGElement>>;
-
-const steps: Array<{ number: string; title: string; body: string; Icon: ProcessIcon }> = [
+const steps: Array<{ title: string; body: string; surface: "soft" | "brand-light" | "brand" }> = [
   {
-    number: "1",
     title: "Zakaži merenje",
     body: "Za početak nas nazovi da zakažemo tvoj termin za uzimanje mera. Oko vremena dolaska se dogovaramo prema tvom rasporedu.",
-    Icon: Phone,
+    surface: "soft",
   },
   {
-    number: "2",
     title: "Uzimamo mere",
     body: "Na tvoju adresu stižemo u potvrđeno vreme i uzimamo sve neophodne mere. Dobićeš preporuku oko izbora komarnika i tačnu cenu.",
-    Icon: Ruler,
+    surface: "brand-light",
   },
   {
-    number: "3",
     title: "Montiramo komarnike",
     body: "Posle par dana se vraćamo sa tvojim novim komarnicima, montiramo ih gde treba i time završavamo ovaj jednostavan proces.",
-    Icon: Tools,
+    surface: "brand",
   },
 ];
 
@@ -35,10 +29,8 @@ export function ProcessSection() {
             <Heading as="h2" size="section" id="process-title">Kako do komarnika u 3 koraka</Heading>
           </div>
           <div className="process-steps">
-            {steps.map(({ number, title, body, Icon }) => (
-              <article className="process-step" key={number}>
-                <div className="process-step-icon" aria-hidden="true"><Icon /></div>
-                <p className="process-step-number">{number}</p>
+            {steps.map(({ title, body, surface }) => (
+              <article className={`process-step process-step-${surface}`} key={title}>
                 <Heading as="h3" size="card">{title}</Heading>
                 <p className="process-step-body">{body}</p>
               </article>
