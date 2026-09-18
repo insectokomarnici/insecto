@@ -79,17 +79,19 @@ function MobileMenu() {
       <span className="sr-only">Meni</span>
     </summary>
     <div ref={contentRef} className="site-menu-panel" onTransitionEnd={onTransitionEnd}>
-      <nav aria-label="Glavna navigacija">
-        <details className="site-menu-products">
-          <summary>Komarnici <ChevronDown aria-hidden="true" /></summary>
-          <div className="site-menu-products-list"><ProductLinks /></div>
-        </details>
-        <Link href="/o-nama">O nama</Link>
-        <Link href="/kontakt">Kontakt</Link>
-      </nav>
-      <ButtonLink size="medium" className="site-menu-phone" href="tel:+381611321324" aria-label="Pozovite Insecto Komarnici na broj 061 132 1324">
-        <PhoneFilled aria-hidden="true" /><span>061 132 1324</span>
-      </ButtonLink>
+      <div className="site-menu-panel-inner">
+        <nav aria-label="Glavna navigacija">
+          <details className="site-menu-products">
+            <summary>Komarnici <ChevronDown aria-hidden="true" /></summary>
+            <div className="site-menu-products-list"><ProductLinks /></div>
+          </details>
+          <Link href="/o-nama">O nama</Link>
+          <Link href="/kontakt">Kontakt</Link>
+        </nav>
+        <ButtonLink size="medium" className="site-menu-phone" href="tel:+381611321324" aria-label="Pozovite Insecto Komarnici na broj 061 132 1324">
+          <PhoneFilled aria-hidden="true" /><span>061 132 1324</span>
+        </ButtonLink>
+      </div>
     </div>
   </details>;
 }

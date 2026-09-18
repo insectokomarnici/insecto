@@ -15,7 +15,7 @@ function ProductAccordionItem({ item, id }: { item: Product["accordions"][number
         <span>{item.title}</span>
         <ChevronDown aria-hidden="true" />
       </summary>
-      <div ref={contentRef} id={id} className="product-accordion-content" role="region" aria-labelledby={summaryId} onTransitionEnd={onTransitionEnd}><p>{item.body}</p></div>
+      <div ref={contentRef} id={id} className="product-accordion-content" role="region" aria-labelledby={summaryId} onTransitionEnd={onTransitionEnd}><div className="product-accordion-content-inner"><p>{item.body}</p></div></div>
     </details>
   );
 }

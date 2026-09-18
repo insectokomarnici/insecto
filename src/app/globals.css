@@ -109,9 +109,10 @@
   .site-menu-products > summary { display: flex; align-items: center; justify-content: space-between; }
   .site-menu-products[open] > summary svg { transform: rotate(180deg); }
   .site-menu-products summary svg { width: var(--icon-inline); height: var(--icon-inline); transition: transform var(--motion-transition-duration) ease; }
-  .site-menu-panel { position: absolute; top: calc(100% + var(--border-width)); left: 0; right: 0; display: grid; gap: var(--space-3); width: auto; height: 0; padding: 0 var(--page-gutter); border: var(--border-width) solid var(--color-border); border-radius: 0; background: var(--color-surface); box-shadow: var(--shadow-raised); opacity: 0; overflow: hidden; pointer-events: none; visibility: hidden; will-change: height; transition: height var(--motion-transition-duration) ease, opacity var(--motion-transition-duration) ease, padding-block var(--motion-transition-duration) ease, visibility 0s linear var(--motion-transition-duration); }
-  .site-menu.is-open .site-menu-panel { padding-block: var(--space-4) var(--space-5); opacity: 1; overflow-y: auto; pointer-events: auto; visibility: visible; transition-delay: 0s; }
-  .site-menu.is-closing .site-menu-panel { height: 0; padding-block: 0; opacity: 0; pointer-events: none; visibility: visible; transition: height var(--motion-transition-duration) ease, opacity var(--motion-transition-duration) ease, padding-block var(--motion-transition-duration) ease, visibility 0s linear var(--motion-transition-duration); }
+  .site-menu-panel { position: absolute; top: calc(100% + var(--border-width)); left: 0; right: 0; display: block; width: auto; height: 0; max-height: calc(100vh - 4.25rem); padding: 0; border: var(--border-width) solid var(--color-border); border-radius: 0; background: var(--color-surface); box-shadow: var(--shadow-raised); opacity: 0; overflow: hidden; pointer-events: none; visibility: hidden; will-change: height; transition: height var(--motion-transition-duration) ease, opacity var(--motion-transition-duration) ease, visibility 0s linear var(--motion-transition-duration); }
+  .site-menu.is-open .site-menu-panel { opacity: 1; overflow-y: auto; pointer-events: auto; visibility: visible; transition-delay: 0s; }
+  .site-menu.is-closing .site-menu-panel { height: 0; opacity: 0; pointer-events: none; visibility: visible; transition: height var(--motion-transition-duration) ease, opacity var(--motion-transition-duration) ease, visibility 0s linear var(--motion-transition-duration); }
+  .site-menu-panel-inner { display: grid; gap: var(--space-3); padding: var(--space-4) var(--page-gutter) var(--space-5); }
   .site-menu-panel nav { display: grid; gap: var(--space-1); }
   .site-menu-panel nav > a, .site-menu-products > summary { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: var(--space-3); border-radius: var(--radius-input); color: var(--color-brand); font-size: var(--text-nav); font-weight: 600; line-height: var(--text-nav--line-height); text-decoration: none; cursor: pointer; }
   .site-menu-panel nav > a:hover, .site-menu-products > summary:hover { background: var(--color-surface-subtle); }
@@ -232,9 +233,10 @@
 .product-accordion summary svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; transition: transform var(--motion-transition-duration) ease; }
 .product-accordion.is-open summary svg { transform: rotate(180deg); }
 .product-accordion.is-closing summary svg { transform: rotate(0deg); }
-.product-accordion-content { height: 0; padding: 0; color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); opacity: 0; overflow: hidden; visibility: hidden; will-change: height; transition: height var(--motion-transition-duration) ease, opacity var(--motion-transition-duration) ease, padding-bottom var(--motion-transition-duration) ease, visibility 0s linear var(--motion-transition-duration); }
-.product-accordion.is-open .product-accordion-content { padding-bottom: var(--space-4); opacity: 1; visibility: visible; transition-delay: 0s; }
-.product-accordion.is-closing .product-accordion-content { height: 0; padding-bottom: 0; opacity: 0; visibility: visible; transition: height var(--motion-transition-duration) ease, opacity var(--motion-transition-duration) ease, padding-bottom var(--motion-transition-duration) ease, visibility 0s linear var(--motion-transition-duration); }
+.product-accordion-content { height: 0; padding: 0; color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); opacity: 0; overflow: hidden; visibility: hidden; will-change: height; transition: height var(--motion-transition-duration) ease, opacity var(--motion-transition-duration) ease, visibility 0s linear var(--motion-transition-duration); }
+.product-accordion.is-open .product-accordion-content { opacity: 1; visibility: visible; transition-delay: 0s; }
+.product-accordion.is-closing .product-accordion-content { height: 0; opacity: 0; visibility: visible; transition: height var(--motion-transition-duration) ease, opacity var(--motion-transition-duration) ease, visibility 0s linear var(--motion-transition-duration); }
+.product-accordion-content-inner { padding-bottom: var(--space-4); }
 .product-accordion-content p { margin: 0; }
 .product-accordion summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .product-detail-section { background: var(--color-surface-subtle); }
