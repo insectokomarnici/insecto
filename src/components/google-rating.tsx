@@ -85,7 +85,6 @@ export async function GoogleRating() {
           {Array.from({ length: 5 }, (_, index) => <StarFilled key={index} />)}
         </span>
         <span className="google-rating-value">{place.rating.toFixed(1)}</span>
-        <span className="google-rating-separator" aria-hidden="true">·</span>
         <span className="google-rating-count">({reviewCount})</span>
       </a>
     </div>

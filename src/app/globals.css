@@ -197,8 +197,7 @@
 .google-rating-value { color: var(--color-heading); font-weight: 700; }
 .google-rating-stars { display: inline-flex; align-items: center; gap: var(--space-1); color: var(--color-rating-star); }
 .google-rating-stars svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; }
-.google-rating-separator { display: inline-flex; align-items: center; justify-content: center; width: var(--space-1); flex: none; color: var(--color-body); text-align: center; }
-.google-rating-count { white-space: nowrap; }
+.google-rating-count { margin-inline-start: calc(-1 * var(--space-1)); white-space: nowrap; }
 .products-section { background: var(--color-surface-subtle); }
 .process-section { background: var(--color-surface); }
 .process-steps { display: grid; gap: var(--grid-gap); }
