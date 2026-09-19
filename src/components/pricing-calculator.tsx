@@ -50,11 +50,17 @@ export function PricingCalculator() {
                 <div className="calculator-field-grid">
                   <div className="field">
                     <label className="field-label" htmlFor="calculator-width">Širina</label>
-                    <input id="calculator-width" className="control" type="number" min="0" inputMode="decimal" value={width} onChange={(event) => setWidth(event.target.value)} />
+                    <div className="calculator-input">
+                      <input id="calculator-width" className="control" type="number" min="0" inputMode="decimal" aria-describedby="calculator-width-unit" value={width} onChange={(event) => setWidth(event.target.value)} />
+                      <span id="calculator-width-unit" className="calculator-input-unit">cm</span>
+                    </div>
                   </div>
                   <div className="field">
                     <label className="field-label" htmlFor="calculator-height">Visina</label>
-                    <input id="calculator-height" className="control" type="number" min="0" inputMode="decimal" value={height} onChange={(event) => setHeight(event.target.value)} />
+                    <div className="calculator-input">
+                      <input id="calculator-height" className="control" type="number" min="0" inputMode="decimal" aria-describedby="calculator-height-unit" value={height} onChange={(event) => setHeight(event.target.value)} />
+                      <span id="calculator-height-unit" className="calculator-input-unit">cm</span>
+                    </div>
                   </div>
                   <div className="field">
                     <label className="field-label" htmlFor="calculator-type">Tip</label>
