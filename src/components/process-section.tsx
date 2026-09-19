@@ -1,16 +1,16 @@
-import { Phone, PhoneFilled, Ruler, Tools } from "@carbon/icons-react";
+import { PhoneFilled, Ruler, Tools } from "@carbon/icons-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 import { GoogleRating } from "@/components/google-rating";
 
-type ProcessIcon = typeof Phone | typeof Ruler | typeof Tools;
+type ProcessIcon = typeof PhoneFilled | typeof Ruler | typeof Tools;
 
 const steps: Array<{ title: string; body: string; surface: "soft" | "brand-light" | "brand"; Icon: ProcessIcon }> = [
   {
     title: "Zakaži merenje",
     body: "Za početak nas nazovi da zakažemo tvoj termin za uzimanje mera. Oko vremena dolaska se dogovaramo prema tvom rasporedu.",
     surface: "soft",
-    Icon: Phone,
+    Icon: PhoneFilled,
   },
   {
     title: "Uzimamo mere",
