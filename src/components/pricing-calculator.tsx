@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { ChevronDown } from "@carbon/icons-react";
 import { useMemo, useState } from "react";
 import { Container, Heading } from "@/components/ui/layout";
 import { colorOptions, getPricePerM2, pricingOptions, type PricingColor, type PricingType } from "@/lib/pricing";
@@ -57,15 +58,21 @@ export function PricingCalculator() {
                   </div>
                   <div className="field">
                     <label className="field-label" htmlFor="calculator-type">Tip</label>
-                    <select id="calculator-type" className="control" value={type} onChange={(event) => setType(event.target.value as PricingType)}>
-                      {pricingOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
-                    </select>
+                    <div className="calculator-select">
+                      <select id="calculator-type" className="control" value={type} onChange={(event) => setType(event.target.value as PricingType)}>
+                        {pricingOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
+                      </select>
+                      <ChevronDown aria-hidden="true" />
+                    </div>
                   </div>
                   <div className="field">
                     <label className="field-label" htmlFor="calculator-color">Boja</label>
-                    <select id="calculator-color" className="control" value={color} onChange={(event) => setColor(event.target.value as PricingColor)}>
-                      {colorOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
-                    </select>
+                    <div className="calculator-select">
+                      <select id="calculator-color" className="control" value={color} onChange={(event) => setColor(event.target.value as PricingColor)}>
+                        {colorOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
+                      </select>
+                      <ChevronDown aria-hidden="true" />
+                    </div>
                   </div>
                 </div>
               </form>

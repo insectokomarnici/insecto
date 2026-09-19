@@ -233,6 +233,9 @@
 .calculator-panel { display: grid; gap: var(--space-8); }
 .calculator-form { display: grid; gap: var(--form-field-gap); }
 .calculator-field-grid { display: grid; gap: var(--form-field-gap); }
+.calculator-select { position: relative; }
+.calculator-select .control { appearance: none; padding-inline-end: calc(var(--control-padding-inline) + var(--icon-inline) + var(--space-2)); }
+.calculator-select svg { position: absolute; top: 50%; right: var(--space-3); width: var(--icon-inline); height: var(--icon-inline); color: var(--color-body); pointer-events: none; transform: translateY(-50%); }
 .calculator-results { display: grid; gap: var(--space-6); }
 .calculator-result-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gap); }
 .calculator-result { display: grid; gap: var(--space-1); }
