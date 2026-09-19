@@ -136,7 +136,7 @@ export function PricingCalculator() {
                 <div className="calculator-items" aria-live="polite">
                   <div className="calculator-items-heading">
                     <Heading as="h3" size="card">Dodati komarnici</Heading>
-                    <span>{items.length}</span>
+                    <span aria-label={`${items.length} dodatih komarnika`}>({items.length})</span>
                   </div>
                   <ul className="calculator-item-list">
                     {items.map((item, index) => (
