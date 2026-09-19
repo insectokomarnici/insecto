@@ -146,6 +146,7 @@ export function PricingCalculator() {
                           <span>{item.width} × {item.height} cm · {item.area.toFixed(2)} m² × {item.pricePerM2} €/m²</span>
                         </div>
                         <div className="calculator-item-meta">
+                          <strong>{item.total.toFixed(2)} €</strong>
                           <button className="calculator-remove" type="button" aria-label={`Ukloni komarnik ${index + 1}`} onClick={() => handleRemoveItem(item.id)}>
                             <TrashCan aria-hidden="true" />
                           </button>

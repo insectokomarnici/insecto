@@ -252,6 +252,7 @@
 .calculator-item-copy strong { color: var(--color-heading); font-family: var(--font-body); font-size: var(--text-body); line-height: var(--text-body--line-height); font-weight: 700; }
 .calculator-item-copy span { color: var(--color-body); font-size: var(--text-small); line-height: var(--text-small--line-height); }
 .calculator-item-meta { display: flex; flex: none; align-items: center; gap: var(--space-3); }
+.calculator-item-meta > strong { color: var(--color-brand); font-family: var(--font-body); font-size: var(--text-body); line-height: var(--text-body--line-height); font-weight: 700; white-space: nowrap; }
 .calculator-remove { display: inline-flex; align-items: center; justify-content: center; width: var(--button-height-small); height: var(--button-height-small); border: 0; border-radius: var(--radius-button); padding: 0; color: var(--color-body); background: transparent; cursor: pointer; }
 .calculator-remove svg { width: var(--icon-action); height: var(--icon-action); }
 .calculator-remove:hover { color: var(--color-error); background: var(--color-error-light); }
