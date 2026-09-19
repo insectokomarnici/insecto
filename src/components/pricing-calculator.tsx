@@ -14,6 +14,7 @@ type CalculatorItem = {
   width: number;
   height: number;
   area: number;
+  pricePerM2: number;
   total: number;
 };
 
@@ -53,6 +54,7 @@ export function PricingCalculator() {
         width: Number(width),
         height: Number(height),
         area: calculation.area,
+        pricePerM2: calculation.pricePerM2,
         total: calculation.total,
       },
     ]);
@@ -141,10 +143,9 @@ export function PricingCalculator() {
                       <li className="calculator-item" key={item.id}>
                         <div className="calculator-item-copy">
                           <strong>{item.typeLabel} komarnik · {item.colorLabel}</strong>
-                          <span>{item.width} × {item.height} cm · {item.area.toFixed(2)} m²</span>
+                          <span>{item.width} × {item.height} cm · {item.area.toFixed(2)} m² × {item.pricePerM2} €/m²</span>
                         </div>
                         <div className="calculator-item-meta">
-                          <strong>{item.total.toFixed(2)} €</strong>
                           <button className="calculator-remove" type="button" aria-label={`Ukloni komarnik ${index + 1}`} onClick={() => handleRemoveItem(item.id)}>
                             <TrashCan aria-hidden="true" />
                           </button>
