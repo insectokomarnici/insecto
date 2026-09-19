@@ -227,7 +227,7 @@
 .calculator-copy { min-width: 0; }
 .calculator-copy .heading-card, .calculator-copy p { margin: 0; }
 .calculator-copy .text-lead { max-width: var(--content-text); }
-.calculator-diagrams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gap); max-width: 20rem; }
+.calculator-diagrams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gap); column-gap: var(--space-10); max-width: 22rem; margin-inline: auto; }
 .calculator-diagram-item { display: grid; justify-items: center; gap: var(--space-2); text-align: center; }
 .calculator-diagram { width: 6.875rem; height: 10rem; color: var(--color-brand-light); }
 .calculator-panel { display: grid; gap: var(--space-8); }
