@@ -1,16 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronDown } from "@carbon/icons-react";
-import { useMemo, useState } from "react";
+import { Add, ChevronDown, TrashCan } from "@carbon/icons-react";
+import { useMemo, useState, type FormEvent } from "react";
+import { Button } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 import { colorOptions, getPricePerM2, pricingOptions, type PricingColor, type PricingType } from "@/lib/pricing";
+
+type CalculatorItem = {
+  id: number;
+  typeLabel: string;
+  colorLabel: string;
+  width: number;
+  height: number;
+  area: number;
+  total: number;
+};
 
 export function PricingCalculator() {
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
   const [type, setType] = useState<PricingType>("plise");
   const [color, setColor] = useState<PricingColor>("bela");
+  const [items, setItems] = useState<CalculatorItem[]>([]);
+  const [nextItemId, setNextItemId] = useState(1);
 
   const calculation = useMemo(() => {
     const widthInMeters = Math.max(Number(width) || 0, 0) / 100;
@@ -21,6 +34,36 @@ export function PricingCalculator() {
 
     return { area, pricePerM2, total };
   }, [color, height, type, width]);
+
+  const typeLabel = pricingOptions.find((option) => option.id === type)?.label ?? type;
+  const colorLabel = colorOptions.find((option) => option.id === color)?.label ?? color;
+  const canAddItem = calculation.area > 0;
+  const itemsTotal = useMemo(() => items.reduce((sum, item) => sum + item.total, 0), [items]);
+
+  function handleAddItem(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!canAddItem) return;
+
+    setItems((currentItems) => [
+      ...currentItems,
+      {
+        id: nextItemId,
+        typeLabel,
+        colorLabel,
+        width: Number(width),
+        height: Number(height),
+        area: calculation.area,
+        total: calculation.total,
+      },
+    ]);
+    setNextItemId((currentId) => currentId + 1);
+    setWidth("");
+    setHeight("");
+  }
+
+  function handleRemoveItem(id: number) {
+    setItems((currentItems) => currentItems.filter((item) => item.id !== id));
+  }
 
   return (
     <section className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
@@ -46,7 +89,7 @@ export function PricingCalculator() {
             </div>
 
             <div className="calculator-panel card card-flat">
-              <form className="calculator-form" onSubmit={(event) => event.preventDefault()}>
+              <form className="calculator-form" onSubmit={handleAddItem}>
                 <div className="calculator-field-grid">
                   <div className="field">
                     <label className="field-label" htmlFor="calculator-width">Širina</label>
@@ -81,7 +124,36 @@ export function PricingCalculator() {
                     </div>
                   </div>
                 </div>
+                <Button variant="secondary" size="medium" className="calculator-add-button" type="submit" disabled={!canAddItem}>
+                  <Add aria-hidden="true" />
+                  Dodaj komarnik
+                </Button>
               </form>
+
+              {items.length > 0 && (
+                <div className="calculator-items" aria-live="polite">
+                  <div className="calculator-items-heading">
+                    <Heading as="h3" size="card">Dodati komarnici</Heading>
+                    <span>{items.length}</span>
+                  </div>
+                  <ul className="calculator-item-list">
+                    {items.map((item, index) => (
+                      <li className="calculator-item" key={item.id}>
+                        <div className="calculator-item-copy">
+                          <strong>{item.typeLabel} komarnik · {item.colorLabel}</strong>
+                          <span>{item.width} × {item.height} cm · {item.area.toFixed(2)} m²</span>
+                        </div>
+                        <div className="calculator-item-meta">
+                          <strong>{item.total.toFixed(2)} €</strong>
+                          <button className="calculator-remove" type="button" aria-label={`Ukloni komarnik ${index + 1}`} onClick={() => handleRemoveItem(item.id)}>
+                            <TrashCan aria-hidden="true" />
+                          </button>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               <div className="calculator-results">
                 <div className="calculator-result-grid">
@@ -96,7 +168,7 @@ export function PricingCalculator() {
                 </div>
                 <div className="calculator-total">
                   <span>Ukupno</span>
-                  <strong aria-live="polite">{calculation.total.toFixed(2)} €</strong>
+                  <strong aria-live="polite">{(items.length > 0 ? itemsTotal : calculation.total).toFixed(2)} €</strong>
                 </div>
               </div>
             </div>
