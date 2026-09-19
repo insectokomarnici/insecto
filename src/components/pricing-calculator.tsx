@@ -89,7 +89,7 @@ export function PricingCalculator() {
                     <span>Površina</span>
                     <strong aria-live="polite">{calculation.area.toFixed(2)} m²</strong>
                   </div>
-                  <div className="calculator-result">
+                  <div className="calculator-result calculator-result-price">
                     <span>Cena</span>
                     <strong aria-live="polite">{calculation.pricePerM2} €/m²</strong>
                   </div>

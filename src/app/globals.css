@@ -244,6 +244,8 @@
 .calculator-result { display: grid; gap: var(--space-1); }
 .calculator-result span, .calculator-total span { font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .calculator-result strong { color: var(--color-heading); font-family: var(--font-heading); font-size: var(--text-card); line-height: var(--text-card--line-height); font-weight: 600; }
+.calculator-result-price { justify-items: end; text-align: end; }
+.calculator-result-price strong { justify-self: end; text-align: end; }
 .calculator-total { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-4); padding-top: var(--space-4); border-top: var(--border-width) solid var(--color-border); }
 .calculator-total strong { color: var(--color-brand); font-family: var(--font-heading); font-size: var(--text-card); line-height: var(--text-card--line-height); font-weight: 600; }
 .products-grid { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--grid-gap); }
