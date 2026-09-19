@@ -3,23 +3,23 @@
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import { Container, Heading } from "@/components/ui/layout";
-import { colorOptions, getPricePerM2, pricingOptions, type PricingType } from "@/lib/pricing";
+import { colorOptions, getPricePerM2, pricingOptions, type PricingColor, type PricingType } from "@/lib/pricing";
 
 export function PricingCalculator() {
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
   const [type, setType] = useState<PricingType>("plise");
-  const [color, setColor] = useState("bela");
+  const [color, setColor] = useState<PricingColor>("bela");
 
   const calculation = useMemo(() => {
     const widthInMeters = Math.max(Number(width) || 0, 0) / 100;
     const heightInMeters = Math.max(Number(height) || 0, 0) / 100;
     const area = widthInMeters * heightInMeters;
-    const pricePerM2 = getPricePerM2(type);
+    const pricePerM2 = getPricePerM2(type, color);
     const total = Math.max(area * pricePerM2, pricePerM2);
 
     return { area, pricePerM2, total };
-  }, [height, type, width]);
+  }, [color, height, type, width]);
 
   return (
     <section className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
@@ -63,7 +63,7 @@ export function PricingCalculator() {
                   </div>
                   <div className="field">
                     <label className="field-label" htmlFor="calculator-color">Boja</label>
-                    <select id="calculator-color" className="control" value={color} onChange={(event) => setColor(event.target.value)}>
+                    <select id="calculator-color" className="control" value={color} onChange={(event) => setColor(event.target.value as PricingColor)}>
                       {colorOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
                     </select>
                   </div>
