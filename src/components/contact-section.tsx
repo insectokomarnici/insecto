@@ -16,7 +16,6 @@ export function ContactSection() {
       <Container>
         <div className="contact-panel">
           <div className="contact-intro">
-            <span className="contact-eyebrow">BRZI ONLINE UPIT</span>
             <Heading as="h2" size="section" id="contact-form-title">
               Tvoj prostor.<br />
               <span className="contact-heading-accent">Naš sledeći posao.</span>
