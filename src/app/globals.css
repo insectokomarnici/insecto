@@ -282,7 +282,7 @@
 .calculator-copy { display: grid; min-width: 0; gap: var(--stack-gap); }
 .calculator-copy-body { min-width: 0; gap: var(--space-6); }
 .calculator-copy p { margin: 0; }
-.calculator-price-note { display: block; margin-top: var(--space-1); }
+.calculator-price-note { display: block; margin-top: var(--space-1); color: var(--color-brand); }
 .calculator-diagrams { display: grid; width: min(100%, var(--grid-item-min)); gap: var(--space-2); margin-inline: 0; padding: var(--space-4); border-radius: var(--radius-card); background: var(--color-surface); }
 .calculator-diagram-labels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--stack-gap); text-align: center; }
 .calculator-diagram-labels .field-label { margin: 0; }
