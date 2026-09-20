@@ -78,7 +78,7 @@ export function PricingCalculator() {
           <div className="calculator-content">
             <div className="calculator-copy stack">
               <Heading as="h3" size="card">Kako računamo cenu?</Heading>
-              <p className="text-body">Unesi širinu i visinu otvora u centimetrima. Površinu dobijamo množenjem širine i visine u metrima, zatim tu površinu množimo cenom po m² za izabrani tip i boju komarnika. U cenu su uračunati merenje i ugradnja.</p>
+              <p className="text-body">Unesi širinu i visinu otvora u centimetrima. Površinu dobijamo množenjem širine i visine u metrima, a zatim tu površinu množimo cenom po m² za izabrani tip i boju komarnika. Merenje i ugradnja su uračunati u cenu.</p>
               <div className="calculator-diagrams" aria-label="Primer merenja otvora">
                 <div className="calculator-diagram-item">
                   <span className="field-label">Širina</span>

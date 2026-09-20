@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { PhoneFilled } from "@carbon/icons-react";
+import { Certificate, Group, PhoneFilled } from "@carbon/icons-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
+import { GoogleRating } from "@/components/google-rating";
 
 const aboutImage = "/images/insecto-team.avif";
 
@@ -17,6 +18,16 @@ export function AboutSection() {
               fill
               sizes="(min-width: 64rem) 50vw, 100vw"
             />
+            <div className="about-stats" aria-label="Iskustvo i zadovoljstvo klijenata">
+              <div className="about-stat">
+                <span className="about-stat-icon"><Group aria-hidden="true" /></span>
+                <span className="about-stat-copy"><strong>2.500+</strong><span>Zadovoljnih kupaca</span></span>
+              </div>
+              <div className="about-stat">
+                <span className="about-stat-icon"><Certificate aria-hidden="true" /></span>
+                <span className="about-stat-copy"><strong>5+</strong><span>Godina iskustva</span></span>
+              </div>
+            </div>
           </div>
           <div className="about-copy stack">
             <Heading as="h2" size="section" id="about-title">Insecto Komarnici</Heading>
@@ -24,7 +35,10 @@ export function AboutSection() {
               <p>Zdravo 👋! Mi smo Insecto Komarnici, i bavimo se samo jednom stvari: komarnicima. Ne radimo pvc stolariju, tende, ni roletne. Samo komarnike, svaki dan. I to je ono u čemu smo najbolji.</p>
               <p>Naš tim za sada broji petoro ljudi. Sastoji se od mlađih i starijih – tehničara, kreativaca, i administrativaca. Iako imamo različite uloge, delimo jedan zajednički cilj: Da ti pružimo najbolju moguću uslugu, od prvog poziva do poslednjeg šrafa.</p>
             </div>
-            <ButtonLink size="medium" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
+            <div className="about-cta-group">
+              <ButtonLink size="medium" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
+              <GoogleRating />
+            </div>
           </div>
         </div>
       </Container>
