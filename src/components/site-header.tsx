@@ -88,7 +88,7 @@ function MobileMenu() {
           <Link href="/o-nama">O nama</Link>
           <Link href="/kontakt">Kontakt</Link>
         </nav>
-        <ButtonLink size="medium" className="site-menu-phone" href="tel:+381611321324" aria-label="Pozovite Insecto Komarnici na broj 061 132 1324">
+        <ButtonLink size="medium" className="site-menu-phone button-brand" href="tel:+381611321324" aria-label="Pozovite Insecto Komarnici na broj 061 132 1324">
           <PhoneFilled aria-hidden="true" /><span>061 132 1324</span>
         </ButtonLink>
       </div>
@@ -110,7 +110,7 @@ export function SiteHeader() {
       </nav>
 
       <div className="site-header-actions">
-        <ButtonLink size="small" className="site-phone-link" href="tel:+381611321324" aria-label="Pozovite Insecto Komarnici na broj 061 132 1324">
+        <ButtonLink size="small" className="site-phone-link button-brand" href="tel:+381611321324" aria-label="Pozovite Insecto Komarnici na broj 061 132 1324">
           <PhoneFilled aria-hidden="true" /><span>061 132 1324</span>
         </ButtonLink>
 
