@@ -273,7 +273,6 @@
 .final-cta-content .heading { max-width: none; color: var(--color-surface); }
 .final-cta-content .button { max-width: 100%; }
 .button-white { border: 0; }
-.button-brand { background: var(--color-brand); }
 .site-footer { border-top: var(--border-width) solid var(--color-border); background: var(--color-surface); color: var(--color-body); }
 .site-footer-main { display: grid; gap: var(--section-content-gap); padding-block: var(--section-padding); }
 .site-footer-brand { display: grid; align-content: start; max-width: var(--content-text); }
