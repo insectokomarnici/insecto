@@ -273,7 +273,6 @@
 .contact-intro { display: grid; align-content: start; gap: var(--space-6); min-width: 0; }
 .contact-intro h2, .contact-intro p { margin: 0; }
 .contact-intro .heading { color: var(--color-surface); }
-.contact-intro > p:not(.contact-trust) { max-width: var(--content-text); color: var(--color-surface); font-size: var(--text-lead); line-height: var(--text-lead--line-height); }
 .contact-trust { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-surface); font-weight: 700; }
 .contact-trust svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; color: var(--color-surface); }
 .contact-section-form { min-width: 0; }
