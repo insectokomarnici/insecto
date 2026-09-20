@@ -7,7 +7,7 @@ export function FinalCtaSection() {
     <section className="section final-cta-section" aria-labelledby="final-cta-title">
       <Container>
         <div className="final-cta-content">
-          <Heading as="h2" size="section" id="final-cta-title">Zakaži merenje na tvojoj adresi</Heading>
+          <Heading as="h2" size="section" id="final-cta-title">Zakaži merenje na svojoj adresi</Heading>
           <ButtonLink variant="secondary" size="large" className="button-white" href="tel:+381611321324">
             <PhoneFilled aria-hidden="true" />
             Zakaži merenje
