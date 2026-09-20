@@ -272,10 +272,7 @@
 .final-cta-content { display: grid; justify-items: center; gap: var(--space-6); text-align: center; }
 .final-cta-content .heading { max-width: none; color: var(--color-surface); }
 .final-cta-content .button { max-width: 100%; }
-.final-cta-actions { display: flex; flex-direction: column; align-items: center; gap: var(--cta-review-gap); }
 .button-white { border: 0; }
-.final-cta-actions .google-rating-link { color: var(--color-surface); }
-.final-cta-actions .google-rating-value { color: var(--color-surface); }
 .button-brand { background: var(--color-brand); }
 .site-footer { border-top: var(--border-width) solid var(--color-border); background: var(--color-surface); color: var(--color-body); }
 .site-footer-main { display: grid; gap: var(--section-content-gap); padding-block: var(--section-padding); }
