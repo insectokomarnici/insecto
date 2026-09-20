@@ -73,7 +73,6 @@ export function PricingCalculator() {
         <div className="section-inner">
           <div className="section-intro stack">
             <Heading as="h2" size="section" id="calculator-title">Komarnici - Cena</Heading>
-            <p className="text-body">Izračunaj cenu Insecto komarnika po dimenzijama svojih prozora i vrata.</p>
           </div>
           <div className="calculator-content">
             <div className="calculator-copy stack">

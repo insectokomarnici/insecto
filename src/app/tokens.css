@@ -75,6 +75,7 @@
   --page-gutter: var(--space-5);
   --section-padding: var(--space-10);
   --section-content-gap: var(--space-8);
+  --section-intro-gap: var(--space-6);
   --grid-gap: var(--space-4);
   --card-padding: var(--space-6);
   --stack-gap: var(--space-4);
@@ -137,6 +138,7 @@
     --page-gutter: var(--space-6);
     --section-padding: var(--space-12);
     --section-content-gap: var(--space-10);
+    --section-intro-gap: var(--space-8);
     --grid-gap: var(--space-6);
   }
 }
@@ -145,6 +147,7 @@
     --page-gutter: var(--space-8);
     --section-padding: var(--space-16);
     --section-content-gap: var(--space-12);
+    --section-intro-gap: var(--space-10);
     --grid-gap: var(--space-8);
     --card-padding: var(--space-8);
     --leading-hero: 1.166667;

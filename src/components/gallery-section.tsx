@@ -16,7 +16,6 @@ export function GallerySection() {
         <div className="section-inner">
           <div className="section-intro stack">
             <Heading as="h2" size="section" id="gallery-title">Galerija komarnika</Heading>
-            <p className="text-body">Za prozore i vrata svih dimenzija, prilagođeni tvom prostoru</p>
           </div>
           <div className="gallery-grid">
             {galleryItems.map((item, index) => (
