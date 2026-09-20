@@ -1,8 +1,9 @@
 "use client";
 
-import { ChevronDown } from "@carbon/icons-react";
+import { ChevronDown, PhoneFilled } from "@carbon/icons-react";
 import { cn } from "@/lib/cn";
 import { useAnimatedDisclosure } from "@/lib/use-animated-disclosure";
+import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 
 const faqItems = [
@@ -63,11 +64,18 @@ export function FaqSection() {
     <section className="section faq-section" id="faq" aria-labelledby="faq-title">
       <Container>
         <div className="section-inner">
-          <div className="section-intro stack">
-            <Heading as="h2" size="section" id="faq-title">Česta pitanja i odgovori</Heading>
-          </div>
-          <div className="faq-list">
-            {faqItems.map((item, index) => <FaqItem key={item.question} {...item} index={index} />)}
+          <div className="faq-layout">
+            <div className="faq-intro card card-flat">
+              <div className="faq-intro-copy stack">
+                <span className="faq-eyebrow">FAQ</span>
+                <Heading as="h2" size="section" id="faq-title">Česta pitanja</Heading>
+                <p>Pronađi brze odgovore ili nam se javi ako ti treba dodatna pomoć.</p>
+              </div>
+              <ButtonLink size="medium" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
+            </div>
+            <div className="faq-list">
+              {faqItems.map((item, index) => <FaqItem key={item.question} {...item} index={index} />)}
+            </div>
           </div>
         </div>
       </Container>
