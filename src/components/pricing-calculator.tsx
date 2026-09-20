@@ -75,7 +75,7 @@ export function PricingCalculator() {
             <div className="calculator-copy">
               <Heading as="h2" size="section" id="calculator-title">Komarnici - Cena</Heading>
               <div className="calculator-copy-body stack">
-                <p className="text-body">Unesi širinu i visinu otvora u centimetrima. Površinu dobijamo množenjem širine i visine u metrima, a zatim tu površinu množimo cenom po m² za izabrani tip i boju komarnika. <span className="calculator-price-note">Merenje i ugradnja su uračunati u cenu.</span></p>
+                <p className="text-body">Unesi širinu i visinu otvora u centimetrima. Površinu dobijamo množenjem širine i visine u metrima, a zatim tu površinu množimo cenom po m² za izabrani tip i boju komarnika. <span className="calculator-price-note">*Merenje i ugradnja su uračunati u cenu.</span></p>
                 <div className="calculator-diagrams" aria-label="Primer merenja otvora">
                   <div className="calculator-diagram-labels">
                     <span className="field-label">Širina</span>
