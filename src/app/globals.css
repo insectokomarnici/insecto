@@ -257,9 +257,9 @@
 .site-footer-column { display: grid; align-content: start; gap: var(--space-4); }
 .site-footer-heading { margin: 0; color: var(--color-heading); font-family: var(--font-heading); font-size: var(--text-body); line-height: var(--text-body--line-height); font-weight: 700; }
 .site-footer-list { display: grid; align-content: start; gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
-.site-footer-contact a { display: flex; align-items: flex-start; gap: var(--space-2); color: var(--color-body); text-decoration: none; }
+.site-footer-contact a { display: flex; align-items: center; gap: var(--space-2); color: var(--color-body); text-decoration: none; }
 .site-footer-contact a:hover, .site-footer-links a:hover { color: var(--color-brand-light); }
-.site-footer-contact svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; margin-top: 0.125rem; color: var(--color-brand); }
+.site-footer-contact svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; color: var(--color-brand); }
 .site-footer-links a { color: var(--color-body); text-decoration: none; }
 .site-footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3) var(--space-6); padding-block: var(--space-5); border-top: var(--border-width) solid var(--color-border); font-size: var(--text-small); line-height: var(--text-small--line-height); }
 .calculator-section { background: var(--color-surface-subtle); }
