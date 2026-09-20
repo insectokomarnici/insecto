@@ -21,11 +21,11 @@ export function AboutSection() {
             <div className="about-stats" aria-label="Iskustvo i zadovoljstvo klijenata">
               <div className="about-stat">
                 <span className="about-stat-icon"><Group aria-hidden="true" /></span>
-                <span className="about-stat-copy"><strong>2.500+</strong><span>Zadovoljnih kupaca</span></span>
+                <span className="about-stat-copy"><strong>1.500+</strong><span>Zadovoljnih kupaca</span></span>
               </div>
               <div className="about-stat">
                 <span className="about-stat-icon"><Certificate aria-hidden="true" /></span>
-                <span className="about-stat-copy"><strong>5+</strong><span>Godina iskustva</span></span>
+                <span className="about-stat-copy"><strong>6+</strong><span>Godina iskustva</span></span>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@ export function AboutSection() {
               <p>Naš tim za sada broji petoro ljudi. Sastoji se od mlađih i starijih – tehničara, kreativaca, i administrativaca. Iako imamo različite uloge, delimo jedan zajednički cilj: Da ti pružimo najbolju moguću uslugu, od prvog poziva do poslednjeg šrafa.</p>
             </div>
             <div className="about-cta-group">
-              <ButtonLink size="medium" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
+              <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
               <GoogleRating />
             </div>
           </div>

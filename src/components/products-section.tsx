@@ -59,7 +59,7 @@ function ProductCard({ product }: { product: Product }) {
 
         <div className="product-card-actions">
           <ButtonLink
-            size="medium"
+            size="large"
             href="tel:+381611321324"
             aria-label={`Zakaži merenje za ${product.title}`}
           >
