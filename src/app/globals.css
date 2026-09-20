@@ -268,7 +268,7 @@
 .faq-content-inner { padding: 0 var(--space-4) var(--space-5); }
 .faq-content-inner p { margin: 0; }
 .faq-item summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
-.final-cta-section { background: var(--color-brand-light); }
+.final-cta-section { background: var(--primary-gradient); }
 .final-cta-content { display: grid; justify-items: center; gap: var(--space-6); text-align: center; }
 .final-cta-content .heading { max-width: var(--content-text); color: var(--color-surface); }
 .final-cta-content .button { max-width: 100%; }
