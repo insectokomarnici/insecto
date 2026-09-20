@@ -71,9 +71,12 @@ export function PricingCalculator() {
     <section className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
       <Container>
         <div className="section-inner">
+          <div className="section-intro calculator-intro">
+            <Heading as="h2" size="section" id="calculator-title">Komarnici - Cena</Heading>
+          </div>
           <div className="calculator-content">
-            <div className="calculator-copy">
-              <Heading as="h2" size="section" id="calculator-title">Komarnici - Cena</Heading>
+            <Card elevation="none" className="calculator-copy">
+              <Heading as="h3" size="card">Kako računamo cenu?</Heading>
               <div className="calculator-copy-body stack">
                 <p className="text-body">Unesi širinu i visinu otvora u centimetrima. Površinu dobijamo množenjem širine i visine u metrima, a zatim tu površinu množimo cenom po m² za izabrani tip i boju komarnika. <span className="calculator-price-note">*Merenje i ugradnja su uračunati u cenu.</span></p>
                 <div className="calculator-diagrams" aria-label="Primer merenja otvora">
@@ -84,7 +87,7 @@ export function PricingCalculator() {
                   <Image className="calculator-diagram" src="/images/calculator-measurements.svg" alt="" width={236} height={150} />
                 </div>
               </div>
-            </div>
+            </Card>
 
             <Card elevation="none" className="calculator-panel">
               <form className="calculator-form" onSubmit={handleAddItem}>
