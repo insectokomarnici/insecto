@@ -42,7 +42,7 @@ export default function Home() {
             </div>
             <div className="hero-media">
               <Image
-                src="/hero-montaza.gif"
+                src="/hero-montaza.webp"
                 alt="Ugradnja komarnika na prozoru"
                 fill
                 preload
