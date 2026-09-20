@@ -249,7 +249,7 @@
 }
 .faq-section { background: var(--color-surface-subtle); }
 .faq-layout { display: grid; gap: var(--grid-gap); align-items: start; }
-.faq-intro { display: flex; min-width: 0; flex-direction: column; justify-content: flex-start; gap: var(--cta-gap); }
+.faq-intro { display: flex; min-width: 0; flex-direction: column; justify-content: flex-start; gap: var(--cta-gap); padding: var(--card-padding); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); }
 .faq-intro-copy { align-content: start; }
 .faq-intro-copy h2, .faq-intro-copy p { margin: 0; }
 .faq-intro-copy p { color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
