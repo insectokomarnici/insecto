@@ -25,7 +25,7 @@ export function ContactSection() {
               <TextField name="name" label="Ime" autoComplete="name" placeholder="Kako se zoveš?" />
               <TextField name="phone" label="Broj telefona" type="tel" inputMode="tel" autoComplete="tel" placeholder="060 1234567" />
             </div>
-            <TextArea name="message" label="Poruka" rows={5} placeholder="Gde se nalazi prostor, približna kvadratura i šta treba da se uradi..." />
+            <TextArea name="message" label="Poruka" rows={5} />
             <div className="contact-form-footer">
               <p className="contact-form-note">Tvoje ime, broj i poruku koristimo samo da ti odgovorimo na upit.</p>
               <Button type="submit" variant="secondary" size="large">Pošalji upit</Button>
