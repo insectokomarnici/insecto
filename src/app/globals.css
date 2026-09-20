@@ -365,8 +365,9 @@
 }
 @media (max-width: 63.99rem) {
   .hero-section { padding-bottom: 0; }
-  .hero-content { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; min-height: auto; gap: var(--space-8); }
-  .hero-media { width: 100%; aspect-ratio: 3 / 4; }
+  .hero-content { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; min-height: auto; gap: var(--space-4); }
+  .hero-media { width: 100%; aspect-ratio: 4 / 3; }
+  .hero-image { object-position: center 30%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .site-menu-icon, .site-menu-panel, .product-accordion summary svg, .product-accordion-content, .faq-item summary svg, .faq-content { transition: none; }
