@@ -3,7 +3,7 @@
 import { Email, Phone, Time } from "@carbon/icons-react";
 import { useEffect, useState } from "react";
 
-const BANNER_ROTATION_INTERVAL_MS = 3500;
+const BANNER_ROTATION_INTERVAL_MS = 3000;
 
 const contactItems = [
   { href: "tel:+381611321324", label: "061 132 1324", Icon: Phone },
@@ -30,13 +30,17 @@ function ContactItem({
 
 export function SiteBanner() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [previousIndex, setPreviousIndex] = useState<number | null>(null);
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     if (paused) return;
 
     const interval = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % contactItems.length);
+      setActiveIndex((current) => {
+        setPreviousIndex(current);
+        return (current + 1) % contactItems.length;
+      });
     }, BANNER_ROTATION_INTERVAL_MS);
 
     return () => window.clearInterval(interval);
@@ -54,9 +58,13 @@ export function SiteBanner() {
         }}
       >
         <div className="site-banner-slides" aria-live="polite">
-          {contactItems.map((item, index) => <div className={`site-banner-slide${index === activeIndex ? " is-active" : ""}`} aria-hidden={index !== activeIndex} key={item.label}>
+          {contactItems.map((item, index) => {
+            const slideState = index === activeIndex ? "is-active" : index === previousIndex ? "is-exiting" : "";
+
+            return <div className={`site-banner-slide ${slideState}`} aria-hidden={index !== activeIndex} key={item.label}>
             <ContactItem item={item} active={index === activeIndex} />
-          </div>)}
+            </div>;
+          })}
         </div>
       </div>
     </div>
