@@ -65,7 +65,7 @@ export function FaqSection() {
       <Container>
         <div className="section-inner">
           <div className="faq-layout">
-            <div className="faq-intro card card-flat">
+            <div className="faq-intro">
               <div className="faq-intro-copy stack">
                 <Heading as="h2" size="section" id="faq-title">Česta pitanja</Heading>
                 <p>Pronađi brze odgovore ili nam se javi ako ti treba dodatna pomoć.</p>
