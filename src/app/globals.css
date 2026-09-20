@@ -268,18 +268,21 @@
 .faq-content-inner { padding: 0 var(--space-4) var(--space-5); }
 .faq-content-inner p { margin: 0; }
 .faq-item summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
-.contact-section { background: var(--color-brand); }
-.contact-panel { display: grid; gap: var(--section-content-gap); padding: var(--section-padding-compact); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-panel); background: var(--color-accent-surface); }
+.contact-section { background: var(--color-surface-subtle); }
+.contact-panel { display: grid; gap: var(--section-content-gap); padding: var(--section-padding-compact); border: var(--border-width) solid var(--color-brand); border-radius: var(--radius-panel); background: var(--color-brand); }
 .contact-intro { display: grid; align-content: start; gap: var(--space-6); min-width: 0; }
 .contact-intro h2, .contact-intro p { margin: 0; }
+.contact-intro .heading { color: var(--color-surface); }
 .contact-eyebrow { color: var(--color-accent); font-family: var(--font-heading); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: 700; letter-spacing: 0.12em; }
 .contact-heading-accent { color: var(--color-accent); }
-.contact-intro > p:not(.contact-trust) { max-width: var(--content-text); color: var(--color-body); font-size: var(--text-lead); line-height: var(--text-lead--line-height); }
-.contact-trust { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-heading); font-weight: 700; }
+.contact-intro > p:not(.contact-trust) { max-width: var(--content-text); color: var(--color-surface); font-size: var(--text-lead); line-height: var(--text-lead--line-height); }
+.contact-trust { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-surface); font-weight: 700; }
 .contact-trust svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; color: var(--color-accent); }
 .contact-section-form { min-width: 0; }
+.contact-section-form .field-label { color: var(--color-surface); }
+.contact-section-form .field-note { color: var(--color-surface); }
 .contact-form-footer { display: grid; gap: var(--space-4); align-items: end; }
-.contact-form-note { max-width: var(--content-text); margin: 0; color: var(--color-body); font-size: var(--text-small); line-height: var(--text-small--line-height); }
+.contact-form-note { max-width: var(--content-text); margin: 0; color: var(--color-surface); font-size: var(--text-small); line-height: var(--text-small--line-height); }
 .contact-form-footer .button { width: fit-content; }
 .site-footer { border-top: var(--border-width) solid var(--color-border); background: var(--color-surface); color: var(--color-body); }
 .site-footer-main { display: grid; gap: var(--section-content-gap); padding-block: var(--section-padding); }

@@ -33,7 +33,7 @@ export function ContactSection() {
             <TextArea name="message" label="Poruka" rows={5} placeholder="Gde se nalazi prostor, približna kvadratura i šta treba da se uradi..." />
             <div className="contact-form-footer">
               <p className="contact-form-note">Tvoje ime, broj i poruku koristimo samo da ti odgovorimo na upit.</p>
-              <Button type="submit" size="large">Pošalji upit</Button>
+              <Button type="submit" variant="secondary" size="large">Pošalji upit</Button>
             </div>
           </form>
         </div>
