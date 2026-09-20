@@ -248,7 +248,7 @@
   .gallery-caption { display: none; }
 }
 .faq-section { background: var(--color-surface-subtle); }
-.faq-layout { display: grid; gap: var(--grid-gap); align-items: stretch; }
+.faq-layout { display: grid; gap: var(--grid-gap); align-items: start; }
 .faq-intro { display: flex; min-width: 0; flex-direction: column; justify-content: flex-start; gap: var(--cta-gap); }
 .faq-intro-copy { align-content: start; }
 .faq-intro-copy h2, .faq-intro-copy p { margin: 0; }
@@ -370,7 +370,10 @@
 @media (min-width: 48rem) { .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 48rem) { .site-footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 64rem) { .site-footer-main { grid-template-columns: minmax(0, 1fr) repeat(3, max-content); column-gap: var(--space-12); } }
-@media (min-width: 64rem) { .faq-layout { grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); } }
+@media (min-width: 64rem) {
+  .faq-layout { grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); }
+  .faq-intro { position: sticky; top: var(--space-6); align-self: start; }
+}
 @media (max-width: 47.99rem) { .site-footer-bottom { flex-direction: column; align-items: center; gap: var(--space-2); text-align: center; } }
 @media (min-width: 48rem) { .floating-call-button { display: none; } }
 @media (min-width: 64rem) { .products-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
