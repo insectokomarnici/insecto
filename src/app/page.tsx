@@ -11,6 +11,7 @@ import { PricingCalculator } from "@/components/pricing-calculator";
 import { GallerySection } from "@/components/gallery-section";
 import { FaqSection } from "@/components/faq-section";
 import { SiteFooter } from "@/components/site-footer";
+import { FloatingCallButton } from "@/components/floating-call-button";
 import { Badge, Container, Heading } from "@/components/ui/layout";
 import { ButtonLink } from "@/components/ui/button";
 
@@ -61,5 +62,6 @@ export default function Home() {
       <FaqSection />
     </main>
     <SiteFooter />
+    <FloatingCallButton />
   </>;
 }

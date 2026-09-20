@@ -263,6 +263,9 @@
 .site-footer-contact svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; color: var(--color-brand); }
 .site-footer-links a { color: var(--color-body); text-decoration: none; }
 .site-footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3) var(--space-6); padding-block: var(--space-5); border-top: var(--border-width) solid var(--color-border); font-size: var(--text-small); line-height: var(--text-small--line-height); }
+.floating-call-button { position: fixed; right: var(--space-5); bottom: var(--space-5); z-index: var(--z-floating); display: inline-flex; align-items: center; justify-content: center; width: var(--floating-call-size); height: var(--floating-call-size); border-radius: var(--radius-pill); color: var(--color-surface); background: var(--color-brand); box-shadow: var(--shadow-raised); }
+.floating-call-button svg { width: var(--icon-feature); height: var(--icon-feature); flex: none; }
+.floating-call-button:focus-visible { outline: none; box-shadow: var(--focus-ring), var(--shadow-raised); }
 .calculator-section { background: var(--color-surface-subtle); }
 .calculator-content { display: grid; gap: var(--section-content-gap); align-items: start; }
 .calculator-copy { min-width: 0; }
@@ -348,6 +351,7 @@
 @media (min-width: 48rem) { .site-footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 64rem) { .site-footer-main { grid-template-columns: minmax(0, 1fr) repeat(3, max-content); column-gap: var(--space-12); } }
 @media (max-width: 47.99rem) { .site-footer-bottom { flex-direction: column; align-items: center; gap: var(--space-2); text-align: center; } }
+@media (min-width: 48rem) { .floating-call-button { display: none; } }
 @media (min-width: 64rem) { .products-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 64rem) { .about-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 @media (min-width: 40rem) { .calculator-field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

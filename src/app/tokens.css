@@ -98,6 +98,8 @@
   --button-height-small: 2.5rem;
   --button-height-medium: 3rem;
   --button-height-large: 3.25rem;
+  --floating-call-size: 3.75rem;
+  --z-floating: 40;
   --button-padding-inline-small: 1rem;
   --button-padding-inline-medium: 1.25rem;
   --button-padding-inline-large: 1.375rem;
