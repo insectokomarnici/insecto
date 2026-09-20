@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { PhoneFilled, Ruler, Tools } from "@carbon/icons-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
@@ -36,9 +35,8 @@ export function ProcessSection() {
             <Heading as="h2" size="section" id="process-title">Kako do komarnika u 3 koraka</Heading>
           </div>
           <div className="process-steps">
-            {steps.map(({ title, body, surface, Icon }, index) => (
+            {steps.map(({ title, body, surface, Icon }) => (
               <article className={`process-step process-step-${surface}`} key={title}>
-                <Image className="process-step-number" src={`/images/process/${index + 1}.svg`} alt="" width={63} height={107} aria-hidden="true" />
                 <Heading as="h3" size="card"><span className="process-step-heading"><Icon aria-hidden="true" /><span>{title}</span></span></Heading>
                 <p className="process-step-body">{body}</p>
               </article>

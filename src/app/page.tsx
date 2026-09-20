@@ -27,7 +27,6 @@ export default function Home() {
     <SiteHeader />
     <main id="main">
       <section className="section hero-section" aria-labelledby="hero-title">
-        <div className="hero-overlay" aria-hidden="true" />
         <Container>
           <div className="hero-content">
             <div className="hero-copy stack">
@@ -41,13 +40,14 @@ export default function Home() {
                 <GoogleRating />
               </div>
             </div>
-            <div className="hero-background" aria-hidden="true">
+            <div className="hero-media">
               <Image
-                src="/hero-komarnici.png"
-                alt=""
+                src="/hero-montaza.gif"
+                alt="Ugradnja komarnika na prozoru"
                 fill
                 preload
-                sizes="(min-width: 64rem) 56vw, 100vw"
+                unoptimized
+                sizes="(min-width: 64rem) 42vw, 100vw"
                 className="hero-image"
               />
             </div>
