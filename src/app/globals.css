@@ -16,6 +16,7 @@
 @layer components {
   .site-container { width: min(var(--container-wide), calc(100% - var(--page-gutter) - var(--page-gutter))); margin-inline: auto; }
   .site-container-narrow { max-width: var(--container-narrow); }
+  .site-chrome { position: sticky; top: 0; z-index: 30; }
   .section { padding-block: var(--section-padding); }
   .section-inner { display: grid; gap: var(--section-content-gap); }
   .section-inner > .section-intro + * { margin-top: calc(var(--section-intro-gap) - var(--section-content-gap)); }

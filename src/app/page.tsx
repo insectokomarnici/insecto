@@ -24,8 +24,10 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return <>
-    <SiteBanner />
-    <SiteHeader />
+    <div className="site-chrome">
+      <SiteBanner />
+      <SiteHeader />
+    </div>
     <main id="main">
       <section className="section hero-section" aria-labelledby="hero-title">
         <Container>
