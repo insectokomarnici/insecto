@@ -70,7 +70,7 @@ export function FaqSection() {
                 <Heading as="h2" size="section" id="faq-title">Česta pitanja</Heading>
                 <p>Pronađi brze odgovore ili nam se javi ako ti treba dodatna pomoć.</p>
               </div>
-              <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Pozovi nas</ButtonLink>
+              <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />061 132 1324</ButtonLink>
             </div>
             <div className="faq-list">
               {faqItems.map((item, index) => <FaqItem key={item.question} {...item} index={index} />)}
