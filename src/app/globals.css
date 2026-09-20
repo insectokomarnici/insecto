@@ -268,6 +268,11 @@
 .faq-content-inner { padding: 0 var(--space-4) var(--space-5); }
 .faq-content-inner p { margin: 0; }
 .faq-item summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+.final-cta-section { background: var(--color-brand-light); }
+.final-cta-content { display: grid; justify-items: center; gap: var(--space-6); text-align: center; }
+.final-cta-content .heading { max-width: var(--content-text); color: var(--color-surface); }
+.final-cta-content .button { max-width: 100%; }
+.final-cta-button { background: var(--color-brand); }
 .site-footer { border-top: var(--border-width) solid var(--color-border); background: var(--color-surface); color: var(--color-body); }
 .site-footer-main { display: grid; gap: var(--section-content-gap); padding-block: var(--section-padding); }
 .site-footer-brand { display: grid; align-content: start; max-width: var(--content-text); }
