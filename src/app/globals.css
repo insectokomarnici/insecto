@@ -254,8 +254,8 @@
 .faq-intro-copy h2, .faq-intro-copy p { margin: 0; }
 .faq-intro-copy p { color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .faq-intro > .button { align-self: start; }
-.faq-list { display: grid; width: auto; gap: 0; margin: 0; padding: var(--space-4); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); }
-.faq-item { min-width: 0; border: 0; border-bottom: var(--border-width) solid var(--color-border); border-radius: 0; background: transparent; overflow: visible; }
+.faq-list { display: grid; width: auto; gap: var(--space-3); margin: 0; padding: var(--space-4); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); }
+.faq-item { min-width: 0; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); overflow: hidden; }
 .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: var(--button-height-medium); padding-block: var(--space-4); color: var(--color-heading); font-family: var(--font-heading); font-size: var(--text-body); font-weight: 600; line-height: var(--text-body--line-height); cursor: pointer; list-style: none; }
 .faq-item summary { padding-inline: var(--space-4); }
 .faq-item summary::-webkit-details-marker { display: none; }
@@ -295,7 +295,7 @@
 .calculator-copy-body { min-width: 0; gap: var(--space-6); }
 .calculator-copy p { margin: 0; }
 .calculator-price-note { display: block; margin-top: var(--space-1); color: var(--color-brand); font-weight: 600; }
-.calculator-diagrams { display: grid; width: min(100%, var(--grid-item-min)); gap: var(--space-2); margin-inline: auto; }
+.calculator-diagrams { display: grid; width: min(100%, var(--grid-item-min)); gap: var(--space-2); margin-inline: 0; }
 .calculator-diagram-labels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--stack-gap); text-align: center; }
 .calculator-diagram-labels .field-label { margin: 0; }
 .calculator-diagram { display: block; width: 100%; height: auto; }
