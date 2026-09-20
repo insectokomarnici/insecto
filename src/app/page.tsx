@@ -10,7 +10,6 @@ import { AboutSection } from "@/components/about-section";
 import { PricingCalculator } from "@/components/pricing-calculator";
 import { GallerySection } from "@/components/gallery-section";
 import { FaqSection } from "@/components/faq-section";
-import { FinalCtaSection } from "@/components/final-cta-section";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingCallButton } from "@/components/floating-call-button";
 import { Badge, Container, Heading } from "@/components/ui/layout";
@@ -61,7 +60,6 @@ export default function Home() {
       <PricingCalculator />
       <GallerySection />
       <FaqSection />
-      <FinalCtaSection />
     </main>
     <SiteFooter />
     <FloatingCallButton />

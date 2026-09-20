@@ -268,11 +268,6 @@
 .faq-content-inner { padding: 0 var(--space-4) var(--space-5); }
 .faq-content-inner p { margin: 0; }
 .faq-item summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
-.final-cta-section { padding-block: var(--section-padding-compact); background: var(--color-brand); }
-.final-cta-content { display: grid; justify-items: center; gap: var(--space-6); text-align: center; }
-.final-cta-content .heading { max-width: none; color: var(--color-surface); }
-.final-cta-content .button { max-width: 100%; }
-.button-white { border: 0; }
 .site-footer { border-top: var(--border-width) solid var(--color-border); background: var(--color-surface); color: var(--color-body); }
 .site-footer-main { display: grid; gap: var(--section-content-gap); padding-block: var(--section-padding); }
 .site-footer-brand { display: grid; align-content: start; max-width: var(--content-text); }
@@ -375,7 +370,6 @@
 @media (min-width: 48rem) { .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 48rem) { .site-footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 64rem) { .site-footer-main { grid-template-columns: minmax(0, 1fr) repeat(3, max-content); column-gap: var(--space-12); } }
-@media (min-width: 48rem) { .final-cta-content .heading { white-space: nowrap; } }
 @media (min-width: 64rem) {
   .faq-layout { grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); }
   .faq-intro { position: sticky; top: var(--space-6); align-self: start; }
