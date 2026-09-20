@@ -295,10 +295,10 @@
 .calculator-copy-body { min-width: 0; gap: var(--space-6); }
 .calculator-copy p { margin: 0; }
 .calculator-price-note { display: block; margin-top: var(--space-1); color: var(--color-brand); font-weight: 600; }
-.calculator-diagrams { display: grid; width: 100%; gap: var(--space-2); margin-inline: 0; padding: var(--space-4); border-radius: var(--radius-input); background: var(--color-surface-subtle); }
-.calculator-diagram-labels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--stack-gap); text-align: center; }
+.calculator-diagrams { display: grid; justify-items: center; width: 100%; gap: var(--space-2); margin-inline: 0; padding: var(--space-4); border-radius: var(--radius-input); background: var(--color-surface-subtle); }
+.calculator-diagram-labels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--stack-gap); width: min(100%, 14.75rem); text-align: center; }
 .calculator-diagram-labels .field-label { margin: 0; }
-.calculator-diagram { display: block; width: min(100%, 14.75rem); height: auto; }
+.calculator-diagram { display: block; width: 100%; max-width: 14.75rem; height: auto; margin-inline: auto; }
 .calculator-panel { display: grid; gap: var(--space-8); }
 .calculator-form { display: grid; gap: var(--form-field-gap); }
 .calculator-field-grid { display: grid; gap: var(--form-field-gap); }
