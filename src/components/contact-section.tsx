@@ -24,7 +24,7 @@ export function ContactSection() {
           <form className="contact-form contact-section-form" aria-label="Kontakt forma" onSubmit={handleSubmit}>
             <div className="field-grid">
               <TextField name="name" label="Ime" autoComplete="name" placeholder="Kako se zoveš?" />
-              <TextField name="phone" label="Broj telefona" type="tel" inputMode="tel" autoComplete="tel" placeholder="06x xxx xxxx" />
+              <TextField name="phone" label="Broj telefona" type="tel" inputMode="tel" autoComplete="tel" placeholder="060 1234567" />
             </div>
             <TextArea name="message" label="Poruka" rows={5} placeholder="Gde se nalazi prostor, približna kvadratura i šta treba da se uradi..." />
             <div className="contact-form-footer">
