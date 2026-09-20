@@ -67,11 +67,10 @@ export function FaqSection() {
           <div className="faq-layout">
             <div className="faq-intro card card-flat">
               <div className="faq-intro-copy stack">
-                <span className="faq-eyebrow">FAQ</span>
                 <Heading as="h2" size="section" id="faq-title">Česta pitanja</Heading>
                 <p>Pronađi brze odgovore ili nam se javi ako ti treba dodatna pomoć.</p>
               </div>
-              <ButtonLink size="medium" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
+              <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
             </div>
             <div className="faq-list">
               {faqItems.map((item, index) => <FaqItem key={item.question} {...item} index={index} />)}
