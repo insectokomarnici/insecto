@@ -73,11 +73,12 @@ export function PricingCalculator() {
         <div className="section-inner">
           <div className="section-intro stack">
             <Heading as="h2" size="section" id="calculator-title">Komarnici - Cena</Heading>
+            <p className="text-body">Izračunaj cenu Insecto komarnika po dimenzijama svojih prozora i vrata.</p>
           </div>
           <div className="calculator-content">
             <div className="calculator-copy stack">
               <Heading as="h3" size="card">Kako računamo cenu?</Heading>
-              <p className="text-body">Unosiš širinu i visinu otvora u centimetrima. Površinu dobijamo kao širina × visina u metrima. Zatim površinu množimo cenom po m² za izabrani tip komarnika.</p>
+              <p className="text-body">Unesi širinu i visinu otvora u centimetrima. Površinu računamo tako što dimenzije pretvorimo u metre i pomnožimo ih. Dobijenu površinu zatim množimo cenom po m² za izabrani tip komarnika. <strong className="calculator-note">Cena uključuje merenje na adresi i montažu.</strong></p>
               <div className="calculator-diagrams" aria-label="Primer merenja otvora">
                 <div className="calculator-diagram-item">
                   <span className="field-label">Širina</span>

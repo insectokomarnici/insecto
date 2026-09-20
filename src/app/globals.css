@@ -267,6 +267,7 @@
 .calculator-content { display: grid; gap: var(--section-content-gap); align-items: start; }
 .calculator-copy { min-width: 0; }
 .calculator-copy .heading-card, .calculator-copy p { margin: 0; }
+.calculator-note { font-weight: 700; }
 .calculator-copy .text-lead { max-width: var(--content-text); }
 .calculator-diagrams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gap); column-gap: var(--space-20); max-width: 26rem; margin-inline: auto; }
 .calculator-diagram-item { display: grid; justify-items: center; gap: var(--space-2); text-align: center; }
@@ -364,10 +365,10 @@
   .ds-spec-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 63.99rem) {
-  .hero-section { padding-bottom: 0; }
+  .hero-section { padding-bottom: var(--space-4); }
   .hero-content { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; min-height: auto; gap: var(--space-4); }
-  .hero-media { width: 100%; aspect-ratio: 4 / 3; }
-  .hero-image { object-position: center 30%; }
+  .hero-media { width: 100%; aspect-ratio: 3 / 4; }
+  .hero-image { object-position: center; }
 }
 @media (prefers-reduced-motion: reduce) {
   .site-menu-icon, .site-menu-panel, .product-accordion summary svg, .product-accordion-content, .faq-item summary svg, .faq-content { transition: none; }
