@@ -125,6 +125,7 @@
   --focus-width: 0.1875rem;
   --focus-ring: 0 0 0 var(--focus-gap) var(--color-surface), 0 0 0 calc(var(--focus-gap) + var(--focus-width)) var(--color-brand-light);
   --primary-gradient: linear-gradient(110deg in srgb, var(--color-brand-light), var(--color-brand));
+  --accent-gradient: linear-gradient(110deg in srgb, var(--color-accent-surface), var(--color-accent));
   --icon-inline: 1rem;
   --icon-action: 1.25rem;
   --icon-feature: 1.5rem;
