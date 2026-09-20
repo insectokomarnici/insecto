@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Add, ChevronDown, TrashCan } from "@carbon/icons-react";
 import { useMemo, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
-import { Container, Heading } from "@/components/ui/layout";
+import { Card, Container, Heading } from "@/components/ui/layout";
 import { colorOptions, getPricePerM2, pricingOptions, type PricingColor, type PricingType } from "@/lib/pricing";
 
 type CalculatorItem = {
@@ -71,26 +71,22 @@ export function PricingCalculator() {
     <section className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
       <Container>
         <div className="section-inner">
-          <div className="section-intro stack">
-            <Heading as="h2" size="section" id="calculator-title">Komarnici - Cena</Heading>
-          </div>
           <div className="calculator-content">
-            <div className="calculator-copy stack">
-              <Heading as="h3" size="card">Kako računamo cenu?</Heading>
-              <p className="text-body">Unesi širinu i visinu otvora u centimetrima. Površinu dobijamo množenjem širine i visine u metrima, a zatim tu površinu množimo cenom po m² za izabrani tip i boju komarnika. Merenje i ugradnja su uračunati u cenu.</p>
-              <div className="calculator-diagrams" aria-label="Primer merenja otvora">
-                <div className="calculator-diagram-item">
-                  <span className="field-label">Širina</span>
-                  <Image className="calculator-diagram" src="/images/sirina.svg" alt="" width={110} height={160} />
-                </div>
-                <div className="calculator-diagram-item">
-                  <span className="field-label">Visina</span>
-                  <Image className="calculator-diagram" src="/images/visina.svg" alt="" width={110} height={160} />
+            <div className="calculator-copy">
+              <Heading as="h2" size="section" id="calculator-title">Komarnici - Cena</Heading>
+              <div className="calculator-copy-body stack">
+                <p className="text-body">Unesi širinu i visinu otvora u centimetrima. Površinu dobijamo množenjem širine i visine u metrima, a zatim tu površinu množimo cenom po m² za izabrani tip i boju komarnika. <span className="calculator-price-note">Merenje i ugradnja su uračunati u cenu.</span></p>
+                <div className="calculator-diagrams" aria-label="Primer merenja otvora">
+                  <div className="calculator-diagram-labels">
+                    <span className="field-label">Širina</span>
+                    <span className="field-label">Visina</span>
+                  </div>
+                  <Image className="calculator-diagram" src="/images/calculator-measurements.svg" alt="" width={236} height={150} />
                 </div>
               </div>
             </div>
 
-            <div className="calculator-panel card card-flat">
+            <Card elevation="none" className="calculator-panel">
               <form className="calculator-form" onSubmit={handleAddItem}>
                 <div className="calculator-field-grid">
                   <div className="field">
@@ -175,7 +171,7 @@ export function PricingCalculator() {
                   <strong aria-live="polite">{(items.length > 0 ? itemsTotal : calculation.total).toFixed(2)} €</strong>
                 </div>
               </div>
-            </div>
+            </Card>
           </div>
         </div>
       </Container>

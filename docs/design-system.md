@@ -211,7 +211,7 @@ Proposed minimum field set:
 
 A phone number is enough for the business to respond to an inquiry. Email can be added if that channel is selected later. The form structure is a proposal, not an assumption about an existing business process.
 
-Controls use Manrope 400, 1rem, 1.625 line-height and a minimum height of 3.25rem with a 0.5rem radius. The textarea has a minimum height of 8rem and can grow vertically. Labels remain visible and are associated with controls; placeholders are supporting text only. Required state is written in text. Two short controls may use two columns; below 40rem they become one column.
+Controls use Manrope 400, 1rem, 1.625 line-height and a minimum height of 3.25rem with a 0.5rem radius. The textarea has a minimum height of 8rem and can grow vertically. Labels remain visible and are associated with controls; placeholders are supporting text only. Required state is written in text. Controls with a unit suffix reserve the shared `--control-suffix-space` token so the value and suffix remain readable at every breakpoint. Two short controls may use two columns; below 40rem they become one column.
 
 The added required control-border color is `#7B879A`. Its contrast is 3.64:1 against white and 3.42:1 against the light-gray `#F6F8FB`. This separates a functional control boundary from a subtle decorative card border. The proposal adds one neutral token to the palette.
 

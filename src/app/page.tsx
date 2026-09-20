@@ -55,8 +55,8 @@ export default function Home() {
         </Container>
       </section>
       <ProductsSection />
-      <ProcessSection />
       <AboutSection />
+      <ProcessSection />
       <PricingCalculator />
       <GallerySection />
       <FaqSection />
