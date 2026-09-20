@@ -3,7 +3,7 @@
 import { Email, Phone, Time } from "@carbon/icons-react";
 import { useEffect, useState } from "react";
 
-const BANNER_ROTATION_INTERVAL_MS = 5000;
+const BANNER_ROTATION_INTERVAL_MS = 3500;
 
 const contactItems = [
   { href: "tel:+381611321324", label: "061 132 1324", Icon: Phone },
