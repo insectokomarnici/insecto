@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Stop } from "@boxicons/react";
 import { PhoneFilled } from "@carbon/icons-react";
 import { SiteBanner } from "@/components/site-banner";
 import { SiteHeader } from "@/components/site-header";
@@ -34,7 +33,7 @@ export default function Home() {
         <Container>
           <div className="hero-content">
             <div className="hero-copy stack">
-              <Badge variant="error"><Stop pack="filled" aria-hidden="true" />KOMARCI STOP!</Badge>
+              <Badge variant="error">⛔ BUBE STOP!</Badge>
               <Heading as="h1" size="hero" id="hero-title">Komarnici Novi Sad: Prodaja i ugradnja komarnika po meri</Heading>
               <p className="hero-description prose-width">Izrada fiksnih, rolo i plise komarnika po tvojoj meri. Ceo proces, od prvog poziva do ugradnje komarnika, završavamo u roku od 3 do 5 dana. Nema čekanja nedeljama zato nas nazovi danas kako bismo izmerili tvoje prozore i vrata.</p>
               <div className="hero-cta-group">
