@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown } from "@boxicons/react";
+import { ChevronDown } from "@carbon/icons-react";
 import { cn } from "@/lib/cn";
 import { useAnimatedDisclosure } from "@/lib/use-animated-disclosure";
 import type { Product } from "@/lib/products";

@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronDown, Plus, Trash } from "@boxicons/react";
+import { Plus, Trash } from "@boxicons/react";
+import { ChevronDown } from "@carbon/icons-react";
 import { useMemo, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, Container, Heading } from "@/components/ui/layout";

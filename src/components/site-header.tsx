@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown } from "@boxicons/react";
-import { PhoneFilled } from "@carbon/icons-react";
+import { PhoneFilled, ChevronDown } from "@carbon/icons-react";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/layout";
