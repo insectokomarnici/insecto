@@ -46,7 +46,6 @@ export function SiteFooter() {
 
         <div className="site-footer-bottom">
           <span>© 2026 Insecto Komarnici. Sva prava zadržana.</span>
-          <span>Novi Sad i bliža okolina</span>
         </div>
       </Container>
     </footer>
