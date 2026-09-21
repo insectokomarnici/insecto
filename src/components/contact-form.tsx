@@ -63,11 +63,11 @@ export function ContactForm({ submitContact, successMessage = "Poruka je uspešn
   return <form ref={formRef} className={cn("contact-form", className)} noValidate aria-label="Kontakt forma" aria-busy={busy} onSubmit={submit}>
     <div className="field-grid">
       <TextField name="name" label={nameLabel} optional autoComplete="name" maxLength={80} placeholder={namePlaceholder} value={values.name} readOnly={busy} error={errors.name} onChange={(e) => update("name", e.target.value)} />
-      <TextField name="phone" label={phoneLabel} type="tel" inputMode="tel" autoComplete="tel" required maxLength={40} placeholder={phonePlaceholder} hint="Dozvoljeni su razmaci, zagrade i početni +." value={values.phone} readOnly={busy} error={errors.phone} onChange={(e) => update("phone", e.target.value)} onBlur={() => {
+      <TextField name="phone" label={phoneLabel} type="tel" inputMode="tel" autoComplete="tel" required maxLength={40} placeholder={phonePlaceholder} value={values.phone} readOnly={busy} error={errors.phone} onChange={(e) => update("phone", e.target.value)} onBlur={() => {
         if (!busy && (phoneTouched || values.phone.trim())) { setPhoneTouched(true); setErrors((current) => ({ ...current, phone: validateContact(values).phone })); }
       }} />
     </div>
-    <TextArea name="message" label="Poruka" optional rows={4} maxLength={1000} placeholder={messagePlaceholder} hint="Možete navesti broj prozora i vrata. Do 1000 znakova." value={values.message} readOnly={busy} error={errors.message} onChange={(e) => update("message", e.target.value)} />
+    <TextArea name="message" label="Poruka" optional rows={4} maxLength={1000} placeholder={messagePlaceholder} value={values.message} readOnly={busy} error={errors.message} onChange={(e) => update("message", e.target.value)} />
     <div role="alert" aria-atomic="true" className="feedback">{feedback === "invalid" ? <Notice tone="error">Upit nije poslat. Proverite označeno polje.</Notice> : feedback === "error" ? <Notice tone="error">{failureMessage}</Notice> : null}</div>
     <div role="status" aria-live="polite" aria-atomic="true" className="feedback">{feedback === "sending" ? <Notice>Slanje je u toku…</Notice> : feedback === "success" ? <Notice tone="success">{successMessage}</Notice> : null}</div>
     <div className="contact-form-footer">{footerNote && <p className="contact-form-note">{footerNote}</p>}<Button type="submit" loading={busy} variant={buttonVariant} size={buttonSize}>{submitLabel}</Button></div>
