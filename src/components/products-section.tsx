@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight } from "@boxicons/react";
 import { PhoneFilled } from "@carbon/icons-react";
+import { ArrowRight } from "@carbon/icons-react";
 import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { ButtonLink } from "@/components/ui/button";
