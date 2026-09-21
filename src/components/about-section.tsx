@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { Group, Medal } from "@boxicons/react";
+import { Group } from "@boxicons/react";
 import { PhoneFilled } from "@carbon/icons-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 import { GoogleRating } from "@/components/google-rating";
+import { AwardIcon } from "@/components/ui/award-icon";
 
 const aboutImage = "/images/insecto-team.avif";
 
@@ -25,7 +26,7 @@ export function AboutSection() {
                 <span className="about-stat-copy"><strong>1.500+</strong><span>Zadovoljnih kupaca</span></span>
               </div>
               <div className="about-stat">
-                <span className="about-stat-icon"><Medal aria-hidden="true" /></span>
+                <span className="about-stat-icon"><AwardIcon aria-hidden="true" /></span>
                 <span className="about-stat-copy"><strong>6+</strong><span>Godina iskustva</span></span>
               </div>
             </div>

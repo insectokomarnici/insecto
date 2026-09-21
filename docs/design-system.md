@@ -18,6 +18,8 @@ Product accordions and the mobile hamburger panel use the shared `--motion-trans
 
 Icon sizing is semantic: `--icon-inline` is `1rem` for icons beside text and navigation chevrons, `--icon-action` is `1.25rem` for buttons and feedback notices, `--icon-feature` is `1.5rem` for process-card heading icons, `--icon-floating-call` is `1.8rem` for the mobile floating call button, `--icon-menu` is `1rem` for the standalone mobile menu trigger, and `--icon-close` is `1rem` for the mobile menu X. Boxicons menu and close paths use the same cropped visible canvas, while their size and weight remain controlled by the shared CSS tokens. CTA buttons use Carbon's filled `PhoneFilled` icon for action emphasis, while the informational banner uses Boxicons' basic `Phone`, `Envelope` and `Clock` icons.
 
+The About experience stat uses the regular Boxicons `bx-award` path through the shared `AwardIcon` wrapper because the installed React package does not expose that icon as a named export.
+
 The product is a local business website for mosquito-screen installation. The primary action is a phone call, with a contact form that sends inquiries through the server route. Planned technology: Next.js, TypeScript and Tailwind CSS; hosting: Vercel.
 
 ## Decision status
