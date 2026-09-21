@@ -27,17 +27,17 @@ export function SiteFooter() {
           <div className="site-footer-column">
             <h2 className="site-footer-heading">Komarnici</h2>
             <nav className="site-footer-list site-footer-links" aria-label="Komarnici navigacija">
-              <Link href="/plise-komarnici-novi-sad">Plise komarnici</Link>
-              <Link href="/rolo-komarnici-novi-sad">Rolo komarnici</Link>
-              <Link href="/fiksni-komarnici-novi-sad">Fiksni komarnici</Link>
+              <Link href="/plise-komarnici">Plise komarnici</Link>
+              <Link href="/rolo-komarnici">Rolo komarnici</Link>
+              <Link href="/fiksni-komarnici">Fiksni komarnici</Link>
             </nav>
           </div>
 
           <div className="site-footer-column">
             <h2 className="site-footer-heading">Informacije</h2>
             <nav className="site-footer-list site-footer-links" aria-label="Footer navigacija">
-              <Link href="/#about">O nama</Link>
-              <Link href="/#contact">Kontakt</Link>
+              <Link href="/o-nama">O nama</Link>
+              <Link href="/kontakt">Kontakt</Link>
               <Link href="/politika-privatnosti">Politika privatnosti</Link>
               <Link href="/uslovi-koriscenja">Uslovi korišćenja</Link>
             </nav>
