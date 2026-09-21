@@ -8,7 +8,7 @@ export function TextField({ label, hint, error, optional, id: providedId, classN
   const id = providedId ?? generatedId;
   const describedBy = [props["aria-describedby"], hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(" ") || undefined;
   return <div className="field">
-    <label className="field-label" htmlFor={id}>{label} <span className="field-note">{props.required ? "(obavezno)" : optional ? "(opciono)" : ""}</span></label>
+    <label className="field-label" htmlFor={id}>{label} <span className="field-note">{props.required ? "*" : optional ? "(opciono)" : ""}</span></label>
     <input {...props} ref={ref} id={id} className={cn("control", className)} aria-invalid={error ? true : undefined} aria-describedby={describedBy} />
     {hint && <p className="field-hint" id={`${id}-hint`}>{hint}</p>}
     {error && <p className="field-error" id={`${id}-error`}>{error}</p>}
@@ -19,7 +19,7 @@ export function TextArea({ label, hint, error, optional, id: providedId, classNa
   const id = providedId ?? generatedId;
   const describedBy = [props["aria-describedby"], hint && `${id}-hint`, error && `${id}-error`].filter(Boolean).join(" ") || undefined;
   return <div className="field">
-    <label className="field-label" htmlFor={id}>{label} <span className="field-note">{props.required ? "(obavezno)" : optional ? "(opciono)" : ""}</span></label>
+    <label className="field-label" htmlFor={id}>{label} <span className="field-note">{props.required ? "*" : optional ? "(opciono)" : ""}</span></label>
     <textarea {...props} id={id} className={cn("control", className)} aria-invalid={error ? true : undefined} aria-describedby={describedBy} />
     {hint && <p className="field-hint" id={`${id}-hint`}>{hint}</p>}
     {error && <p className="field-error" id={`${id}-error`}>{error}</p>}

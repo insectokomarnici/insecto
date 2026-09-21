@@ -207,13 +207,13 @@ Proposed minimum field set:
 
 | Field | Required | Initial behavior |
 | --- | --- | --- |
-| Name | Optional | Text, up to 80 characters; autocomplete `name` |
+| Name | Required | Text, up to 80 characters; autocomplete `name` |
 | Phone | Required | Telephone input, up to 40 characters; autocomplete `tel` |
-| Message | Optional | Multiline input, up to 1000 characters |
+| Message | Required | Multiline input, up to 1000 characters |
 
 A phone number is enough for the business to respond to an inquiry. Email can be added if that channel is selected later. The form structure is a proposal, not an assumption about an existing business process.
 
-Controls use Manrope 400, 1rem, 1.625 line-height and a minimum height of 3.25rem with a 0.5rem radius. The textarea has a minimum height of 8rem and can grow vertically. Labels remain visible and are associated with controls; placeholders are supporting text only. Required state is written in text. Controls with a unit suffix reserve the shared `--control-suffix-space` token so the value and suffix remain readable at every breakpoint. Two short controls may use two columns; below 40rem they become one column.
+Controls use Manrope 400, 1rem, 1.625 line-height and a minimum height of 3.25rem with a 0.5rem radius. The textarea has a minimum height of 8rem and can grow vertically. Labels remain visible and are associated with controls; placeholders are supporting text only. Required fields use the native `required` attribute and a star beside the label instead of the word “obavezno”. Controls with a unit suffix reserve the shared `--control-suffix-space` token so the value and suffix remain readable at every breakpoint. Two short controls may use two columns; below 40rem they become one column.
 
 The added required control-border color is `#7B879A`. Its contrast is 3.64:1 against white and 3.42:1 against the light-gray `#F6F8FB`. This separates a functional control boundary from a subtle decorative card border. The proposal adds one neutral token to the palette.
 
@@ -228,7 +228,7 @@ States:
 
 Phone validation in the demo accepts an initial `+`, spaces, parentheses, hyphens and periods, with 7–15 digits. This is only a basic format check; it does not confirm that the number exists. For an empty or invalid form, show a summary and focus the first invalid field. Corrections remove stale errors without moving focus while typing.
 
-The interactive example does not use a network request, database or local persistence. After a short simulation it shows a labeled success or error example. The `Ishod sledećeg slanja` control is for reviewing both states. Production requires server-side validation, protection against unwanted repeated requests and connection to a real inquiry destination; none of that is implemented yet.
+The design-system interactive example does not use a network request, database or local persistence. After a short simulation it shows a labeled success or error example. The `Ishod sledećeg slanja` control is for reviewing both states. The homepage form uses server-side validation and sends confirmed submissions through `/api/contact`; rate limiting and additional anti-spam protection remain future hardening steps.
 
 Isolated browser checks cover an empty and invalid required field, focus on the error, submission locking, duplicate-activation blocking, success, failure with preserved input, widths 320/390/736px and text at 200%. No JavaScript errors were recorded. Desktop and mobile screenshots were reviewed. This checks the demo only; it is not a server-side submission test or a complete accessibility audit.
 
