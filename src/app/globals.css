@@ -53,7 +53,7 @@
   .field-label { font-size: var(--text-label); line-height: var(--text-label--line-height); font-weight: 600; color: var(--color-heading); }
   .field-note { font-weight: 400; color: var(--color-body); }
   .control { width: 100%; min-width: 0; min-height: var(--control-min-height); padding: var(--control-padding-block) var(--control-padding-inline); border: var(--border-width) solid var(--color-control-border); border-radius: var(--radius-input); background: var(--color-surface); color: var(--color-heading); font-size: var(--text-body); line-height: var(--text-body--line-height); }
-  .control::placeholder { color: var(--color-body); opacity: 1; }
+  .control::placeholder { color: var(--color-placeholder); opacity: 1; }
   textarea.control { min-height: var(--textarea-min-height); resize: vertical; }
   .control:disabled, .control[readonly] { background: var(--color-surface-subtle); }
   .control:disabled { cursor: not-allowed; }

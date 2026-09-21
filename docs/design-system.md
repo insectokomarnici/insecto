@@ -43,6 +43,7 @@ The product is a local business website for mosquito-screen installation. The pr
 | Accent surface | `color-accent-background` | `#FEF2DF` |
 | Headings | `color-heading` | `#111111` |
 | Body text | `color-body` | `#484848` |
+| Placeholder text | `color-placeholder` | `#7B879A` |
 | Google rating star | `color-rating-star` | `#FBBC04` |
 | Product white swatch | `color-product-white` | `#FFFFFF` |
 | Product brown swatch | `color-product-brown` | `#6B4F3A` |
