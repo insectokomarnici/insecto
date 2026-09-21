@@ -1,6 +1,7 @@
 "use client";
 
-import { ChevronDown, PhoneFilled } from "@carbon/icons-react";
+import { ChevronDown } from "@boxicons/react";
+import { PhoneFilled } from "@carbon/icons-react";
 import { cn } from "@/lib/cn";
 import { useAnimatedDisclosure } from "@/lib/use-animated-disclosure";
 import { ButtonLink } from "@/components/ui/button";

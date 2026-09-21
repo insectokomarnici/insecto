@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { Certificate, Group, PhoneFilled } from "@carbon/icons-react";
+import { Badge, Group } from "@boxicons/react";
+import { PhoneFilled } from "@carbon/icons-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 import { GoogleRating } from "@/components/google-rating";
@@ -24,7 +25,7 @@ export function AboutSection() {
                 <span className="about-stat-copy"><strong>1.500+</strong><span>Zadovoljnih kupaca</span></span>
               </div>
               <div className="about-stat">
-                <span className="about-stat-icon"><Certificate aria-hidden="true" /></span>
+                <span className="about-stat-icon"><Badge pack="filled" aria-hidden="true" /></span>
                 <span className="about-stat-copy"><strong>6+</strong><span>Godina iskustva</span></span>
               </div>
             </div>

@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { ArrowRight, PhoneFilled } from "@carbon/icons-react";
+import { ArrowRight } from "@boxicons/react";
+import { PhoneFilled } from "@carbon/icons-react";
 import { Button, ButtonLink, TextLink } from "@/components/ui/button";
 import { ContactForm } from "@/components/contact-form";
 

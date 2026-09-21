@@ -1,4 +1,4 @@
-import { StarFilled } from "@carbon/icons-react";
+import { Star } from "@boxicons/react";
 
 export type PlaceRating = {
   rating: number;
@@ -34,7 +34,7 @@ export function GoogleRatingView({ place }: { place: PlaceRating | null }) {
       >
         <GoogleMark />
         <span className="google-rating-stars" aria-hidden="true">
-          {Array.from({ length: 5 }, (_, index) => <StarFilled key={index} />)}
+          {Array.from({ length: 5 }, (_, index) => <Star key={index} pack="filled" />)}
         </span>
         <span className="google-rating-value">{place.rating.toFixed(1)}</span>
         <span className="google-rating-count">({reviewCount})</span>

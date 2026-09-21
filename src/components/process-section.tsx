@@ -1,16 +1,17 @@
-import { PhoneFilled, Ruler, Tools } from "@carbon/icons-react";
+import { CompassTool, Phone, Ruler } from "@boxicons/react";
+import { PhoneFilled } from "@carbon/icons-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 import { GoogleRating } from "@/components/google-rating";
 
-type ProcessIcon = typeof PhoneFilled | typeof Ruler | typeof Tools;
+type ProcessIcon = typeof Phone | typeof Ruler | typeof CompassTool;
 
 const steps: Array<{ title: string; body: string; surface: "soft" | "brand-light" | "brand"; Icon: ProcessIcon }> = [
   {
     title: "Zakaži merenje",
     body: "Za početak nas nazovi da zakažemo tvoj termin za uzimanje mera. Oko vremena dolaska se dogovaramo prema tvom rasporedu.",
     surface: "soft",
-    Icon: PhoneFilled,
+    Icon: Phone,
   },
   {
     title: "Uzimamo mere",
@@ -22,7 +23,7 @@ const steps: Array<{ title: string; body: string; surface: "soft" | "brand-light
     title: "Montiramo komarnike",
     body: "Posle par dana se vraćamo sa tvojim novim komarnicima, montiramo ih gde treba i time završavamo ovaj jednostavan proces.",
     surface: "brand",
-    Icon: Tools,
+    Icon: CompassTool,
   },
 ];
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Email, LogoFacebook, LogoInstagram, PhoneFilled } from "@carbon/icons-react";
+import { Envelope, Facebook, Instagram, Phone } from "@boxicons/react";
 import { Container } from "@/components/ui/layout";
 
 export function SiteFooter() {
@@ -17,10 +17,10 @@ export function SiteFooter() {
           <div className="site-footer-column">
             <h2 className="site-footer-heading">Kontakt</h2>
             <div className="site-footer-list site-footer-contact">
-              <a href="tel:+381611321324"><PhoneFilled aria-hidden="true" /><span>061 132 1324</span></a>
-              <a href="mailto:kontakt@insecto.rs"><Email aria-hidden="true" /><span>kontakt@insecto.rs</span></a>
-              <a href="https://www.facebook.com/insectokomarnici/" target="_blank" rel="noreferrer"><LogoFacebook aria-hidden="true" /><span>Facebook</span></a>
-              <a href="https://www.instagram.com/insecto.rs/" target="_blank" rel="noreferrer"><LogoInstagram aria-hidden="true" /><span>Instagram</span></a>
+              <a href="tel:+381611321324"><Phone aria-hidden="true" /><span>061 132 1324</span></a>
+              <a href="mailto:kontakt@insecto.rs"><Envelope aria-hidden="true" /><span>kontakt@insecto.rs</span></a>
+              <a href="https://www.facebook.com/insectokomarnici/" target="_blank" rel="noreferrer"><Facebook aria-hidden="true" /><span>Facebook</span></a>
+              <a href="https://www.instagram.com/insecto.rs/" target="_blank" rel="noreferrer"><Instagram aria-hidden="true" /><span>Instagram</span></a>
             </div>
           </div>
 

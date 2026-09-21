@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckmarkOutline } from "@carbon/icons-react";
+import { Check } from "@boxicons/react";
 import { ContactForm } from "@/components/contact-form";
 import { Container, Heading } from "@/components/ui/layout";
 import type { ContactValues } from "@/lib/contact";
@@ -25,7 +25,7 @@ export function ContactSection() {
         <div className="contact-panel">
           <div className="contact-intro">
             <Heading as="h2" size="section" id="contact-form-title">Brzi online upit</Heading>
-            <p className="contact-trust"><CheckmarkOutline aria-hidden="true" />Bez obaveze. Bez komplikovanja.</p>
+            <p className="contact-trust"><Check aria-hidden="true" />Bez obaveze. Bez komplikovanja.</p>
           </div>
 
           <ContactForm

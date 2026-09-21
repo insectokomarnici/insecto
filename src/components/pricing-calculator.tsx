@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Add, ChevronDown, TrashCan } from "@carbon/icons-react";
+import { ChevronDown, Plus, Trash } from "@boxicons/react";
 import { useMemo, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, Container, Heading } from "@/components/ui/layout";
@@ -123,7 +123,7 @@ export function PricingCalculator() {
                   </div>
                 </div>
                 <Button variant="secondary" size="medium" className="calculator-add-button" type="submit" disabled={!canAddItem}>
-                  <Add aria-hidden="true" />
+                  <Plus aria-hidden="true" />
                   Dodaj komarnik
                 </Button>
               </form>
@@ -144,7 +144,7 @@ export function PricingCalculator() {
                             <div className="calculator-item-meta">
                               <strong>{item.total.toFixed(2)} €</strong>
                               <button className="calculator-remove" type="button" aria-label={`Ukloni komarnik ${index + 1}`} onClick={() => handleRemoveItem(item.id)}>
-                                <TrashCan aria-hidden="true" />
+                                <Trash aria-hidden="true" />
                               </button>
                             </div>
                           </div>

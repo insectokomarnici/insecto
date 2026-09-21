@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown, PhoneFilled } from "@carbon/icons-react";
+import { ChevronDown } from "@boxicons/react";
+import { PhoneFilled } from "@carbon/icons-react";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/layout";
 import { ButtonLink } from "@/components/ui/button";
-import { CarbonMenuThreeIcon } from "@/components/ui/menu-icon";
+import { MenuIcon } from "@/components/ui/menu-icon";
 import { CloseIcon } from "@/components/ui/close-icon";
 import { useAnimatedDisclosure } from "@/lib/use-animated-disclosure";
 
@@ -74,7 +75,7 @@ function MobileMenu() {
 
   return <details className={cn("site-menu", isOpen && "is-open", isClosing && "is-closing")} open={isOpen || isClosing}>
     <summary className="site-menu-trigger" aria-label="Otvori ili zatvori meni" aria-expanded={isOpen && !isClosing} onClick={(event) => { event.preventDefault(); toggle(); }}>
-      <CarbonMenuThreeIcon className="site-menu-icon site-menu-icon-menu" aria-hidden="true" />
+      <MenuIcon className="site-menu-icon site-menu-icon-menu" aria-hidden="true" />
       <CloseIcon className="site-menu-icon site-menu-icon-close" />
       <span className="sr-only">Meni</span>
     </summary>

@@ -1,14 +1,14 @@
 "use client";
 
-import { Email, Phone, Time } from "@carbon/icons-react";
+import { Clock, Envelope, Phone } from "@boxicons/react";
 import { useEffect, useState } from "react";
 
 const BANNER_ROTATION_INTERVAL_MS = 3000;
 
 const contactItems = [
   { href: "tel:+381611321324", label: "061 132 1324", Icon: Phone },
-  { href: "mailto:kontakt@insecto.rs", label: "kontakt@insecto.rs", Icon: Email },
-  { label: "Pon-Pet: 8:00-20:00", Icon: Time },
+  { href: "mailto:kontakt@insecto.rs", label: "kontakt@insecto.rs", Icon: Envelope },
+  { label: "Pon-Pet: 8:00-20:00", Icon: Clock },
 ] as const;
 
 function ContactItem({
