@@ -25,7 +25,7 @@ export function ContactSection() {
         <div className="contact-panel">
           <div className="contact-intro">
             <Heading as="h2" size="section" id="contact-form-title">Brzi online upit</Heading>
-            <p className="contact-trust"><Check aria-hidden="true" />Jednostavno. Bez obaveza.</p>
+            <p className="contact-trust"><Check aria-hidden="true" />Lako i jednostavno. Bez obaveza.</p>
           </div>
 
           <ContactForm
