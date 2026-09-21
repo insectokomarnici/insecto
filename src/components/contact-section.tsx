@@ -1,14 +1,22 @@
 "use client";
 
-import type { FormEvent } from "react";
 import { CheckmarkOutline } from "@carbon/icons-react";
-import { Button } from "@/components/ui/button";
-import { TextArea, TextField } from "@/components/ui/fields";
+import { ContactForm } from "@/components/contact-form";
 import { Container, Heading } from "@/components/ui/layout";
+import type { ContactValues } from "@/lib/contact";
 
 export function ContactSection() {
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  async function submitContact(values: ContactValues) {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(values),
+    });
+
+    if (!response.ok) {
+      const payload = await response.json().catch(() => null) as { error?: string } | null;
+      throw new Error(payload?.error ?? "Poruka nije poslata.");
+    }
   }
 
   return (
@@ -20,17 +28,18 @@ export function ContactSection() {
             <p className="contact-trust"><CheckmarkOutline aria-hidden="true" />Bez obaveze. Bez komplikovanja.</p>
           </div>
 
-          <form className="contact-form contact-section-form" aria-label="Kontakt forma" onSubmit={handleSubmit}>
-            <div className="field-grid">
-              <TextField name="name" label="Ime" autoComplete="name" placeholder="Kako se zoveš?" />
-              <TextField name="phone" label="Broj telefona" type="tel" inputMode="tel" autoComplete="tel" placeholder="060 1234567" />
-            </div>
-            <TextArea name="message" label="Poruka" rows={5} />
-            <div className="contact-form-footer">
-              <p className="contact-form-note">Tvoje ime, broj i poruku koristimo samo da ti odgovorimo na upit.</p>
-              <Button type="submit" variant="secondary" size="large">Pošalji upit</Button>
-            </div>
-          </form>
+          <ContactForm
+            className="contact-section-form"
+            submitContact={submitContact}
+            buttonVariant="secondary"
+            buttonSize="large"
+            submitLabel="Pošalji upit"
+            namePlaceholder="Kako se zoveš?"
+            phoneLabel="Broj telefona"
+            phonePlaceholder="060 1234567"
+            messagePlaceholder=""
+            footerNote="Tvoje ime, broj i poruku koristimo samo da ti odgovorimo na upit."
+          />
         </div>
       </Container>
     </section>
