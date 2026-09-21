@@ -37,7 +37,7 @@ export function ContactSection() {
             namePlaceholder="Kako se zoveš?"
             phoneLabel="Broj telefona"
             phonePlaceholder="060 1234567"
-            messagePlaceholder=""
+            messagePlaceholder="Npr. potrebni su mi komarnici za 3 prozora i balkonska vrata."
             footerNote="Tvoje ime, broj i poruku koristimo samo da ti odgovorimo na upit."
           />
         </div>
