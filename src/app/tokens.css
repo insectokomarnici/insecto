@@ -78,6 +78,7 @@
   --section-padding-compact: var(--space-8);
   --section-content-gap: var(--space-8);
   --section-intro-gap: var(--space-6);
+  --site-chrome-height: calc(var(--banner-min-height) + 4.25rem);
   --grid-gap: var(--space-4);
   --card-padding: var(--space-6);
   --stack-gap: var(--space-4);
