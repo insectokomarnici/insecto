@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { PhoneFilled } from "@carbon/icons-react";
-import { ArrowRight } from "@carbon/icons-react";
 import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { ButtonLink } from "@/components/ui/button";
@@ -21,7 +20,7 @@ function ProductCard({ product }: { product: Product }) {
   const selectedOption = productColors.find(({ id }) => id === selectedColor) ?? productColors[0];
 
   return (
-    <article className="product-card">
+    <article className="product-card" id={`product-${product.slug}`}>
       <div className="product-card-media">
         <Image
           src={product.images[selectedColor]}
@@ -64,9 +63,6 @@ function ProductCard({ product }: { product: Product }) {
             aria-label={`Zakaži merenje za ${product.title}`}
           >
             <PhoneFilled aria-hidden="true" />Zakaži merenje
-          </ButtonLink>
-          <ButtonLink variant="secondary" size="medium" href={product.path}>
-            Saznaj više<ArrowRight aria-hidden="true" />
           </ButtonLink>
         </div>
         <ProductAccordions product={product} />

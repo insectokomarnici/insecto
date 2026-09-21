@@ -13,7 +13,6 @@ export type ProductAccordion = {
 
 export type Product = {
   slug: string;
-  path: string;
   title: string;
   description: string;
   images: Record<ProductColor, string>;
@@ -23,7 +22,6 @@ export type Product = {
 export const products: Product[] = [
   {
     slug: "plise",
-    path: "/plise-komarnici",
     title: "Plise komarnici",
     description: "Plise ili klizni komarnici su odličan izbor za sve tipove otvora: prozore, ulazna i balkonska vrata.",
     images: {
@@ -39,7 +37,6 @@ export const products: Product[] = [
   },
   {
     slug: "rolo",
-    path: "/rolo-komarnici",
     title: "Rolo komarnici",
     description: "Rolo komarnici su najpopularniji izbor za standardne prozore. Kada se ne koriste, skupljaju se u kutiju poput roletne.",
     images: {
@@ -55,7 +52,6 @@ export const products: Product[] = [
   },
   {
     slug: "fiksni",
-    path: "/fiksni-komarnici",
     title: "Fiksni komarnici",
     description: "Fiksni komarnici se stavljaju na prozore koje koristiš isključivo za provetravanje, tj. ne treba ti prolaznost kroz njih.",
     images: {

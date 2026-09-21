@@ -12,9 +12,9 @@ import { CloseIcon } from "@/components/ui/close-icon";
 import { useAnimatedDisclosure } from "@/lib/use-animated-disclosure";
 
 const productLinks = [
-  ["/plise-komarnici", "Plise komarnici"],
-  ["/fiksni-komarnici", "Fiksni komarnici"],
-  ["/rolo-komarnici", "Rolo komarnici"],
+  ["/#product-plise", "Plise komarnici"],
+  ["/#product-fiksni", "Fiksni komarnici"],
+  ["/#product-rolo", "Rolo komarnici"],
 ] as const;
 
 function ProductLinks() {
