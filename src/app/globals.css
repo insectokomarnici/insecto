@@ -299,7 +299,7 @@
 .floating-call-button svg { width: var(--icon-floating-call); height: var(--icon-floating-call); flex: none; }
 .floating-call-button:focus-visible { outline: none; box-shadow: var(--focus-ring), var(--shadow-raised); }
 .calculator-section { background: var(--color-surface-subtle); }
-.calculator-content { display: grid; gap: var(--section-content-gap); align-items: start; }
+.calculator-content { display: grid; gap: var(--section-content-gap); align-items: stretch; }
 .calculator-copy { display: grid; min-width: 0; gap: var(--stack-gap); }
 .calculator-copy-body { min-width: 0; gap: var(--space-6); }
 .calculator-copy p { margin: 0; }
@@ -402,6 +402,7 @@
 @media (min-width: 40rem) { .calculator-field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 64rem) {
   .calculator-content { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--section-content-gap); }
+  .calculator-copy { align-self: start; min-height: var(--calculator-card-min-height); }
 }
 @media (max-width: 39.99rem) {
   .calculator-item-detail-row { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--space-2); }

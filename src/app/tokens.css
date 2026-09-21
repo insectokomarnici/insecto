@@ -122,6 +122,7 @@
   --motion-transition-duration: 420ms;
   --gallery-transition-duration: 700ms;
   --textarea-min-height: 8rem;
+  --calculator-card-min-height: 30.125rem;
   --control-line-height: 1.5;
   --border-width: 1px;
   --focus-gap: 0.125rem;
