@@ -28,8 +28,8 @@ export function SiteFooter() {
             <h2 className="site-footer-heading">Komarnici</h2>
             <nav className="site-footer-list site-footer-links" aria-label="Komarnici navigacija">
               <Link href="/#product-plise">Plise komarnici</Link>
-              <Link href="/#product-fiksni">Fiksni komarnici</Link>
               <Link href="/#product-rolo">Rolo komarnici</Link>
+              <Link href="/#product-fiksni">Fiksni komarnici</Link>
             </nav>
           </div>
 

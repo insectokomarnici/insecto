@@ -13,8 +13,8 @@ import { useAnimatedDisclosure } from "@/lib/use-animated-disclosure";
 
 const productLinks = [
   ["/#product-plise", "Plise komarnici"],
-  ["/#product-fiksni", "Fiksni komarnici"],
   ["/#product-rolo", "Rolo komarnici"],
+  ["/#product-fiksni", "Fiksni komarnici"],
 ] as const;
 
 function ProductLinks() {
