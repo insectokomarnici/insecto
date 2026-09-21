@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Badge, Group } from "@boxicons/react";
+import { Group, Medal } from "@boxicons/react";
 import { PhoneFilled } from "@carbon/icons-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
@@ -25,7 +25,7 @@ export function AboutSection() {
                 <span className="about-stat-copy"><strong>1.500+</strong><span>Zadovoljnih kupaca</span></span>
               </div>
               <div className="about-stat">
-                <span className="about-stat-icon"><Badge pack="filled" aria-hidden="true" /></span>
+                <span className="about-stat-icon"><Medal pack="filled" aria-hidden="true" /></span>
                 <span className="about-stat-copy"><strong>6+</strong><span>Godina iskustva</span></span>
               </div>
             </div>

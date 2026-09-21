@@ -222,7 +222,7 @@
 .about-stats { position: absolute; right: 0; bottom: calc(-1 * var(--space-6)); left: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
 .about-stat { display: flex; align-items: center; min-width: 0; gap: var(--space-2); padding: var(--space-3); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-raised); }
 .about-stat-icon { display: inline-flex; align-items: center; justify-content: center; flex: none; width: calc(var(--space-10) + var(--space-1)); height: calc(var(--space-10) + var(--space-1)); border-radius: var(--radius-md); background: var(--color-border); color: var(--color-brand); }
-.about-stat-icon svg { width: var(--icon-action); height: var(--icon-action); }
+.about-stat-icon svg { width: var(--icon-feature); height: var(--icon-feature); }
 .about-stat-copy { display: grid; min-width: 0; gap: var(--space-0); }
 .about-stat-copy strong { color: var(--color-heading); font-family: var(--font-heading); font-size: var(--text-body); line-height: var(--leading-card); font-weight: 700; }
 .about-stat-copy span { color: var(--color-body); font-size: var(--text-body); line-height: var(--leading-card); }
