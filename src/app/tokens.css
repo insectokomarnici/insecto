@@ -125,6 +125,7 @@
   --calculator-card-min-height: 30.125rem;
   --control-line-height: 1.5;
   --border-width: 1px;
+  --border-accent-width: 0.375rem;
   --focus-gap: 0.125rem;
   --focus-width: 0.1875rem;
   --focus-ring: 0 0 0 var(--focus-gap) var(--color-surface), 0 0 0 calc(var(--focus-gap) + var(--focus-width)) var(--color-brand-light);
