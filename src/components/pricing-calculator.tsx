@@ -26,6 +26,7 @@ export function PricingCalculator() {
   const [color, setColor] = useState<PricingColor>("bela");
   const [items, setItems] = useState<CalculatorItem[]>([]);
   const [nextItemId, setNextItemId] = useState(1);
+  const [isPriceInfoOpen, setIsPriceInfoOpen] = useState(false);
 
   const calculation = useMemo(() => {
     const widthInMeters = Math.max(Number(width) || 0, 0) / 100;
@@ -36,6 +37,12 @@ export function PricingCalculator() {
 
     return { area, pricePerM2, total };
   }, [color, height, type, width]);
+
+  function handlePriceInfoToggle() {
+    if (typeof window !== "undefined" && window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+      setIsPriceInfoOpen((current) => !current);
+    }
+  }
 
   const typeLabel = pricingOptions.find((option) => option.id === type)?.label ?? type;
   const colorLabel = colorOptions.find((option) => option.id === color)?.label ?? color;
@@ -77,7 +84,26 @@ export function PricingCalculator() {
               <Heading as="h2" size="section" id="calculator-title">Komarnici - Cena</Heading>
               <div className="calculator-copy-body stack">
                 <div className="calculator-copy-intro stack">
-                  <p className="text-body">Unesi širinu i visinu otvora u centimetrima, zatim izaberi tip i boju komarnika da dobiješ tačnu cenu.</p>
+                  <p className="text-body calculator-description">
+                    Unesi širinu i visinu otvora u centimetrima, zatim izaberi tip i boju komarnika da dobiješ tačnu cenu.
+                    <span className="calculator-info">
+                      <button
+                        className="calculator-info-trigger"
+                        type="button"
+                        aria-label="Kako se računa cena?"
+                        aria-expanded={isPriceInfoOpen || undefined}
+                        aria-controls="calculator-price-info"
+                        aria-describedby="calculator-price-info"
+                        title="Kako se računa cena?"
+                        onClick={handlePriceInfoToggle}
+                      >?
+                      </button>
+                      <span id="calculator-price-info" className={`calculator-tooltip${isPriceInfoOpen ? " is-visible" : ""}`} role="tooltip">
+                        <span className="calculator-tooltip-title">Kako se računa cena?</span>
+                        <span className="calculator-tooltip-copy">Površina se dobija množenjem širine i visine u metrima. Zatim se površina množi cenom po m² za izabrani tip i boju komarnika. Za površine manje od 1 m² obračunava se cena jednog m².</span>
+                      </span>
+                    </span>
+                  </p>
                   <p className="text-body"><em>Merenje i ugradnja su uračunati u cenu.</em></p>
                 </div>
                 <div className="calculator-diagrams" aria-label="Primer merenja otvora">
