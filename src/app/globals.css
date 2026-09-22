@@ -274,7 +274,7 @@
 .faq-content-inner { padding: 0 var(--space-4) var(--space-5); }
 .faq-content-inner p { margin: 0; }
 .faq-item summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
-.contact-section { background: var(--color-surface-subtle); }
+.contact-section { background: var(--color-surface-subtle); scroll-margin-top: var(--site-chrome-height); }
 .contact-panel { display: grid; gap: var(--section-content-gap); padding: var(--card-padding); border: var(--border-width) solid var(--color-brand); border-radius: var(--radius-panel); background: var(--color-brand); }
 .contact-intro { display: grid; align-content: start; gap: var(--space-6); min-width: 0; }
 .contact-intro h2, .contact-intro p { margin: 0; }
@@ -284,6 +284,7 @@
 .contact-section-form { min-width: 0; }
 .contact-section-form .field-label { color: var(--color-surface); }
 .contact-section-form .field-note { color: var(--color-surface); }
+.contact-section-form .field-error { color: var(--color-surface); }
 .contact-form-footer { display: grid; gap: var(--space-4); align-items: end; }
 .contact-form-note { max-width: var(--content-text); margin: 0; color: var(--color-surface); font-size: var(--text-small); line-height: var(--text-small--line-height); }
 .contact-form-footer .button { width: fit-content; }

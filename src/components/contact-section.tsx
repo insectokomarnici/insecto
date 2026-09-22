@@ -32,7 +32,7 @@ export function ContactSection() {
             className="contact-section-form"
             submitContact={submitContact}
             buttonVariant="secondary"
-            buttonSize="large"
+            buttonSize="medium"
             submitLabel="Pošalji upit"
             namePlaceholder="Kako se zoveš?"
             phoneLabel="Broj telefona"
