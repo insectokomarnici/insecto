@@ -105,7 +105,7 @@ export function PricingCalculator() {
                       </span>
                     </span>
                   </p>
-                  <p className="text-body"><em>Merenje i ugradnja su uračunati u cenu.</em></p>
+                  <p className="text-body">Merenje i ugradnja su uračunati u cenu.</p>
                 </div>
                 <div className="calculator-diagrams" aria-label="Primer merenja otvora">
                   <div className="calculator-diagram-labels">
