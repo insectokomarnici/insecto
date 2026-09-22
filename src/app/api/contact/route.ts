@@ -25,7 +25,7 @@ export async function POST(request: Request) {
   if (!apiKey || !recipient) return NextResponse.json({ error: "Slanje poruka trenutno nije podešeno." }, { status: 503 });
 
   const emailText = [
-    "Novi upit sa insecto sajta",
+    "NOVI UPIT",
     "",
     `Ime: ${values.name.trim() || "Nije uneto"}`,
     `Telefon: ${values.phone.trim()}`,
@@ -38,7 +38,7 @@ export async function POST(request: Request) {
     body: JSON.stringify({
       from: RESEND_SENDER,
       to: [recipient],
-      subject: "Novi upit sa insecto sajta",
+      subject: "NOVI UPIT",
       text: emailText,
     }),
   });
