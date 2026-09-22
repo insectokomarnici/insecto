@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Plus, Trash } from "@boxicons/react";
-import { ChevronDown } from "@carbon/icons-react";
+import { ChevronDown, Help } from "@carbon/icons-react";
 import { useMemo, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, Container, Heading } from "@/components/ui/layout";
@@ -96,7 +96,8 @@ export function PricingCalculator() {
                         aria-describedby="calculator-price-info"
                         title="Kako se računa cena?"
                         onClick={handlePriceInfoToggle}
-                      >?
+                      >
+                        <Help aria-hidden="true" />
                       </button>
                       <span id="calculator-price-info" className={`calculator-tooltip${isPriceInfoOpen ? " is-visible" : ""}`} role="tooltip">
                         <span className="calculator-tooltip-title">Kako se računa cena?</span>
