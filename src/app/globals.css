@@ -365,6 +365,8 @@
 .calculator-result strong { color: var(--color-heading); font-family: var(--font-heading); font-size: var(--text-card); line-height: var(--text-card--line-height); font-weight: 600; }
 .calculator-result-price { width: max-content; justify-self: end; justify-items: start; text-align: start; }
 .calculator-result-price strong { justify-self: start; text-align: start; }
+.calculator-note { display: inline-flex; align-items: center; gap: var(--space-2); }
+.calculator-note svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; color: var(--color-success); }
 .calculator-total { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-4); padding-top: var(--space-4); border-top: var(--border-width) solid var(--color-border); }
 .calculator-total strong { color: var(--color-brand); font-family: var(--font-heading); font-size: var(--text-card); line-height: var(--text-card--line-height); font-weight: 600; }
 .products-grid { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--grid-gap); }

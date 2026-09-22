@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Plus, Trash } from "@boxicons/react";
+import { Check, Plus, Trash } from "@boxicons/react";
 import { ChevronDown, Help } from "@carbon/icons-react";
 import { useMemo, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
@@ -105,7 +105,7 @@ export function PricingCalculator() {
                       </span>
                     </span>
                   </p>
-                  <p className="text-body">Merenje i ugradnja su uračunati u cenu.</p>
+                  <p className="text-body calculator-note"><Check aria-hidden="true" />Merenje i ugradnja su uračunati u cenu.</p>
                 </div>
                 <div className="calculator-diagrams" aria-label="Primer merenja otvora">
                   <div className="calculator-diagram-labels">
