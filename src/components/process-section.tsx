@@ -53,7 +53,7 @@ export function ProcessSection() {
             ))}
           </div>
           <div className="process-completion">
-            <p className="process-timeline"><Clock aria-hidden="true" /><span>Ceo proces završavamo u roku od <strong>3 do 5 dana</strong>.</span></p>
+            <p className="process-timeline"><Clock aria-hidden="true" /><span>Ceo proces završavamo u roku od <strong>3 do 5 dana</strong></span></p>
             <div className="process-actions">
               <div className="process-cta-group">
                 <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
