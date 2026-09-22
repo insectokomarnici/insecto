@@ -3,7 +3,7 @@ import Image from "next/image";
 import { PhoneFilled } from "@carbon/icons-react";
 import { SiteBanner } from "@/components/site-banner";
 import { SiteHeader } from "@/components/site-header";
-import { GoogleRating } from "@/components/google-rating";
+import { GoogleRating, getPlaceRating } from "@/components/google-rating";
 import { ProductsSection } from "@/components/products-section";
 import { ProcessSection } from "@/components/process-section";
 import { AboutSection } from "@/components/about-section";
@@ -22,7 +22,9 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function Home() {
+export default async function Home() {
+  const placeRating = await getPlaceRating();
+
   return <>
     <div className="site-chrome">
       <SiteBanner />
@@ -57,7 +59,7 @@ export default function Home() {
           </div>
         </Container>
       </section>
-      <ProductsSection />
+      <ProductsSection placeRating={placeRating} />
       <AboutSection />
       <ProcessSection />
       <PricingCalculator />

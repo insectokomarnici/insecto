@@ -6,6 +6,7 @@ import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
+import { GoogleRatingView, type PlaceRating } from "@/components/google-rating-view";
 import { ProductAccordions } from "@/components/product-accordions";
 import { productColors, products, type ProductColor, type Product } from "@/lib/products";
 
@@ -15,7 +16,7 @@ const colorSwatchClasses: Record<ProductColor, string> = {
   antracit: "product-color-swatch-anthracite",
 };
 
-function ProductCard({ product }: { product: Product }) {
+function ProductCard({ product, placeRating }: { product: Product; placeRating: PlaceRating | null }) {
   const [selectedColor, setSelectedColor] = useState<ProductColor>("bela");
   const selectedOption = productColors.find(({ id }) => id === selectedColor) ?? productColors[0];
 
@@ -57,13 +58,16 @@ function ProductCard({ product }: { product: Product }) {
         </div>
 
         <div className="product-card-actions">
-          <ButtonLink
-            size="large"
-            href="tel:+381611321324"
-            aria-label={`Zakaži merenje za ${product.title}`}
-          >
-            <PhoneFilled aria-hidden="true" />Zakaži merenje
-          </ButtonLink>
+          <div className="product-card-cta-group">
+            <ButtonLink
+              size="large"
+              href="tel:+381611321324"
+              aria-label={`Zakaži merenje za ${product.title}`}
+            >
+              <PhoneFilled aria-hidden="true" />Zakaži merenje
+            </ButtonLink>
+            <GoogleRatingView place={placeRating} />
+          </div>
         </div>
         <ProductAccordions product={product} />
       </div>
@@ -71,7 +75,7 @@ function ProductCard({ product }: { product: Product }) {
   );
 }
 
-export function ProductsSection() {
+export function ProductsSection({ placeRating }: { placeRating: PlaceRating | null }) {
   return (
     <section className="section products-section" id="products" aria-labelledby="products-title">
       <Container>
@@ -80,7 +84,7 @@ export function ProductsSection() {
             <Heading as="h2" size="section" id="products-title">Komarnici po meri</Heading>
           </div>
           <div className="products-grid">
-            {products.map((product) => <ProductCard key={product.slug} product={product} />)}
+            {products.map((product) => <ProductCard key={product.slug} product={product} placeRating={placeRating} />)}
           </div>
         </div>
       </Container>
