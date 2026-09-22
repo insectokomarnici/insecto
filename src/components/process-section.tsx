@@ -36,8 +36,8 @@ export function ProcessSection() {
       <Container>
         <div className="section-inner">
           <div className="section-intro stack">
-            <Heading as="h2" size="section" id="process-title">Kako do komarnika u 3 koraka</Heading>
-            <p className="text-lead process-intro">Od prvog poziva do ugrađenih komarnika — jednostavno i bez komplikacija.</p>
+            <span className="process-eyebrow">3 koraka</span>
+            <Heading as="h2" size="section" id="process-title">Kako do komarnika?</Heading>
           </div>
           <div className="process-steps">
             {steps.map(({ number, title, body, surface, Icon }) => (

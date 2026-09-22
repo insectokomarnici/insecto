@@ -201,14 +201,15 @@
 .google-rating-count { margin-inline-start: calc(-1 * var(--space-1)); white-space: nowrap; }
 .products-section { background: var(--color-surface-subtle); }
 .process-section { background: var(--color-surface-subtle); }
-.process-intro { margin: 0; color: var(--color-body); }
+.process-section .section-intro { gap: var(--space-2); }
+.process-eyebrow { justify-self: center; padding: var(--space-1) var(--space-3); border: var(--border-width) solid var(--color-brand-light); border-radius: var(--radius-pill); background: var(--color-surface); color: var(--color-brand); font-family: var(--font-heading); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: 700; letter-spacing: 0.06em; }
 .process-steps { display: grid; gap: var(--grid-gap); }
 .process-step { position: relative; display: grid; align-content: start; gap: var(--space-3); min-width: 0; padding: var(--card-padding); border-radius: var(--radius-card); text-align: left; }
 .process-step h3, .process-step-body { margin: 0; }
 .process-step-heading { display: grid; justify-items: start; gap: var(--space-3); }
 .process-step-kicker { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 .process-step-heading svg { width: var(--icon-feature); height: var(--icon-feature); flex: none; }
-.process-step-number { display: inline-flex; align-items: center; justify-content: center; min-width: var(--space-8); padding: var(--space-1) var(--space-2); border-radius: var(--radius-pill); background: var(--color-brand); color: var(--color-surface); font-family: var(--font-heading); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: 700; letter-spacing: 0.06em; }
+.process-step-number { display: inline-flex; align-items: center; justify-content: center; width: var(--space-8); height: var(--space-8); min-width: var(--space-8); padding: 0; border-radius: var(--radius-pill); background: var(--color-brand); color: var(--color-surface); font-family: var(--font-heading); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: 700; letter-spacing: 0.06em; }
 .process-step-soft { border: var(--border-width) solid var(--color-brand); border-inline-start-width: var(--border-accent-width); background: var(--color-surface); color: var(--color-brand); }
 .process-step-soft .heading { color: var(--color-brand); }
 .process-step-brand-light, .process-step-brand { color: var(--color-surface); }
