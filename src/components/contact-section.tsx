@@ -38,7 +38,7 @@ export function ContactSection() {
             phoneLabel="Broj telefona"
             phonePlaceholder="060 1234567"
             messagePlaceholder="Npr. potrebni su mi komarnici za 3 prozora i balkonska vrata."
-            footerNote="Tvoje podatke koristimo samo kako bismo ti odgovorili na poruku."
+            footerNote="Tvoje podatke koristimo samo kako bismo ti odgovorili na upit."
           />
         </div>
       </Container>
