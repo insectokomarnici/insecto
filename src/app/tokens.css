@@ -133,6 +133,7 @@
   --accent-gradient: linear-gradient(110deg in srgb, var(--color-accent-surface), var(--color-accent));
   --icon-inline: 1rem;
   --icon-action: 1.25rem;
+  --icon-footer: 1.25rem;
   --icon-feature: 1.5rem;
   --icon-floating-call: 1.8rem;
   --icon-menu: 1rem;

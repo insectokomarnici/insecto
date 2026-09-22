@@ -20,7 +20,7 @@ export function ContactSection() {
   }
 
   return (
-    <section className="section contact-section" id="contact-form" aria-labelledby="contact-form-title">
+    <section className="section contact-section" aria-labelledby="contact-form-title">
       <Container>
         <div className="contact-panel">
           <div className="contact-intro">

@@ -91,7 +91,7 @@ The homepage order is:
 10. Contact form
 11. Footer
 
-The main section IDs are `products`, `about`, `calculator`, `gallery`, `faq`, and `contact-form`.
+The main section IDs are `products`, `about`, `calculator`, `gallery`, and `faq`.
 
 ## Header and navigation
 
