@@ -1,6 +1,6 @@
 <svg width="236" height="150" viewBox="0 10 236 150" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g>
-    <rect x="20" y="15" width="70" height="130" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2" rx="2"></rect>
+    <rect x="20" y="15" width="70" height="130" fill="#f8f9fa" stroke="none" rx="2"></rect>
     <rect x="27" y="22" width="56" height="118" fill="#e3f2fd" stroke="#90caf9" stroke-width="1" rx="1"></rect>
     <rect x="30" y="25" width="50" height="112" fill="#bbdefb" opacity="0.6"></rect>
     <ellipse cx="78" cy="80" rx="2" ry="6" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"></ellipse>
@@ -11,7 +11,7 @@
     <path d="M90 152 L83 147.5 L83 156.5 Z" fill="#3f73b8"></path>
   </g>
   <g transform="translate(126 0)">
-    <rect x="20" y="15" width="70" height="130" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2" rx="2"></rect>
+    <rect x="20" y="15" width="70" height="130" fill="#f8f9fa" stroke="none" rx="2"></rect>
     <rect x="27" y="22" width="56" height="118" fill="#e3f2fd" stroke="#90caf9" stroke-width="1" rx="1"></rect>
     <rect x="30" y="25" width="50" height="112" fill="#bbdefb" opacity="0.6"></rect>
     <ellipse cx="78" cy="80" rx="2" ry="6" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1"></ellipse>

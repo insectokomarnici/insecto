@@ -16,6 +16,7 @@ export function GallerySection() {
       <Container>
         <div className="section-inner">
           <div className="section-intro stack">
+            <span className="section-eyebrow">Naši radovi</span>
             <Heading as="h2" size="section" id="gallery-title">Galerija komarnika</Heading>
           </div>
           <div className="gallery-grid">

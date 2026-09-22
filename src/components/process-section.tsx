@@ -1,4 +1,4 @@
-import { Clock, CompassTool, Phone, Ruler } from "@boxicons/react";
+import { CompassTool, Phone, Ruler } from "@boxicons/react";
 import { PhoneFilled } from "@carbon/icons-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
@@ -36,7 +36,7 @@ export function ProcessSection() {
       <Container>
         <div className="section-inner">
           <div className="section-intro stack">
-            <span className="process-eyebrow">3 koraka</span>
+            <span className="section-eyebrow">3 koraka</span>
             <Heading as="h2" size="section" id="process-title">Kako do komarnika?</Heading>
           </div>
           <div className="process-steps">
@@ -52,13 +52,10 @@ export function ProcessSection() {
               </article>
             ))}
           </div>
-          <div className="process-completion">
-            <p className="process-timeline"><Clock aria-hidden="true" /><span>Ceo proces završavamo u roku od <strong>3 do 5 dana</strong></span></p>
-            <div className="process-actions">
-              <div className="process-cta-group">
-                <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
-                <GoogleRating />
-              </div>
+          <div className="process-actions">
+            <div className="process-cta-group">
+              <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
+              <GoogleRating />
             </div>
           </div>
         </div>
