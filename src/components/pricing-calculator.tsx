@@ -161,7 +161,7 @@ export function PricingCalculator() {
                     </div>
                   </div>
                 </div>
-                <Button variant="secondary" size="medium" className="calculator-add-button" type="submit" disabled={!canAddItem}>
+                <Button variant="brand" size="small" className="calculator-add-button" type="submit" disabled={!canAddItem}>
                   <Plus aria-hidden="true" />
                   Dodaj komarnik
                 </Button>

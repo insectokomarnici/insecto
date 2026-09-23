@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { ButtonHTMLAttributes, ComponentProps } from "react";
 import { cn } from "@/lib/cn";
 
-type Variant = "primary" | "secondary";
+type Variant = "primary" | "brand" | "secondary";
 type ButtonSize = "small" | "medium" | "large";
 export function Button({ variant = "primary", size = "medium", loading = false, className, children, onClick, type = "button", ...props }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: Variant; size?: ButtonSize; loading?: boolean }) {
   return <button {...props} type={type} className={cn("button", `button-${variant}`, `button-${size}`, className)} aria-disabled={loading || props["aria-disabled"] || undefined} onClick={(event) => {

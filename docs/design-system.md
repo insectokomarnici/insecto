@@ -184,6 +184,7 @@ The primary CTA is a phone call. The confirmed number is `061 132 1324`, represe
 | --- | --- |
 | Primary button | Approved blue gradient, white Montserrat 600 via `--font-button`, fully rounded pill radius, no border or shadow |
 | Hover / pressed | Solid brand blue; no layout shift |
+| Brand button | Solid brand blue with white text and a matching brand border; the shared soft surface keeps the brand border and uses brand-blue text on hover and while pressed |
 | Secondary action | White surface, dark-blue border and text, fully rounded pill radius; light surface on hover |
 | Text link | Dark blue and always underlined; lighter blue on hover |
 | Keyboard focus | Preserve the native browser outline, with an additional blue ring and white gap |
