@@ -14,7 +14,7 @@ The homepage Banner and Header are wrapped in a shared sticky site chrome so the
 
 The Hero and process-section CTAs use the same centered Google rating row below the action at every viewport width. The rating uses the shared `--text-small`, `--icon-inline`, spacing and rating-star color tokens, while the CTA uses the shared button size and action tokens.
 
-The three-step process is an ordered list in the document structure while its visible `01`–`03` markers remain decorative. Cards use one column below `md` and three equal columns from `md`, with shared section, grid, card-padding, radius, typography, icon and border tokens. The custom colored cards include the same defensive text wrapping as the shared Card component. Their content is informational, so the cards remain still and have no hover treatment.
+The three-step process is an ordered list in the document structure while its visible `01`–`03` markers remain decorative. Cards use one column below `md` and three equal columns from `md`, with shared section, grid, card-padding, radius, typography, icon and border tokens. Every card reserves the same thicker left-border width; the blue cards use their own surface color for that border, so it blends into the card while all content keeps identical edge spacing. The custom colored cards include the same defensive text wrapping as the shared Card component. Their content is informational, so the cards remain still and have no hover treatment.
 
 Product accordions and the mobile hamburger panel use the shared `--motion-transition-duration` token for matched open and close animations. The reduced-motion media query disables the transition while native `<details>` semantics and keyboard behavior remain intact.
 

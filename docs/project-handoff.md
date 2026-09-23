@@ -112,6 +112,7 @@ Products are defined in `src/lib/products.ts`. Each product has three colors: Be
 - The process section is implemented as an ordered list so assistive technology announces three sequential items.
 - It uses one column below `md` and three equal columns from `md`.
 - Step markers, icons, typography, card padding, borders, radii, colors and spacing use shared or semantic tokens.
+- Every card reserves the same thicker left-border width; the blue cards match that border to their surface so all content keeps identical edge spacing.
 - The cards are informational and intentionally have no hover motion.
 - The CTA and Google rating reuse the same shared components and tokenized spacing as the Hero.
 
