@@ -107,6 +107,14 @@ The main section IDs are `products`, `about`, `calculator`, `gallery`, and `faq`
 
 Products are defined in `src/lib/products.ts`. Each product has three colors: Bela, Braon, and Antracit. Product accordions contain the agreed Serbian copy for description, colors/materials, and installation. Keep all product content centralized in that data file.
 
+## Three-step process
+
+- The process section is implemented as an ordered list so assistive technology announces three sequential items.
+- It uses one column below `md` and three equal columns from `md`.
+- Step markers, icons, typography, card padding, borders, radii, colors and spacing use shared or semantic tokens.
+- The cards are informational and intentionally have no hover motion.
+- The CTA and Google rating reuse the same shared components and tokenized spacing as the Hero.
+
 ## Calculator
 
 The calculator is in `src/components/pricing-calculator.tsx`.

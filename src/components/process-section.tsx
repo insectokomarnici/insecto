@@ -39,9 +39,9 @@ export function ProcessSection() {
             <span className="section-eyebrow">3 koraka</span>
             <Heading as="h2" size="section" id="process-title">Kako do komarnika?</Heading>
           </div>
-          <div className="process-steps">
+          <ol className="process-steps">
             {steps.map(({ number, title, body, surface, Icon }) => (
-              <article className={`process-step process-step-${surface}`} key={title}>
+              <li className={`process-step process-step-${surface}`} key={title}>
                 <Heading as="h3" size="card">
                   <span className="process-step-heading">
                     <span className="process-step-kicker"><Icon aria-hidden="true" /><span className="process-step-number" aria-hidden="true">{number}</span></span>
@@ -49,9 +49,9 @@ export function ProcessSection() {
                   </span>
                 </Heading>
                 <p className="process-step-body">{body}</p>
-              </article>
+              </li>
             ))}
-          </div>
+          </ol>
           <div className="process-actions">
             <div className="process-cta-group">
               <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>

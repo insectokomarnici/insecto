@@ -95,6 +95,7 @@
   --tracking-hero: -0.025em;
   --tracking-section: -0.02em;
   --tracking-card: -0.01em;
+  --tracking-label: 0.06em;
   --radius-button: var(--radius-md);
   --radius-input: var(--radius-md);
   --radius-card: var(--radius-lg);
@@ -125,6 +126,7 @@
   --gallery-transition-duration: 300ms;
   --gallery-image-transition-duration: 500ms;
   --textarea-min-height: 8rem;
+  --process-step-number-size: var(--space-8);
   --calculator-card-min-height: 30.125rem;
   --calculator-tooltip-max-width: 22rem;
   --calculator-tooltip-arrow-size: 0.75rem;
