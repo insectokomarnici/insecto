@@ -73,7 +73,7 @@ Breakpoints:
 
 Buttons use the shared `Button`/`ButtonLink` API with `small`, `medium`, and `large` sizes. Phone CTAs use Carbon `PhoneFilled` and `tel:+381611321324`, while the visible phone text is `061 132 1324`.
 
-Carbon is used for CTA phone icons and chevrons. Boxicons are used for the remaining shared visual icons. Keep icon sizing through the existing icon tokens (`inline`, `action`, `feature`, `menu`, and `close`).
+Carbon is used for CTA phone icons and chevrons. Boxicons are used for the remaining shared visual icons, with local SVG wrappers where the package does not export an approved shape. Keep icon sizing through the existing semantic icon tokens, including `inline`, `action`, `footer`, `feature`, `process`, `floating-call`, `menu`, and `close`.
 
 ## Homepage structure
 
@@ -115,6 +115,14 @@ Products are defined in `src/lib/products.ts`. Each product has three colors: Be
 - Every card reserves the same thicker left-border width; the blue cards match that border to their surface so all content keeps identical edge spacing.
 - The cards are informational and intentionally have no hover motion.
 - The CTA and Google rating reuse the same shared components and tokenized spacing as the Hero.
+
+## About
+
+- The About section uses one column below `lg` and two equal columns from `lg`.
+- The team image keeps a `3 / 2` presentation area with the two statistic cards overlaid along its lower edge.
+- Statistic values use the shared lead type scale; labels, icons, cards, borders, radii and shadows reuse the existing design tokens.
+- Below `sm`, smaller tokenized icon containers keep both statistic cards readable in two columns down to 320px without horizontal overflow.
+- The copy and CTA reuse the shared heading, body, button, Google rating and spacing primitives.
 
 ## Calculator
 
