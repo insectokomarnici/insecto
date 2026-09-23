@@ -120,8 +120,8 @@ Products are defined in `src/lib/products.ts`. Each product has three colors: Be
 
 - The About section uses one column below `lg` and two equal columns from `lg`.
 - The team image keeps a `3 / 2` presentation area with the two statistic cards overlaid along its lower edge.
-- Statistic values use the shared lead type scale; labels, icons, cards, borders, radii and shadows reuse the existing design tokens.
-- Below `sm`, smaller tokenized icon containers keep both statistic cards readable in two columns down to 320px without horizontal overflow.
+- Statistic values use the shared body scale with small labels; icons, cards, borders, radii and shadows reuse the existing design tokens.
+- Below `sm`, the cards stack in one column and keep each value-label pair on one horizontal line. Smaller tokenized icon containers prevent three-line cards and horizontal overflow down to 320px.
 - The copy and CTA reuse the shared heading, body, button, Google rating and spacing primitives.
 
 ## Calculator
