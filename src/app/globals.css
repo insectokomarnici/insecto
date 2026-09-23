@@ -211,8 +211,8 @@
 .process-step h3, .process-step-body { margin: 0; }
 .process-step-heading { display: grid; justify-items: start; gap: var(--space-3); }
 .process-step-kicker { display: flex; align-items: center; justify-content: space-between; width: 100%; gap: var(--space-4); }
-.process-step-heading svg { width: var(--icon-feature); height: var(--icon-feature); flex: none; }
-.process-step-number { display: inline-flex; align-items: center; justify-content: center; width: var(--process-step-number-size); height: var(--process-step-number-size); flex: none; padding: var(--space-0); border-radius: var(--radius-pill); background: var(--color-brand); color: var(--color-surface); font-family: var(--font-heading); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: 700; letter-spacing: var(--tracking-label); }
+.process-step-heading svg { width: var(--icon-process); height: var(--icon-process); flex: none; }
+.process-step-number { display: inline-flex; align-items: center; justify-content: center; width: var(--process-step-number-size); height: var(--process-step-number-size); flex: none; padding: var(--space-0); border-radius: var(--radius-pill); background: var(--color-brand); color: var(--color-surface); font-family: var(--font-heading); font-size: var(--text-body); line-height: 1; font-weight: 700; letter-spacing: var(--tracking-label); }
 .process-step-soft { border-color: var(--color-brand); background: var(--color-surface); color: var(--color-brand); }
 .process-step-soft .heading { color: var(--color-brand); }
 .process-step-brand-light, .process-step-brand { color: var(--color-surface); }

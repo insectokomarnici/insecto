@@ -126,7 +126,7 @@
   --gallery-transition-duration: 300ms;
   --gallery-image-transition-duration: 500ms;
   --textarea-min-height: 8rem;
-  --process-step-number-size: var(--space-8);
+  --process-step-number-size: var(--space-10);
   --calculator-card-min-height: 30.125rem;
   --calculator-tooltip-max-width: 22rem;
   --calculator-tooltip-arrow-size: 0.75rem;
@@ -145,6 +145,7 @@
   --icon-action: 1.25rem;
   --icon-footer: 1.25rem;
   --icon-feature: 1.5rem;
+  --icon-process: 2rem;
   --icon-floating-call: 1.8rem;
   --icon-menu: 1rem;
   --icon-close: 1rem;
