@@ -86,20 +86,28 @@ export function PricingCalculator() {
                 <div className="calculator-copy-intro stack">
                   <p className="text-body calculator-description">
                     Unesi širinu i visinu otvora u centimetrima, zatim izaberi tip i boju komarnika da dobiješ tačnu cenu.
-                    <span className="calculator-info">
+                    <span
+                      className={`calculator-info${isPriceInfoOpen ? " is-open" : ""}`}
+                      onBlur={(event) => {
+                        if (!event.currentTarget.contains(event.relatedTarget)) setIsPriceInfoOpen(false);
+                      }}
+                    >
                       <button
                         className="calculator-info-trigger"
                         type="button"
                         aria-label="Kako se računa cena?"
-                        aria-expanded={isPriceInfoOpen || undefined}
-                        aria-controls="calculator-price-info"
                         aria-describedby="calculator-price-info"
-                        title="Kako se računa cena?"
                         onClick={handlePriceInfoToggle}
+                        onKeyDown={(event) => {
+                          if (event.key === "Escape") {
+                            setIsPriceInfoOpen(false);
+                            event.currentTarget.blur();
+                          }
+                        }}
                       >
                         <Help aria-hidden="true" />
                       </button>
-                      <span id="calculator-price-info" className={`calculator-tooltip${isPriceInfoOpen ? " is-visible" : ""}`} role="tooltip">
+                      <span id="calculator-price-info" className="calculator-tooltip" role="tooltip">
                         <span className="calculator-tooltip-title">Kako se računa cena?</span>
                         <span className="calculator-tooltip-copy">Površina se dobija množenjem širine i visine u metrima. Zatim se površina množi cenom po m² za izabrani tip i boju komarnika. Za površine manje od 1 m² obračunava se cena jednog m².</span>
                       </span>
@@ -123,14 +131,14 @@ export function PricingCalculator() {
                   <div className="field">
                     <label className="field-label" htmlFor="calculator-width">Širina</label>
                     <div className="calculator-input">
-                      <input id="calculator-width" className="control" type="number" min="0" inputMode="decimal" aria-describedby="calculator-width-unit" value={width} onChange={(event) => setWidth(event.target.value)} />
+                      <input id="calculator-width" className="control" type="number" min="0" step="any" inputMode="decimal" aria-describedby="calculator-width-unit" value={width} onChange={(event) => setWidth(event.target.value)} />
                       <span id="calculator-width-unit" className="calculator-input-unit">cm</span>
                     </div>
                   </div>
                   <div className="field">
                     <label className="field-label" htmlFor="calculator-height">Visina</label>
                     <div className="calculator-input">
-                      <input id="calculator-height" className="control" type="number" min="0" inputMode="decimal" aria-describedby="calculator-height-unit" value={height} onChange={(event) => setHeight(event.target.value)} />
+                      <input id="calculator-height" className="control" type="number" min="0" step="any" inputMode="decimal" aria-describedby="calculator-height-unit" value={height} onChange={(event) => setHeight(event.target.value)} />
                       <span id="calculator-height-unit" className="calculator-input-unit">cm</span>
                     </div>
                   </div>

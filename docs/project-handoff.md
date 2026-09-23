@@ -114,7 +114,9 @@ The calculator is in `src/components/pricing-calculator.tsx`.
 - Prices are per m² and vary by type and color in `src/lib/pricing.ts`.
 - Brown and anthracite are €1/m² above the white price for each type.
 - The calculator supports adding multiple mosquito screens and totals all items.
+- Width and height fields accept decimal centimeter measurements.
 - Item rows show dimensions, area, price per m², item total, item count, and a transparent remove control.
+- The price explanation tooltip stays within the copy card at every breakpoint. It opens on hover or keyboard focus for precise pointers and by tap on coarse pointers.
 - The left explanation card and right calculator panel have the same initial desktop height.
 - When items are added, only the right calculator panel grows. This uses `--calculator-card-min-height` and the desktop layout rule in `globals.css`.
 - Mobile layout stacks the two cards naturally.

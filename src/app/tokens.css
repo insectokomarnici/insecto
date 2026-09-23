@@ -12,6 +12,8 @@
   --color-placeholder: #7b879a;
   --color-surface: #ffffff;
   --color-surface-subtle: #f6f8fb;
+  --color-gallery-overlay: rgb(17 17 17 / 0.4);
+  --color-gallery-caption-muted: rgb(255 255 255 / 0.6);
   --color-border: #e1e6ee;
   --color-control-border: #7b879a;
   --color-success: #027a48;
@@ -120,9 +122,14 @@
   --banner-min-height: 3rem;
   --banner-transition-duration: 320ms;
   --motion-transition-duration: 420ms;
-  --gallery-transition-duration: 700ms;
+  --gallery-transition-duration: 300ms;
+  --gallery-image-transition-duration: 500ms;
   --textarea-min-height: 8rem;
   --calculator-card-min-height: 30.125rem;
+  --calculator-tooltip-max-width: 22rem;
+  --calculator-tooltip-arrow-size: 0.75rem;
+  --calculator-tooltip-arrow-offset: 0.375rem;
+  --calculator-visual-max-width: 22rem;
   --control-line-height: 1.5;
   --border-width: 1px;
   --border-accent-width: 0.375rem;
