@@ -35,9 +35,10 @@ type Props = {
   includeEmail?: boolean;
   requireEmail?: boolean;
   includeAttachments?: boolean;
+  hideRequiredIndicators?: boolean;
 };
 
-export function ContactForm({ submitContact, successMessage = "Poruka je uspešno poslata.", failureMessage = "Poruka nije poslata. Pokušajte ponovo. Uneti podaci su sačuvani u formi.", className, buttonVariant = "primary", buttonSize = "medium", submitLabel = "Pošaljite poruku", nameLabel = "Ime", surnameLabel = "Prezime", emailLabel = "E-mail", phoneLabel = "Telefon", namePlaceholder = "Vaše ime", surnamePlaceholder = "Vaše prezime", emailPlaceholder = "vas@email.com", phonePlaceholder = "Broj telefona", messagePlaceholder = "Šta vam je potrebno?", footerNote, includeSurname = false, includeEmail = false, requireEmail = true, includeAttachments = false }: Props) {
+export function ContactForm({ submitContact, successMessage = "Poruka je uspešno poslata.", failureMessage = "Poruka nije poslata. Pokušajte ponovo. Uneti podaci su sačuvani u formi.", className, buttonVariant = "primary", buttonSize = "medium", submitLabel = "Pošaljite poruku", nameLabel = "Ime", surnameLabel = "Prezime", emailLabel = "E-mail", phoneLabel = "Telefon", namePlaceholder = "Vaše ime", surnamePlaceholder = "Vaše prezime", emailPlaceholder = "vas@email.com", phonePlaceholder = "Broj telefona", messagePlaceholder = "Šta vam je potrebno?", footerNote, includeSurname = false, includeEmail = false, requireEmail = true, includeAttachments = false, hideRequiredIndicators = false }: Props) {
   const emailRequired = includeEmail && requireEmail;
   const attachmentInputId = useId();
   const [values, setValues] = useState<ContactValues>({ name: "", ...(includeSurname ? { surname: "" } : {}), ...(includeEmail ? { email: "" } : {}), phone: "", message: "" });
@@ -124,22 +125,22 @@ export function ContactForm({ submitContact, successMessage = "Poruka je uspešn
 
   return <form ref={formRef} className={cn("contact-form", className)} noValidate aria-label="Kontakt forma" aria-busy={busy} onSubmit={submit}>
     <div className="field-grid">
-      <TextField name="name" label={nameLabel} required autoComplete="given-name" maxLength={80} placeholder={namePlaceholder} value={values.name} readOnly={busy} error={errors.name} onChange={(e) => update("name", e.target.value)} />
-      {includeSurname && <TextField name="surname" label={surnameLabel} required autoComplete="family-name" maxLength={80} placeholder={surnamePlaceholder} value={values.surname ?? ""} readOnly={busy} error={errors.surname} onChange={(e) => update("surname", e.target.value)} />}
-      {includeEmail && <TextField name="email" label={emailLabel} type="email" inputMode="email" autoComplete="email" required={emailRequired} maxLength={254} placeholder={emailPlaceholder} value={values.email ?? ""} readOnly={busy} error={errors.email} onChange={(e) => update("email", e.target.value)} />}
-      <TextField name="phone" label={phoneLabel} type="tel" inputMode="tel" autoComplete="tel" required maxLength={40} placeholder={phonePlaceholder} value={values.phone} readOnly={busy} error={errors.phone} onChange={(e) => update("phone", e.target.value)} onBlur={() => {
+      <TextField name="name" label={nameLabel} required hideRequiredIndicator={hideRequiredIndicators} autoComplete="given-name" maxLength={80} placeholder={namePlaceholder} value={values.name} readOnly={busy} error={errors.name} onChange={(e) => update("name", e.target.value)} />
+      {includeSurname && <TextField name="surname" label={surnameLabel} required hideRequiredIndicator={hideRequiredIndicators} autoComplete="family-name" maxLength={80} placeholder={surnamePlaceholder} value={values.surname ?? ""} readOnly={busy} error={errors.surname} onChange={(e) => update("surname", e.target.value)} />}
+      {includeEmail && <TextField name="email" label={emailLabel} type="email" inputMode="email" autoComplete="email" required={emailRequired} hideRequiredIndicator={hideRequiredIndicators} maxLength={254} placeholder={emailPlaceholder} value={values.email ?? ""} readOnly={busy} error={errors.email} onChange={(e) => update("email", e.target.value)} />}
+      <TextField name="phone" label={phoneLabel} type="tel" inputMode="tel" autoComplete="tel" required hideRequiredIndicator={hideRequiredIndicators} maxLength={40} placeholder={phonePlaceholder} value={values.phone} readOnly={busy} error={errors.phone} onChange={(e) => update("phone", e.target.value)} onBlur={() => {
         if (!busy && (phoneTouched || values.phone.trim())) { setPhoneTouched(true); setErrors((current) => ({ ...current, phone: validateContact(values).phone })); }
       }} />
     </div>
-    <TextArea name="message" label="Poruka" required rows={2} className="contact-message" maxLength={1000} placeholder={messagePlaceholder} value={values.message} readOnly={busy} error={errors.message} onChange={(e) => update("message", e.target.value)} />
+    <TextArea name="message" label="Poruka" required hideRequiredIndicator={hideRequiredIndicators} rows={2} className="contact-message" maxLength={1000} placeholder={messagePlaceholder} value={values.message} readOnly={busy} error={errors.message} onChange={(e) => update("message", e.target.value)} />
     {includeAttachments && <div className="field file-upload">
       <label className="field-label" htmlFor={attachmentInputId}>Fotografije <span className="field-note">(opciono)</span></label>
       <button className={cn("file-upload-dropzone", attachmentError && "is-invalid")} type="button" disabled={busy} aria-controls={attachmentInputId} aria-describedby={`${attachmentInputId}-hint${attachmentError ? ` ${attachmentInputId}-error` : ""}`} onClick={() => attachmentInputRef.current?.click()}>
         <Upload aria-hidden="true" />
-        <span className="file-upload-dropzone-copy">Dodaj fotografije <span>(najviše 5)</span></span>
+        <span className="file-upload-dropzone-copy">Dodaj fotografije</span>
       </button>
       <input ref={attachmentInputRef} className="file-upload-native" id={attachmentInputId} name="photos" type="file" accept={ACCEPTED_ATTACHMENT_TYPES} multiple disabled={busy} tabIndex={-1} aria-hidden="true" onChange={handleAttachmentsChange} />
-      <p className="field-hint" id={`${attachmentInputId}-hint`}>Dodaj do 5 fotografija, do 5 MB po fotografiji (JPG, PNG, WebP ili HEIC).</p>
+      <p className="field-hint" id={`${attachmentInputId}-hint`}>Dodaj do 5 fotografija (JPG, PNG, WebP ili HEIC).</p>
       {attachmentError && <p className="field-error" id={`${attachmentInputId}-error`}>{attachmentError}</p>}
       {attachments.length > 0 && <ul className="file-upload-list" aria-label="Dodate fotografije">
         {attachments.map((file, index) => <li className="file-upload-item" key={`${file.name}-${file.size}-${file.lastModified}`}>

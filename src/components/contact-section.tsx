@@ -12,7 +12,7 @@ export function ContactSection() {
     formData.append("phone", values.phone);
     formData.append("message", values.message);
     if (values.surname !== undefined) formData.append("surname", values.surname);
-    if (values.email) formData.append("email", values.email);
+    if (values.email !== undefined) formData.append("email", values.email);
     values.attachments?.forEach((file) => formData.append("photos", file, file.name));
     const response = await fetch("/api/contact", {
       method: "POST",
