@@ -81,11 +81,11 @@ export function PricingCalculator() {
         <div className="section-inner">
           <div className="calculator-content">
             <Card elevation="none" className="calculator-copy">
-              <Heading as="h2" size="section" id="calculator-title">Komarnici - Cena</Heading>
+              <Heading as="h2" size="section" id="calculator-title">Cena komarnika</Heading>
               <div className="calculator-copy-body stack">
                 <div className="calculator-copy-intro stack">
                   <p className="text-body calculator-description">
-                    Unesi širinu i visinu otvora u centimetrima, zatim izaberi tip i boju komarnika da dobiješ tačnu cenu.
+                    Unesi širinu i visinu otvora u centimetrima, zatim izaberi tip i boju komarnika da dobiješ tačnu cenu komarnika u Novom Sadu.
                     <span
                       className={`calculator-info${isPriceInfoOpen ? " is-open" : ""}`}
                       onBlur={(event) => {
