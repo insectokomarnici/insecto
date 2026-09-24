@@ -9,6 +9,7 @@ const galleryItems = [
   { id: "plise-3663", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-3663.jpg" },
   { id: "rolo-5890", title: "Rolo komarnici", category: "ROLO KOMARNICI", image: "/images/gallery-5890.jpg" },
   { id: "plise-6902", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-6902.jpg" },
+  { id: "rolo-porch", title: "Rolo komarnici", category: "ROLO KOMARNICI", image: "/images/gallery-rolo-porch.jpg" },
 ];
 
 export function GallerySection() {
