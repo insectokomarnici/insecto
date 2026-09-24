@@ -2,12 +2,13 @@ import Image from "next/image";
 import { Container, Heading } from "@/components/ui/layout";
 
 const galleryItems = [
-  { title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-plise-komarnik.jpg" },
-  { title: "Rolo komarnici", category: "ROLO KOMARNICI" },
-  { title: "Fiksni komarnici", category: "FIKSNI KOMARNICI" },
-  { title: "Komarnici za prozore", category: "KOMARNICI ZA PROZORE" },
-  { title: "Komarnici za vrata", category: "KOMARNICI ZA VRATA" },
-  { title: "Komarnici po meri", category: "KOMARNICI PO MERI" },
+  { id: "plise-3324", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-plise-komarnik.jpg" },
+  { id: "plise-3307", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-3307.jpg" },
+  { id: "plise-3609", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-3609.jpg" },
+  { id: "plise-3612", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-3612.jpg" },
+  { id: "plise-3663", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-3663.jpg" },
+  { id: "rolo-5890", title: "Rolo komarnici", category: "ROLO KOMARNICI", image: "/images/gallery-5890.jpg" },
+  { id: "plise-6902", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-6902.jpg" },
 ];
 
 export function GallerySection() {
@@ -20,13 +21,13 @@ export function GallerySection() {
             <Heading as="h2" size="section" id="gallery-title">Galerija komarnika</Heading>
           </div>
           <div className="gallery-grid">
-            {galleryItems.map(({ title, category, image }) => (
-              <figure className="gallery-item" key={title}>
+            {galleryItems.map(({ id, title, category, image }) => (
+              <figure className="gallery-item" key={id}>
                 <div className="gallery-card">
-                  <div className={`gallery-media${image ? " gallery-media-photo" : ""}`}>
+                  <div className="gallery-media">
                     <Image
-                      src={image ?? "/images/gallery-placeholder.svg"}
-                      alt={image ? "Plise komarnik na prozoru" : `Placeholder fotografija: ${title}`}
+                      src={image}
+                      alt={`${title} na prozoru ili vratima`}
                       fill
                       sizes="(min-width: 64rem) 33vw, (min-width: 48rem) 50vw, 100vw"
                     />

@@ -246,8 +246,7 @@
 .gallery-grid { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--grid-gap); }
 .gallery-item { min-width: 0; margin: 0; }
 .gallery-card { position: relative; min-width: 0; overflow: hidden; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); }
-.gallery-media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; }
-.gallery-media-photo { aspect-ratio: 3 / 4; }
+.gallery-media { position: relative; aspect-ratio: 3 / 4; overflow: hidden; }
 .gallery-media img { object-fit: cover; will-change: transform; transition: transform var(--gallery-image-transition-duration) ease-in-out; }
 .gallery-overlay { position: absolute; inset: 0; background: var(--color-gallery-overlay); opacity: 0; pointer-events: none; transition: opacity var(--gallery-transition-duration) ease-in-out; }
 .gallery-caption { position: absolute; inset-inline: 0; bottom: 0; display: grid; gap: var(--space-1); padding: var(--space-4); color: var(--color-surface); font-size: var(--text-small); line-height: var(--text-small--line-height); opacity: 0; transform: translateY(100%); transition: opacity var(--gallery-transition-duration) ease-in-out, transform var(--gallery-transition-duration) ease-in-out; }
