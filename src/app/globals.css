@@ -228,7 +228,7 @@
 .about-media { position: relative; min-width: 0; }
 .about-image { position: relative; min-width: 0; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-card); }
 .about-image img { object-fit: contain; object-position: center bottom; }
-.about-copy { min-width: 0; max-width: var(--content-text); gap: var(--space-6); }
+.about-copy { min-width: 0; max-width: var(--content-text); gap: var(--space-4); }
 .about-text p { margin: 0; }
 .about-cta-group { display: flex; width: fit-content; max-width: 100%; flex-direction: column; align-items: center; gap: var(--cta-review-gap); }
 .about-cta-group > .button { width: fit-content; }
