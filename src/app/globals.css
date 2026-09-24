@@ -239,6 +239,14 @@
 .about-text p { margin: 0; }
 .about-cta-group { display: flex; width: fit-content; max-width: 100%; flex-direction: column; align-items: center; gap: var(--cta-review-gap); }
 .about-cta-group > .button { width: fit-content; }
+.about-page-story-section { background: var(--color-surface-subtle); }
+.about-page-story { display: grid; gap: var(--space-6); min-width: 0; }
+.about-page-story-heading { justify-items: center; text-align: center; }
+.about-page-story-lead { margin: 0; color: var(--color-heading); }
+.about-page-story-text { gap: var(--space-4); }
+.about-page-story-text p { margin: 0; }
+.about-page-story-media { min-width: 0; margin-block: var(--space-2) var(--space-6); }
+.about-page-story-media figcaption { margin-top: var(--space-2); padding-inline-start: var(--space-2); border-inline-start: calc(var(--border-width) * 2) solid var(--color-body); color: var(--color-body); font-family: var(--font-heading); font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .gallery-section { background: var(--color-surface-subtle); }
 .gallery-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--grid-gap); }
 .gallery-item { min-width: 0; margin: 0; }

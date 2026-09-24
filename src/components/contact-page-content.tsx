@@ -24,12 +24,12 @@ export function ContactPageContent() {
       <Container>
         <div className="contact-page-header stack">
           <Heading as="h1" size="hero" id="contact-page-title">Kontakt</Heading>
-          <p className="text-body">Treba ti pomoć? Tražiš savet ili preporuku komarnika za tvoj prostor?</p>
         </div>
 
         <div className="contact-page-layout">
           <div className="contact-page-intro">
             <div className="contact-page-copy stack text-body">
+              <p>Treba ti pomoć? Tražiš savet ili preporuku komarnika za tvoj prostor?</p>
               <p><strong>Hajde da se čujemo!</strong> Možeš nas zvati svakog radnog dana od 08 do 20h, pisati putem mejla ili samo popuniti obrazac, a odgovor ćeš dobiti već istog dana.</p>
             </div>
 

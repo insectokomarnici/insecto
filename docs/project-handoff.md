@@ -125,6 +125,11 @@ Products are defined in `src/lib/products.ts`. Each product has three colors: Be
 - Below `sm`, the cards stay side by side with compact tokenized padding and no horizontal overflow at 320px.
 - The copy and CTA reuse the shared heading, body, button, Google rating and spacing primitives.
 
+## About page
+
+- `/o-nama` uses the shared site chrome with the complete approved company story in a single focused section.
+- The page uses a single `h1`, a centered narrow story column and the same reading order as the reference page: title and introduction, the first two story paragraphs, team image with the `Insecto Komarnici` caption, then the remaining story copy.
+
 ## Calculator
 
 The calculator is in `src/components/pricing-calculator.tsx`.
