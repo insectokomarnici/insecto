@@ -53,8 +53,7 @@ export function ProcessSection() {
       <Container>
         <div className="section-inner">
           <div className="section-intro stack">
-            <span className="section-eyebrow">3 koraka</span>
-            <Heading as="h2" size="section" id="process-title">Kako do komarnika</Heading>
+            <Heading as="h2" size="section" id="process-title">Kako do komarnika?</Heading>
           </div>
           <ol className="process-steps">
             {steps.map(({ number, title, body, surface, Icon }) => (

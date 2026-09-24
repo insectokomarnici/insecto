@@ -190,7 +190,6 @@
 .hero-media { position: relative; min-width: 0; aspect-ratio: 3 / 4; overflow: hidden; border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); }
 .hero-image { object-fit: cover; object-position: center; }
 .hero-copy { max-width: 42rem; padding-block: var(--space-0); }
-.hero-copy > .section-eyebrow { justify-self: start; }
 .hero-copy .heading-hero { max-width: 38rem; }
 .hero-description { max-width: var(--content-text); font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .hero-cta-group { display: flex; flex-direction: column; align-items: center; justify-self: start; align-self: start; width: fit-content; max-width: 100%; gap: var(--cta-review-gap); margin-top: var(--space-2); }
@@ -205,9 +204,6 @@
 .google-rating-count { margin-inline-start: calc(-1 * var(--space-1)); white-space: nowrap; }
 .products-section { background: var(--color-surface-subtle); }
 .process-section { background: var(--color-surface-subtle); }
-.process-section .section-intro, .gallery-section .section-intro { gap: var(--space-2); }
-.section-eyebrow { justify-self: center; padding: var(--space-1) var(--space-3); border: var(--border-width) solid var(--color-brand-light); border-radius: var(--radius-pill); background: var(--color-surface); color: var(--color-brand); font-family: var(--font-heading); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: 700; letter-spacing: var(--tracking-label); }
-.section-eyebrow-error { border-color: var(--color-error); background: var(--color-error-surface); color: var(--color-error); }
 .process-steps { display: grid; gap: var(--grid-gap); margin: var(--space-0); padding: var(--space-0); list-style: none; }
 .process-step { display: grid; align-content: start; gap: var(--space-3); min-width: 0; padding: var(--card-padding); border: var(--border-width) solid transparent; border-inline-start-width: var(--border-accent-width); border-radius: var(--radius-card); text-align: start; overflow-wrap: anywhere; }
 .process-step h3, .process-step-body { margin: 0; }

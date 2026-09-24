@@ -79,12 +79,9 @@ export function PricingCalculator() {
     <section className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
       <Container>
         <div className="section-inner">
-          <div className="section-intro stack">
-            <Heading as="h2" size="section" id="calculator-title">Izračunaj cenu komarnika</Heading>
-          </div>
           <div className="calculator-content">
             <Card elevation="none" className="calculator-copy">
-              <Heading as="h3" size="card">Kalkulator cene</Heading>
+              <Heading as="h2" size="section" id="calculator-title">Cena komarnika</Heading>
               <div className="calculator-copy-body stack">
                 <div className="calculator-copy-intro stack">
                   <p className="text-body calculator-description">
