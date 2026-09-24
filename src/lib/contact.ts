@@ -1,4 +1,5 @@
 export type ContactValues = { name: string; surname?: string; email?: string; phone: string; message: string };
+export type ContactSubmissionValues = ContactValues & { attachments?: File[] };
 export type ContactErrors = Partial<Record<keyof ContactValues, string>>;
 
 type ContactValidationOptions = { requireSurname?: boolean; requireEmail?: boolean };

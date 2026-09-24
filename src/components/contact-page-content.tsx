@@ -3,14 +3,20 @@
 import { Clock, Envelope, Phone } from "@boxicons/react";
 import { ContactForm } from "@/components/contact-form";
 import { Container, Heading } from "@/components/ui/layout";
-import type { ContactValues } from "@/lib/contact";
+import type { ContactSubmissionValues } from "@/lib/contact";
 
 export function ContactPageContent() {
-  async function submitContact(values: ContactValues) {
+  async function submitContact(values: ContactSubmissionValues) {
+    const formData = new FormData();
+    formData.append("name", values.name);
+    formData.append("phone", values.phone);
+    formData.append("message", values.message);
+    if (values.surname !== undefined) formData.append("surname", values.surname);
+    if (values.email) formData.append("email", values.email);
+    values.attachments?.forEach((file) => formData.append("photos", file, file.name));
     const response = await fetch("/api/contact", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
+      body: formData,
     });
 
     if (!response.ok) {
@@ -50,7 +56,7 @@ export function ContactPageContent() {
             <div className="contact-page-map">
               <iframe
                 title="Lokacija Insecto Komarnici"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2807.5487619669934!2d19.841968299999998!3d45.2771316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80b0687fa7a6efbd%3A0x7e802234177fb0cd!2sInsecto%20Komarnici%20Novi%20Sad!5e0!3m2!1ssr!2srs!4v1790257421662!5m2!1ssr!2srs"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44925.282512584534!2d19.80815608241008!3d45.27144396327344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80b0687fa7a6efbd%3A0x7e802234177fb0cd!2sInsecto%20-%20Komarnici%20Novi%20Sad!5e0!3m2!1sen!2srs!4v1734351027441!5m2!1sen!2srs"
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
@@ -71,6 +77,7 @@ export function ContactPageContent() {
               submitLabel="Pošalji upit"
               includeSurname
               includeEmail
+              requireEmail={false}
               namePlaceholder="Ime"
               surnamePlaceholder="Prezime"
               emailPlaceholder="tvoj@email.com"
@@ -78,6 +85,7 @@ export function ContactPageContent() {
               phonePlaceholder="060 1234567"
               messagePlaceholder="Npr. potrebni su mi komarnici za 3 prozora i balkonska vrata."
               footerNote="Tvoje podatke koristimo samo kako bismo ti odgovorili na upit."
+              includeAttachments
             />
           </div>
         </div>

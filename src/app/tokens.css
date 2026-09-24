@@ -14,6 +14,9 @@
   --color-surface-subtle: #f6f8fb;
   --color-gallery-overlay: rgb(17 17 17 / 0.4);
   --color-gallery-caption-muted: rgb(255 255 255 / 0.6);
+  --color-upload-border: rgb(255 255 255 / 0.32);
+  --color-upload-surface: rgb(255 255 255 / 0.04);
+  --color-upload-muted: rgb(255 255 255 / 0.72);
   --color-border: #e1e6ee;
   --color-control-border: #7b879a;
   --color-success: #027a48;
@@ -128,6 +131,7 @@
   --gallery-transition-duration: 300ms;
   --gallery-image-transition-duration: 500ms;
   --textarea-min-height: 8rem;
+  --textarea-message-min-height: 5rem;
   --process-step-number-size: var(--space-10);
   --calculator-card-min-height: 30.125rem;
   --calculator-tooltip-max-width: 22rem;
@@ -136,6 +140,7 @@
   --calculator-visual-max-width: 22rem;
   --control-line-height: 1.5;
   --border-width: 1px;
+  --border-dropzone-width: 0.125rem;
   --border-accent-width: 0.375rem;
   --focus-gap: 0.125rem;
   --focus-width: 0.1875rem;

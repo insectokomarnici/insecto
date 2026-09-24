@@ -3,14 +3,20 @@
 import { Check } from "@boxicons/react";
 import { ContactForm } from "@/components/contact-form";
 import { Container, Heading } from "@/components/ui/layout";
-import type { ContactValues } from "@/lib/contact";
+import type { ContactSubmissionValues } from "@/lib/contact";
 
 export function ContactSection() {
-  async function submitContact(values: ContactValues) {
+  async function submitContact(values: ContactSubmissionValues) {
+    const formData = new FormData();
+    formData.append("name", values.name);
+    formData.append("phone", values.phone);
+    formData.append("message", values.message);
+    if (values.surname !== undefined) formData.append("surname", values.surname);
+    if (values.email) formData.append("email", values.email);
+    values.attachments?.forEach((file) => formData.append("photos", file, file.name));
     const response = await fetch("/api/contact", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(values),
+      body: formData,
     });
 
     if (!response.ok) {
@@ -39,6 +45,7 @@ export function ContactSection() {
             phonePlaceholder="060 1234567"
             messagePlaceholder="Npr. potrebni su mi komarnici za 3 prozora i balkonska vrata."
             footerNote="Tvoje podatke koristimo samo kako bismo ti odgovorili na upit."
+            includeAttachments
           />
         </div>
       </Container>
