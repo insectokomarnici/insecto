@@ -15,15 +15,21 @@ type Props = {
   buttonSize?: "small" | "medium" | "large";
   submitLabel?: string;
   nameLabel?: string;
+  surnameLabel?: string;
+  emailLabel?: string;
   phoneLabel?: string;
   namePlaceholder?: string;
+  surnamePlaceholder?: string;
+  emailPlaceholder?: string;
   phonePlaceholder?: string;
   messagePlaceholder?: string;
   footerNote?: string;
+  includeSurname?: boolean;
+  includeEmail?: boolean;
 };
 
-export function ContactForm({ submitContact, successMessage = "Poruka je uspešno poslata.", failureMessage = "Poruka nije poslata. Pokušajte ponovo. Uneti podaci su sačuvani u formi.", className, buttonVariant = "primary", buttonSize = "medium", submitLabel = "Pošaljite poruku", nameLabel = "Ime", phoneLabel = "Telefon", namePlaceholder = "Vaše ime", phonePlaceholder = "Broj telefona", messagePlaceholder = "Šta vam je potrebno?", footerNote }: Props) {
-  const [values, setValues] = useState<ContactValues>({ name: "", phone: "", message: "" });
+export function ContactForm({ submitContact, successMessage = "Poruka je uspešno poslata.", failureMessage = "Poruka nije poslata. Pokušajte ponovo. Uneti podaci su sačuvani u formi.", className, buttonVariant = "primary", buttonSize = "medium", submitLabel = "Pošaljite poruku", nameLabel = "Ime", surnameLabel = "Prezime", emailLabel = "E-mail", phoneLabel = "Telefon", namePlaceholder = "Vaše ime", surnamePlaceholder = "Vaše prezime", emailPlaceholder = "vas@email.com", phonePlaceholder = "Broj telefona", messagePlaceholder = "Šta vam je potrebno?", footerNote, includeSurname = false, includeEmail = false }: Props) {
+  const [values, setValues] = useState<ContactValues>({ name: "", ...(includeSurname ? { surname: "" } : {}), ...(includeEmail ? { email: "" } : {}), phone: "", message: "" });
   const [errors, setErrors] = useState<ContactErrors>({});
   const [feedback, setFeedback] = useState<"idle" | "invalid" | "sending" | "success" | "error">("idle");
   const [phoneTouched, setPhoneTouched] = useState(false);
@@ -36,14 +42,14 @@ export function ContactForm({ submitContact, successMessage = "Poruka je uspešn
     const next = { ...values, [field]: value };
     setValues(next);
     setFeedback("idle");
-    setErrors((current) => ({ ...current, [field]: field === "phone" && phoneTouched ? validateContact(next).phone : undefined }));
+    setErrors((current) => ({ ...current, [field]: field === "phone" && phoneTouched ? validateContact(next, { requireSurname: includeSurname, requireEmail: includeEmail }).phone : undefined }));
   }
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (sending.current) return;
     setPhoneTouched(true);
-    const nextErrors = validateContact(values);
+    const nextErrors = validateContact(values, { requireSurname: includeSurname, requireEmail: includeEmail });
     setErrors(nextErrors);
     if (Object.keys(nextErrors).length) {
       setFeedback("invalid");
@@ -53,7 +59,7 @@ export function ContactForm({ submitContact, successMessage = "Poruka je uspešn
     sending.current = true;
     setFeedback("sending");
     try {
-      await submitContact({ name: values.name.trim(), phone: values.phone.trim(), message: values.message.trim() });
+      await submitContact({ name: values.name.trim(), surname: values.surname?.trim(), email: values.email?.trim(), phone: values.phone.trim(), message: values.message.trim() });
       setFeedback("success");
     } catch {
       setFeedback("error");
@@ -62,7 +68,9 @@ export function ContactForm({ submitContact, successMessage = "Poruka je uspešn
 
   return <form ref={formRef} className={cn("contact-form", className)} noValidate aria-label="Kontakt forma" aria-busy={busy} onSubmit={submit}>
     <div className="field-grid">
-      <TextField name="name" label={nameLabel} required autoComplete="name" maxLength={80} placeholder={namePlaceholder} value={values.name} readOnly={busy} error={errors.name} onChange={(e) => update("name", e.target.value)} />
+      <TextField name="name" label={nameLabel} required autoComplete="given-name" maxLength={80} placeholder={namePlaceholder} value={values.name} readOnly={busy} error={errors.name} onChange={(e) => update("name", e.target.value)} />
+      {includeSurname && <TextField name="surname" label={surnameLabel} required autoComplete="family-name" maxLength={80} placeholder={surnamePlaceholder} value={values.surname ?? ""} readOnly={busy} error={errors.surname} onChange={(e) => update("surname", e.target.value)} />}
+      {includeEmail && <TextField name="email" label={emailLabel} type="email" inputMode="email" autoComplete="email" required maxLength={254} placeholder={emailPlaceholder} value={values.email ?? ""} readOnly={busy} error={errors.email} onChange={(e) => update("email", e.target.value)} />}
       <TextField name="phone" label={phoneLabel} type="tel" inputMode="tel" autoComplete="tel" required maxLength={40} placeholder={phonePlaceholder} value={values.phone} readOnly={busy} error={errors.phone} onChange={(e) => update("phone", e.target.value)} onBlur={() => {
         if (!busy && (phoneTouched || values.phone.trim())) { setPhoneTouched(true); setErrors((current) => ({ ...current, phone: validateContact(values).phone })); }
       }} />

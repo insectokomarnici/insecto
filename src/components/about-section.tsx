@@ -14,12 +14,14 @@ export function AboutSection() {
       <Container>
         <div className="about-layout">
           <div className="about-media">
-            <Image
-              src={aboutImage}
-              alt="Tim Insecto Komarnici"
-              fill
-              sizes="(min-width: 64rem) 50vw, 100vw"
-            />
+            <div className="about-image">
+              <Image
+                src={aboutImage}
+                alt="Tim Insecto Komarnici"
+                fill
+                sizes="(min-width: 64rem) 50vw, 100vw"
+              />
+            </div>
             <div className="about-stats" aria-label="Iskustvo i zadovoljstvo klijenata">
               <div className="about-stat">
                 <span className="about-stat-icon"><Group aria-hidden="true" /></span>

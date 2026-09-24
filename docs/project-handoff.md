@@ -119,9 +119,10 @@ Products are defined in `src/lib/products.ts`. Each product has three colors: Be
 ## About
 
 - The About section uses one column below `lg` and two equal columns from `lg`.
-- The team image keeps a `3 / 2` presentation area with the two statistic cards overlaid along its lower edge.
-- Statistic values use the shared body scale with small labels; icons, cards, borders, radii and shadows reuse the existing design tokens.
-- Below `sm`, the cards stack in one column and keep each value-label pair on one horizontal line. Smaller tokenized icon containers prevent three-line cards and horizontal overflow down to 320px.
+- The transparent team image keeps its natural `4 / 3` presentation area and uses responsive Next.js image widths without crop.
+- Two separate statistic cards overlap the lower image edge, using the shared border, radius, surface and raised shadow.
+- Each card places its approved customer-group or award icon beside a bold body-size value and small label stacked in two rows. The icon container follows their combined visual height.
+- Below `sm`, the cards stay side by side with compact tokenized padding and no horizontal overflow at 320px.
 - The copy and CTA reuse the shared heading, body, button, Google rating and spacing primitives.
 
 ## Calculator
@@ -137,6 +138,19 @@ The calculator is in `src/components/pricing-calculator.tsx`.
 - The left explanation card and right calculator panel have the same initial desktop height.
 - When items are added, only the right calculator panel grows. This uses `--calculator-card-min-height` and the desktop layout rule in `globals.css`.
 - Mobile layout stacks the two cards naturally.
+
+## Privacy page
+
+- `/politika-privatnosti` now contains the privacy and cookie-policy content from the reference site in the shared site chrome and legal-content layout.
+- `/uslovi-koriscenja` uses the same legal-content layout for the reference site's terms, intellectual-property, liability, link and dispute sections.
+- The page uses the shared heading, body, card, border, radius, surface, shadow and spacing tokens, and its external cookie-information links open in a new tab.
+
+## Contact page
+
+- `/kontakt` uses the shared site chrome and contact form/API flow in a dedicated responsive layout.
+- The page includes the reference contact copy, phone, e-mail and working hours, while intentionally omitting the reference map.
+- The contact page enables surname and e-mail fields in the shared form; the compact homepage form keeps its shorter field set.
+- Contact details and the form panel use shared typography, spacing, color, border, radius and shadow tokens.
 
 ## Integrations
 
