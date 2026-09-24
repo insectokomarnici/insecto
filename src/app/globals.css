@@ -212,7 +212,7 @@
 .process-step-heading { display: grid; justify-items: start; gap: var(--space-3); }
 .process-step-kicker { display: flex; align-items: center; justify-content: space-between; width: 100%; gap: var(--space-4); }
 .process-step-heading svg { width: var(--icon-process); height: var(--icon-process); flex: none; }
-.process-step-number { display: inline-flex; align-items: center; justify-content: center; width: var(--process-step-number-size); height: var(--process-step-number-size); flex: none; padding: var(--space-0); border-radius: var(--radius-pill); background: var(--color-brand); color: var(--color-surface); font-family: var(--font-heading); font-size: var(--text-body); line-height: 1; font-weight: 700; letter-spacing: var(--tracking-label); }
+.process-step-number { display: inline-flex; align-items: center; justify-content: center; width: var(--process-step-number-size); height: var(--process-step-number-size); flex: none; padding: var(--space-0); border-radius: var(--radius-pill); background: var(--color-brand); color: var(--color-surface); font-family: var(--font-heading); font-size: var(--text-process-number); line-height: var(--text-process-number--line-height); font-weight: 700; letter-spacing: var(--tracking-label); }
 .process-step-soft { border-color: var(--color-brand); background: var(--color-surface); color: var(--color-brand); }
 .process-step-soft .heading { color: var(--color-brand); }
 .process-step-brand-light, .process-step-brand { color: var(--color-surface); }
@@ -229,6 +229,8 @@
 .about-image { position: relative; min-width: 0; aspect-ratio: 4 / 3; overflow: hidden; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); }
 .about-image img { object-fit: contain; object-position: center bottom; }
 .about-copy { min-width: 0; max-width: var(--content-text); gap: var(--space-4); }
+.about-copy-heading { gap: var(--space-2); text-align: start; }
+.about-copy-heading .section-eyebrow { justify-self: start; }
 .about-text p { margin: 0; }
 .about-cta-group { display: flex; width: fit-content; max-width: 100%; flex-direction: column; align-items: center; gap: var(--cta-review-gap); }
 .about-cta-group > .button { width: fit-content; }
@@ -475,6 +477,7 @@
 @media (min-width: 64rem) { .products-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 64rem) { .gallery-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 64rem) { .about-layout { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+@media (min-width: 64rem) { .about-copy { align-self: center; } }
 @media (min-width: 40rem) { .calculator-field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 64rem) {
   .calculator-content { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--section-content-gap); }

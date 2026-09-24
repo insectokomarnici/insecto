@@ -85,7 +85,7 @@ export function PricingCalculator() {
               <div className="calculator-copy-body stack">
                 <div className="calculator-copy-intro stack">
                   <p className="text-body calculator-description">
-                    Unesi širinu i visinu otvora u centimetrima, zatim izaberi tip i boju komarnika da dobiješ tačnu cenu komarnika u Novom Sadu.
+                    Unesi širinu i visinu otvora u centimetrima, zatim izaberi tip i boju komarnika da dobiješ okvirnu cenu komarnika.
                     <span
                       className={`calculator-info${isPriceInfoOpen ? " is-open" : ""}`}
                       onBlur={(event) => {

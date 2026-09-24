@@ -22,7 +22,10 @@ export function AboutSection() {
             </div>
           </div>
           <div className="about-copy stack">
-            <Heading as="h2" size="section" id="about-title">Insecto Komarnici</Heading>
+            <div className="about-copy-heading stack">
+              <span className="section-eyebrow">O nama</span>
+              <Heading as="h2" size="section" id="about-title">Insecto Komarnici</Heading>
+            </div>
             <div className="about-text stack text-body">
               <p>Zdravo 👋! Mi smo Insecto Komarnici, i bavimo se samo jednom stvari: komarnicima. Ne radimo pvc stolariju, tende, ni roletne. Samo komarnike, svaki dan. I to je ono u čemu smo najbolji.</p>
               <p>Naš tim za sada broji petoro ljudi. Sastoji se od mlađih i starijih – tehničara, kreativaca, i administrativaca. Iako imamo različite uloge, delimo jedan zajednički cilj: Da ti pružimo najbolju moguću uslugu, od prvog poziva do poslednjeg šrafa.</p>

@@ -25,21 +25,21 @@ type ProcessIcon = typeof Phone | typeof StraightenIcon | typeof DrillIcon;
 
 const steps: Array<{ number: string; title: string; body: string; surface: "soft" | "brand-light" | "brand"; Icon: ProcessIcon }> = [
   {
-    number: "01",
+    number: "1",
     title: "Zakaži merenje",
     body: "Za početak nas nazovi da zakažemo tvoj termin za uzimanje mera. Oko vremena dolaska se dogovaramo prema tvom rasporedu.",
     surface: "soft",
     Icon: Phone,
   },
   {
-    number: "02",
+    number: "2",
     title: "Uzimamo mere",
     body: "Na tvoju adresu stižemo u potvrđeno vreme i uzimamo sve neophodne mere. Dobićeš preporuku oko izbora komarnika i tačnu cenu.",
     surface: "brand-light",
     Icon: StraightenIcon,
   },
   {
-    number: "03",
+    number: "3",
     title: "Montiramo komarnike",
     body: "Posle par dana se vraćamo sa tvojim novim komarnicima, montiramo ih gde treba i time završavamo ovaj jednostavan proces.",
     surface: "brand",
