@@ -1,12 +1,10 @@
 import Image from "next/image";
-import { Group } from "@boxicons/react";
 import { PhoneFilled } from "@carbon/icons-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 import { GoogleRating } from "@/components/google-rating";
-import { AwardIcon } from "@/components/ui/award-icon";
 
-const aboutImage = "/images/insecto-team.avif";
+const aboutImage = "/images/insecto-team-homepage.avif";
 
 export function AboutSection() {
   return (
@@ -21,16 +19,6 @@ export function AboutSection() {
                 fill
                 sizes="(min-width: 64rem) 50vw, 100vw"
               />
-            </div>
-            <div className="about-stats" aria-label="Iskustvo i zadovoljstvo klijenata">
-              <div className="about-stat">
-                <span className="about-stat-icon"><Group aria-hidden="true" /></span>
-                <span className="about-stat-copy"><strong>1.500+</strong><span>Zadovoljnih kupaca</span></span>
-              </div>
-              <div className="about-stat">
-                <span className="about-stat-icon"><AwardIcon aria-hidden="true" /></span>
-                <span className="about-stat-copy"><strong>6+</strong><span>Godina iskustva</span></span>
-              </div>
             </div>
           </div>
           <div className="about-copy stack">

@@ -153,7 +153,7 @@ The calculator is in `src/components/pricing-calculator.tsx`.
 ## Contact page
 
 - `/kontakt` uses the shared site chrome and contact form/API flow in a dedicated responsive layout.
-- The page includes the reference contact copy, phone, e-mail and working hours, while intentionally omitting the reference map.
+- The page includes the reference contact copy, phone, e-mail and working hours, with the reference Google Maps location embedded below the left contact details.
 - The contact page enables surname and e-mail fields in the shared form; the compact homepage form keeps its shorter field set.
 - Contact details and the form panel use shared typography, spacing, color, border, radius and shadow tokens.
 

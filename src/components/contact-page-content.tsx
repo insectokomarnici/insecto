@@ -29,7 +29,6 @@ export function ContactPageContent() {
         <div className="contact-page-layout">
           <div className="contact-page-intro">
             <div className="contact-page-copy stack text-body">
-              <p>Treba ti pomoć? Tražiš savet ili preporuku komarnika za tvoj prostor?</p>
               <p><strong>Hajde da se čujemo!</strong> Možeš nas zvati svakog radnog dana od 08 do 20h, pisati putem mejla ili samo popuniti obrazac, a odgovor ćeš dobiti već istog dana.</p>
             </div>
 
@@ -47,11 +46,21 @@ export function ContactPageContent() {
                 <span><strong>Radno vreme</strong><span>Pon-Pet: 8:00-20:00</span></span>
               </div>
             </div>
+
+            <div className="contact-page-map">
+              <iframe
+                title="Lokacija Insecto Komarnici"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2807.5487619669934!2d19.841968299999998!3d45.2771316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80b0687fa7a6efbd%3A0x7e802234177fb0cd!2sInsecto%20Komarnici%20Novi%20Sad!5e0!3m2!1ssr!2srs!4v1790257421662!5m2!1ssr!2srs"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
+            </div>
           </div>
 
           <div className="contact-page-form-panel">
             <div className="contact-page-form-heading">
-              <Heading as="h2" size="card">Pošalji upit</Heading>
+              <Heading as="h2" size="card">Online upit</Heading>
               <p>Popuni formu i odgovorićemo ti u najkraćem roku.</p>
             </div>
             <ContactForm
