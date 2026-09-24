@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Container, Heading } from "@/components/ui/layout";
 
 const galleryItems = [
-  { title: "Plise komarnici", category: "PLISE KOMARNICI" },
+  { title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-plise-komarnik.jpg" },
   { title: "Rolo komarnici", category: "ROLO KOMARNICI" },
   { title: "Fiksni komarnici", category: "FIKSNI KOMARNICI" },
   { title: "Komarnici za prozore", category: "KOMARNICI ZA PROZORE" },
@@ -20,13 +20,13 @@ export function GallerySection() {
             <Heading as="h2" size="section" id="gallery-title">Galerija komarnika</Heading>
           </div>
           <div className="gallery-grid">
-            {galleryItems.map(({ title, category }) => (
+            {galleryItems.map(({ title, category, image }) => (
               <figure className="gallery-item" key={title}>
                 <div className="gallery-card">
-                  <div className="gallery-media">
+                  <div className={`gallery-media${image ? " gallery-media-photo" : ""}`}>
                     <Image
-                      src="/images/gallery-placeholder.svg"
-                      alt={`Placeholder fotografija: ${title}`}
+                      src={image ?? "/images/gallery-placeholder.svg"}
+                      alt={image ? "Plise komarnik na prozoru" : `Placeholder fotografija: ${title}`}
                       fill
                       sizes="(min-width: 64rem) 33vw, (min-width: 48rem) 50vw, 100vw"
                     />

@@ -79,13 +79,16 @@ export function PricingCalculator() {
     <section className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
       <Container>
         <div className="section-inner">
+          <div className="section-intro stack">
+            <Heading as="h2" size="section" id="calculator-title">Izračunaj cenu komarnika</Heading>
+          </div>
           <div className="calculator-content">
             <Card elevation="none" className="calculator-copy">
-              <Heading as="h2" size="section" id="calculator-title">Cena komarnika</Heading>
+              <Heading as="h3" size="card">Kalkulator cene</Heading>
               <div className="calculator-copy-body stack">
                 <div className="calculator-copy-intro stack">
                   <p className="text-body calculator-description">
-                    Unesi širinu i visinu otvora u centimetrima, zatim izaberi tip i boju komarnika da dobiješ okvirnu cenu komarnika.
+                    Unesi širinu i visinu otvora u centimetrima, zatim izaberi tip i boju komarnika da dobiješ tačnu cenu.
                     <span
                       className={`calculator-info${isPriceInfoOpen ? " is-open" : ""}`}
                       onBlur={(event) => {

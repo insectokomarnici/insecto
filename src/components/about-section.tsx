@@ -4,7 +4,7 @@ import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 import { GoogleRating } from "@/components/google-rating";
 
-const aboutImage = "/images/insecto-team-homepage-white.avif";
+const aboutImage = "/images/insecto-team.avif";
 
 export function AboutSection() {
   return (
