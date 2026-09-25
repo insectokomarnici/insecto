@@ -3,6 +3,7 @@ import { Star, UserCircle } from "@boxicons/react";
 import { PhoneFilled } from "@carbon/icons-react";
 import { getPlaceReviews, type PlaceReviews } from "@/components/google-rating";
 import { GoogleMark, GoogleRatingView } from "@/components/google-rating-view";
+import { GoogleReviewCopy } from "@/components/google-review-copy";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 
@@ -58,12 +59,7 @@ function GoogleReviewsContent({ place }: { place: PlaceReviews | null }) {
                   </span>
                   <span className="google-review-verified"><GoogleVerifiedMark /></span>
                 </div>
-                <div className="google-review-copy">
-                  <p className="google-review-text">{review.text}</p>
-                  <a className="google-review-more" href={review.googleMapsUri} target="_blank" rel="noopener noreferrer">
-                    Pročitaj više
-                  </a>
-                </div>
+                <GoogleReviewCopy text={review.text} />
               </article>
             ))}
           </div>}
