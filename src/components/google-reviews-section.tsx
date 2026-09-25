@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { Star, UserCircle } from "@boxicons/react";
+import { BadgeCheck, Star, UserCircle } from "@boxicons/react";
 import { PhoneFilled } from "@carbon/icons-react";
 import { getPlaceReviews, type PlaceReviews } from "@/components/google-rating";
-import { GoogleRatingView } from "@/components/google-rating-view";
+import { GoogleMark, GoogleRatingView } from "@/components/google-rating-view";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 
@@ -28,27 +28,29 @@ function GoogleReviewsContent({ place }: { place: PlaceReviews | null }) {
           {reviews.length > 0 && <div className="google-reviews-grid">
             {reviews.map((review) => (
               <article className="google-review-card" key={review.googleMapsUri}>
-                <div className="google-review-card-header">
-                  <div className="google-review-author">
-                    <div className="google-review-author-row">
-                      <span className="google-review-author-avatar" aria-hidden="true">
-                        {review.authorPhotoUri ? <Image src={review.authorPhotoUri} alt="" width={40} height={40} unoptimized /> : <UserCircle />}
-                      </span>
+                <div className="google-review-card-top">
+                  <div className="google-review-author-row">
+                    <span className="google-review-author-avatar" aria-hidden="true">
+                      {review.authorPhotoUri ? <Image src={review.authorPhotoUri} alt="" width={40} height={40} unoptimized /> : <UserCircle />}
+                    </span>
+                    <div className="google-review-author">
                       <a className="google-review-author-link" href={review.authorUri ?? review.googleMapsUri} target="_blank" rel="noopener noreferrer">
                         {review.authorName}
                       </a>
+                      <span className="google-review-time">{review.relativePublishTimeDescription}</span>
                     </div>
-                    <span className="google-review-time">{review.relativePublishTimeDescription}</span>
                   </div>
-                  <div className="google-review-rating" aria-label={`Ocena ${review.rating.toFixed(1)} od 5`}>
-                    <span className="google-review-stars" aria-hidden="true">
-                      {Array.from({ length: 5 }, (_, index) => <Star key={index} pack="filled" />)}
-                    </span>
-                    <span>{review.rating.toFixed(1)}</span>
-                  </div>
+                  <a className="google-review-source" href={review.googleMapsUri} target="_blank" rel="noopener noreferrer" aria-label="Pogledaj recenziju na Google-u">
+                    <GoogleMark />
+                  </a>
+                </div>
+                <div className="google-review-rating" aria-label={`Ocena ${review.rating.toFixed(1)} od 5`}>
+                  <span className="google-review-stars" aria-hidden="true">
+                    {Array.from({ length: 5 }, (_, index) => <Star key={index} pack="filled" />)}
+                  </span>
+                  <span className="google-review-verified" aria-hidden="true"><BadgeCheck pack="filled" /></span>
                 </div>
                 <p className="google-review-text">{review.text}</p>
-                <a className="google-review-link" href={review.googleMapsUri} target="_blank" rel="noopener noreferrer">Pogledaj na Google-u</a>
               </article>
             ))}
           </div>}
