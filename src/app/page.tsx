@@ -10,6 +10,7 @@ import { AboutSection } from "@/components/about-section";
 import { PricingCalculator } from "@/components/pricing-calculator";
 import { GallerySection } from "@/components/gallery-section";
 import { SelectionGuideSection } from "@/components/selection-guide-section";
+import { GoogleReviewsSection } from "@/components/google-reviews-section";
 import { FaqSection } from "@/components/faq-section";
 import { ContactSection } from "@/components/contact-section";
 import { SiteFooter } from "@/components/site-footer";
@@ -65,6 +66,7 @@ export default async function Home() {
       <PricingCalculator />
       <GallerySection />
       <SelectionGuideSection />
+      <GoogleReviewsSection />
       <FaqSection />
       <ContactSection />
     </main>

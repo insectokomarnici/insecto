@@ -6,7 +6,7 @@ export type PlaceRating = {
   googleMapsUri?: string;
 };
 
-function GoogleMark() {
+export function GoogleMark() {
   return (
     <svg className="google-rating-logo" viewBox="0 0 24 24" aria-hidden="true">
       <path fill="#4285F4" d="M21.35 12.27c0-.79-.07-1.55-.2-2.27H12v4.3h5.24a4.48 4.48 0 0 1-1.94 2.94v2.45h3.14c1.84-1.69 2.91-4.18 2.91-7.42Z" />
