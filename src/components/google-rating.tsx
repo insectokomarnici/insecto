@@ -10,7 +10,8 @@ type PlaceDetailsResponse = {
     rating?: number;
     relativePublishTimeDescription?: string;
     text?: { text?: string };
-    authorAttribution?: { displayName?: string; uri?: string };
+    originalText?: { text?: string };
+    authorAttribution?: { displayName?: string; uri?: string; photoUri?: string };
     googleMapsUri?: string;
   }>;
 };
@@ -21,12 +22,15 @@ export type PlaceReview = {
   relativePublishTimeDescription: string;
   authorName: string;
   authorUri?: string;
+  authorPhotoUri?: string;
   googleMapsUri: string;
 };
 
 export type PlaceReviews = {
   reviews: PlaceReview[];
   googleMapsUri?: string;
+  rating?: number;
+  userRatingCount?: number;
 };
 
 async function getPlaceDetails(fieldMask: string): Promise<PlaceDetailsResponse | null> {
@@ -37,7 +41,7 @@ async function getPlaceDetails(fieldMask: string): Promise<PlaceDetailsResponse 
 
   try {
     const response = await fetch(
-      `https://places.googleapis.com/v1/places/${encodeURIComponent(placeId)}`,
+      `https://places.googleapis.com/v1/places/${encodeURIComponent(placeId)}?languageCode=sr-Latn`,
       {
         headers: {
           "X-Goog-Api-Key": apiKey,
@@ -76,15 +80,17 @@ export async function getPlaceRating(): Promise<PlaceRating | null> {
 }
 
 export async function getPlaceReviews(): Promise<PlaceReviews | null> {
-  const place = await getPlaceDetails("googleMapsUri,reviews");
+  const place = await getPlaceDetails("rating,userRatingCount,googleMapsUri,reviews");
   if (!place?.reviews?.length) return null;
 
   const reviews = place.reviews.flatMap((review) => {
+    const reviewText = review.originalText?.text ?? review.text?.text;
+
     if (
       typeof review.rating !== "number" ||
       review.rating < 0 ||
       review.rating > 5 ||
-      !review.text?.text ||
+      !reviewText ||
       !review.relativePublishTimeDescription ||
       !review.authorAttribution?.displayName ||
       !review.googleMapsUri
@@ -94,15 +100,19 @@ export async function getPlaceReviews(): Promise<PlaceReviews | null> {
 
     return [{
       rating: review.rating,
-      text: review.text.text,
+      text: reviewText,
       relativePublishTimeDescription: review.relativePublishTimeDescription,
       authorName: review.authorAttribution.displayName,
       authorUri: review.authorAttribution.uri,
+      authorPhotoUri: review.authorAttribution.photoUri,
       googleMapsUri: review.googleMapsUri,
     }];
   });
 
-  return reviews.length ? { reviews, googleMapsUri: place.googleMapsUri } : null;
+  const rating = typeof place.rating === "number" && place.rating >= 0 && place.rating <= 5 ? place.rating : undefined;
+  const userRatingCount = typeof place.userRatingCount === "number" && place.userRatingCount >= 0 ? place.userRatingCount : undefined;
+
+  return reviews.length ? { reviews, googleMapsUri: place.googleMapsUri, rating, userRatingCount } : null;
 }
 
 export async function GoogleRating() {
