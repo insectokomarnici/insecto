@@ -9,6 +9,7 @@ import { ProcessSection } from "@/components/process-section";
 import { AboutSection } from "@/components/about-section";
 import { PricingCalculator } from "@/components/pricing-calculator";
 import { GallerySection } from "@/components/gallery-section";
+import { SelectionGuideSection } from "@/components/selection-guide-section";
 import { FaqSection } from "@/components/faq-section";
 import { ContactSection } from "@/components/contact-section";
 import { SiteFooter } from "@/components/site-footer";
@@ -63,6 +64,7 @@ export default async function Home() {
       <ProcessSection />
       <PricingCalculator />
       <GallerySection />
+      <SelectionGuideSection />
       <FaqSection />
       <ContactSection />
     </main>

@@ -13,7 +13,6 @@ export function ContactSection() {
     formData.append("message", values.message);
     if (values.surname !== undefined) formData.append("surname", values.surname);
     if (values.email !== undefined) formData.append("email", values.email);
-    values.attachments?.forEach((file) => formData.append("photos", file, file.name));
     const response = await fetch("/api/contact", {
       method: "POST",
       body: formData,
@@ -45,7 +44,6 @@ export function ContactSection() {
             phonePlaceholder="060 1234567"
             messagePlaceholder="Npr. potrebni su mi komarnici za 3 prozora i balkonska vrata."
             footerNote="Tvoje podatke koristimo samo kako bismo ti odgovorili na upit."
-            includeAttachments
           />
         </div>
       </Container>
