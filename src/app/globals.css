@@ -285,7 +285,7 @@
 .google-reviews-grid { display: flex; align-items: flex-start; gap: var(--grid-gap); padding-block-end: var(--space-2); overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-color: var(--color-border) transparent; scrollbar-width: thin; }
 .google-reviews-actions { display: flex; flex-direction: column; align-items: center; gap: var(--cta-review-gap); }
 .google-reviews-actions > .button { width: fit-content; }
-.google-review-card { display: grid; grid-template-rows: auto auto minmax(0, 1fr); flex: 0 0 calc(100% - var(--space-8)); block-size: var(--review-card-height); gap: var(--space-4); min-width: 0; overflow: hidden; padding: var(--card-padding); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); scroll-snap-align: start; }
+.google-review-card { display: grid; grid-template-rows: auto auto minmax(0, 1fr); flex: 0 0 calc(100% - var(--space-8)); block-size: var(--review-card-height); gap: var(--space-3); min-width: 0; overflow: hidden; padding: var(--card-padding); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); scroll-snap-align: start; }
 .google-review-card:has(.google-review-copy.is-expanded) { block-size: auto; }
 .google-review-card-top { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); min-width: 0; }
 .google-review-author { display: grid; align-content: center; gap: var(--space-1); min-width: 0; }
@@ -303,7 +303,7 @@
 .google-review-verified { display: inline-flex; color: var(--color-brand-light); }
 .google-review-copy { display: grid; align-content: start; gap: var(--space-2); min-height: 0; overflow: hidden; }
 .google-review-copy.is-expanded { overflow: visible; }
-.google-review-text { display: -webkit-box; margin: 0; overflow: hidden; color: var(--color-heading); font-size: var(--text-body); line-height: var(--text-body--line-height); -webkit-box-orient: vertical; -webkit-line-clamp: 4; }
+.google-review-text { display: -webkit-box; margin: 0; overflow: hidden; color: var(--color-heading); font-size: var(--text-body); line-height: var(--text-body--line-height); -webkit-box-orient: vertical; -webkit-line-clamp: 3; }
 .google-review-copy.is-expanded .google-review-text { display: block; }
 .google-review-more { min-height: var(--button-height-small); width: fit-content; border: 0; border-radius: var(--radius-button); padding: var(--button-padding-block-small) 0; color: var(--color-brand); background: transparent; font-family: var(--font-body); font-size: var(--text-body); line-height: var(--text-body--line-height); font-weight: 700; text-align: start; cursor: pointer; }
 .google-review-more:hover { text-decoration: underline; text-underline-offset: 0.2em; }
