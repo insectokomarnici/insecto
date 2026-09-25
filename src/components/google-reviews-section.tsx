@@ -1,10 +1,18 @@
 import Image from "next/image";
-import { BadgeCheck, Star, UserCircle } from "@boxicons/react";
+import { Star, UserCircle } from "@boxicons/react";
 import { PhoneFilled } from "@carbon/icons-react";
 import { getPlaceReviews, type PlaceReviews } from "@/components/google-rating";
 import { GoogleMark, GoogleRatingView } from "@/components/google-rating-view";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
+
+function GoogleVerifiedMark() {
+  return (
+    <svg focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M23 12l-2.44-2.79.34-3.69-3.61-.82-1.89-3.2L12 2.96 8.6 1.5 6.71 4.69 3.1 5.5l.34 3.7L1 12l2.44 2.79-.34 3.7 3.61.82L8.6 22.5l3.4-1.47 3.4 1.46 1.89-3.19 3.61-.82-.34-3.69L23 12zm-12.91 4.72l-3.8-3.81 1.48-1.48 2.32 2.33 5.85-5.87 1.48 1.48-7.33 7.35z" />
+    </svg>
+  );
+}
 
 export async function GoogleReviewsSection() {
   const place = await getPlaceReviews();
@@ -48,9 +56,14 @@ function GoogleReviewsContent({ place }: { place: PlaceReviews | null }) {
                   <span className="google-review-stars" aria-hidden="true">
                     {Array.from({ length: 5 }, (_, index) => <Star key={index} pack="filled" />)}
                   </span>
-                  <span className="google-review-verified" aria-hidden="true"><BadgeCheck pack="filled" /></span>
+                  <span className="google-review-verified"><GoogleVerifiedMark /></span>
                 </div>
-                <p className="google-review-text">{review.text}</p>
+                <div className="google-review-copy">
+                  <p className="google-review-text">{review.text}</p>
+                  <a className="google-review-more" href={review.googleMapsUri} target="_blank" rel="noopener noreferrer">
+                    Pročitaj više
+                  </a>
+                </div>
               </article>
             ))}
           </div>}
