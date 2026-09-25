@@ -20,7 +20,7 @@ export function GallerySection() {
           <div className="section-intro stack">
             <Heading as="h2" size="section" id="gallery-title">Galerija komarnika</Heading>
           </div>
-          <div className="gallery-grid">
+          <div className="gallery-grid" role="region" aria-label="Galerija komarnika, horizontalna lista fotografija" tabIndex={0}>
             {galleryItems.map(({ id, title, category, image }) => (
               <figure className="gallery-item" key={id}>
                 <div className="gallery-card">
