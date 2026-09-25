@@ -266,7 +266,7 @@
 .gallery-caption-category { color: var(--color-gallery-caption-muted); font-size: var(--text-small); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 .selection-guide-section { background: var(--color-surface-subtle); }
 .selection-guide-layout { display: grid; align-items: center; gap: var(--section-content-gap); }
-.selection-guide-media { position: relative; min-width: 0; aspect-ratio: 4 / 5; margin: 0; overflow: hidden; border-radius: var(--radius-card); background: var(--color-surface-subtle); box-shadow: var(--shadow-soft); }
+.selection-guide-media { position: relative; min-width: 0; aspect-ratio: 1 / 1; margin: 0; overflow: hidden; border-radius: var(--radius-card); background: var(--color-surface-subtle); box-shadow: var(--shadow-soft); }
 .selection-guide-media img { object-fit: cover; }
 .selection-guide-copy { display: grid; gap: var(--section-intro-gap); min-width: 0; }
 .selection-guide-copy > .heading { max-width: var(--content-text); margin: 0; }
