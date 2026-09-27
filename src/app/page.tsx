@@ -64,8 +64,8 @@ export default async function Home() {
       <AboutSection />
       <ProcessSection />
       <SelectionGuideSection />
-      <PricingCalculator />
       <GallerySection />
+      <PricingCalculator />
       <GoogleReviewsSection />
       <FaqSection />
       <ContactSection />
