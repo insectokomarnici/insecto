@@ -81,6 +81,7 @@ export function ProductsSection({ placeRating }: { placeRating: PlaceRating | nu
       <Container>
         <div className="section-inner">
           <div className="section-intro stack">
+            <span className="section-eyebrow">plise, rolo, fiksni</span>
             <Heading as="h2" size="section" id="products-title">Komarnici po meri</Heading>
           </div>
           <div className="products-grid">

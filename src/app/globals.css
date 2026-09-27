@@ -223,7 +223,10 @@
 .google-rating-stars svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; }
 .google-rating-count { margin-inline-start: calc(-1 * var(--space-1)); white-space: nowrap; }
 .products-section { background: var(--color-surface-subtle); }
+.products-section .section-intro { gap: var(--space-2); }
 .process-section { background: var(--color-surface-subtle); }
+.process-section .section-intro { gap: var(--space-2); }
+.section-eyebrow { justify-self: center; padding: var(--space-1) var(--space-3); border: var(--border-width) solid var(--color-brand-light); border-radius: var(--radius-pill); background: var(--color-surface); color: var(--color-brand); font-family: var(--font-heading); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: 700; letter-spacing: var(--tracking-label); }
 .process-steps { display: grid; gap: var(--grid-gap); margin: var(--space-0); padding: var(--space-0); list-style: none; }
 .process-step { display: grid; align-content: start; gap: var(--space-3); min-width: 0; padding: var(--card-padding); border: var(--border-width) solid transparent; border-inline-start-width: var(--border-accent-width); border-radius: var(--radius-card); text-align: start; overflow-wrap: anywhere; }
 .process-step h3, .process-step-body { margin: 0; }
@@ -291,7 +294,7 @@
 .selection-guide-item-copy p { color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .google-reviews-section { background: var(--color-surface-subtle); }
 .google-reviews-layout { display: grid; gap: var(--section-content-gap); }
-.google-reviews-intro { display: grid; justify-items: center; align-content: start; gap: var(--space-3); max-width: var(--content-text); margin-inline: auto; text-align: center; }
+.google-reviews-intro { display: grid; justify-items: center; align-content: start; gap: var(--space-2); max-width: var(--content-text); margin-inline: auto; text-align: center; }
 .google-reviews-intro .heading, .google-reviews-intro p { margin: 0; }
 .google-reviews-intro p { color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .google-reviews-grid { display: flex; align-items: flex-start; gap: var(--grid-gap); padding-block-end: var(--space-2); overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scrollbar-color: var(--color-border) transparent; scrollbar-width: thin; }

@@ -31,6 +31,7 @@ function GoogleReviewsContent({ place }: { place: PlaceReviews | null }) {
       <Container>
         <div className="google-reviews-layout">
           <div className="google-reviews-intro">
+            <span className="section-eyebrow">Google recenzije</span>
             <Heading as="h2" size="section" id="google-reviews-title">Šta kupci kažu</Heading>
           </div>
 
