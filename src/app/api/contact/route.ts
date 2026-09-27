@@ -67,7 +67,7 @@ export async function POST(request: Request) {
     "",
     `Ime: ${values.name.trim() || "Nije uneto"}`,
     ...(hasSurname ? [`Prezime: ${values.surname?.trim() || "Nije uneto"}`] : []),
-    ...(hasEmail ? [`E-mail: ${values.email?.trim() || "Nije unet"}`] : []),
+    ...(hasEmail ? [`Email: ${values.email?.trim() || "Nije unet"}`] : []),
     `Telefon: ${values.phone.trim()}`,
     `Poruka: ${values.message.trim() || "Nije uneta"}`,
     ...(photos.length ? [`Fotografije: ${photos.length} priloženo uz ovaj upit.`] : []),

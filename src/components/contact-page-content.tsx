@@ -45,7 +45,7 @@ export function ContactPageContent() {
               </a>
               <a className="contact-page-detail" href="mailto:kontakt@insecto.rs">
                 <span className="contact-page-detail-icon"><Envelope aria-hidden="true" /></span>
-                <span><strong>E-mail</strong><span>kontakt@insecto.rs</span></span>
+                <span><strong>Email</strong><span>kontakt@insecto.rs</span></span>
               </a>
               <div className="contact-page-detail">
                 <span className="contact-page-detail-icon"><Clock aria-hidden="true" /></span>

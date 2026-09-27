@@ -38,7 +38,7 @@ type Props = {
   hideRequiredIndicators?: boolean;
 };
 
-export function ContactForm({ submitContact, successMessage = "Poruka je uspešno poslata.", failureMessage = "Poruka nije poslata. Pokušajte ponovo. Uneti podaci su sačuvani u formi.", className, buttonVariant = "primary", buttonSize = "medium", submitLabel = "Pošaljite poruku", nameLabel = "Ime", surnameLabel = "Prezime", emailLabel = "E-mail", phoneLabel = "Telefon", namePlaceholder = "Vaše ime", surnamePlaceholder = "Vaše prezime", emailPlaceholder = "vas@email.com", phonePlaceholder = "Broj telefona", messagePlaceholder = "Šta vam je potrebno?", footerNote, includeSurname = false, includeEmail = false, requireEmail = true, includeAttachments = false, hideRequiredIndicators = false }: Props) {
+export function ContactForm({ submitContact, successMessage = "Poruka je uspešno poslata.", failureMessage = "Poruka nije poslata. Pokušajte ponovo. Uneti podaci su sačuvani u formi.", className, buttonVariant = "primary", buttonSize = "medium", submitLabel = "Pošaljite poruku", nameLabel = "Ime", surnameLabel = "Prezime", emailLabel = "Email", phoneLabel = "Telefon", namePlaceholder = "Vaše ime", surnamePlaceholder = "Vaše prezime", emailPlaceholder = "vas@email.com", phonePlaceholder = "Broj telefona", messagePlaceholder = "Šta vam je potrebno?", footerNote, includeSurname = false, includeEmail = false, requireEmail = true, includeAttachments = false, hideRequiredIndicators = false }: Props) {
   const emailRequired = includeEmail && requireEmail;
   const attachmentInputId = useId();
   const [values, setValues] = useState<ContactValues>({ name: "", ...(includeSurname ? { surname: "" } : {}), ...(includeEmail ? { email: "" } : {}), phone: "", message: "" });
