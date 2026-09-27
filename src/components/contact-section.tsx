@@ -40,7 +40,7 @@ export function ContactSection() {
             buttonSize="medium"
             submitLabel="Pošalji upit"
             namePlaceholder="Kako se zoveš?"
-            phoneLabel="Broj telefona"
+            phoneLabel="Telefon"
             phonePlaceholder="060 1234567"
             messagePlaceholder="Npr. potrebni su mi komarnici za 3 prozora i balkonska vrata."
             footerNote="Tvoje podatke koristimo samo kako bismo ti odgovorili na upit."

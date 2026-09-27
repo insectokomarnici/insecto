@@ -81,8 +81,8 @@ export function ContactPageContent() {
               hideRequiredIndicators
               namePlaceholder="Ime"
               surnamePlaceholder="Prezime"
-              emailPlaceholder="tvoj@email.com"
-              phoneLabel="Broj telefona"
+              emailPlaceholder="tvoj@email"
+              phoneLabel="Telefon"
               phonePlaceholder="060 1234567"
               messagePlaceholder="Npr. potrebni su mi komarnici za 3 prozora i balkonska vrata."
               footerNote="Tvoje podatke koristimo samo kako bismo ti odgovorili na upit."
