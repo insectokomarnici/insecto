@@ -522,8 +522,7 @@
 }
 @media (min-width: 64rem) { .contact-panel { grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); align-items: start; } }
 @media (min-width: 64rem) {
-  .contact-page-layout { position: relative; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
-  .contact-page-layout::before { position: absolute; inset-block: 0; inset-inline-start: 50%; width: var(--border-width); background: var(--color-border); content: ""; transform: translateX(-50%); }
+  .contact-page-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
   .contact-page-intro { grid-template-rows: auto auto minmax(18.125rem, 1fr); align-self: stretch; }
   .contact-page-map { height: auto; aspect-ratio: auto; }
 }
