@@ -1,7 +1,10 @@
 import Image from "next/image";
 import { Buildings, DoorOpen } from "@boxicons/react";
+import { PhoneFilled } from "@carbon/icons-react";
 import { Container, Heading } from "@/components/ui/layout";
 import { WindowIcon } from "@/components/ui/window-icon";
+import { ButtonLink } from "@/components/ui/button";
+import { GoogleRating } from "@/components/google-rating";
 
 const guideItems = [
   {
@@ -46,6 +49,12 @@ export function SelectionGuideSection() {
                   </div>
                 </article>
               ))}
+            </div>
+            <div className="selection-guide-actions">
+              <div className="selection-guide-cta-group">
+                <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
+                <GoogleRating />
+              </div>
             </div>
           </div>
         </div>

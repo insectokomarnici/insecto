@@ -209,6 +209,9 @@
 .hero-copy { max-width: 42rem; padding-block: var(--space-0); }
 .hero-copy .heading-hero { max-width: 38rem; }
 .hero-description { max-width: var(--content-text); font-size: var(--text-body); line-height: var(--text-body--line-height); }
+.hero-benefits { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); max-width: var(--content-text); margin: 0; padding: 0; list-style: none; color: var(--color-body); font-size: var(--text-small); line-height: var(--text-small--line-height); }
+.hero-benefits li { display: flex; align-items: flex-start; gap: var(--space-2); min-width: 0; }
+.hero-benefits svg { width: var(--icon-action); height: var(--icon-action); flex: none; color: var(--color-brand); }
 .hero-cta-group { display: flex; flex-direction: column; align-items: center; justify-self: start; align-self: start; width: fit-content; max-width: 100%; gap: var(--cta-review-gap); margin-top: var(--space-2); }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center; gap: var(--cta-gap); }
 .google-rating { display: inline-flex; width: fit-content; max-width: 100%; }
@@ -278,6 +281,8 @@
 .selection-guide-copy { display: grid; gap: var(--section-intro-gap); min-width: 0; }
 .selection-guide-copy > .heading { max-width: var(--content-text); margin: 0; }
 .selection-guide-items { display: grid; gap: var(--space-6); }
+.selection-guide-actions { display: flex; justify-content: flex-start; }
+.selection-guide-cta-group { display: flex; flex-direction: column; align-items: center; gap: var(--cta-review-gap); }
 .selection-guide-item { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: var(--space-4); min-width: 0; }
 .selection-guide-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--space-10); height: var(--space-10); flex: none; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-md); color: var(--color-brand); background: var(--color-surface); }
 .selection-guide-icon svg { width: var(--icon-feature); height: var(--icon-feature); }
@@ -576,6 +581,7 @@
   .hero-media { width: 100%; aspect-ratio: 3 / 4; }
   .hero-image { object-position: center; }
 }
+@media (max-width: 39.99rem) { .hero-benefits { grid-template-columns: minmax(0, 1fr); } }
 @media (prefers-reduced-motion: reduce) {
   .site-menu-icon, .site-menu-panel, .product-accordion summary svg, .product-accordion-content, .faq-item summary, .faq-item summary svg, .faq-content, .site-footer-contact svg, .gallery-media img, .gallery-overlay, .gallery-caption, .calculator-info-trigger, .calculator-info-trigger::before, .calculator-tooltip, .calculator-remove { transition: none; }
   .gallery-card:hover .gallery-media img { transform: none; }

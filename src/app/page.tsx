@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { CheckCircle } from "@boxicons/react";
 import { PhoneFilled } from "@carbon/icons-react";
 import { SiteBanner } from "@/components/site-banner";
 import { SiteHeader } from "@/components/site-header";
@@ -38,7 +39,12 @@ export default async function Home() {
           <div className="hero-content">
             <div className="hero-copy stack">
               <Heading as="h1" size="hero" id="hero-title">Komarnici Novi Sad: Izrada i ugradnja komarnika po meri</Heading>
-              <p className="hero-description prose-width">Izrada fiksnih, rolo i plise komarnika po tvojoj meri. Ceo proces, od prvog poziva do ugradnje komarnika, završavamo u roku od 3 do 5 dana. Nema čekanja nedeljama zato nas nazovi danas kako bismo izmerili tvoje prozore i vrata.</p>
+              <p className="hero-description prose-width">Plise, rolo i fiksni komarnici po tvojoj meri u Novom Sadu i okolini. Ceo proces, od prvog poziva do ugradnje, završavamo za 3 do 7 dana, uz 2 godine garancije. Zato nas nazovi danas kako bismo izmerili tvoje prozore i vrata.</p>
+              <ul className="hero-benefits" aria-label="Prednosti usluge">
+                <li><CheckCircle aria-hidden="true" />2 godine garancije</li>
+                <li><CheckCircle aria-hidden="true" />Novi Sad i okolina</li>
+                <li><CheckCircle aria-hidden="true" />Rok 3 do 7 dana</li>
+              </ul>
               <div className="hero-cta-group">
                 <div className="hero-actions">
                   <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
