@@ -121,7 +121,7 @@ Products are defined in `src/lib/products.ts`. Each product has three colors: Be
 
 - The About section uses one column below `lg` and two equal columns from `lg`.
 - The transparent team image keeps its natural `4 / 3` presentation area and uses responsive Next.js image widths without crop.
-- The shared `AboutTeamNote` sits below the homepage About paragraphs and above the CTA, matching the alternative About page. Its divider, icon and copy use the existing spacing, typography, color and border tokens. The former statistic cards are removed.
+- The homepage About paragraphs lead directly into the CTA, with no team note or statistic cards. `AboutTeamNote` remains on `/o-namav1` with its tokenized icon and divider.
 - The copy and CTA reuse the shared heading, body, button, Google rating and spacing primitives.
 
 ## About page
