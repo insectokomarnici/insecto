@@ -63,9 +63,9 @@ export default async function Home() {
       <ProductsSection placeRating={placeRating} />
       <AboutSection />
       <ProcessSection />
+      <SelectionGuideSection />
       <PricingCalculator />
       <GallerySection />
-      <SelectionGuideSection />
       <GoogleReviewsSection />
       <FaqSection />
       <ContactSection />
