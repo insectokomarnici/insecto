@@ -272,7 +272,7 @@
 .selection-guide-copy > .heading { max-width: var(--content-text); margin: 0; }
 .selection-guide-items { display: grid; gap: var(--space-6); }
 .selection-guide-item { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: start; gap: var(--space-4); min-width: 0; }
-.selection-guide-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--space-10); height: var(--space-10); flex: none; border: var(--border-width) solid var(--color-brand); border-radius: var(--radius-md); color: var(--color-brand); background: var(--color-surface); }
+.selection-guide-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--space-10); height: var(--space-10); flex: none; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-md); color: var(--color-brand); background: var(--color-surface); }
 .selection-guide-icon svg { width: var(--icon-feature); height: var(--icon-feature); }
 .selection-guide-item-copy { display: grid; gap: var(--space-2); min-width: 0; }
 .selection-guide-item-copy h3, .selection-guide-item-copy p { margin: 0; }
