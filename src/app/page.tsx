@@ -62,11 +62,11 @@ export default async function Home() {
       </section>
       <ProductsSection placeRating={placeRating} />
       <AboutSection />
-      <GallerySection />
+      <GoogleReviewsSection />
       <SelectionGuideSection />
       <ProcessSection />
       <PricingCalculator />
-      <GoogleReviewsSection />
+      <GallerySection />
       <FaqSection />
       <ContactSection />
     </main>
