@@ -95,6 +95,7 @@ The main section IDs are `products`, `about`, `calculator`, `gallery`, and `faq`
 
 ## Header and navigation
 
+- Public pages keep one normal-flow root `<div>` around the sticky site chrome, main content and footer. This gives Next.js a scroll target at the document start. A root Fragment with sticky siblings triggers a 45px navigation offset in the current runtime, which a subsequent browser refresh preserves. Keep native hash navigation and history restoration; do not add a global scroll-reset effect to compensate.
 - Product navigation order is **Plise, Rolo, Fiksni** in both Header and Footer.
 - Product links use homepage anchors:
   - `/#product-plise`

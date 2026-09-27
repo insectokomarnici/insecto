@@ -117,7 +117,7 @@ const sections = [
 
 export default function UsloviKoriscenjaPage() {
   return (
-    <>
+    <div>
       <div className="site-chrome">
         <SiteBanner />
         <SiteHeader />
@@ -147,6 +147,6 @@ export default function UsloviKoriscenjaPage() {
         </section>
       </main>
       <SiteFooter />
-    </>
+    </div>
   );
 }

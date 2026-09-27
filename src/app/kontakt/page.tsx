@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function KontaktPage() {
   return (
-    <>
+    <div>
       <div className="site-chrome">
         <SiteBanner />
         <SiteHeader />
@@ -21,6 +21,6 @@ export default function KontaktPage() {
         <ContactPageContent />
       </main>
       <SiteFooter />
-    </>
+    </div>
   );
 }

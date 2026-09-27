@@ -103,7 +103,7 @@ const sections = [
 
 export default function PolitikaPrivatnostiPage() {
   return (
-    <>
+    <div>
       <div className="site-chrome">
         <SiteBanner />
         <SiteHeader />
@@ -142,6 +142,6 @@ export default function PolitikaPrivatnostiPage() {
         </section>
       </main>
       <SiteFooter />
-    </>
+    </div>
   );
 }

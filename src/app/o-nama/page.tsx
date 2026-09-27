@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ONamaPage() {
   return (
-    <>
+    <div>
       <div className="site-chrome">
         <SiteBanner />
         <SiteHeader />
@@ -21,6 +21,6 @@ export default function ONamaPage() {
         <AboutPageContent />
       </main>
       <SiteFooter />
-    </>
+    </div>
   );
 }

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 export default async function Home() {
   const placeRating = await getPlaceRating();
 
-  return <>
+  return <div>
     <div className="site-chrome">
       <SiteBanner />
       <SiteHeader />
@@ -72,5 +72,5 @@ export default async function Home() {
     </main>
     <SiteFooter />
     <FloatingCallButton />
-  </>;
+  </div>;
 }
