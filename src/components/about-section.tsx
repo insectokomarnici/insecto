@@ -3,6 +3,7 @@ import { PhoneFilled } from "@carbon/icons-react";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 import { GoogleRating } from "@/components/google-rating";
+import { AboutTeamNote } from "@/components/about-team-note";
 
 const aboutImage = "/images/insecto-team.avif";
 
@@ -27,6 +28,7 @@ export function AboutSection() {
               <p>Zdravo 👋! Mi smo Insecto Komarnici, i bavimo se samo jednom stvari: komarnicima. Ne radimo pvc stolariju, tende, ni roletne. Samo komarnike, svaki dan. I to je ono u čemu smo najbolji.</p>
               <p>Naš tim za sada broji petoro ljudi. Sastoji se od mlađih i starijih – tehničara, kreativaca, i administrativaca. Iako imamo različite uloge, delimo jedan zajednički cilj: Da ti pružimo najbolju moguću uslugu, od prvog poziva do poslednjeg šrafa.</p>
             </div>
+            <AboutTeamNote />
             <div className="about-cta-group">
               <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
               <GoogleRating />

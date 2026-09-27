@@ -37,7 +37,7 @@ export default async function Home() {
         <Container>
           <div className="hero-content">
             <div className="hero-copy stack">
-              <Heading as="h1" size="hero" id="hero-title">Komarnici Novi Sad: Prodaja i ugradnja komarnika po meri</Heading>
+              <Heading as="h1" size="hero" id="hero-title">Komarnici Novi Sad: Izrada i ugradnja komarnika po meri</Heading>
               <p className="hero-description prose-width">Izrada fiksnih, rolo i plise komarnika po tvojoj meri. Ceo proces, od prvog poziva do ugradnje komarnika, završavamo u roku od 3 do 5 dana. Nema čekanja nedeljama zato nas nazovi danas kako bismo izmerili tvoje prozore i vrata.</p>
               <div className="hero-cta-group">
                 <div className="hero-actions">

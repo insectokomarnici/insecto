@@ -121,13 +121,12 @@ Products are defined in `src/lib/products.ts`. Each product has three colors: Be
 
 - The About section uses one column below `lg` and two equal columns from `lg`.
 - The transparent team image keeps its natural `4 / 3` presentation area and uses responsive Next.js image widths without crop.
-- Two separate statistic cards overlap the lower image edge, using the shared border, radius, surface and raised shadow.
-- Each card places its approved customer-group or award icon beside a bold body-size value and small label stacked in two rows. The icon container follows their combined visual height.
-- Below `sm`, the cards stay side by side with compact tokenized padding and no horizontal overflow at 320px.
+- The shared `AboutTeamNote` sits below the homepage About paragraphs and above the CTA, matching the alternative About page. Its divider, icon and copy use the existing spacing, typography, color and border tokens. The former statistic cards are removed.
 - The copy and CTA reuse the shared heading, body, button, Google rating and spacing primitives.
 
 ## About page
 
+- `/o-namav1` is an alternative About page for review. It adds the team introduction, working principles, the shared three-step process, two actual project photographs and contact actions. The existing `/o-nama` route and navigation stay in place. Styling is scoped in `src/app/o-namav1/page.module.css` and uses the canonical tokens; the page reuses the shared headings, section/container primitives, buttons, Google rating and site chrome. Copy uses only the existing company story and approved claims (five team members and a two-year product guarantee).
 - `/o-nama` uses the shared site chrome with the complete approved company story in a single focused section.
 - The page uses a single `h1`, a centered narrow story column and the same reading order as the reference page: title and introduction, the first two story paragraphs, team image with the `Insecto Komarnici` caption, then the remaining story copy.
 

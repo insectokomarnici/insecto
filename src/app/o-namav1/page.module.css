@@ -1,0 +1,195 @@
+.page {
+  background: var(--color-surface-subtle);
+}
+
+.story,
+.approach,
+.workLayout {
+  display: grid;
+  align-items: center;
+  gap: var(--section-content-gap);
+  min-width: 0;
+}
+
+.copy,
+.approachCopy {
+  display: grid;
+  gap: var(--space-6);
+  min-width: 0;
+}
+
+.copy {
+  max-width: var(--content-text);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--space-10);
+  height: var(--space-10);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-input);
+  color: var(--color-brand);
+  background: var(--color-surface);
+}
+
+.icon svg {
+  width: var(--icon-feature);
+  height: var(--icon-feature);
+}
+
+.teamFigure,
+.installationFigure,
+.projectFigure {
+  display: grid;
+  gap: var(--space-3);
+  min-width: 0;
+  margin: 0;
+}
+
+.teamFigure {
+  width: 100%;
+  max-width: var(--content-text);
+  justify-self: center;
+}
+
+.teamFigure figcaption,
+.installationFigure figcaption,
+.projectFigure figcaption {
+  font-size: var(--text-small);
+  line-height: var(--text-small--line-height);
+}
+
+.teamFigure figcaption {
+  text-align: center;
+}
+
+.installationFigure {
+  width: 100%;
+  max-width: var(--content-text);
+  justify-self: center;
+}
+
+.installationImage,
+.projectImage {
+  position: relative;
+  overflow: hidden;
+  min-width: 0;
+  aspect-ratio: 3 / 4;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.installationImage img,
+.projectImage img {
+  object-fit: cover;
+}
+
+.commitments {
+  display: grid;
+  gap: var(--space-6);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.commitment {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: var(--space-4);
+}
+
+.commitmentCopy {
+  display: grid;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.galleryLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  width: fit-content;
+  font-weight: 600;
+}
+
+.galleryLink svg {
+  flex: none;
+  width: var(--icon-action);
+  height: var(--icon-action);
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--grid-gap);
+  min-width: 0;
+}
+
+.contactPanel {
+  display: grid;
+  justify-items: center;
+  gap: var(--cta-gap);
+  padding: var(--section-padding-compact) var(--card-padding);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-panel);
+  background: var(--color-surface);
+  text-align: center;
+}
+
+.contactCopy {
+  display: grid;
+  justify-items: center;
+  gap: var(--stack-gap);
+  max-width: var(--content-text);
+}
+
+.contactActions {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+  width: 100%;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+@media (max-width: 39.99rem) {
+  .buttons > a {
+    width: 100%;
+  }
+}
+
+@media (max-width: 63.99rem) {
+  .teamFigure,
+  .approachCopy {
+    grid-row: 1;
+  }
+}
+
+@media (min-width: 64rem) {
+  .story {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .approach {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+  }
+
+  .installationFigure {
+    justify-self: start;
+  }
+
+  .workLayout {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  }
+}
