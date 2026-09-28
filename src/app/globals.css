@@ -352,12 +352,9 @@
 .faq-content-inner p { margin: 0; }
 .faq-item summary:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .contact-section { background: var(--color-surface-subtle); }
-.contact-panel { display: grid; gap: var(--section-content-gap); padding: var(--card-padding); border: var(--border-width) solid var(--color-brand); border-radius: var(--radius-panel); background: var(--color-brand); box-shadow: var(--shadow-soft); }
-.contact-intro { display: grid; align-content: start; gap: var(--space-6); min-width: 0; }
-.contact-intro h2, .contact-intro p { margin: 0; }
-.contact-intro .heading { color: var(--color-surface); }
-.contact-trust { display: inline-flex; align-items: center; gap: var(--space-2); color: var(--color-surface); font-weight: 700; }
-.contact-trust svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; color: var(--color-surface); }
+.contact-section-layout { display: grid; gap: var(--section-content-gap); align-items: start; }
+.contact-section-intro { display: grid; align-content: start; gap: var(--space-6); min-width: 0; }
+.contact-section-form-panel { width: 100%; }
 .contact-section-form { min-width: 0; }
   .contact-section-form .field-label { color: var(--color-surface); }
   .contact-section-form .field-note { color: var(--color-surface); }
@@ -393,6 +390,8 @@
 .contact-page-form-heading h2, .contact-page-form-heading p { margin: 0; }
 .contact-page-form-heading .heading { color: var(--color-surface); }
 .contact-page-form-heading p { color: var(--color-surface); font-size: var(--text-body); line-height: var(--text-body--line-height); }
+.contact-page-form-heading .contact-trust { display: inline-flex; align-items: center; gap: var(--space-2); font-weight: 700; }
+.contact-page-form-heading .contact-trust svg { width: var(--icon-inline); height: var(--icon-inline); flex: none; color: var(--color-surface); }
   .contact-page-form .field-label, .contact-page-form .field-note, .contact-page-form .field-error { color: var(--color-surface); }
   .contact-page-form .field-hint { color: var(--color-upload-muted); }
 .contact-page-form .contact-form-note { color: var(--color-surface); }
@@ -532,8 +531,8 @@
   .site-footer-main { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .site-footer-brand { grid-column: 1 / -1; }
 }
-@media (min-width: 64rem) { .contact-panel { grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); align-items: start; } }
 @media (min-width: 64rem) {
+  .contact-section-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
   .contact-page-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: stretch; }
   .contact-page-intro { grid-template-rows: auto auto minmax(18.125rem, 1fr); align-self: stretch; }
   .contact-page-map { height: auto; aspect-ratio: auto; }
