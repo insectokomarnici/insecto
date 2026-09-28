@@ -38,7 +38,7 @@ export function SelectionGuideSection() {
             />
           </figure>
           <div className="selection-guide-copy">
-            <Heading as="h2" size="section" id="selection-guide-title">Kako izabrati pravi komarnik</Heading>
+            <Heading as="h2" size="section" id="selection-guide-title">Vodič za izbor komarnika</Heading>
             <div className="selection-guide-items">
               {guideItems.map(({ title, body, Icon }) => (
                 <article className="selection-guide-item" key={title}>

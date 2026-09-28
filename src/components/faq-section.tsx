@@ -67,7 +67,7 @@ export function FaqSection() {
           <div className="faq-layout">
             <div className="faq-intro">
               <div className="faq-intro-copy stack">
-                <Heading as="h2" size="section" id="faq-title">Česta pitanja</Heading>
+                <Heading as="h2" size="section" id="faq-title">Česta pitanja i odgovori</Heading>
                 <p>Pronađi brze odgovore ili nam se javi ako ti treba dodatna pomoć.</p>
               </div>
               <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />061 132 1324</ButtonLink>
