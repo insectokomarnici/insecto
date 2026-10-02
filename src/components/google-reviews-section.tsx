@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { Star, UserCircle } from "@boxicons/react";
 import { PhoneFilled } from "@carbon/icons-react";
-import { GoogleMark } from "@/components/google-rating-view";
+import { GoogleMark, GoogleRatingView } from "@/components/google-rating-view";
 import { GoogleReviewCopy } from "@/components/google-review-copy";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
-import { fixedGoogleReviews } from "@/lib/google-reviews";
+import { fixedGoogleRating, fixedGoogleReviews } from "@/lib/google-reviews";
 
 function GoogleVerifiedMark() {
   return (
@@ -57,6 +57,7 @@ export function GoogleReviewsSection() {
 
           <div className="google-reviews-actions">
             <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
+            <GoogleRatingView place={fixedGoogleRating} />
           </div>
         </div>
       </Container>

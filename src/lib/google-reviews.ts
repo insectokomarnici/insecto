@@ -8,6 +8,12 @@ export type FixedGoogleReview = {
   googleMapsUri: string;
 };
 
+export const fixedGoogleRating = {
+  rating: 4.9,
+  userRatingCount: 56,
+  googleMapsUri: "https://maps.google.com/?cid=9115323252925771981&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
+};
+
 // Edit this list manually whenever you want to change the displayed reviews.
 export const fixedGoogleReviews: FixedGoogleReview[] = [
   {
