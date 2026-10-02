@@ -13,6 +13,7 @@
   --color-surface: #ffffff;
   --color-surface-subtle: #f6f8fb;
   --color-gallery-overlay: rgb(17 17 17 / 0.4);
+  --color-modal-backdrop: rgb(17 17 17 / 0.72);
   --color-gallery-caption-muted: rgb(255 255 255 / 0.6);
   --color-upload-border: rgb(255 255 255 / 0.32);
   --color-upload-surface: rgb(255 255 255 / 0.04);
@@ -131,6 +132,8 @@
   --motion-transition-duration: 420ms;
   --gallery-transition-duration: 300ms;
   --gallery-image-transition-duration: 500ms;
+  --gallery-lightbox-image-max-height: 42rem;
+  --gallery-lightbox-toolbar-height: calc(var(--button-height-medium) + var(--space-6));
   --textarea-min-height: 8rem;
   --textarea-message-min-height: 5rem;
   --process-step-number-size: var(--space-10);

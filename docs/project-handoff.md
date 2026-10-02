@@ -108,6 +108,17 @@ The main section IDs are `products`, `about`, `calculator`, `gallery`, and `faq`
 
 Products are defined in `src/lib/products.ts`. Each product has three colors: Bela, Braon, and Antracit. Product accordions contain the agreed Serbian copy for description, colors/materials, and installation. Keep all product content centralized in that data file.
 
+## Hero
+
+- The hero keeps the approved copy and shared section spacing, with a content-driven height instead of a large minimum height.
+- Its installation photo uses the approved portrait `3 / 4` frame. The layout stacks below `lg`; the CTA remains before the image.
+
+## Gallery
+
+- Photographs use a native horizontal scroll area with scroll snap, one preview on phones, two from `md` and three from `lg`. Arrow controls below the images advance by one card and disable at the ends.
+- Each photograph opens a native modal dialog with the full image, previous/next controls and a counter. Escape or a backdrop click closes the dialog; keyboard focus stays inside and returns to the originating card on close.
+- The dialog locks background scrolling, uses the shared control and surface tokens, and contains the image without cropping. Reduced motion disables animated carousel scrolling and hover zoom.
+
 ## Three-step process
 
 - The process section is implemented as an ordered list so assistive technology announces three sequential items.
@@ -138,6 +149,7 @@ The calculator is in `src/components/pricing-calculator.tsx`.
 - Brown and anthracite are €1/m² above the white price for each type.
 - The calculator supports adding multiple mosquito screens and totals all items.
 - Width and height fields accept decimal centimeter measurements.
+- Dimensions start empty. Area and total display a dash until both measurements are positive and produce a finite total. Adding an item clears the measurements while retaining the saved-item total; removing the last item restores the empty state. The existing minimum charge of 1 m² remains unchanged.
 - Item rows show dimensions, area, price per m², item total, item count, and a transparent remove control.
 - The price explanation tooltip stays within the copy card at every breakpoint. It opens on hover or keyboard focus for precise pointers and by tap on coarse pointers.
 - The left explanation card and right calculator panel have the same initial desktop height.

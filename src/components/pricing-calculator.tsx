@@ -56,7 +56,7 @@ export function PricingCalculator() {
     const heightInMeters = Math.max(Number(height) || 0, 0) / 100;
     const area = widthInMeters * heightInMeters;
     const pricePerM2 = getPricePerM2(type, color);
-    const total = Math.max(area * pricePerM2, pricePerM2);
+    const total = area > 0 ? Math.max(area * pricePerM2, pricePerM2) : 0;
 
     return { area, pricePerM2, total };
   }, [color, height, type, width]);
@@ -69,12 +69,12 @@ export function PricingCalculator() {
 
   const typeLabel = pricingOptions.find((option) => option.id === type)?.label ?? type;
   const colorLabel = colorOptions.find((option) => option.id === color)?.label ?? color;
-  const canAddItem = calculation.area > 0;
+  const hasDimensions = calculation.area > 0 && Number.isFinite(calculation.total);
   const itemsTotal = useMemo(() => items.reduce((sum, item) => sum + item.total, 0), [items]);
 
   function handleAddItem(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!canAddItem) return;
+    if (!hasDimensions) return;
 
     setItems((currentItems) => [
       ...currentItems,
@@ -184,7 +184,7 @@ export function PricingCalculator() {
                     </div>
                   </div>
                 </div>
-                <Button variant="brand" size="small" className="calculator-add-button" type="submit" disabled={!canAddItem}>
+                <Button variant="brand" size="small" className="calculator-add-button" type="submit" disabled={!hasDimensions}>
                   <Plus aria-hidden="true" />
                   Dodaj komarnik
                 </Button>
@@ -221,7 +221,7 @@ export function PricingCalculator() {
                 <div className="calculator-result-grid">
                   <div className="calculator-result">
                     <span>Površina</span>
-                    <strong aria-live="polite">{calculation.area.toFixed(2)} m²</strong>
+                    <strong aria-live="polite">{hasDimensions ? `${calculation.area.toFixed(2)} m²` : "—"}</strong>
                   </div>
                   <div className="calculator-result calculator-result-price">
                     <span>Cena</span>
@@ -230,7 +230,7 @@ export function PricingCalculator() {
                 </div>
                 <div className="calculator-total">
                   <span>Ukupno</span>
-                  <strong aria-live="polite">{(items.length > 0 ? itemsTotal : calculation.total).toFixed(2)} €</strong>
+                  <strong aria-live="polite">{items.length > 0 ? `${itemsTotal.toFixed(2)} €` : hasDimensions ? `${calculation.total.toFixed(2)} €` : "—"}</strong>
                 </div>
               </div>
             </Card>
