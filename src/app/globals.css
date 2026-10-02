@@ -494,7 +494,6 @@
 .calculator-included-intro { display: grid; align-content: start; gap: var(--space-3); min-width: 0; }
 .calculator-included-intro h3, .calculator-included-intro p { margin: 0; }
 .calculator-included-intro > p { max-width: var(--content-text); color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
-.calculator-included-actions { display: flex; justify-content: flex-start; }
 .calculator-included-list-panel { min-width: 0; }
 .calculator-included-list { position: relative; display: grid; gap: 0 var(--grid-gap); margin: 0; padding: 0; list-style: none; }
 .calculator-included-item { position: relative; display: flex; align-items: flex-start; gap: var(--space-4); min-width: 0; padding-block: var(--space-6); border-top: var(--border-width) solid var(--color-border); }
