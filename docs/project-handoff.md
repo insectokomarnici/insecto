@@ -160,6 +160,7 @@ The calculator is in `src/components/pricing-calculator.tsx`.
 ## Integrations
 
 - Google Places API rating and review count are fetched server-side with a seven-day revalidation period.
+- The homepage review cards are fixed data in `src/lib/google-reviews.ts`; update that list manually when the displayed reviews should change.
 - The rating link points to the Google Business Profile/Maps URL.
 - Contact form delivery uses the Resend API route at `src/app/api/contact/route.ts` and sends to `CONTACT_TO_EMAIL`.
 
