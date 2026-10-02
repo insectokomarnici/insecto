@@ -2,10 +2,10 @@
 
 import Image from "next/image";
 import { Brush, Check, Palette, Plus, Ruler, Shield, Trash } from "@boxicons/react";
-import { ChevronDown, Help, PhoneFilled } from "@carbon/icons-react";
+import { ChevronDown, Help } from "@carbon/icons-react";
 import { useMemo, useState, type FormEvent } from "react";
 import { GoogleRating } from "@/components/google-rating";
-import { Button, ButtonLink } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Card, Container, Heading } from "@/components/ui/layout";
 import { colorOptions, getPricePerM2, pricingOptions, type PricingColor, type PricingType } from "@/lib/pricing";
 
@@ -241,15 +241,7 @@ export function PricingCalculator() {
             <div className="calculator-included-intro">
               <Heading as="h3" size="card" id="calculator-included-title">Šta je uključeno u cenu?</Heading>
               <p>Jedan dogovor, jedno merenje i kompletna usluga od izbora do ugradnje.</p>
-              <div className="calculator-included-actions">
-                <div className="calculator-included-cta-group">
-                  <ButtonLink size="large" href="tel:+381611321324">
-                    <PhoneFilled aria-hidden="true" />
-                    Zakaži merenje
-                  </ButtonLink>
-                  <GoogleRating />
-                </div>
-              </div>
+              <div className="calculator-included-actions"><GoogleRating /></div>
             </div>
             <div className="calculator-included-list-panel">
               <ul className="calculator-included-list" aria-labelledby="calculator-included-title">
