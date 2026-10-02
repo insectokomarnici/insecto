@@ -28,10 +28,12 @@ export function ContactSection() {
     <section className="section contact-section" aria-labelledby="contact-section-title">
       <Container>
         <div className="section-inner">
+          <div className="section-intro stack">
+            <Heading as="h2" size="section" id="contact-section-title">Kontaktiraj nas</Heading>
+          </div>
+
           <div className="contact-section-layout">
             <div className="contact-section-intro">
-              <Heading as="h2" size="section" id="contact-section-title">Kontaktiraj nas</Heading>
-
               <div className="contact-page-copy stack text-body">
                 <p><strong>Hajde da se čujemo!</strong> Možeš nas <strong>zvati</strong> svakog radnog dana <strong>od 8h do 20h</strong>, pisati <strong>putem email-a</strong> ili samo <strong>popuniti obrazac</strong>, a odgovor ćeš dobiti već istog dana.</p>
               </div>
