@@ -2,11 +2,9 @@
 
 import { useState } from "react";
 import { Phone } from "@boxicons/react";
-import { ChevronDown, PhoneFilled } from "@carbon/icons-react";
+import { ChevronDown } from "@carbon/icons-react";
 import { cn } from "@/lib/cn";
-import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
-import { GoogleRatingView, type PlaceRating } from "@/components/google-rating-view";
 
 const faqItems = [
   {
@@ -87,8 +85,8 @@ function FaqItem({
   );
 }
 
-export function FaqSection({ placeRating }: { placeRating: PlaceRating | null }) {
-  const [openIndex, setOpenIndex] = useState<number | null>(3);
+export function FaqSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section className="section faq-section" id="faq" aria-labelledby="faq-title">
@@ -109,10 +107,6 @@ export function FaqSection({ placeRating }: { placeRating: PlaceRating | null })
                     <a className="faq-contact-phone" href="tel:+381611321324">061 132 1324</a>
                     <p className="faq-contact-note">Tu smo da pomognemo.</p>
                   </div>
-                </div>
-                <div className="faq-contact-actions">
-                  <ButtonLink size="medium" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
-                  <GoogleRatingView place={placeRating} />
                 </div>
               </aside>
 

@@ -352,7 +352,7 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
   .gallery-caption { display: none; }
 }
 .faq-section { background: var(--color-surface-subtle); scroll-margin-top: var(--site-chrome-height); }
-.faq-layout { display: grid; gap: var(--section-content-gap); align-items: start; grid-template-columns: minmax(0, 1fr); grid-template-areas: "intro" "list" "cta" "actions"; }
+.faq-layout { display: grid; gap: var(--section-content-gap); align-items: start; grid-template-columns: minmax(0, 1fr); grid-template-areas: "intro" "list" "cta"; }
 .faq-left { display: contents; }
 .faq-left-copy { grid-area: intro; min-width: 0; align-content: start; }
 .faq-left-copy h2, .faq-left-copy p { margin: 0; }
@@ -367,10 +367,6 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 .faq-contact-phone { color: var(--color-heading); font-family: var(--font-heading); font-size: var(--text-card); line-height: var(--text-card--line-height); font-weight: 700; text-decoration: none; }
 .faq-contact-phone:hover { color: var(--color-brand); }
 .faq-contact-note { color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
-.faq-contact-actions { display: grid; grid-area: actions; justify-items: start; width: fit-content; max-width: 100%; gap: var(--cta-review-gap); }
-.faq-contact-card .faq-contact-actions { grid-area: auto; width: 100%; }
-.faq-contact-actions > .button { width: fit-content; justify-content: center; }
-.faq-contact-card .faq-contact-actions > .button { width: 100%; }
 .faq-list { display: grid; grid-area: list; width: auto; min-width: 0; gap: 0; margin: 0; padding: 0; }
 .faq-item { min-width: 0; border-block-start: var(--border-width) solid var(--color-border); }
 .faq-item:last-child { border-block-end: var(--border-width) solid var(--color-border); }
@@ -613,7 +609,7 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 @media (min-width: 64rem) {
   .faq-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "left list"; }
   .faq-left { display: grid; grid-area: left; position: sticky; top: calc(var(--site-chrome-height) + var(--space-6)); align-self: start; gap: var(--space-6); }
-  .faq-left-copy, .faq-contact-card, .faq-contact-actions { grid-area: auto; }
+  .faq-left-copy, .faq-contact-card { grid-area: auto; }
 }
 @media (max-width: 47.99rem) { .site-footer-bottom { flex-direction: column; align-items: center; gap: var(--space-2); text-align: center; } }
 @media (hover: hover) {
