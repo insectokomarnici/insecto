@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FocusModality } from "@/components/focus-modality";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="sr-Latn"><body><a className="skip-link text-link" href="#main">Pređite na sadržaj</a>{children}</body></html>;
+  return <html lang="sr-Latn"><body><FocusModality /><a className="skip-link text-link" href="#main">Pređite na sadržaj</a>{children}</body></html>;
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle, Clock, Envelope, Phone } from "@boxicons/react";
+import { Check, Clock, Envelope, Phone } from "@boxicons/react";
 import { ContactForm } from "@/components/contact-form";
 import { Container, Heading } from "@/components/ui/layout";
 import type { ContactSubmissionValues } from "@/lib/contact";
@@ -58,7 +58,7 @@ export function ContactSection() {
           <div className="contact-panel">
             <div className="contact-intro">
               <Heading as="h3" size="card" id="contact-form-title">Brzi online upit</Heading>
-              <p className="contact-trust"><CheckCircle aria-hidden="true" />Lako i jednostavno. Bez obaveza.</p>
+              <p className="contact-trust"><Check aria-hidden="true" />Lako i jednostavno. Bez obaveza.</p>
             </div>
             <ContactForm
               className="contact-section-form"

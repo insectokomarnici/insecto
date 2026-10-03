@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { Phone } from "@boxicons/react";
-import { ChevronDown } from "@carbon/icons-react";
+import { ArrowRight, ChevronDown } from "@carbon/icons-react";
 import { cn } from "@/lib/cn";
+import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 
 const faqItems = [
@@ -108,6 +109,10 @@ export function FaqSection() {
                     <p className="faq-contact-note">Tu smo da pomognemo.</p>
                   </div>
                 </div>
+                <ButtonLink className="faq-contact-cta" size="medium" href="tel:+381611321324">
+                  Zakaži merenje
+                  <ArrowRight aria-hidden="true" />
+                </ButtonLink>
               </aside>
 
             </div>

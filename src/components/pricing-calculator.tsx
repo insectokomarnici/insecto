@@ -1,11 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { Brush, Check, Palette, Plus, Ruler, Shield, Trash } from "@boxicons/react";
+import { Check, CheckShield, Plus, Trash } from "@boxicons/react";
 import { ChevronDown, Help } from "@carbon/icons-react";
 import { useMemo, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, Container, Heading } from "@/components/ui/layout";
+import { DrillIcon, StraightenIcon } from "@/components/measurement-icons";
 import { colorOptions, getPricePerM2, pricingOptions, type PricingColor, type PricingType } from "@/lib/pricing";
 
 type CalculatorItem = {
@@ -23,22 +24,17 @@ const includedItems = [
   {
     title: "Merenje otvora",
     body: "Precizno uzimamo mere svakog otvora pre izrade komarnika.",
-    Icon: Ruler,
-  },
-  {
-    title: "Izbor tipa i boje",
-    body: "Biraš tip i boju komarnika koji najbolje odgovaraju tvom prostoru.",
-    Icon: Palette,
+    Icon: StraightenIcon,
   },
   {
     title: "Profesionalna ugradnja",
     body: "Komarnike ugrađujemo precizno i uredno, bez dodatnog traženja majstora.",
-    Icon: Brush,
+    Icon: DrillIcon,
   },
   {
     title: "2 godine garancije",
     body: "Na sve proizvode dobijaš garanciju u trajanju od dve godine.",
-    Icon: Shield,
+    Icon: CheckShield,
   },
 ];
 
@@ -99,7 +95,8 @@ export function PricingCalculator() {
   }
 
   return (
-    <section className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
+    <>
+      <section className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
       <Container>
         <div className="section-inner">
           <div className="calculator-content">
@@ -236,26 +233,33 @@ export function PricingCalculator() {
             </Card>
           </div>
 
-          <div className="calculator-included">
-            <div className="calculator-included-intro">
-              <Heading as="h3" size="card" id="calculator-included-title">Šta je uključeno u cenu?</Heading>
-            </div>
-            <div className="calculator-included-list-panel">
-              <ul className="calculator-included-list" aria-labelledby="calculator-included-title">
-                {includedItems.map(({ title, body, Icon }) => (
-                  <li className="calculator-included-item" key={title}>
-                    <span className="calculator-included-icon"><Icon aria-hidden="true" /></span>
-                    <div className="calculator-included-copy">
-                      <Heading as="h4" size="card">{title}</Heading>
-                      <p>{body}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </div>
       </Container>
-    </section>
+      </section>
+      <section className="section calculator-included-section" aria-labelledby="calculator-included-title">
+        <Container>
+          <div className="section-inner">
+            <div className="calculator-included">
+              <div className="calculator-included-heading">
+                <Heading as="h2" size="section" id="calculator-included-title">Šta je uključeno u cenu</Heading>
+              </div>
+              <div className="calculator-included-list-panel">
+                <ul className="calculator-included-list" aria-labelledby="calculator-included-title">
+                  {includedItems.map(({ title, body, Icon }) => (
+                    <li className="calculator-included-item" key={title}>
+                      <span className="calculator-included-icon"><Icon aria-hidden="true" /></span>
+                      <div className="calculator-included-copy">
+                        <Heading as="h4" size="card">{title}</Heading>
+                        <p>{body}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+    </>
   );
 }

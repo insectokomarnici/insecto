@@ -21,7 +21,6 @@ export function GoogleReviewsSection() {
       <Container>
         <div className="google-reviews-layout">
           <div className="google-reviews-intro">
-            <span className="section-eyebrow google-reviews-eyebrow"><GoogleMark /><span>Recenzije</span></span>
             <Heading as="h2" size="section" id="google-reviews-title">Iskustva naših klijenata</Heading>
           </div>
 

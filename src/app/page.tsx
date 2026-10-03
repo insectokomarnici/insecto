@@ -14,6 +14,7 @@ import { SelectionGuideSection } from "@/components/selection-guide-section";
 import { GoogleReviewsSection } from "@/components/google-reviews-section";
 import { FaqSection } from "@/components/faq-section";
 import { ContactSection } from "@/components/contact-section";
+import { ServiceAreaSection } from "@/components/service-area-section";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingCallButton } from "@/components/floating-call-button";
 import { Container, Heading } from "@/components/ui/layout";
@@ -73,6 +74,7 @@ export default async function Home() {
       <ProcessSection />
       <PricingCalculator />
       <GallerySection />
+      <ServiceAreaSection />
       <FaqSection />
       <ContactSection />
     </main>

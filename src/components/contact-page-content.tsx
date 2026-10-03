@@ -3,6 +3,7 @@
 import { Clock, Envelope, Phone } from "@boxicons/react";
 import { ContactForm } from "@/components/contact-form";
 import { Container, Heading } from "@/components/ui/layout";
+import { insectoMapsEmbedUrl } from "@/lib/insecto-location";
 import type { ContactSubmissionValues } from "@/lib/contact";
 
 export function ContactPageContent() {
@@ -35,7 +36,7 @@ export function ContactPageContent() {
         <div className="contact-page-layout">
           <div className="contact-page-intro">
             <div className="contact-page-copy stack text-body">
-              <p><strong>Hajde da se čujemo!</strong> Možeš nas <strong>zvati</strong> svakog radnog dana <strong>od 8h do 20h</strong>, pisati <strong>putem email-a</strong> ili samo <strong>popuniti obrazac</strong>, a odgovor ćeš dobiti već istog dana.</p>
+              <p><strong>Hajde da se čujemo!</strong> Možeš nas <strong>zvati</strong> svakog radnog dana <strong>od 8h do 20h</strong>, pisati <strong>putem email-a</strong> ili samo <strong>popuniti obrazac</strong>.</p>
             </div>
 
             <div className="contact-page-details" aria-label="Kontakt informacije">
@@ -56,7 +57,7 @@ export function ContactPageContent() {
             <div className="contact-page-map">
               <iframe
                 title="Lokacija Insecto Komarnici"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44925.282512584534!2d19.80815608241008!3d45.27144396327344!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80b0687fa7a6efbd%3A0x7e802234177fb0cd!2sInsecto%20-%20Komarnici%20Novi%20Sad!5e0!3m2!1sen!2srs!4v1734351027441!5m2!1sen!2srs"
+                src={insectoMapsEmbedUrl}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
