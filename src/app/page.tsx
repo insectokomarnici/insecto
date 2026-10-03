@@ -73,7 +73,7 @@ export default async function Home() {
       <ProcessSection />
       <PricingCalculator />
       <GallerySection />
-      <FaqSection />
+      <FaqSection placeRating={placeRating} />
       <ContactSection />
     </main>
     <SiteFooter />
