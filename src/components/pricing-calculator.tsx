@@ -239,7 +239,6 @@ export function PricingCalculator() {
           <div className="calculator-included">
             <div className="calculator-included-intro">
               <Heading as="h3" size="card" id="calculator-included-title">Šta je uključeno u cenu?</Heading>
-              <p>Jedan dogovor, jedno merenje i kompletna usluga od izbora do ugradnje.</p>
             </div>
             <div className="calculator-included-list-panel">
               <ul className="calculator-included-list" aria-labelledby="calculator-included-title">

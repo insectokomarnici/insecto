@@ -110,12 +110,11 @@ export function FaqSection({ placeRating }: { placeRating: PlaceRating | null })
                     <p className="faq-contact-note">Tu smo da pomognemo.</p>
                   </div>
                 </div>
+                <div className="faq-contact-actions">
+                  <ButtonLink size="medium" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
+                  <GoogleRatingView place={placeRating} />
+                </div>
               </aside>
-
-              <div className="faq-contact-actions">
-                <ButtonLink size="medium" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
-                <GoogleRatingView place={placeRating} />
-              </div>
 
             </div>
 

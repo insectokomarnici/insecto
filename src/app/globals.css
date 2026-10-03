@@ -358,8 +358,8 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 .faq-left-copy h2, .faq-left-copy p { margin: 0; }
 .faq-description { max-width: 27rem; color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); font-weight: 400; }
 .faq-contact-card { display: grid; grid-area: cta; gap: var(--space-4); width: fit-content; max-width: 100%; min-width: 0; padding: var(--space-6); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: none; }
-.faq-contact-copy { display: flex; align-items: center; gap: var(--space-4); min-width: 0; }
-.faq-contact-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--space-12); height: var(--space-12); flex: none; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-pill); color: var(--color-brand); background: var(--color-surface-subtle); }
+.faq-contact-copy { display: flex; align-items: flex-start; gap: var(--space-4); min-width: 0; }
+.faq-contact-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--space-12); height: var(--space-12); flex: none; margin-block-start: var(--space-2); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-pill); color: var(--color-brand); background: var(--color-surface-subtle); }
 .faq-contact-icon svg { width: var(--icon-feature); height: var(--icon-feature); }
 .faq-contact-copy > div { display: grid; gap: var(--space-1); min-width: 0; }
 .faq-contact-label, .faq-contact-phone, .faq-contact-note { margin: 0; }
@@ -368,7 +368,9 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 .faq-contact-phone:hover { color: var(--color-brand); }
 .faq-contact-note { color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .faq-contact-actions { display: grid; grid-area: actions; justify-items: start; width: fit-content; max-width: 100%; gap: var(--cta-review-gap); }
+.faq-contact-card .faq-contact-actions { grid-area: auto; width: 100%; }
 .faq-contact-actions > .button { width: fit-content; justify-content: center; }
+.faq-contact-card .faq-contact-actions > .button { width: 100%; }
 .faq-list { display: grid; grid-area: list; width: auto; min-width: 0; gap: 0; margin: 0; padding: 0; }
 .faq-item { min-width: 0; border-block-start: var(--border-width) solid var(--color-border); }
 .faq-item:last-child { border-block-end: var(--border-width) solid var(--color-border); }
