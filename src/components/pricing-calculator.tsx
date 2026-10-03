@@ -221,7 +221,7 @@ export function PricingCalculator() {
                 <div className="calculator-result-grid">
                   <div className="calculator-result">
                     <span>Površina</span>
-                    <strong aria-live="polite">{hasDimensions ? `${calculation.area.toFixed(2)} m²` : "—"}</strong>
+                    <strong aria-live="polite">{calculation.area.toFixed(2)} m²</strong>
                   </div>
                   <div className="calculator-result calculator-result-price">
                     <span>Cena</span>
@@ -230,7 +230,7 @@ export function PricingCalculator() {
                 </div>
                 <div className="calculator-total">
                   <span>Ukupno</span>
-                  <strong aria-live="polite">{items.length > 0 ? `${itemsTotal.toFixed(2)} €` : hasDimensions ? `${calculation.total.toFixed(2)} €` : "—"}</strong>
+                  <strong aria-live="polite">{items.length > 0 ? `${itemsTotal.toFixed(2)} €` : hasDimensions ? `${calculation.total.toFixed(2)} €` : "0.00 €"}</strong>
                 </div>
               </div>
             </Card>

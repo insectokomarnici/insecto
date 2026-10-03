@@ -353,7 +353,7 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 }
 .faq-section { background: var(--color-surface-subtle); scroll-margin-top: var(--site-chrome-height); }
 .faq-layout { display: grid; gap: var(--section-content-gap); align-items: start; }
-.faq-intro { display: flex; min-width: 0; flex-direction: column; justify-content: flex-start; gap: var(--cta-gap); padding: var(--card-padding); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); }
+.faq-intro { display: flex; min-width: 0; flex-direction: column; justify-content: flex-start; gap: var(--cta-gap); }
 .faq-intro-copy { align-content: start; }
 .faq-intro-copy h2, .faq-intro-copy p { margin: 0; }
 .faq-intro-copy p { color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
@@ -385,7 +385,7 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 .contact-action-card-icon svg { width: var(--icon-action); height: var(--icon-action); }
 .contact-action-card-copy { display: grid; min-width: 0; gap: var(--space-1); }
 .contact-action-card-copy strong { color: var(--color-heading); font-family: var(--font-heading); font-size: var(--text-body); line-height: var(--text-body--line-height); font-weight: 600; }
-.contact-action-card-copy span { overflow-wrap: anywhere; font-size: var(--text-small); line-height: var(--text-small--line-height); }
+.contact-action-card-copy span { overflow-wrap: anywhere; font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .contact-action-card:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .contact-action-card:hover { border-color: var(--color-brand); color: var(--color-brand); }
 .contact-action-card:hover strong { color: var(--color-brand); }
@@ -535,13 +535,13 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 .calculator-included-intro > p { max-width: var(--content-text); color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); text-align: center; }
 .calculator-included-list-panel { min-width: 0; }
 .calculator-included-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--grid-gap); margin: 0; padding: 0; list-style: none; }
-.calculator-included-item { display: grid; justify-items: center; align-content: start; gap: var(--space-4); min-width: 0; padding: var(--card-padding); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); text-align: center; }
+.calculator-included-item { display: grid; justify-items: start; align-content: start; gap: var(--space-4); min-width: 0; padding: var(--card-padding); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); text-align: start; }
 .calculator-included-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--calculator-included-icon-size); height: var(--calculator-included-icon-size); flex: none; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-pill); color: var(--color-brand); background: var(--color-surface-subtle); }
 .calculator-included-icon svg { width: var(--icon-action); height: var(--icon-action); }
-.calculator-included-copy { display: grid; justify-items: center; gap: var(--space-1); min-width: 0; }
+.calculator-included-copy { display: grid; justify-items: start; gap: var(--space-1); min-width: 0; }
 .calculator-included-copy h4, .calculator-included-copy p { margin: 0; }
 .calculator-included-copy .heading-card { color: var(--color-heading); font-family: var(--font-body); font-size: var(--text-body); line-height: var(--text-body--line-height); font-weight: 700; letter-spacing: normal; }
-.calculator-included-copy p { color: var(--color-body); font-size: var(--text-small); line-height: var(--text-small--line-height); text-align: center; }
+.calculator-included-copy p { color: var(--color-body); font-size: var(--text-small); line-height: var(--text-small--line-height); text-align: start; }
 .products-grid { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--grid-gap); }
 .product-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: none; }
 .product-card-media { position: relative; aspect-ratio: 1; background: var(--color-surface); }
