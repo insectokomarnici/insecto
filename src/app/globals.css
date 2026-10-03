@@ -357,9 +357,9 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 .faq-left-copy { grid-area: intro; min-width: 0; align-content: start; }
 .faq-left-copy h2, .faq-left-copy p { margin: 0; }
 .faq-description { max-width: 27rem; color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); font-weight: 400; }
-.faq-contact-card { display: grid; grid-area: cta; gap: var(--space-4); width: fit-content; max-width: 100%; min-width: 0; padding: var(--card-padding); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: transparent; box-shadow: none; }
-.faq-contact-copy { display: flex; align-items: flex-start; gap: var(--space-4); min-width: 0; }
-.faq-contact-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--space-12); height: var(--space-12); flex: none; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-pill); color: var(--color-brand); background: var(--color-surface); }
+.faq-contact-card { display: grid; grid-area: cta; gap: var(--space-4); width: fit-content; max-width: 100%; min-width: 0; padding: var(--space-6); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: none; }
+.faq-contact-copy { display: flex; align-items: center; gap: var(--space-4); min-width: 0; }
+.faq-contact-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--space-12); height: var(--space-12); flex: none; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-pill); color: var(--color-brand); background: var(--color-surface-subtle); }
 .faq-contact-icon svg { width: var(--icon-feature); height: var(--icon-feature); }
 .faq-contact-copy > div { display: grid; gap: var(--space-1); min-width: 0; }
 .faq-contact-label, .faq-contact-phone, .faq-contact-note { margin: 0; }
@@ -392,13 +392,13 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 .contact-section-heading { display: grid; justify-items: center; text-align: center; }
 .contact-section-heading h2 { margin: 0; }
 .contact-actions { display: grid; gap: var(--grid-gap); }
-.contact-action-card { display: flex; width: 100%; align-items: center; gap: var(--space-3); min-width: 0; padding: var(--card-padding); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); color: var(--color-body); background: var(--color-surface); box-shadow: var(--shadow-soft); font: inherit; text-align: start; text-decoration: none; }
+.contact-action-card { display: flex; width: 100%; align-items: center; gap: var(--space-4); min-width: 0; padding: var(--card-padding); border: var(--border-width) solid var(--color-border); border-radius: var(--radius-panel); color: var(--color-body); background: var(--color-surface); box-shadow: var(--shadow-soft); font: inherit; text-align: start; text-decoration: none; }
 .contact-action-card:is(a, button) { cursor: pointer; }
-.contact-action-card-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--space-10); height: var(--space-10); flex: none; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-md); color: var(--color-brand); background: var(--color-surface-subtle); }
-.contact-action-card-icon svg { width: var(--icon-action); height: var(--icon-action); }
-.contact-action-card-copy { display: grid; min-width: 0; gap: var(--space-1); }
-.contact-action-card-copy strong { color: var(--color-heading); font-family: var(--font-heading); font-size: var(--text-body); line-height: var(--text-body--line-height); font-weight: 600; }
-.contact-action-card-copy span { overflow-wrap: anywhere; font-size: var(--text-body); line-height: var(--text-body--line-height); }
+.contact-action-card-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--space-12); height: var(--space-12); flex: none; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-md); color: var(--color-brand); background: var(--color-surface-subtle); }
+.contact-action-card-icon svg { width: var(--icon-feature); height: var(--icon-feature); }
+.contact-action-card-copy { display: grid; align-content: center; min-width: 0; gap: var(--space-0); }
+.contact-action-card-copy strong { color: var(--color-heading); font-family: var(--font-heading); font-size: var(--text-body); line-height: var(--leading-card); font-weight: 600; }
+.contact-action-card-copy span { overflow-wrap: anywhere; font-size: var(--text-body); line-height: var(--leading-card); }
 .contact-action-card:focus-visible { outline: none; box-shadow: var(--focus-ring); }
 .contact-action-card:hover { border-color: var(--color-brand); color: var(--color-brand); }
 .contact-action-card:hover strong { color: var(--color-brand); }
@@ -429,7 +429,7 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 .contact-page-detail > span:last-child { display: grid; min-width: 0; gap: var(--space-0); }
 .contact-page-detail strong { color: var(--color-heading); font-size: var(--text-small); line-height: var(--text-small--line-height); font-weight: 700; }
 .contact-page-detail > span:last-child > span { overflow-wrap: anywhere; }
-.contact-page-detail-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--space-10); height: var(--space-10); flex: none; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-brand); }
+.contact-page-detail-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--space-10); height: var(--space-10); flex: none; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-pill); background: var(--color-surface); color: var(--color-brand); }
 .contact-page-detail-icon svg { width: var(--icon-action); height: var(--icon-action); }
 .contact-page-map { position: relative; min-width: 0; aspect-ratio: 4 / 3; overflow: hidden; border: 0; border-radius: var(--radius-card); background: var(--color-surface); box-shadow: var(--shadow-soft); }
 .contact-page-map iframe { display: block; width: 100%; height: 100%; border: 0; }
