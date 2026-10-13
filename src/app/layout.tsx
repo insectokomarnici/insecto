@@ -7,10 +7,7 @@ export const metadata: Metadata = {
   description: "Lokalna biblioteka tokena i komponenti za Insecto.",
   robots: { index: false, follow: false },
   icons: {
-    icon: [
-      { url: "/favicon-dark.svg", type: "image/svg+xml", media: "(prefers-color-scheme: light)" },
-      { url: "/favicon-light.svg", type: "image/svg+xml", media: "(prefers-color-scheme: dark)" },
-    ],
+    icon: [{ url: "/favicon.png", type: "image/png" }],
   },
 };
 
