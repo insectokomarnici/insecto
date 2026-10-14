@@ -6,9 +6,6 @@ export const metadata: Metadata = {
   title: { default: "Insecto — design system", template: "%s | Insecto" },
   description: "Lokalna biblioteka tokena i komponenti za Insecto.",
   robots: { index: false, follow: false },
-  icons: {
-    icon: [{ url: "/favicon.png", type: "image/png" }],
-  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
