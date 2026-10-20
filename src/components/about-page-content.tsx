@@ -9,12 +9,11 @@ export function AboutPageContent() {
       <div className="about-page-story">
         <div className="about-page-story-heading stack">
           <Heading as="h1" size="hero" id="about-story-title">O nama</Heading>
-          <p className="about-page-story-lead text-body">Zdravo 👋, mi smo Insecto Komarnici</p>
         </div>
 
         <div className="about-page-story-text stack text-body">
-          <p>Naša misija je da svojim sugrađanima što više olakšamo svakodnevnicu sa nečim tako jednostavnim, a neophodnim za svaki dom. Pogotovo u Novom Sadu, gde insekti nemaju milosti.</p>
-          <p>Tim za sada broji 5 ljudi – tu su mlađi i stariji – tehničari, kreativci, i administrativci. Imamo različite uloge, ali jedan zajednički cilj: da vidimo svoje kupce (tebe) 100% zadovoljne.</p>
+          <p>Zdravo 👋! Mi smo Insecto i bavimo se isključivo jednim proizvodom: komarnicima. Ne radimo PVC stolariju, tende, niti roletne. Samo komarnike, svaki dan. I to je ono u čemu smo najbolji.</p>
+          <p>Naš tim za sada broji petoro ljudi. Sastoji se od mlađih i starijih – tehničara, kreativaca i administracije. Iako imamo različite uloge, delimo jedan zajednički cilj: da ti pružimo najbolju moguću uslugu, od prvog poziva do poslednjeg šrafa.</p>
         </div>
 
         <figure className="about-media about-page-story-media">

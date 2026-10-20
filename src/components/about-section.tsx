@@ -24,8 +24,8 @@ export function AboutSection() {
           <div className="about-copy stack">
             <Heading as="h2" size="section" id="about-title">Insecto Komarnici</Heading>
             <div className="about-text stack text-body">
-              <p>Zdravo 👋! Mi smo Insecto Komarnici, i bavimo se samo jednom stvari: komarnicima. Ne radimo pvc stolariju, tende, ni roletne. Samo komarnike, svaki dan. I to je ono u čemu smo najbolji.</p>
-              <p>Naš tim za sada broji petoro ljudi. Sastoji se od mlađih i starijih – tehničara, kreativaca, i administrativaca. Iako imamo različite uloge, delimo jedan zajednički cilj: Da ti pružimo najbolju moguću uslugu, od prvog poziva do poslednjeg šrafa.</p>
+              <p>Zdravo 👋! Mi smo Insecto i bavimo se isključivo jednim proizvodom: komarnicima. Ne radimo PVC stolariju, tende, niti roletne. Samo komarnike, svaki dan. I to je ono u čemu smo najbolji.</p>
+              <p>Naš tim za sada broji petoro ljudi. Sastoji se od mlađih i starijih – tehničara, kreativaca i administracije. Iako imamo različite uloge, delimo jedan zajednički cilj: da ti pružimo najbolju moguću uslugu, od prvog poziva do poslednjeg šrafa.</p>
             </div>
             <div className="about-cta-group">
               <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
