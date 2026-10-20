@@ -47,7 +47,7 @@ export const products: Product[] = [
     accordions: [
       { title: "Opis proizvoda", body: "Rolo komarnik se spušta i podiže vertikalno, kao roletna. Kada se ne koristi, možeš podići mrežicu u njenu kutiju, da ne bi bespotrebno bila izložena vetru, kiši ili suncu. Izgleda diskretno jer se komarnik montira sa spoljne strane. Ovi komarnici su super za prozore koje često otvaraš i koristiš da nešto preneseš spolja ili da zaliješ cveće. Rolo komarnike pravimo po tačnim merama tvojih prozora." },
       { title: "Boje i materijali", body: "Rolo komarnici su dostupni u sledećim bojama: Bela, Braon i Antracit\n\nProfil rolo komarnika je izrađen od aluminijuma, što znači da ne menja boju na suncu i ne rđa od kiše, a izdržljiv je na jake vetrove i hladne zime. Sa druge strane – mreža je od fiberglasa, otporna na visoke temperature (do 250°C). To znači da se neće otopiti, izdeformisati, niti gubiti čvrstinu na većim temperaturama, a zimi je bezbedna jer se nalazi namotana u svojoj kutiji, dokle god ti ponovo ne zatreba." },
-      { title: "Ugradnja rolo komarnika", body: "Alu rolo komarnici se postavljaju na sve vrste okvira (PVC, aluminijum, drvo)." },
+      { title: "Ugradnja rolo komarnika", body: "Rolo komarnici se postavljaju na sve vrste prozora i vrata, bez obzira na to da li je u pitanju PVC, ALU ili drvena stolarija." },
     ],
   },
   {
@@ -62,7 +62,7 @@ export const products: Product[] = [
     accordions: [
       { title: "Opis proizvoda", body: "Fiksni komarnik se postavlja direktno na ram prozora i ostaje na tom mestu tokom cele godine. Ne pomera se i ne otvara, što ga čini idealnim za prozor koji koristiš isključivo za provetravanje, bez potrebe da kroz njega nešto prenosiš. Zahvaljujući svetloj mrežici i tankom alu profilu, fiksni komarnici gotovo da se i ne primećuju kada ih gledaš spolja. Fiksne komarnike pravimo po tačnim merama tvojih prozora." },
       { title: "Boje i materijali", body: "Fiksni komarnici su dostupni u sledećim bojama: Bela, Braon i Antracit.\n\nProfil fiksnih komarnika je izrađen od aluminijuma, što znači da ne menja boju na suncu i ne rđa od kiše, a izdržljiv je na jake vetrove i hladne zime. Sa druge strane – mreža je od fiberglasa, otporna na visoke temperature (do 250°C). To znači da se neće otopiti, izdeformisati, niti gubiti čvrstinu na većim temperaturama." },
-      { title: "Ugradnja fiksnih komarnika", body: "Alu fiksni komarnici se postavljaju na sve vrste okvira (PVC, aluminijum, drvo)." },
+      { title: "Ugradnja fiksnih komarnika", body: "Fiksni komarnici se postavljaju na sve vrste prozora i vrata, bez obzira na to da li je u pitanju PVC, ALU ili drvena stolarija." },
     ],
   },
 ];
