@@ -41,12 +41,13 @@ export default async function Home() {
             <div className="hero-copy stack">
               <Heading as="h1" size="hero" id="hero-title">Komarnici Novi Sad: Izrada i ugradnja komarnika po meri</Heading>
               <div className="hero-description prose-width">
-                <p>Proizvodnja i montaža svih vrsta komarnika: plise, rolo i fiksni komarnici rađeni po dimenziji tvojih prozora i vrata. Dolazak na adresu, uzimanje mera i ugradnja su uključeni u cenu komarnika za Novi Sad i bližu okolinu.</p>
+                <p>Proizvodnja i montaža svih vrsta komarnika: plise, rolo i fiksni komarnici rađeni po dimenziji tvojih prozora i vrata. Kompletna usluga dolaska na adresu, uzimanja mera i ugradnje je uključena u cenu komarnika za Novi Sad i bližu okolinu.</p>
                 <p>Nisi siguran koji tip komarnika ti je potreban? Pomoći ćemo ti da odabereš idealno rešenje za svoj prostor.</p>
               </div>
               <ul className="hero-benefits" aria-label="Prednosti usluge">
                 <li><CheckCircle aria-hidden="true" />Direktno od proizvođača</li>
                 <li><CheckCircle aria-hidden="true" />Rok izrade 5–7 dana</li>
+                <li><CheckCircle aria-hidden="true" />Profesionalna ugradnja</li>
                 <li><CheckCircle aria-hidden="true" />Novi Sad i okolina</li>
               </ul>
               <div className="hero-cta-group">
