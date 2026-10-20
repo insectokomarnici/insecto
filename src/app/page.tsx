@@ -40,11 +40,11 @@ export default async function Home() {
           <div className="hero-content">
             <div className="hero-copy stack">
               <Heading as="h1" size="hero" id="hero-title">Komarnici Novi Sad: Izrada i ugradnja komarnika po meri</Heading>
-              <p className="hero-description prose-width">Plise, rolo i fiksni komarnici po tvojoj meri u Novom Sadu i okolini. Ceo proces, od prvog poziva do ugradnje, završavamo za 3 do 7 dana, uz 2 godine garancije. Zato nas nazovi danas kako bismo izmerili tvoje prozore i vrata.</p>
+              <p className="hero-description prose-width">Plise, rolo i fiksni komarnici po tvojoj meri u Novom Sadu i okolini. Ceo proces, od prvog poziva do ugradnje, završavamo za 5 do 7 dana, uz 2 godine garancije. Zato nas nazovi danas kako bismo izmerili tvoje prozore i vrata.</p>
               <ul className="hero-benefits" aria-label="Prednosti usluge">
-                <li><CheckCircle aria-hidden="true" />2 godine garancije</li>
-                <li><CheckCircle aria-hidden="true" />Novi Sad i okolina</li>
-                <li><CheckCircle aria-hidden="true" />Rok 3 do 7 dana</li>
+                <li><CheckCircle aria-hidden="true" />Direktno od proizvođača</li>
+                <li><CheckCircle aria-hidden="true" />Rok izrade 5–7 dana</li>
+                <li><CheckCircle aria-hidden="true" />Merenje i ugradnja uključeni u cenu</li>
               </ul>
               <div className="hero-cta-group">
                 <div className="hero-actions">
