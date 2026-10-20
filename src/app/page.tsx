@@ -44,7 +44,7 @@ export default async function Home() {
               <ul className="hero-benefits" aria-label="Prednosti usluge">
                 <li><CheckCircle aria-hidden="true" />Direktno od proizvođača</li>
                 <li><CheckCircle aria-hidden="true" />Rok izrade 5–7 dana</li>
-                <li><CheckCircle aria-hidden="true" />Merenje i ugradnja uključeni u cenu</li>
+                <li><CheckCircle aria-hidden="true" />Novi Sad i okolina</li>
               </ul>
               <div className="hero-cta-group">
                 <div className="hero-actions">
