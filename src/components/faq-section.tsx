@@ -67,7 +67,6 @@ function FaqItem({
         aria-controls={panelId}
         onClick={onToggle}
       >
-        <span className="faq-number" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
         <span className="faq-question">{question}</span>
         <span className="faq-toggle" aria-hidden="true"><ChevronDown /></span>
       </button>
