@@ -32,7 +32,7 @@ export const products: Product[] = [
     accordions: [
       { title: "Opis proizvoda", body: "Plise komarnik se lako otvara i zatvara, pa ga bez problema mogu koristiti mala deca, a i ti s punim rukama stvari. Pri otvaranju klizi na stranu, a izgledom podseća na harmonika vrata. Dobra stvar je što ne moraš svaki put da ga otvaraš do kraja pri izlasku, jer se može zaustaviti bilo gde na svom putu. Sa druge strane, kada nije u upotrebi, možeš ga skroz povući u ram. Tako ti neće smetati, niti ćeš morati stalno da ga otvaraš i zatvaraš radi ulaska u prostoriju. Plise komarnike pravimo po tačnim merama prozora, vrata, i balkona, a mogu biti jednokrilni ili dvokrilni." },
       { title: "Boje i materijali", body: "Plise komarnici su dostupni u sledećim bojama: Bela, Braon i Antracit.\n\nProfil plise komarnika je izrađen od aluminijuma, što znači da ne menja boju na suncu i ne rđa od kiše, a izdržljiv je na jake vetrove i hladne zime. Sa druge strane – mreža je od poliestera sa specijalnim premazom, otporna na visoke temperature. To znači da se neće otopiti, izdeformisati, niti gubiti čvrstinu na većim temperaturama, a zimi je bezbedna jer se nalazi u ramu, dokle god ti ponovo ne zatreba." },
-      { title: "Ugradnja plise komarnika", body: "Alu plise/klizni komarnici se postavljaju na sve vrste okvira (PVC, aluminijum, drvo)." },
+      { title: "Ugradnja plise komarnika", body: "Plise komarnici se postavljaju na sve vrste prozora i vrata, bez obzira na to da li je u pitanju PVC, ALU ili drvena stolarija." },
     ],
   },
   {
