@@ -36,7 +36,7 @@ export function ContactPageContent() {
         <div className="contact-page-layout">
           <div className="contact-page-intro">
             <div className="contact-page-copy stack text-body">
-              <p><strong>Hajde da se čujemo!</strong> Možeš nas <strong>zvati</strong> svakog radnog dana <strong>od 8h do 20h</strong>, pisati <strong>putem email-a</strong> ili samo <strong>popuniti obrazac</strong>.</p>
+              <p>Hajde da se čujemo! Možeš nas zvati svakog radnog dana od 8h do 20h, pisati putem email-a ili samo popuniti obrazac.</p>
             </div>
 
             <div className="contact-page-details" aria-label="Kontakt informacije">

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Check, CheckShield, Plus, Trash } from "@boxicons/react";
-import { ChevronDown, Help } from "@carbon/icons-react";
+import { Help } from "@carbon/icons-react";
 import { useMemo, useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, Container, Heading } from "@/components/ui/layout";
@@ -15,7 +15,6 @@ type CalculatorItem = {
   colorLabel: string;
   width: number;
   height: number;
-  quantity: number;
   area: number;
   pricePerM2: number;
   total: number;
@@ -38,6 +37,18 @@ const includedItems = [
     Icon: CheckShield,
   },
 ];
+
+const calculatorColorSwatchClasses: Record<PricingColor, string> = {
+  bela: "calculator-color-swatch-white",
+  braon: "calculator-color-swatch-brown",
+  antracit: "calculator-color-swatch-anthracite",
+};
+
+const calculatorTypeImageSources: Record<PricingType, string> = {
+  plise: "/products/plise-komarnici-bela-boja.avif",
+  rolo: "/products/rolo-komarnici-bela-boja.avif",
+  fiksni: "/products/fiksni-komarnici-bela-boja.avif",
+} as const;
 
 export function PricingCalculator() {
   const [width, setWidth] = useState("");
@@ -71,28 +82,27 @@ export function PricingCalculator() {
   const typeLabel = pricingOptions.find((option) => option.id === type)?.label ?? type;
   const colorLabel = colorOptions.find((option) => option.id === color)?.label ?? color;
   const hasDimensions = calculation.area > 0 && calculation.quantity > 0 && Number.isFinite(calculation.total);
-  const itemsCount = useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
+  const itemsCount = items.length;
   const itemsTotal = useMemo(() => items.reduce((sum, item) => sum + item.total, 0), [items]);
 
   function handleAddItem(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!hasDimensions) return;
 
-    setItems((currentItems) => [
-      ...currentItems,
-      {
-        id: nextItemId,
-        typeLabel,
-        colorLabel,
-        width: Number(width),
-        height: Number(height),
-        quantity: calculation.quantity,
-        area: calculation.area,
-        pricePerM2: calculation.pricePerM2,
-        total: calculation.total,
-      },
-    ]);
-    setNextItemId((currentId) => currentId + 1);
+    const unitTotal = calculation.total / calculation.quantity;
+    const newItems = Array.from({ length: calculation.quantity }, (_, index) => ({
+      id: nextItemId + index,
+      typeLabel,
+      colorLabel,
+      width: Number(width),
+      height: Number(height),
+      area: calculation.area,
+      pricePerM2: calculation.pricePerM2,
+      total: unitTotal,
+    }));
+
+    setItems((currentItems) => [...currentItems, ...newItems]);
+    setNextItemId((currentId) => currentId + calculation.quantity);
     setWidth("");
     setHeight("");
     setQuantity("1");
@@ -177,24 +187,32 @@ export function PricingCalculator() {
                       <span id="calculator-quantity-unit" className="calculator-input-unit">kom.</span>
                     </div>
                   </div>
-                  <div className="field">
-                    <label className="field-label" htmlFor="calculator-type">Tip</label>
-                    <div className="calculator-select">
-                      <select id="calculator-type" className="control" value={type} onChange={(event) => setType(event.target.value as PricingType)}>
-                        {pricingOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
-                      </select>
-                      <ChevronDown aria-hidden="true" />
+                  <fieldset className="field calculator-choice-field">
+                    <legend className="field-label">Tip</legend>
+                    <div className="calculator-choice-list">
+                      {pricingOptions.map((option) => {
+                        return (
+                          <label className={`calculator-choice calculator-type-choice${type === option.id ? " is-selected" : ""}`} key={option.id}>
+                            <input type="radio" name="calculator-type" value={option.id} checked={type === option.id} onChange={() => setType(option.id)} />
+                            <Image className="calculator-type-image" src={calculatorTypeImageSources[option.id]} alt="" width={24} height={24} />
+                            <span>{option.label}</span>
+                          </label>
+                        );
+                      })}
                     </div>
-                  </div>
-                  <div className="field">
-                    <label className="field-label" htmlFor="calculator-color">Boja</label>
-                    <div className="calculator-select">
-                      <select id="calculator-color" className="control" value={color} onChange={(event) => setColor(event.target.value as PricingColor)}>
-                        {colorOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
-                      </select>
-                      <ChevronDown aria-hidden="true" />
+                  </fieldset>
+                  <fieldset className="field calculator-choice-field calculator-color-field">
+                    <legend className="field-label">Boja</legend>
+                    <div className="calculator-choice-list">
+                      {colorOptions.map((option) => (
+                        <label className={`calculator-choice calculator-color-choice${color === option.id ? " is-selected" : ""}`} key={option.id}>
+                          <input type="radio" name="calculator-color" value={option.id} checked={color === option.id} onChange={() => setColor(option.id)} />
+                          <span className={`calculator-color-swatch ${calculatorColorSwatchClasses[option.id]}`} aria-hidden="true" />
+                          <span>{option.label}</span>
+                        </label>
+                      ))}
                     </div>
-                  </div>
+                  </fieldset>
                 </div>
                 <Button variant="brand" size="small" className="calculator-add-button" type="submit" disabled={!hasDimensions}>
                   <Plus aria-hidden="true" />
@@ -214,7 +232,7 @@ export function PricingCalculator() {
                         <div className="calculator-item-copy">
                           <strong>{item.typeLabel} komarnik · {item.colorLabel}</strong>
                           <div className="calculator-item-detail-row">
-                            <span>{item.width} × {item.height} cm · {item.quantity} kom. · {item.area.toFixed(2)} m² × {item.pricePerM2} €/m²</span>
+                            <span>{item.width} × {item.height} cm · {item.area.toFixed(2)} m² × {item.pricePerM2} €/m²</span>
                             <div className="calculator-item-meta">
                               <strong>{item.total.toFixed(2)} €</strong>
                               <button className="calculator-remove" type="button" aria-label={`Ukloni komarnik ${index + 1}`} onClick={() => handleRemoveItem(item.id)}>
