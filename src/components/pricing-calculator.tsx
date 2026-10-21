@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Check, CheckShield, Plus, Trash } from "@boxicons/react";
 import { Help } from "@carbon/icons-react";
 import { useMemo, useState, type FormEvent } from "react";
+import { FixedScreenIcon, PleatedScreenIcon, RollerScreenIcon } from "@/components/calculator-type-icons";
 import { Button } from "@/components/ui/button";
 import { Card, Container, Heading } from "@/components/ui/layout";
 import { DrillIcon, StraightenIcon } from "@/components/measurement-icons";
@@ -44,10 +45,10 @@ const calculatorColorSwatchClasses: Record<PricingColor, string> = {
   antracit: "calculator-color-swatch-anthracite",
 };
 
-const calculatorTypeImageSources: Record<PricingType, string> = {
-  plise: "/products/plise-komarnici-bela-boja.avif",
-  rolo: "/products/rolo-komarnici-bela-boja.avif",
-  fiksni: "/products/fiksni-komarnici-bela-boja.avif",
+const calculatorTypeIcons = {
+  plise: PleatedScreenIcon,
+  rolo: RollerScreenIcon,
+  fiksni: FixedScreenIcon,
 } as const;
 
 export function PricingCalculator() {
@@ -191,10 +192,11 @@ export function PricingCalculator() {
                     <legend className="field-label">Tip</legend>
                     <div className="calculator-choice-list">
                       {pricingOptions.map((option) => {
+                        const Icon = calculatorTypeIcons[option.id];
                         return (
                           <label className={`calculator-choice calculator-type-choice${type === option.id ? " is-selected" : ""}`} key={option.id}>
                             <input type="radio" name="calculator-type" value={option.id} checked={type === option.id} onChange={() => setType(option.id)} />
-                            <Image className="calculator-type-image" src={calculatorTypeImageSources[option.id]} alt="" width={24} height={24} />
+                            <Icon className="calculator-type-icon" aria-hidden="true" />
                             <span>{option.label}</span>
                           </label>
                         );
