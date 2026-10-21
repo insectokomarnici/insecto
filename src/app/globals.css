@@ -634,6 +634,8 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 @media (min-width: 64rem) {
   .calculator-content { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--section-content-gap); }
   .calculator-copy { align-self: start; min-height: var(--calculator-card-min-height); }
+  .calculator-field-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .calculator-field-grid > .field { grid-column: span 2; }
   .calculator-included-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 39.99rem) {

@@ -15,6 +15,7 @@ type CalculatorItem = {
   colorLabel: string;
   width: number;
   height: number;
+  quantity: number;
   area: number;
   pricePerM2: number;
   total: number;
@@ -41,6 +42,7 @@ const includedItems = [
 export function PricingCalculator() {
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
+  const [quantity, setQuantity] = useState("1");
   const [type, setType] = useState<PricingType>("plise");
   const [color, setColor] = useState<PricingColor>("bela");
   const [items, setItems] = useState<CalculatorItem[]>([]);
@@ -51,11 +53,14 @@ export function PricingCalculator() {
     const widthInMeters = Math.max(Number(width) || 0, 0) / 100;
     const heightInMeters = Math.max(Number(height) || 0, 0) / 100;
     const area = widthInMeters * heightInMeters;
+    const quantityNumber = Number(quantity);
+    const quantityValue = Number.isInteger(quantityNumber) && quantityNumber > 0 ? quantityNumber : 0;
     const pricePerM2 = getPricePerM2(type, color);
-    const total = area > 0 ? Math.max(area * pricePerM2, pricePerM2) : 0;
+    const unitTotal = area > 0 ? Math.max(area * pricePerM2, pricePerM2) : 0;
+    const total = unitTotal * quantityValue;
 
-    return { area, pricePerM2, total };
-  }, [color, height, type, width]);
+    return { area, pricePerM2, quantity: quantityValue, total };
+  }, [color, height, quantity, type, width]);
 
   function handlePriceInfoToggle() {
     if (typeof window !== "undefined" && window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
@@ -65,7 +70,8 @@ export function PricingCalculator() {
 
   const typeLabel = pricingOptions.find((option) => option.id === type)?.label ?? type;
   const colorLabel = colorOptions.find((option) => option.id === color)?.label ?? color;
-  const hasDimensions = calculation.area > 0 && Number.isFinite(calculation.total);
+  const hasDimensions = calculation.area > 0 && calculation.quantity > 0 && Number.isFinite(calculation.total);
+  const itemsCount = useMemo(() => items.reduce((sum, item) => sum + item.quantity, 0), [items]);
   const itemsTotal = useMemo(() => items.reduce((sum, item) => sum + item.total, 0), [items]);
 
   function handleAddItem(event: FormEvent<HTMLFormElement>) {
@@ -80,6 +86,7 @@ export function PricingCalculator() {
         colorLabel,
         width: Number(width),
         height: Number(height),
+        quantity: calculation.quantity,
         area: calculation.area,
         pricePerM2: calculation.pricePerM2,
         total: calculation.total,
@@ -88,6 +95,7 @@ export function PricingCalculator() {
     setNextItemId((currentId) => currentId + 1);
     setWidth("");
     setHeight("");
+    setQuantity("1");
   }
 
   function handleRemoveItem(id: number) {
@@ -105,7 +113,7 @@ export function PricingCalculator() {
               <div className="calculator-copy-body stack">
                 <div className="calculator-copy-intro stack">
                   <p className="text-body calculator-description">
-                    Unesi širinu i visinu otvora u centimetrima, zatim izaberi tip i boju komarnika da dobiješ tačnu cenu.
+                    Unesi širinu i visinu otvora u centimetrima, količinu, zatim izaberi tip i boju komarnika da dobiješ tačnu cenu.
                     <span
                       className={`calculator-info${isPriceInfoOpen ? " is-open" : ""}`}
                       onBlur={(event) => {
@@ -129,7 +137,7 @@ export function PricingCalculator() {
                       </button>
                       <span id="calculator-price-info" className="calculator-tooltip" role="tooltip">
                         <span className="calculator-tooltip-title">Kako se računa cena?</span>
-                        <span className="calculator-tooltip-copy">Površina se dobija množenjem širine i visine u metrima. Zatim se površina množi cenom po m² za izabrani tip i boju komarnika. Za površine manje od 1 m² obračunava se cena jednog m².</span>
+                        <span className="calculator-tooltip-copy">Površina se dobija množenjem širine i visine u metrima. Zatim se površina množi cenom po m² i količinom za izabrani tip i boju komarnika. Za površine manje od 1 m² obračunava se cena jednog m² po komadu.</span>
                       </span>
                     </span>
                   </p>
@@ -163,6 +171,13 @@ export function PricingCalculator() {
                     </div>
                   </div>
                   <div className="field">
+                    <label className="field-label" htmlFor="calculator-quantity">Količina</label>
+                    <div className="calculator-input">
+                      <input id="calculator-quantity" className="control" type="number" min="1" step="1" inputMode="numeric" aria-describedby="calculator-quantity-unit" value={quantity} onChange={(event) => setQuantity(event.target.value)} />
+                      <span id="calculator-quantity-unit" className="calculator-input-unit">kom.</span>
+                    </div>
+                  </div>
+                  <div className="field">
                     <label className="field-label" htmlFor="calculator-type">Tip</label>
                     <div className="calculator-select">
                       <select id="calculator-type" className="control" value={type} onChange={(event) => setType(event.target.value as PricingType)}>
@@ -191,7 +206,7 @@ export function PricingCalculator() {
                 <div className="calculator-items" aria-live="polite">
                   <div className="calculator-items-heading">
                     <Heading as="h3" size="card">Dodati komarnici</Heading>
-                    <span aria-label={`${items.length} dodatih komarnika`}>({items.length})</span>
+                    <span aria-label={`${itemsCount} dodatih komarnika`}>({itemsCount})</span>
                   </div>
                   <ul className="calculator-item-list">
                     {items.map((item, index) => (
@@ -199,7 +214,7 @@ export function PricingCalculator() {
                         <div className="calculator-item-copy">
                           <strong>{item.typeLabel} komarnik · {item.colorLabel}</strong>
                           <div className="calculator-item-detail-row">
-                            <span>{item.width} × {item.height} cm · {item.area.toFixed(2)} m² × {item.pricePerM2} €/m²</span>
+                            <span>{item.width} × {item.height} cm · {item.quantity} kom. · {item.area.toFixed(2)} m² × {item.pricePerM2} €/m²</span>
                             <div className="calculator-item-meta">
                               <strong>{item.total.toFixed(2)} €</strong>
                               <button className="calculator-remove" type="button" aria-label={`Ukloni komarnik ${index + 1}`} onClick={() => handleRemoveItem(item.id)}>
@@ -218,7 +233,7 @@ export function PricingCalculator() {
                 <div className="calculator-result-grid">
                   <div className="calculator-result">
                     <span>Površina</span>
-                    <strong aria-live="polite">{calculation.area.toFixed(2)} m²</strong>
+                    <strong aria-live="polite">{(calculation.area * calculation.quantity).toFixed(2)} m²</strong>
                   </div>
                   <div className="calculator-result calculator-result-price">
                     <span>Cena</span>
