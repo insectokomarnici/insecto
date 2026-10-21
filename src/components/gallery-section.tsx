@@ -2,18 +2,32 @@
 
 import Image from "next/image";
 import { ChevronLeft, ChevronRight, Close, ZoomIn } from "@carbon/icons-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { Container, Heading } from "@/components/ui/layout";
 
-const galleryItems = [
-  { id: "plise-3324", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-plise-komarnik.jpg" },
-  { id: "plise-3307", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-3307.jpg" },
-  { id: "plise-3609", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-3609.jpg" },
-  { id: "plise-3612", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-3612.jpg" },
-  { id: "plise-3663", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-3663.jpg" },
-  { id: "rolo-5890", title: "Rolo komarnici", category: "ROLO KOMARNICI", image: "/images/gallery-5890.jpg" },
-  { id: "plise-6902", title: "Plise komarnici", category: "PLISE KOMARNICI", image: "/images/gallery-6902.jpg" },
-  { id: "rolo-porch", title: "Rolo komarnici", category: "ROLO KOMARNICI", image: "/images/gallery-rolo-porch.jpg" },
+const galleryTabs = [
+  { id: "plise", label: "Plise komarnici" },
+  { id: "rolo", label: "Rolo komarnici" },
+  { id: "fiksni", label: "Fiksni komarnici" },
+] as const;
+
+type GalleryCategory = (typeof galleryTabs)[number]["id"];
+
+const galleryItems: {
+  id: string;
+  title: string;
+  category: string;
+  categoryId: GalleryCategory;
+  image: string;
+}[] = [
+  { id: "plise-3324", title: "Plise komarnici", category: "PLISE KOMARNICI", categoryId: "plise", image: "/images/gallery-plise-komarnik.jpg" },
+  { id: "plise-3307", title: "Plise komarnici", category: "PLISE KOMARNICI", categoryId: "plise", image: "/images/gallery-3307.jpg" },
+  { id: "plise-3609", title: "Plise komarnici", category: "PLISE KOMARNICI", categoryId: "plise", image: "/images/gallery-3609.jpg" },
+  { id: "plise-3612", title: "Plise komarnici", category: "PLISE KOMARNICI", categoryId: "plise", image: "/images/gallery-3612.jpg" },
+  { id: "plise-3663", title: "Plise komarnici", category: "PLISE KOMARNICI", categoryId: "plise", image: "/images/gallery-3663.jpg" },
+  { id: "rolo-5890", title: "Rolo komarnici", category: "ROLO KOMARNICI", categoryId: "rolo", image: "/images/gallery-5890.jpg" },
+  { id: "plise-6902", title: "Plise komarnici", category: "PLISE KOMARNICI", categoryId: "plise", image: "/images/gallery-6902.jpg" },
+  { id: "rolo-porch", title: "Rolo komarnici", category: "ROLO KOMARNICI", categoryId: "rolo", image: "/images/gallery-rolo-porch.jpg" },
 ];
 
 export function GallerySection() {
@@ -22,8 +36,11 @@ export function GallerySection() {
   const backdropPointerDown = useRef(false);
   const [canScrollPrevious, setCanScrollPrevious] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState<GalleryCategory>("plise");
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const isLightboxOpen = activeIndex !== null;
+  const filteredItems = galleryItems.filter(({ categoryId }) => categoryId === selectedCategory);
+  const selectedTab = galleryTabs.find(({ id }) => id === selectedCategory) ?? galleryTabs[0];
 
   const updateScrollState = useCallback(() => {
     const gallery = galleryRef.current;
@@ -47,6 +64,14 @@ export function GallerySection() {
       observer.disconnect();
     };
   }, [updateScrollState]);
+
+  useEffect(() => {
+    const gallery = galleryRef.current;
+    if (!gallery) return;
+
+    gallery.scrollLeft = 0;
+    updateScrollState();
+  }, [selectedCategory, updateScrollState]);
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -78,10 +103,28 @@ export function GallerySection() {
   }
 
   function changePhoto(direction: -1 | 1) {
-    setActiveIndex((current) => current === null ? null : (current + direction + galleryItems.length) % galleryItems.length);
+    setActiveIndex((current) => current === null || filteredItems.length === 0
+      ? null
+      : (current + direction + filteredItems.length) % filteredItems.length);
   }
 
-  const activeItem = activeIndex === null ? null : galleryItems[activeIndex];
+  function handleTabKeyDown(event: KeyboardEvent<HTMLButtonElement>, currentIndex: number) {
+    let nextIndex: number | null = null;
+
+    if (event.key === "ArrowRight") nextIndex = (currentIndex + 1) % galleryTabs.length;
+    if (event.key === "ArrowLeft") nextIndex = (currentIndex - 1 + galleryTabs.length) % galleryTabs.length;
+    if (event.key === "Home") nextIndex = 0;
+    if (event.key === "End") nextIndex = galleryTabs.length - 1;
+    if (nextIndex === null) return;
+
+    event.preventDefault();
+    const nextTab = galleryTabs[nextIndex];
+    setSelectedCategory(nextTab.id);
+    setActiveIndex(null);
+    event.currentTarget.parentElement?.querySelector<HTMLButtonElement>(`#gallery-tab-${nextTab.id}`)?.focus();
+  }
+
+  const activeItem = activeIndex === null ? null : filteredItems[activeIndex];
 
   return (
     <section className="section gallery-section" id="gallery" aria-labelledby="gallery-title">
@@ -90,37 +133,66 @@ export function GallerySection() {
           <div className="section-intro stack">
             <Heading as="h2" size="section" id="gallery-title">Galerija komarnika</Heading>
           </div>
-          <div className="gallery-frame">
-            <div ref={galleryRef} className="gallery-grid" id="gallery-photos" role="region" aria-label="Fotografije ugrađenih komarnika" tabIndex={0}>
-              {galleryItems.map(({ id, title, category, image }, index) => (
-              <div className="gallery-item" key={id}>
-                <button className="gallery-card" type="button" aria-label={`Otvori fotografiju ${index + 1} od ${galleryItems.length}: ${title}`} aria-haspopup="dialog" onClick={() => setActiveIndex(index)}>
-                  <span className="gallery-media">
-                    <Image
-                      src={image}
-                      alt={`${title} na prozoru ili vratima`}
-                      fill
-                      sizes="(min-width: 64rem) 33vw, (min-width: 48rem) 50vw, 100vw"
-                    />
-                    <span className="gallery-overlay" aria-hidden="true" />
-                    <span className="gallery-caption" aria-hidden="true">
-                      <span className="gallery-caption-category">{category}</span>
-                      <span>{title}</span>
-                    </span>
-                    <span className="gallery-zoom" aria-hidden="true"><ZoomIn /></span>
-                  </span>
-                </button>
+          <div className="gallery-tabs" role="tablist" aria-label="Izaberi tip komarnika">
+            {galleryTabs.map(({ id, label }, index) => (
+              <button
+                key={id}
+                className="gallery-tab"
+                id={`gallery-tab-${id}`}
+                type="button"
+                role="tab"
+                aria-selected={selectedCategory === id}
+                aria-controls="gallery-tabpanel"
+                tabIndex={selectedCategory === id ? 0 : -1}
+                onClick={() => {
+                  setSelectedCategory(id);
+                  setActiveIndex(null);
+                }}
+                onKeyDown={(event) => handleTabKeyDown(event, index)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <div className="gallery-panel" id="gallery-tabpanel" role="tabpanel" aria-labelledby={`gallery-tab-${selectedCategory}`}>
+            {filteredItems.length > 0 ? (
+              <div className="gallery-frame">
+                <div ref={galleryRef} className="gallery-grid" id="gallery-photos" role="region" aria-label={`Fotografije: ${selectedTab.label.toLowerCase()}`} tabIndex={0}>
+                  {filteredItems.map(({ id, title, category, image }, index) => (
+                    <div className="gallery-item" key={id}>
+                      <button className="gallery-card" type="button" aria-label={`Otvori fotografiju ${index + 1} od ${filteredItems.length}: ${title}`} aria-haspopup="dialog" onClick={() => setActiveIndex(index)}>
+                        <span className="gallery-media">
+                          <Image
+                            src={image}
+                            alt={`${title} na prozoru ili vratima`}
+                            fill
+                            sizes="(min-width: 64rem) 33vw, (min-width: 48rem) 50vw, 100vw"
+                          />
+                          <span className="gallery-overlay" aria-hidden="true" />
+                          <span className="gallery-caption" aria-hidden="true">
+                            <span className="gallery-caption-category">{category}</span>
+                            <span>{title}</span>
+                          </span>
+                          <span className="gallery-zoom" aria-hidden="true"><ZoomIn /></span>
+                        </span>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+                {filteredItems.length > 1 && (
+                  <div className="gallery-controls" aria-label="Listanje galerije">
+                    <button className="gallery-control" type="button" aria-label="Prethodne fotografije" aria-controls="gallery-photos" disabled={!canScrollPrevious} onClick={() => scrollGallery(-1)}>
+                      <ChevronLeft aria-hidden="true" />
+                    </button>
+                    <button className="gallery-control" type="button" aria-label="Sledeće fotografije" aria-controls="gallery-photos" disabled={!canScrollNext} onClick={() => scrollGallery(1)}>
+                      <ChevronRight aria-hidden="true" />
+                    </button>
+                  </div>
+                )}
               </div>
-              ))}
-            </div>
-            <div className="gallery-controls" aria-label="Listanje galerije">
-              <button className="gallery-control" type="button" aria-label="Prethodne fotografije" aria-controls="gallery-photos" disabled={!canScrollPrevious} onClick={() => scrollGallery(-1)}>
-                <ChevronLeft aria-hidden="true" />
-              </button>
-              <button className="gallery-control" type="button" aria-label="Sledeće fotografije" aria-controls="gallery-photos" disabled={!canScrollNext} onClick={() => scrollGallery(1)}>
-                <ChevronRight aria-hidden="true" />
-              </button>
-            </div>
+            ) : (
+              <p className="gallery-empty">Fotografije fiksnih komarnika trenutno nisu dostupne.</p>
+            )}
           </div>
         </div>
       </Container>
@@ -168,7 +240,7 @@ export function GallerySection() {
                 <ChevronLeft aria-hidden="true" />
               </button>
               <span className="gallery-lightbox-count" role="status" aria-live="polite" aria-atomic="true">
-                <span className="sr-only">Fotografija </span>{activeIndex! + 1} / {galleryItems.length}
+                <span className="sr-only">Fotografija </span>{activeIndex! + 1} / {filteredItems.length}
               </span>
               <button className="gallery-control" type="button" aria-label="Sledeća fotografija" onClick={() => changePhoto(1)}>
                 <ChevronRight aria-hidden="true" />

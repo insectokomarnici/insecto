@@ -1,8 +1,5 @@
 import Image from "next/image";
-import { PhoneFilled } from "@carbon/icons-react";
-import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
-import { GoogleRating } from "@/components/google-rating";
 
 const aboutImage = "/images/insecto-team.avif";
 
@@ -27,10 +24,16 @@ export function AboutSection() {
               <p>Zdravo 👋! Mi smo Insecto i bavimo se isključivo jednim proizvodom: komarnicima. Ne radimo PVC stolariju, tende, niti roletne. Samo komarnike, svaki dan. I to je ono u čemu smo najbolji.</p>
               <p>Naš tim za sada broji petoro ljudi. Sastoji se od mlađih i starijih – tehničara, kreativaca i administracije. Iako imamo različite uloge, delimo jedan zajednički cilj: da ti pružimo najbolju moguću uslugu, od prvog poziva do poslednjeg šrafa.</p>
             </div>
-            <div className="about-cta-group">
-              <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
-              <GoogleRating />
-            </div>
+            <dl className="about-stats">
+              <div className="about-stat">
+                <dt className="about-stat-label">Zadovoljnih kupaca</dt>
+                <dd className="about-stat-value">2.500+</dd>
+              </div>
+              <div className="about-stat">
+                <dt className="about-stat-label">Godina iskustva</dt>
+                <dd className="about-stat-value">10+</dd>
+              </div>
+            </dl>
           </div>
         </div>
       </Container>

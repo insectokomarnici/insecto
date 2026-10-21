@@ -4,7 +4,7 @@ import { CheckCircle } from "@boxicons/react";
 import { PhoneFilled } from "@carbon/icons-react";
 import { SiteBanner } from "@/components/site-banner";
 import { SiteHeader } from "@/components/site-header";
-import { GoogleRating, getPlaceRating } from "@/components/google-rating";
+import { GoogleRating } from "@/components/google-rating";
 import { ProductsSection } from "@/components/products-section";
 import { ProcessSection } from "@/components/process-section";
 import { AboutSection } from "@/components/about-section";
@@ -26,9 +26,7 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default async function Home() {
-  const placeRating = await getPlaceRating();
-
+export default function Home() {
   return <div>
     <div className="site-chrome">
       <SiteBanner />
@@ -42,7 +40,6 @@ export default async function Home() {
               <Heading as="h1" size="hero" id="hero-title">Komarnici Novi Sad: Izrada i ugradnja komarnika po meri</Heading>
               <div className="hero-description prose-width">
                 <p>Proizvodnja i montaža svih vrsta komarnika: plise, rolo i fiksni komarnici rađeni po dimenziji tvojih prozora i vrata. Kompletna usluga dolaska na adresu, uzimanja mera i ugradnje je uključena u cenu komarnika za Novi Sad i bližu okolinu.</p>
-                <p>Nisi siguran koji tip komarnika ti je potreban? Pomoći ćemo ti da odabereš idealno rešenje za svoj prostor.</p>
               </div>
               <ul className="hero-benefits" aria-label="Prednosti usluge">
                 <li><CheckCircle aria-hidden="true" />Direktno od proizvođača</li>
@@ -71,7 +68,7 @@ export default async function Home() {
           </div>
         </Container>
       </section>
-      <ProductsSection placeRating={placeRating} />
+      <ProductsSection />
       <AboutSection />
       <GoogleReviewsSection />
       <SelectionGuideSection />

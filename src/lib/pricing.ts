@@ -6,8 +6,8 @@ export const pricingOptions = [
 
 export const colorOptions = [
   { id: "bela", label: "Bela" },
-  { id: "braon", label: "Braon" },
   { id: "antracit", label: "Antracit" },
+  { id: "braon", label: "Braon" },
 ] as const;
 
 export type PricingType = (typeof pricingOptions)[number]["id"];

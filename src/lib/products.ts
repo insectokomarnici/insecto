@@ -2,8 +2,8 @@ export type ProductColor = "bela" | "braon" | "antracit";
 
 export const productColors = [
   { id: "bela", label: "Bela" },
-  { id: "braon", label: "Braon" },
   { id: "antracit", label: "Antracit" },
+  { id: "braon", label: "Braon" },
 ] as const;
 
 export type ProductAccordion = {

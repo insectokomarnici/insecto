@@ -116,6 +116,8 @@ Products are defined in `src/lib/products.ts`. Each product has three colors: Be
 ## Gallery
 
 - Photographs use a native horizontal scroll area with scroll snap, one preview on phones, two from `md` and three from `lg`. Arrow controls below the images advance by one card and disable at the ends.
+- Category tabs filter the gallery to pleated, roller or fixed screens. The current installation-photo set has no fixed-screen photos, so that tab displays an explicit empty state until suitable images are added.
+- On phone widths the three tabs use two rows, with the third tab centered; wider screens keep all three on one row.
 - Each photograph opens a native modal dialog with the full image, previous/next controls and a counter. Escape or a backdrop click closes the dialog; keyboard focus stays inside and returns to the originating card on close.
 - The dialog locks background scrolling, uses the shared control and surface tokens, and contains the image without cropping. Reduced motion disables animated carousel scrolling and hover zoom.
 

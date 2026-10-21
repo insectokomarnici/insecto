@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Check, CheckShield, Plus, Trash } from "@boxicons/react";
-import { Help } from "@carbon/icons-react";
+import { CheckShield, Plus, Trash } from "@boxicons/react";
 import { useMemo, useState, type FormEvent } from "react";
 import { FixedScreenIcon, PleatedScreenIcon, RollerScreenIcon } from "@/components/calculator-type-icons";
 import { Button } from "@/components/ui/button";
@@ -59,7 +58,6 @@ export function PricingCalculator() {
   const [color, setColor] = useState<PricingColor>("bela");
   const [items, setItems] = useState<CalculatorItem[]>([]);
   const [nextItemId, setNextItemId] = useState(1);
-  const [isPriceInfoOpen, setIsPriceInfoOpen] = useState(false);
 
   const calculation = useMemo(() => {
     const widthInMeters = Math.max(Number(width) || 0, 0) / 100;
@@ -73,12 +71,6 @@ export function PricingCalculator() {
 
     return { area, pricePerM2, quantity: quantityValue, total };
   }, [color, height, quantity, type, width]);
-
-  function handlePriceInfoToggle() {
-    if (typeof window !== "undefined" && window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
-      setIsPriceInfoOpen((current) => !current);
-    }
-  }
 
   const typeLabel = pricingOptions.find((option) => option.id === type)?.label ?? type;
   const colorLabel = colorOptions.find((option) => option.id === color)?.label ?? color;
@@ -118,41 +110,22 @@ export function PricingCalculator() {
       <section className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
       <Container>
         <div className="section-inner">
+          <div className="section-intro">
+            <Heading as="h2" size="section" id="calculator-title">Cena komarnika</Heading>
+          </div>
           <div className="calculator-content">
             <Card elevation="none" className="calculator-copy">
-              <Heading as="h2" size="section" id="calculator-title">Cena komarnika</Heading>
+              <Heading as="h3" size="card">Kako da izračunaš cenu?</Heading>
               <div className="calculator-copy-body stack">
                 <div className="calculator-copy-intro stack">
                   <p className="text-body calculator-description">
                     Unesi širinu i visinu otvora u centimetrima, količinu, zatim izaberi tip i boju komarnika da dobiješ tačnu cenu.
-                    <span
-                      className={`calculator-info${isPriceInfoOpen ? " is-open" : ""}`}
-                      onBlur={(event) => {
-                        if (!event.currentTarget.contains(event.relatedTarget)) setIsPriceInfoOpen(false);
-                      }}
-                    >
-                      <button
-                        className="calculator-info-trigger"
-                        type="button"
-                        aria-label="Kako se računa cena?"
-                        aria-describedby="calculator-price-info"
-                        onClick={handlePriceInfoToggle}
-                        onKeyDown={(event) => {
-                          if (event.key === "Escape") {
-                            setIsPriceInfoOpen(false);
-                            event.currentTarget.blur();
-                          }
-                        }}
-                      >
-                        <Help aria-hidden="true" />
-                      </button>
-                      <span id="calculator-price-info" className="calculator-tooltip" role="tooltip">
-                        <span className="calculator-tooltip-title">Kako se računa cena?</span>
-                        <span className="calculator-tooltip-copy">Površina se dobija množenjem širine i visine u metrima. Zatim se površina množi cenom po m² i količinom za izabrani tip i boju komarnika. Za površine manje od 1 m² obračunava se cena jednog m² po komadu.</span>
-                      </span>
-                    </span>
                   </p>
-                  <p className="text-body calculator-note"><Check aria-hidden="true" />Merenje i ugradnja su uračunati u cenu.</p>
+                  <div className="calculator-price-explanation">
+                    <p className="text-body calculator-price-heading">Kako se računa cena?</p>
+                    <p className="text-body">Površina u m² × Cena po m²</p>
+                    <p className="text-body">Mere koje uneseš u centimetrima pretvaramo u metre, pa množimo širinu i visinu da bismo izračunali površinu. Dobijenu površinu zatim množimo cenom po m² za izabrani tip i boju komarnika.</p>
+                  </div>
                 </div>
                 <div className="calculator-diagrams" aria-label="Primer merenja otvora">
                   <div className="calculator-diagram-labels">
@@ -282,11 +255,11 @@ export function PricingCalculator() {
                 <ul className="calculator-included-list" aria-labelledby="calculator-included-title">
                   {includedItems.map(({ title, body, Icon }) => (
                     <li className="calculator-included-item" key={title}>
-                      <span className="calculator-included-icon"><Icon aria-hidden="true" /></span>
-                      <div className="calculator-included-copy">
-                        <Heading as="h4" size="card">{title}</Heading>
-                        <p>{body}</p>
+                      <div className="calculator-included-item-heading">
+                        <span className="calculator-included-item-icon"><Icon aria-hidden="true" /></span>
+                        <Heading as="h3" size="card">{title}</Heading>
                       </div>
+                      <p className="calculator-included-item-body">{body}</p>
                     </li>
                   ))}
                 </ul>

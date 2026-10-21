@@ -1,10 +1,6 @@
-import Image from "next/image";
-import { Buildings, DoorOpen } from "@boxicons/react";
-import { PhoneFilled } from "@carbon/icons-react";
+import { DoorOpen } from "@boxicons/react";
 import { Container, Heading } from "@/components/ui/layout";
 import { WindowIcon } from "@/components/ui/window-icon";
-import { ButtonLink } from "@/components/ui/button";
-import { GoogleRating } from "@/components/google-rating";
 
 const guideItems = [
   {
@@ -14,13 +10,8 @@ const guideItems = [
   },
   {
     title: "Komarnici za vrata",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec vitae sapien at sem consequat finibus, sed tincidunt erat gravida.",
+    body: "Komarnici za vrata su neizbežan deo svakog domaćinstva od ulaznih vrata do terase ili balkona, na koje se izlazi sto puta dnevno. Kafa napolju, veš na sušilici, zalivanje cveća, razgovor sa komšinicom, itd. Upravo zato je kod komarnika za vrata najvažnije da budu praktični za učestalo korišćenje. Jedna od opcija jeste komarnik vrata, koji funkcionišu slično kao sva klasična vrata. Ako ipak želiš nešto diskretnije i modernije, plise komarnik je pun pogodak. Njegova mrežica se u potpunosti skuplja u levu ili desnu stranu kada se ne koristi.",
     Icon: DoorOpen,
-  },
-  {
-    title: "Komarnici za alu, pvc i drvenu stolariju",
-    body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur commodo, felis at feugiat posuere, neque erat tincidunt sem.",
-    Icon: Buildings,
   },
 ];
 
@@ -28,34 +19,20 @@ export function SelectionGuideSection() {
   return (
     <section className="section selection-guide-section" aria-labelledby="selection-guide-title">
       <Container>
-        <div className="selection-guide-layout">
-          <figure className="selection-guide-media">
-            <Image
-              src="/images/selection-guide-window.jpg"
-              alt="Komarnik na prozoru"
-              fill
-              sizes="(min-width: 64rem) 42vw, 100vw"
-            />
-          </figure>
-          <div className="selection-guide-copy">
+        <div className="selection-guide-content">
+          <div className="selection-guide-heading">
             <Heading as="h2" size="section" id="selection-guide-title">Vodič za izbor komarnika</Heading>
-            <div className="selection-guide-items">
-              {guideItems.map(({ title, body, Icon }) => (
-                <article className="selection-guide-item" key={title}>
-                  <span className="selection-guide-icon"><Icon aria-hidden="true" /></span>
-                  <div className="selection-guide-item-copy">
-                    <Heading as="h3" size="card">{title}</Heading>
-                    <p>{body}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-            <div className="selection-guide-actions">
-              <div className="selection-guide-cta-group">
-                <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
-                <GoogleRating />
-              </div>
-            </div>
+          </div>
+          <div className="selection-guide-items">
+            {guideItems.map(({ title, body, Icon }) => (
+              <article className="selection-guide-item" key={title}>
+                <span className="selection-guide-icon"><Icon aria-hidden="true" /></span>
+                <div className="selection-guide-item-copy">
+                  <Heading as="h3" size="card">{title}</Heading>
+                  <p>{body}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </Container>

@@ -1,12 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { PhoneFilled } from "@carbon/icons-react";
 import { useState } from "react";
 import { cn } from "@/lib/cn";
-import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
-import { GoogleRatingView, type PlaceRating } from "@/components/google-rating-view";
 import { ProductAccordions } from "@/components/product-accordions";
 import { productColors, products, type ProductColor, type Product } from "@/lib/products";
 
@@ -16,8 +13,9 @@ const colorSwatchClasses: Record<ProductColor, string> = {
   antracit: "product-color-swatch-anthracite",
 };
 
-function ProductCard({ product, placeRating }: { product: Product; placeRating: PlaceRating | null }) {
-  const [selectedColor, setSelectedColor] = useState<ProductColor>("bela");
+function ProductCard({ product }: { product: Product }) {
+  const initialColor: ProductColor = product.slug === "plise" ? "bela" : product.slug === "rolo" ? "antracit" : "braon";
+  const [selectedColor, setSelectedColor] = useState<ProductColor>(initialColor);
   const selectedOption = productColors.find(({ id }) => id === selectedColor) ?? productColors[0];
 
   return (
@@ -57,25 +55,13 @@ function ProductCard({ product, placeRating }: { product: Product; placeRating: 
           </div>
         </div>
 
-        <div className="product-card-actions">
-          <div className="product-card-cta-group">
-            <ButtonLink
-              size="large"
-              href="tel:+381611321324"
-              aria-label={`Zakaži merenje za ${product.title}`}
-            >
-              <PhoneFilled aria-hidden="true" />Zakaži merenje
-            </ButtonLink>
-            <GoogleRatingView place={placeRating} />
-          </div>
-        </div>
         <ProductAccordions product={product} />
       </div>
     </article>
   );
 }
 
-export function ProductsSection({ placeRating }: { placeRating: PlaceRating | null }) {
+export function ProductsSection() {
   return (
     <section className="section products-section" id="products" aria-labelledby="products-title">
       <Container>
@@ -84,7 +70,7 @@ export function ProductsSection({ placeRating }: { placeRating: PlaceRating | nu
             <Heading as="h2" size="section" id="products-title">Komarnici po meri</Heading>
           </div>
           <div className="products-grid">
-            {products.map((product) => <ProductCard key={product.slug} product={product} placeRating={placeRating} />)}
+            {products.map((product) => <ProductCard key={product.slug} product={product} />)}
           </div>
         </div>
       </Container>
