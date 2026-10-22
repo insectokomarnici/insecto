@@ -117,13 +117,13 @@ export default function PolitikaPrivatnostiPage() {
                 <p className="text-body">Informacije o tome koje podatke prikupljamo, kako ih koristimo i kako ih štitimo.</p>
               </header>
               <article className="legal-content">
-                <section className="legal-block" aria-labelledby="privacy-overview-title">
+                <section className="legal-block content-flow" aria-labelledby="privacy-overview-title">
                   <Heading as="h2" size="card" id="privacy-overview-title">Kako Insecto koristi vaše podatke</Heading>
                   <p>Ova Politika privatnosti opisuje kako Insecto prikuplja i koristi vaše podatke, kao i koji su vaši izbori u vezi sa tim podacima. Politika privatnosti se odnosi na naš veb-sajt insecto.rs.</p>
                   <p>Kada koristite naš veb-sajt, Insecto može prikupiti različite vrste podataka kako bi obradio vaše zahteve, omogućio vam bolje i personalizovano iskustvo, te unapredio kvalitet usluga. Takođe, možemo prikupljati anonimne informacije pomoću kolačića (cookies). Insecto je odgovoran za upravljanje podacima koje prikupi putem veb-sajta.</p>
                 </section>
                 {sections.map((section) => (
-                  <section className="legal-block" key={section.id} id={section.id} aria-labelledby={`${section.id}-title`}>
+                  <section className="legal-block content-flow" key={section.id} id={section.id} aria-labelledby={`${section.id}-title`}>
                     <Heading as="h2" size="card" id={`${section.id}-title`}>{section.title}</Heading>
                     {section.paragraphs.map((paragraph, paragraphIndex) => (
                       <p key={paragraph}>

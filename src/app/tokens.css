@@ -83,14 +83,27 @@
   --content-text: 38rem;
   --grid-item-min: 18rem;
   --page-gutter: var(--space-5);
-  --section-padding: var(--space-10);
-  --section-padding-compact: var(--space-8);
+  --section-padding: var(--space-8);
+  --section-padding-compact: var(--space-6);
   --section-content-gap: var(--space-8);
   --section-intro-gap: var(--space-6);
   --site-chrome-height: calc(var(--banner-min-height) + 4.25rem);
   --grid-gap: var(--space-4);
-  --card-padding: var(--space-6);
+  --card-padding: var(--space-5);
+  /* Relationships, not individual sections, own spacing. */
   --stack-gap: var(--space-4);
+  --heading-copy-gap: var(--space-3);
+  --card-copy-gap: var(--space-2);
+  --inline-gap: var(--space-2);
+  --icon-copy-gap: var(--space-3);
+  --list-gap: var(--space-3);
+  --caption-gap: var(--space-2);
+  --disclosure-padding: var(--space-3);
+  --navigation-gap: var(--space-6);
+  --control-content-gap: var(--space-4);
+  --content-group-gap: var(--space-6);
+  --card-content-gap: var(--space-3);
+  --choice-gap: var(--space-2);
   --cta-gap: var(--space-6);
   --cta-review-gap: var(--space-2);
   --form-field-gap: var(--space-5);
@@ -137,7 +150,7 @@
   --textarea-min-height: 8rem;
   --textarea-message-min-height: 5rem;
   --process-step-number-size: var(--space-10);
-  --calculator-card-min-height: 30.125rem;
+  --calculator-card-min-height: 39rem;
   --review-card-height: 18rem;
   --review-meta-line-height: 1.25;
   --calculator-visual-max-width: 22rem;
@@ -170,22 +183,23 @@
 @media (min-width: 48rem) {
   :root {
     --page-gutter: var(--space-6);
-    --section-padding: var(--space-12);
-    --section-padding-compact: var(--space-10);
+    --section-padding: var(--space-10);
+    --section-padding-compact: var(--space-8);
     --section-content-gap: var(--space-10);
-    --section-intro-gap: var(--space-8);
+    --section-intro-gap: var(--space-6);
     --grid-gap: var(--space-6);
+    --card-padding: var(--space-6);
   }
 }
 @media (min-width: 64rem) {
   :root {
     --page-gutter: var(--space-8);
-    --section-padding: var(--space-16);
-    --section-padding-compact: var(--space-12);
+    --section-padding: var(--space-12);
+    --section-padding-compact: var(--space-10);
     --section-content-gap: var(--space-12);
-    --section-intro-gap: var(--space-10);
-    --grid-gap: var(--space-8);
-    --card-padding: var(--space-8);
+    --section-intro-gap: var(--space-8);
+    --grid-gap: var(--space-6);
+    --card-padding: var(--space-6);
     --leading-hero: 1.166667;
     --leading-section: 1.2;
     --leading-card: 1.333333;

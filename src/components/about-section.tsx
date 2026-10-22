@@ -18,13 +18,13 @@ export function AboutSection() {
               />
             </div>
           </div>
-          <div className="about-copy stack">
+          <div className="about-copy content-flow">
             <Heading as="h2" size="section" id="about-title">Insecto Komarnici</Heading>
             <div className="about-text stack text-body">
               <p>Zdravo 👋! Mi smo Insecto i bavimo se isključivo jednim proizvodom: komarnicima. Ne radimo PVC stolariju, tende, niti roletne. Samo komarnike, svaki dan. I to je ono u čemu smo najbolji.</p>
               <p>Naš tim za sada broji petoro ljudi. Sastoji se od mlađih i starijih – tehničara, kreativaca i administracije. Iako imamo različite uloge, delimo jedan zajednički cilj: da ti pružimo najbolju moguću uslugu, od prvog poziva do poslednjeg šrafa.</p>
             </div>
-            <dl className="about-stats">
+            <dl className="about-stats content-group">
               <div className="about-stat">
                 <dt className="about-stat-label">Zadovoljnih kupaca</dt>
                 <dd className="about-stat-value">2.500+</dd>

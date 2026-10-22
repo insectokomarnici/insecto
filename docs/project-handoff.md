@@ -44,6 +44,8 @@ CONTACT_TO_EMAIL=insectokomarnici@gmail.com
 
 Canonical tokens live in `src/app/tokens.css`; shared global/component rules live in `src/app/globals.css`. Keep new values in the token layer before adding component-specific styling. Use `rem`, semantic tokens, and the existing spacing/radius/shadow system.
 
+The site-wide spacing contract is documented in `docs/spacing-audit.md` and demonstrated on `/design-system`. Section padding is 32/40/48px per edge; section titles are 24/24/32px above content; headings are 12px from body copy; paragraphs are 16px apart. Marketing CTA groups are 24px from preceding content everywhere, with ratings 8px below the button. Use `.content-flow` and `.section-inner` / `.section-flow` plus their semantic action/group modifiers, rather than adding compensating margins to grid gaps. Card padding is 20/24/24px; major columns remain 32/40/48px. Form controls retain their accessible sizes and 20px row / 8px label gaps. The calculator uses a 39rem desktop minimum with a top-aligned left panel and stretching right panel so saved items grow only the right side.
+
 Brand colors:
 
 - Brand primary: `#1E3B6F`

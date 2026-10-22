@@ -130,7 +130,7 @@ export function GallerySection() {
     <section className="section gallery-section" id="gallery" aria-labelledby="gallery-title">
       <Container>
         <div className="section-inner">
-          <div className="section-intro stack">
+          <div className="section-intro">
             <Heading as="h2" size="section" id="gallery-title">Galerija komarnika</Heading>
           </div>
           <div className="gallery-tabs" role="tablist" aria-label="Izaberi tip komarnika">
@@ -154,7 +154,7 @@ export function GallerySection() {
               </button>
             ))}
           </div>
-          <div className="gallery-panel" id="gallery-tabpanel" role="tabpanel" aria-labelledby={`gallery-tab-${selectedCategory}`}>
+          <div className="gallery-panel section-controls-content" id="gallery-tabpanel" role="tabpanel" aria-labelledby={`gallery-tab-${selectedCategory}`}>
             {filteredItems.length > 0 ? (
               <div className="gallery-frame">
                 <div ref={galleryRef} className="gallery-grid" id="gallery-photos" role="region" aria-label={`Fotografije: ${selectedTab.label.toLowerCase()}`} tabIndex={0}>

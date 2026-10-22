@@ -36,7 +36,7 @@ export default function Home() {
       <section className="section hero-section" aria-labelledby="hero-title">
         <Container>
           <div className="hero-content">
-            <div className="hero-copy stack">
+            <div className="hero-copy content-flow">
               <Heading as="h1" size="hero" id="hero-title">Komarnici Novi Sad: Izrada i ugradnja komarnika po meri</Heading>
               <div className="hero-description prose-width">
                 <p>Proizvodnja i montaža svih vrsta komarnika: plise, rolo i fiksni komarnici rađeni po dimenziji tvojih prozora i vrata. Kompletna usluga dolaska na adresu, uzimanja mera i ugradnje je uključena u cenu komarnika za Novi Sad i bližu okolinu.</p>
@@ -47,7 +47,7 @@ export default function Home() {
                 <li><CheckCircle aria-hidden="true" />Profesionalna ugradnja</li>
                 <li><CheckCircle aria-hidden="true" />Novi Sad i okolina</li>
               </ul>
-              <div className="hero-cta-group">
+              <div className="hero-cta-group content-actions">
                 <div className="hero-actions">
                   <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
                 </div>

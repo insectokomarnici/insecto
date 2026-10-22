@@ -19,7 +19,7 @@ export function GoogleReviewsSection() {
   return (
     <section className="section google-reviews-section" aria-labelledby="google-reviews-title">
       <Container>
-        <div className="google-reviews-layout">
+        <div className="google-reviews-layout section-flow">
           <div className="google-reviews-intro">
             <Heading as="h2" size="section" id="google-reviews-title">Iskustva naših klijenata</Heading>
           </div>
@@ -54,7 +54,7 @@ export function GoogleReviewsSection() {
             ))}
           </div>
 
-          <div className="google-reviews-actions">
+          <div className="google-reviews-actions section-actions">
             <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
             <GoogleRatingView place={fixedGoogleRating} />
           </div>

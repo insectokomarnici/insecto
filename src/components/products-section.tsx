@@ -66,7 +66,7 @@ export function ProductsSection() {
     <section className="section products-section" id="products" aria-labelledby="products-title">
       <Container>
         <div className="section-inner">
-          <div className="section-intro stack">
+          <div className="section-intro">
             <Heading as="h2" size="section" id="products-title">Komarnici po meri</Heading>
           </div>
           <div className="products-grid">

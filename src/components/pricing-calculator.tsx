@@ -114,7 +114,7 @@ export function PricingCalculator() {
             <Heading as="h2" size="section" id="calculator-title">Cena komarnika</Heading>
           </div>
           <div className="calculator-content">
-            <Card elevation="none" className="calculator-copy">
+            <Card elevation="none" className="calculator-copy content-flow">
               <Heading as="h3" size="card">Kako da izračunaš cenu?</Heading>
               <div className="calculator-copy-body stack">
                 <div className="calculator-copy-intro stack">
@@ -124,7 +124,7 @@ export function PricingCalculator() {
                   <div className="calculator-price-explanation">
                     <p className="text-body calculator-price-heading">Kako se računa cena?</p>
                     <p className="text-body">Površina u m² × Cena po m²</p>
-                    <p className="text-body">Mere koje uneseš u centimetrima pretvaramo u metre, pa množimo širinu i visinu da bismo izračunali površinu. Dobijenu površinu zatim množimo cenom po m² za izabrani tip i boju komarnika.</p>
+                    <p className="text-body">Mere koje uneseš u centimetrima pretvaramo u metre, zatim množimo širinu i visinu u metrima da bismo izračunali površinu. Dobijenu površinu u m² pomnožimo cenom po m² za izabrani tip i boju komarnika.</p>
                   </div>
                 </div>
                 <div className="calculator-diagrams" aria-label="Primer merenja otvora">

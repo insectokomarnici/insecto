@@ -132,12 +132,12 @@ export default function UsloviKoriscenjaPage() {
               </header>
               <article className="legal-content">
                 {sections.map((section) => (
-                  <section className="legal-block" key={section.id} id={section.id} aria-labelledby={`${section.id}-title`}>
+                  <section className="legal-block content-flow" key={section.id} id={section.id} aria-labelledby={`${section.id}-title`}>
                     <Heading as="h2" size="card" id={`${section.id}-title`}>{section.title}</Heading>
                     {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                   </section>
                 ))}
-                <section className="legal-block" id="kontakt" aria-labelledby="terms-contact-title">
+                <section className="legal-block content-flow" id="kontakt" aria-labelledby="terms-contact-title">
                   <Heading as="h2" size="card" id="terms-contact-title">Kontaktirajte nas</Heading>
                   <p>Ukoliko imate bilo kakvih pitanja ili nedoumica u vezi sa našim Uslovima korišćenja, slobodno nas kontaktirajte putem e-maila na: <a className="text-link" href="mailto:kontakt@insecto.rs">kontakt@insecto.rs</a>. Tu smo da vam pomognemo!</p>
                 </section>

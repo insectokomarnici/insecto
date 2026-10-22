@@ -11,10 +11,9 @@
   min-width: 0;
 }
 
-.copy,
 .approachCopy {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--content-group-gap);
   min-width: 0;
 }
 
@@ -44,7 +43,7 @@
 .installationFigure,
 .projectFigure {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--caption-gap);
   min-width: 0;
   margin: 0;
 }
@@ -89,7 +88,7 @@
 
 .commitments {
   display: grid;
-  gap: var(--space-6);
+  gap: var(--content-group-gap);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -104,7 +103,7 @@
 
 .commitmentCopy {
   display: grid;
-  gap: var(--space-2);
+  gap: var(--card-copy-gap);
   min-width: 0;
 }
 
@@ -143,14 +142,13 @@
 .contactCopy {
   display: grid;
   justify-items: center;
-  gap: var(--stack-gap);
   max-width: var(--content-text);
 }
 
 .contactActions {
   display: grid;
   justify-items: center;
-  gap: var(--space-3);
+  gap: var(--cta-review-gap);
   min-width: 0;
   width: 100%;
 }

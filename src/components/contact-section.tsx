@@ -27,7 +27,7 @@ export function ContactSection() {
   return (
     <section className="section contact-section" aria-labelledby="contact-section-title">
       <Container>
-        <div className="contact-section-content">
+        <div className="contact-section-content section-flow">
           <div className="contact-section-heading">
             <Heading as="h2" size="section" id="contact-section-title">Kontaktiraj nas</Heading>
           </div>
@@ -55,7 +55,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="contact-panel">
+          <div className="contact-panel section-group">
             <div className="contact-intro">
               <Heading as="h3" size="card" id="contact-form-title">Online upit</Heading>
               <p className="contact-trust"><Check aria-hidden="true" />Lako i jednostavno. Bez obaveza.</p>

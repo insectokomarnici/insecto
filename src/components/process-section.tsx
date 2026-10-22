@@ -36,7 +36,7 @@ export function ProcessSection() {
     <section className="section process-section" aria-labelledby="process-title">
       <Container>
         <div className="section-inner">
-          <div className="section-intro stack">
+          <div className="section-intro">
             <Heading as="h2" size="section" id="process-title">Kako do komarnika</Heading>
           </div>
           <ol className="process-steps">
@@ -52,7 +52,7 @@ export function ProcessSection() {
               </li>
             ))}
           </ol>
-          <div className="process-actions">
+          <div className="process-actions section-actions">
             <div className="process-cta-group">
               <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
               <GoogleRating />

@@ -58,13 +58,13 @@ export default function AboutV1Page() {
       </div>
       <main id="main" className={styles.page}>
         <Section aria-labelledby="about-v1-title">
-          <header className="section-intro stack">
+          <header className="section-intro">
             <Heading as="h1" size="hero" id="about-v1-title">O nama</Heading>
             <p>Komarnici po meri. Ljudi na koje možeš da računaš.</p>
           </header>
 
           <div className={styles.story}>
-            <div className={styles.copy}>
+            <div className={`${styles.copy} content-flow`}>
               <Heading as="h2" size="section">Samo komarnici.<br />Svaki dan.</Heading>
               <div className="stack text-body">
                 <p>Zdravo 👋, mi smo Insecto Komarnici. Bavimo se jednom stvari: komarnicima. Naš cilj je da ti olakšamo svakodnevicu i pomognemo da uživaš u svom domu bez insekata. Pogotovo u Novom Sadu, gde oni nemaju milosti.</p>
@@ -101,7 +101,7 @@ export default function AboutV1Page() {
               <figcaption>Od uzimanja mera do poslednjeg šrafa.</figcaption>
             </figure>
             <div className={styles.approachCopy}>
-              <div className="stack">
+              <div className="content-flow">
                 <Heading as="h2" size="section" id="about-v1-approach-title">Važno nam je kako se posao uradi</Heading>
                 <p>Komarnik je mali deo doma. Način na koji biramo, ugrađujemo i brinemo o njemu pravi razliku.</p>
               </div>
@@ -124,7 +124,7 @@ export default function AboutV1Page() {
 
         <Section aria-labelledby="about-v1-work-title">
           <div className={styles.workLayout}>
-            <div className={styles.copy}>
+            <div className={`${styles.copy} content-flow`}>
               <Heading as="h2" size="section" id="about-v1-work-title">Svaki prostor ima svoje mere</Heading>
               <p>Za prozor, vrata ili terasu biramo rešenje prema otvoru i načinu na koji ga koristiš. Izrađujemo fiksne, rolo i plise komarnike po meri.</p>
               <p>Ovo su neki od naših završenih radova. Više primera možeš da pogledaš u galeriji.</p>
@@ -146,7 +146,7 @@ export default function AboutV1Page() {
         <section className="section" aria-labelledby="about-v1-contact-title">
           <Container>
             <div className={styles.contactPanel}>
-              <div className={styles.contactCopy}>
+              <div className={`${styles.contactCopy} content-flow`}>
                 <span className={styles.icon}><Ruler aria-hidden="true" /></span>
                 <Heading as="h2" size="section" id="about-v1-contact-title">Hajde da se čujemo</Heading>
                 <p>Nisi siguran koji ti odgovara? Pozovi nas ili pošalji upit. Saslušaćemo šta ti je potrebno i dogovoriti sledeći korak.</p>

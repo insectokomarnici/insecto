@@ -92,7 +92,7 @@ export function FaqSection() {
         <div className="section-inner">
           <div className="faq-layout">
             <div className="faq-left">
-              <div className="faq-left-copy stack">
+              <div className="faq-left-copy content-flow">
                 <Heading as="h2" size="section" id="faq-title">Česta pitanja i odgovori</Heading>
                 <p className="faq-description">Sve što treba da znaš pre nego što zakažeš merenje.</p>
               </div>
