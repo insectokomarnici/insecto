@@ -1,6 +1,6 @@
 # Insecto favicon concepts
 
-Favicon concepts and the website icon. `src/app/icon.png` currently uses the original Astra window-grid icon supplied as `download.svg`, exported at 512 × 512 for the website. The editable source is saved as `00-original-astra.svg`. The refined 3 × 3 square-grid concept is saved as `01-mreza.svg` and `01-mreza-512.png`.
+Favicon concepts and the website icon. `src/app/icon.png` currently uses the refined 3 × 3 square-grid icon (`01-mreza.svg`), rendered directly from the vector source at 512 × 512 for the website. The site serves only the PNG favicon; SVG files in this directory are editable design sources. It matches the SVG supplied in `download (1).svg`. The earlier Astra window-grid version is kept as `00-original-astra.svg` for comparison.
 
 The background uses the canonical brand color `#1E3B6F` from `src/app/tokens.css`. White marks and a rounded square create a consistent silhouette on light and dark browser chrome. SVG sources contain vector paths only, with no font, script, or external asset dependencies. Each concept also has a 512 × 512 PNG export.
 
@@ -11,3 +11,5 @@ The background uses the canonical brand color `#1E3B6F` from `src/app/tokens.css
 `predlozi.png` and its SVG source show enlarged concepts, actual raster samples at 16/32/48 px, and simulated light/dark browser tab rows. These are design mockups, not screenshots of a deployed website.
 
 Generate the Next.js icon asset from the selected SVG. Keep the master SVG as the editable source; do not resize a small PNG to make larger exports.
+
+The active `01-mreza-512.png` is rendered directly from the vector source at 512 × 512, without resizing an intermediate bitmap. PNG compression is lossless.
