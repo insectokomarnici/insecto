@@ -1,8 +1,12 @@
 import type { SVGProps } from "react";
 
 function ScreenMesh({ bottom = 57, top = 7 }: { bottom?: number; top?: number }) {
-  const vertical = Array.from({ length: 10 }, (_, index) => `M${18 + index * 3} ${top}V${bottom}`);
-  const horizontal = Array.from({ length: Math.floor((bottom - top) / 3) }, (_, index) => `M15 ${top + (index + 1) * 3}H49`);
+  const columns = 11;
+  const cellSize = 34 / columns;
+  const rows = Math.round((bottom - top) / cellSize);
+  const rowOffset = ((bottom - top) - rows * cellSize) / 2;
+  const vertical = Array.from({ length: columns - 1 }, (_, index) => `M${15 + (index + 1) * cellSize} ${top}V${bottom}`);
+  const horizontal = Array.from({ length: rows - 1 }, (_, index) => `M15 ${top + rowOffset + (index + 1) * cellSize}H49`);
 
   return (
     <g>
@@ -32,9 +36,7 @@ export function PleatedScreenIcon(props: SVGProps<SVGSVGElement>) {
       <path d="M17 7v50M21 7v50M25 7v50M29 7v50M33 7v50" strokeWidth="1" opacity=".75" />
       <path d="M15 23h22M15 41h22" strokeWidth=".7" opacity=".4" />
       <ScreenFrame />
-      <path d="M37 7h4v50h-4Z" fill="currentColor" fillOpacity=".12" strokeWidth="1.3" />
-      <path d="M39 29v6" />
-      <path d="M37 7h4v3h-4Zm0 47h4v3h-4Z" fill="currentColor" stroke="none" />
+      <rect x="37" y="7.65" width="4" height="48.7" rx=".75" fill="currentColor" fillOpacity=".18" strokeWidth="1.3" />
     </svg>
   );
 }
@@ -44,6 +46,7 @@ export function RollerScreenIcon(props: SVGProps<SVGSVGElement>) {
     <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" focusable="false" {...props}>
       <ScreenMesh top={11} bottom={38} />
       <path d="M11 11h4v46h34V11h4v49a1 1 0 0 1-1 1H12a1 1 0 0 1-1-1Z" fill="currentColor" fillOpacity=".1" />
+      <path d="M11 61l4-4m34 0 4 4" strokeWidth=".8" opacity=".5" />
       <rect x="9" y="3" width="46" height="8" rx="2.5" fill="currentColor" fillOpacity=".1" />
       <path d="M13 4v6M51 4v6" strokeWidth="2.5" />
       <rect x="15" y="38" width="34" height="5" rx=".75" fill="currentColor" fillOpacity=".18" strokeWidth="1.3" />
