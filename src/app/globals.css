@@ -498,7 +498,6 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 .floating-call-button svg { width: var(--icon-floating-call); height: var(--icon-floating-call); flex: none; }
 .floating-call-button:focus-visible { outline: none; box-shadow: var(--focus-ring), var(--shadow-raised); }
 .calculator-section { background: var(--color-surface-subtle); }
-.calculator-included-section { background: var(--color-surface-subtle); }
 .calculator-content { display: grid; gap: var(--layout-gap); align-items: stretch; }
 .calculator-copy { display: grid; align-content: start; min-width: 0; }
 .calculator-copy-body { min-width: 0; gap: var(--content-group-gap); }
@@ -560,19 +559,16 @@ html:has(.gallery-lightbox[open]) { overflow: hidden; }
 .calculator-result-price strong { justify-self: start; text-align: start; }
 .calculator-total { display: flex; align-items: baseline; justify-content: space-between; gap: var(--content-group-gap); padding-top: var(--divider-content-gap); border-top: var(--border-width) solid var(--color-border); }
 .calculator-total strong { color: var(--color-brand); font-family: var(--font-heading); font-size: var(--text-card); line-height: var(--text-card--line-height); font-weight: var(--font-weight-semibold); }
-.calculator-included { display: grid; align-items: start; gap: var(--section-heading-gap); }
-.calculator-included-heading { display: grid; justify-items: center; min-width: 0; text-align: center; }
-.calculator-included-heading .heading { margin: 0; }
-.calculator-included-list-panel { min-width: 0; }
+/* Included services form a quiet footer of the calculator, not another card grid.
+   Section flow owns the outer gap; divider padding and heading/list gap use shared roles. */
+.calculator-included { display: grid; align-items: start; gap: var(--content-group-gap); padding-block-start: var(--divider-content-gap); border-block-start: var(--border-width) solid var(--color-border); }
+.calculator-included > .heading { margin: 0; text-align: start; }
 .calculator-included-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--card-grid-gap); margin: 0; padding: 0; list-style: none; }
-.calculator-included-item { position: relative; display: grid; align-content: start; gap: var(--card-copy-gap); min-width: 0; padding: var(--card-padding); padding-block-end: calc(var(--card-padding) + var(--divider-content-gap)); border: var(--border-width) solid var(--color-brand); border-inline-start-width: var(--border-accent-width); border-radius: var(--radius-card); background: var(--color-surface); color: var(--color-brand); text-align: start; overflow-wrap: anywhere; }
-.calculator-included-item::after { position: absolute; inset-inline: var(--card-padding); bottom: var(--card-padding); height: var(--border-width); background: currentColor; content: ""; opacity: 0.2; pointer-events: none; }
-.calculator-included-item-heading { display: grid; justify-items: start; gap: var(--card-item-gap); min-width: 0; }
-.calculator-included-item-heading .heading, .calculator-included-item-body { margin: 0; }
-.calculator-included-item-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--icon-process); height: var(--icon-process); flex: none; }
-.calculator-included-item-icon svg { width: var(--icon-process); height: var(--icon-process); }
-.calculator-included-item .heading { color: var(--color-heading); }
-.calculator-included-item-body { color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); text-align: start; }
+.calculator-included-item { display: grid; align-content: start; justify-items: start; gap: var(--card-copy-gap); min-width: 0; text-align: start; overflow-wrap: anywhere; }
+.calculator-included-item .heading, .calculator-included-item-body { margin: 0; }
+.calculator-included-item-icon { display: inline-flex; align-items: center; justify-content: center; width: var(--icon-process); height: var(--icon-process); color: var(--color-brand); }
+.calculator-included-item-icon svg { width: 100%; height: 100%; }
+.calculator-included-item-body { color: var(--color-body); font-size: var(--text-body); line-height: var(--text-body--line-height); }
 .products-grid { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--card-grid-gap); }
 .product-card { display: flex; min-width: 0; flex-direction: column; overflow: hidden; border: var(--border-width) solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); box-shadow: none; }
 .product-card-media { position: relative; aspect-ratio: 1; background: var(--color-surface); }

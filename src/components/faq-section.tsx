@@ -97,8 +97,8 @@ export function FaqSection() {
     service: null,
   });
   const groups = [
-    { id: "products", title: "O komarnicima" },
-    { id: "service", title: "O usluzi" },
+    { id: "products", title: "Komarnici" },
+    { id: "service", title: "Naša usluga" },
   ];
 
   return (

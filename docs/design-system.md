@@ -16,6 +16,10 @@ The content rhythm is 8px card title/body, 12px heading/copy, 16px paragraphs an
 
 Use `.content-flow` for mixed heading/body/action content and `.section-inner` or `.section-flow` for section composition. A relationship has one spacing owner: never combine a parent gap and child margin for the same distance. Canonical names describe roles (`--paragraph-gap`, `--layout-gap`, `--content-action-gap`); primitive `--space-N` references are confined to the token layer for layout spacing. See the contract for all roles, exceptions, migration names and browser audit commands.
 
+## Calculator included services — 23 October 2026
+
+Included services form a borderless footer inside the calculator section, below both panels. The parent `.section-inner` owns the 24px panel-to-footer separation. One standard gray top divider uses `--divider-content-gap` (16px) of inner padding; the left-aligned subordinate H3 uses the shared card-heading size and `--content-group-gap` (16px) before the list. Three service items sit side by side from `md` and stack below it, using the shared card-grid gap. Each stacks a 32px approved service icon above a compact H4 and standard body description, aligned to the same left edge. Titles use a compact H4 and standard `--text-body` description (16px with the shared body line-height), separated by the shared content-group/card-copy gaps. Individual card backgrounds, borders, accent edges and dividers are removed, avoiding a second set of boxes beneath the calculator. Calculator behavior and approved service copy are unchanged.
+
 ## Local implementation
 
 This document has been moved into the `insecto` project. The canonical tokens now live in `src/app/tokens.css`, and Tailwind uses the same values. Shared components are in `src/components/ui`, the contact form is in `src/components/contact-form.tsx`, and the review page is available at `/design-system`. The standalone CSS drafts referenced below are part of the decision history; the project uses the consolidated tokens and `src/app/globals.css`.

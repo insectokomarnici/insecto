@@ -107,8 +107,7 @@ export function PricingCalculator() {
   }
 
   return (
-    <>
-      <section className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
+    <section className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
       <Container>
         <div className="section-inner">
           <div className="section-intro">
@@ -240,33 +239,20 @@ export function PricingCalculator() {
             </Card>
           </div>
 
+          <section className="calculator-included" aria-labelledby="calculator-included-title">
+            <Heading as="h3" size="card" id="calculator-included-title">Šta je uključeno u cenu?</Heading>
+            <ul className="calculator-included-list" aria-labelledby="calculator-included-title">
+              {includedItems.map(({ title, body, Icon }) => (
+                <li className="calculator-included-item" key={title}>
+                  <span className="calculator-included-item-icon"><Icon aria-hidden="true" /></span>
+                  <Heading as="h4" size="compact">{title}</Heading>
+                  <p className="calculator-included-item-body">{body}</p>
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
       </Container>
-      </section>
-      <section className="section calculator-included-section" aria-labelledby="calculator-included-title">
-        <Container>
-          <div className="section-inner">
-            <div className="calculator-included">
-              <div className="calculator-included-heading">
-                <Heading as="h2" size="section" id="calculator-included-title">Šta je uključeno u cenu</Heading>
-              </div>
-              <div className="calculator-included-list-panel">
-                <ul className="calculator-included-list" aria-labelledby="calculator-included-title">
-                  {includedItems.map(({ title, body, Icon }) => (
-                    <li className="calculator-included-item" key={title}>
-                      <div className="calculator-included-item-heading">
-                        <span className="calculator-included-item-icon"><Icon aria-hidden="true" /></span>
-                        <Heading as="h3" size="card">{title}</Heading>
-                      </div>
-                      <p className="calculator-included-item-body">{body}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-    </>
+    </section>
   );
 }
