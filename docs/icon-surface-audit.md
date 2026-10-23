@@ -35,7 +35,7 @@ A 12px content card and 16px full form panel are different roles. Circular contr
 | Feature | 24px | Boxicons information icons and custom `WindowIcon`; window and DoorOpen use compatible 24-unit canvases/line weight. |
 | Process / included service | 32px | Same Material Straighten and Drill assets in both sections; guarantee retains its approved shield. |
 | Calculator preview | 48px | Approved custom 64-unit pleated, roller and fixed drawings. Fine mesh/hardware strokes are illustration geometry, not global UI strokes. |
-| Menu / close | 20 / 18px | Boxicons menu uses 20px wide horizontal bars; the diagonal close mark is 18px so both have similar visual weight. Both remain centered in the same 40px hit target, which extends 10px into the gutter so the menu bars reach the content edge. |
+| Menu / close | 20 / 17.6px | Boxicons artwork is cropped to its visible bounds. The close mark is 17.6px so its square visible area closely matches the menu bars’ 20 × 15.6px area. Both remain centered in the same 40px hit target, which extends 10px into the gutter so the menu bars reach the content edge. |
 | Floating call | 28.8px | Existing optical size inside the larger 60px floating control. |
 | Icon badge boxes | 40 / 48px | Named small/medium badge tokens. Contact-page detail row is compact; homepage contact/guide cards use the larger badge. |
 
