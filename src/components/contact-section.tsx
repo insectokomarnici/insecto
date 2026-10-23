@@ -55,7 +55,7 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="contact-panel section-group">
+          <div className="contact-panel section-block">
             <div className="contact-intro">
               <Heading as="h3" size="card" id="contact-form-title">Online upit</Heading>
               <p className="contact-trust"><Check aria-hidden="true" />Lako i jednostavno. Bez obaveza.</p>

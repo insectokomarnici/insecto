@@ -1,5 +1,11 @@
 # Insecto — design system working draft
 
+> Current icon/surface contract: [icon-surface-audit.md](icon-surface-audit.md), with [surface-usage.md](surface-usage.md). This record supersedes historical radius, shadow and icon-size descriptions below.
+
+> Current shared-component contract: [component-audit.md](component-audit.md). This record supersedes historical button sizing, choice semantics and CTA composition below.
+
+> Current color/contrast contract: [color-contrast-audit.md](color-contrast-audit.md), with [verified ratios](contrast-ratios.md). Current typography contract and verification: [typography-audit.md](typography-audit.md), with [typography-usage.md](typography-usage.md). Current spacing verification: [spacing-audit.md](spacing-audit.md). Remaining design-system audits: [design-system-readiness.md](design-system-readiness.md). These current records supersede historical color, typography and spacing descriptions below.
+
 Version 0.6 · 17 September 2026
 
 ## Spacing contract — 23 October 2026
@@ -79,7 +85,13 @@ Use orange sparingly. Text on the cream surface should be dark or dark blue. Ora
 
 Calculated contrast ratios: white on lighter blue 4.82:1; white on dark blue 10.99:1; success on its surface 5.13:1; error on its surface 6.05:1. Status always includes a clear text message. A submission confirmation is shown only after a real success response.
 
+## Current color contract — 23 October 2026
+
+Brand colors and decorative card borders are preserved. Placeholder text uses its own accessible `#657389` token. Focus is mid blue on light surfaces and white on brand panels; pointer-input focus remains mid blue. Gallery captions use a separate dark scrim, and yellow rating stars have a dark-gold contour. Numeric values, state rules and exclusions are in [color-contrast-audit.md](color-contrast-audit.md). Run `node scripts/audit-colors.mjs` whenever changing color tokens.
+
 ## Typography
+
+The current decisions and exceptions are in [typography-audit.md](typography-audit.md). Compact titles use Montserrat 16px/24px at 600; primary choices use Manrope 16px/24px. Semantic weight aliases are centralized in `tokens.css`.
 
 Montserrat is used for headings and CTA buttons; Manrope is used for body text, navigation, form controls and supporting text. Available weight ranges: Montserrat 100–900, Manrope 200–800. The initial weights below can be changed consistently by role.
 
@@ -98,7 +110,7 @@ Site base: `html { font-size: 100%; }`. `rem` follows the root font size. Initia
 | Field label | Manrope | 0.875 | 0.875 | 1.4286 / 1.4286 | 600 | 0 |
 | Button | Montserrat | 1 | 1 | 1.5 / 1.5 | 600 | 0 |
 
-Line-height values in the table are rounded for readability. The visual sample keeps the exact relationships from the initial scale. Headings are planned to scale gradually between the endpoint sizes; exact formulas and wrapping are checked on real sections. The HTML heading level follows content structure independently from visual style. Navigation uses the base `1rem` size with weight 600; emphasized text also uses 600. The shared `--text-nav` token keeps Header, dropdown and mobile menu links aligned, while the smaller `--text-banner` token keeps the announcement banner visually secondary.
+Line-height values in the table are rounded for readability. The visual sample keeps the exact relationships from the initial scale. Headings are planned to scale gradually between the endpoint sizes; exact formulas and wrapping are checked on real sections. The HTML heading level follows content structure independently from visual style. Navigation uses the base `1rem` size with weight 600; emphasized body text uses the dedicated 700 emphasis role. The shared `--text-nav` token keeps Header, dropdown and mobile menu links aligned, while the smaller `--text-banner` token keeps the announcement banner visually secondary.
 
 ## Base spacing scale — proposal
 

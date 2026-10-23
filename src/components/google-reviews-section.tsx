@@ -1,9 +1,8 @@
 import Image from "next/image";
 import { Star, UserCircle } from "@boxicons/react";
-import { PhoneFilled } from "@carbon/icons-react";
 import { GoogleMark, GoogleRatingView } from "@/components/google-rating-view";
 import { GoogleReviewCopy } from "@/components/google-review-copy";
-import { ButtonLink } from "@/components/ui/button";
+import { MeasurementCta } from "@/components/measurement-cta";
 import { Container, Heading } from "@/components/ui/layout";
 import { fixedGoogleRating, fixedGoogleReviews } from "@/lib/google-reviews";
 
@@ -54,10 +53,7 @@ export function GoogleReviewsSection() {
             ))}
           </div>
 
-          <div className="google-reviews-actions section-actions">
-            <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
-            <GoogleRatingView place={fixedGoogleRating} />
-          </div>
+          <MeasurementCta className="section-actions" rating={<GoogleRatingView place={fixedGoogleRating} />} />
         </div>
       </Container>
     </section>

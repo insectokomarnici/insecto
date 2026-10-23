@@ -8,6 +8,7 @@ const spacingRoles = [
   ["page-gutter", "Minimum space from the viewport edge"],
   ["section-padding", "Each vertical edge of a section"],
   ["section-heading-gap", "Section title / introduction to its content"],
+  ["section-block-gap", "Separate blocks: contact cards / form, text / map or media"],
   ["layout-gap", "Independent columns, or their stacked mobile panels"],
   ["card-grid-gap", "Peer cards in a grid"],
   ["card-padding", "Content inset inside a card or panel"],
@@ -50,7 +51,7 @@ export function SpacingTokens() {
     return () => window.removeEventListener("resize", measure);
   }, []);
 
-  return <div className="ds-table-wrap ds-content-group">
+  return <div className="ds-table-wrap ds-section-block">
     <table className="ds-table">
       <caption>Live spacing tokens — resize the viewport to inspect responsive values.</caption>
       <thead><tr><th scope="col">Token</th><th scope="col">Relationship</th><th scope="col">Current value</th></tr></thead>

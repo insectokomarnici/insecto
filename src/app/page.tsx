@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { CheckCircle } from "@boxicons/react";
-import { PhoneFilled } from "@carbon/icons-react";
 import { SiteBanner } from "@/components/site-banner";
 import { SiteHeader } from "@/components/site-header";
 import { GoogleRating } from "@/components/google-rating";
@@ -18,7 +17,7 @@ import { ServiceAreaSection } from "@/components/service-area-section";
 import { SiteFooter } from "@/components/site-footer";
 import { FloatingCallButton } from "@/components/floating-call-button";
 import { Container, Heading } from "@/components/ui/layout";
-import { ButtonLink } from "@/components/ui/button";
+import { MeasurementCta } from "@/components/measurement-cta";
 
 export const metadata: Metadata = {
   title: "Insecto Komarnici",
@@ -47,12 +46,7 @@ export default function Home() {
                 <li><CheckCircle aria-hidden="true" />Profesionalna ugradnja</li>
                 <li><CheckCircle aria-hidden="true" />Novi Sad i okolina</li>
               </ul>
-              <div className="hero-cta-group content-actions">
-                <div className="hero-actions">
-                  <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
-                </div>
-                <GoogleRating />
-              </div>
+              <MeasurementCta align="start" className="content-actions" rating={<GoogleRating />} />
             </div>
             <div className="hero-media">
               <Image

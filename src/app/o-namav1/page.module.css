@@ -13,7 +13,7 @@
 
 .approachCopy {
   display: grid;
-  gap: var(--content-group-gap);
+  gap: var(--section-block-gap);
   min-width: 0;
 }
 
@@ -26,10 +26,10 @@
   align-items: center;
   justify-content: center;
   flex: none;
-  width: var(--space-10);
-  height: var(--space-10);
+  width: var(--icon-badge-small);
+  height: var(--icon-badge-small);
   border: var(--border-width) solid var(--color-border);
-  border-radius: var(--radius-input);
+  border-radius: var(--radius-icon);
   color: var(--color-brand);
   background: var(--color-surface);
 }
@@ -112,7 +112,7 @@
   align-items: center;
   gap: var(--inline-gap);
   width: fit-content;
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
 }
 
 .galleryLink svg {
@@ -151,20 +151,6 @@
   gap: var(--action-rating-gap);
   min-width: 0;
   width: 100%;
-}
-
-.buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--action-group-gap);
-  width: 100%;
-}
-
-@media (max-width: 39.99rem) {
-  .buttons > a {
-    width: 100%;
-  }
 }
 
 @media (max-width: 63.99rem) {

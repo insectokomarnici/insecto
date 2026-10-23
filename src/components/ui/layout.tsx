@@ -7,10 +7,10 @@ export function Container({ narrow, className, ...props }: HTMLAttributes<HTMLDi
 export function Section({ className, children, ...props }: HTMLAttributes<HTMLElement>) {
   return <section className={cn("section", className)} {...props}><Container><div className="section-inner">{children}</div></Container></section>;
 }
-export function Card({ elevation = "soft", className, ...props }: HTMLAttributes<HTMLDivElement> & { elevation?: "none" | "soft" | "raised" }) {
-  return <div className={cn("card", elevation === "none" && "card-flat", elevation === "raised" && "card-raised", className)} {...props} />;
+export function Card({ elevation = "none", className, ...props }: HTMLAttributes<HTMLDivElement> & { elevation?: "none" | "soft" | "raised" }) {
+  return <div className={cn("card", elevation === "none" && "card-flat", elevation === "soft" && "card-soft", elevation === "raised" && "card-raised", className)} {...props} />;
 }
-export function Heading({ as: Tag = "h2", size = "section", className, ...props }: HTMLAttributes<HTMLHeadingElement> & { as?: "h1" | "h2" | "h3" | "h4"; size?: "hero" | "section" | "card" }) {
+export function Heading({ as: Tag = "h2", size = "section", className, ...props }: HTMLAttributes<HTMLHeadingElement> & { as?: "h1" | "h2" | "h3" | "h4"; size?: "hero" | "section" | "card" | "compact" }) {
   return <Tag className={cn("heading", `heading-${size}`, className)} {...props} />;
 }
 export function Badge({ children, variant = "accent" }: { children: ReactNode; variant?: "accent" | "error" }) {

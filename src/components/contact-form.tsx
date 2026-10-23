@@ -1,6 +1,6 @@
 "use client";
 import { useId, useRef, useState, type ChangeEvent, type FormEvent } from "react";
-import { Upload } from "@carbon/icons-react";
+import { ArrowFromBottom } from "@boxicons/react";
 import { Button } from "@/components/ui/button";
 import { TextArea, TextField } from "@/components/ui/fields";
 import { Notice } from "@/components/ui/notice";
@@ -136,7 +136,7 @@ export function ContactForm({ submitContact, successMessage = "Poruka je uspešn
     {includeAttachments && <div className="field file-upload">
       <label className="field-label" htmlFor={attachmentInputId}>Fotografije <span className="field-note">(opciono)</span></label>
       <button className={cn("file-upload-dropzone", attachmentError && "is-invalid")} type="button" disabled={busy} aria-controls={attachmentInputId} aria-describedby={`${attachmentInputId}-hint${attachmentError ? ` ${attachmentInputId}-error` : ""}`} onClick={() => attachmentInputRef.current?.click()}>
-        <Upload aria-hidden="true" />
+        <ArrowFromBottom aria-hidden="true" />
         <span className="file-upload-dropzone-copy">Dodaj fotografije</span>
       </button>
       <input ref={attachmentInputRef} className="file-upload-native" id={attachmentInputId} name="photos" type="file" accept={ACCEPTED_ATTACHMENT_TYPES} multiple disabled={busy} tabIndex={-1} aria-hidden="true" onChange={handleAttachmentsChange} />

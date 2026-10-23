@@ -3,19 +3,26 @@
   --font-body: "Manrope Variable", sans-serif;
   --font-heading: "Montserrat Variable", sans-serif;
   --font-button: "Montserrat Variable", sans-serif;
+  /* Weight primitives also back Tailwind utilities. Role aliases below keep
+     editorial emphasis independent from heading and control decisions. */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
   --color-brand: #1e3b6f;
   --color-brand-light: #3f73b8;
   --color-accent: #e7a23b;
   --color-accent-surface: #fef2df;
   --color-heading: #111111;
   --color-body: #484848;
-  --color-placeholder: #7b879a;
+  --color-placeholder: #657389; /* 4.81:1 on white; distinct from the 3:1 control boundary. */
   --color-surface: #ffffff;
   --color-surface-subtle: #f6f8fb;
   --color-gallery-overlay: rgb(17 17 17 / 0.4);
   --color-modal-backdrop: rgb(17 17 17 / 0.72);
-  --color-gallery-caption-muted: rgb(255 255 255 / 0.6);
-  --color-upload-border: rgb(255 255 255 / 0.32);
+  --color-gallery-caption-surface: rgb(17 17 17 / 0.82); /* Protect text independently of photo brightness. */
+  --color-gallery-caption-muted: rgb(255 255 255 / 0.85);
+  --color-upload-border: rgb(255 255 255 / 0.6);
   --color-upload-surface: rgb(255 255 255 / 0.04);
   --color-upload-muted: rgb(255 255 255 / 0.72);
   --color-border: #e1e6ee;
@@ -24,7 +31,9 @@
   --color-success-surface: #ecfdf3;
   --color-error: #b42318;
   --color-error-surface: #fef3f2;
+  --color-error-on-brand: #ffb4ab; /* Error boundary on blue, not text on white. */
   --color-rating-star: #fbbc04;
+  --color-rating-outline: #947000; /* Yellow fill retained; contour makes the five-star shape readable. */
   --color-google-blue: #4285f4;
   --color-product-white: #ffffff;
   --color-product-brown: #6b4f3a;
@@ -41,6 +50,7 @@
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
   --radius-pill: 999rem;
+  --radius-circle: 50%;
   --shadow-soft: 0 0.125rem 0.5rem rgb(30 59 111 / 0.06);
   --shadow-raised: 0 0.375rem 1.25rem -0.25rem rgb(30 59 111 / 0.12);
 
@@ -52,6 +62,12 @@
   --text-card--line-height: var(--leading-card);
   --text-lead: clamp(1.125rem, 1.0761rem + 0.2174vw, 1.25rem);
   --text-lead--line-height: var(--leading-lead);
+  /* Compact titles are still headings; visual size is independent of h1–h4. */
+  --text-compact-heading: var(--text-body);
+  --text-compact-heading--line-height: 1.5;
+  /* Primary choices are readable body-sized controls, never helper text. */
+  --text-choice: var(--text-body);
+  --text-choice--line-height: 1.5;
   --text-process-number: 1.5rem;
   --text-process-number--line-height: 1;
   --text-body: 1rem;
@@ -88,10 +104,14 @@
   --page-gutter: var(--space-5);
   --section-padding: var(--space-8);
   --section-padding-compact: var(--space-6);
-  --layout-gap: var(--space-8);
+  --layout-gap: var(--space-8); /* Independent reading columns, including the two guide panels. */
   --section-heading-gap: var(--space-6);
   --site-chrome-height: calc(var(--banner-min-height) + 4.25rem);
   --card-grid-gap: var(--space-4);
+  /* Separate blocks in one section share the peer-card rhythm (16 / 24px).
+     Use for cards -> form, text -> map/media or introduction -> feature list.
+     Never use the tighter text-group token for these structural boundaries. */
+  --section-block-gap: var(--card-grid-gap);
   --card-padding: var(--space-5);
   /* CONTENT RELATIONSHIPS — one owner per distance (gap OR incoming margin).
      A heading belongs to its copy (12); card title/description stay tighter (8).
@@ -107,9 +127,9 @@
   --caption-gap: var(--space-2);
   --disclosure-padding: var(--space-3);
   --navigation-gap: var(--space-6);
-  --content-group-gap: var(--space-4);
+  --content-group-gap: var(--space-4); /* Related content INSIDE a panel/topic, not separate section blocks. */
   --card-item-gap: var(--space-3);
-  --choice-gap: var(--space-2);
+  --choice-gap: var(--space-2); /* Compact choices inside forms/cards; not section-wide gallery tabs. */
   --content-action-gap: var(--space-5);
   --action-rating-gap: var(--space-2);
   --form-field-gap: var(--space-4);
@@ -121,7 +141,7 @@
   --divider-content-gap: var(--space-4); /* Content on each side of a divider. */
   --list-indent: var(--space-6); /* Native bulleted legal text. */
   --notice-padding: var(--space-4);
-  --notice-icon-offset: var(--space-1); /* Optical alignment with small body copy. */
+  --notice-icon-offset: calc((var(--text-small) * var(--text-small--line-height) - var(--icon-action)) / 2); /* Center on the first supporting-text line. */
   --badge-padding-block: var(--space-1);
   --badge-padding-inline: var(--space-2);
   --compact-control-padding-block: var(--space-2);
@@ -147,10 +167,22 @@
   --footer-legal-padding: var(--space-4);
   --anchor-clearance: var(--space-6);
   --gallery-peek: var(--space-8); /* Visible next photo; not a card gap. */
-  --gallery-content-gap: var(--card-grid-gap); /* Tabs, photos and carousel controls share one rhythm. */
+  --gallery-content-gap: var(--section-block-gap); /* Tab gutters, photo gutters/widths and vertical content spacing stay in sync. */
   --gallery-scrollbar-clearance: var(--space-2);
   --gallery-caption-padding: var(--space-4);
 
+  /* TYPE ROLES — preserve the approved 700 / 700 / 600 heading hierarchy.
+     Supporting copy is 14px; primary prose, choices and values are >=16px.
+     No fixed-height text boxes: let Serbian copy and enlarged text wrap. */
+  --weight-heading-hero: var(--font-weight-bold);
+  --weight-heading-section: var(--font-weight-bold);
+  --weight-heading-card: var(--font-weight-semibold);
+  --weight-heading-compact: var(--font-weight-semibold);
+  --weight-button: var(--font-weight-semibold);
+  --weight-label: var(--font-weight-semibold);
+  --weight-emphasis: var(--font-weight-bold);
+  --leading-compact-meta: 1.25; /* Short review author line; date uses the label line-height. */
+  --tracking-caption: 0.08em;
   --leading-hero: 1.25;
   --leading-section: 1.285714;
   --leading-card: 1.363636;
@@ -159,15 +191,20 @@
   --tracking-section: -0.02em;
   --tracking-card: -0.01em;
   --tracking-label: 0.06em;
-  --radius-button: var(--radius-md);
-  --radius-input: var(--radius-md);
+  /* Shape roles: pill CTA, rounded controls/icon badges, content cards, large panels. */
+  --radius-button: var(--radius-pill);
+  --radius-control: var(--radius-md);
+  --radius-input: var(--radius-control);
+  --radius-icon: var(--radius-md);
   --radius-card: var(--radius-lg);
   --radius-panel: var(--radius-xl);
   --control-min-height: 3.25rem;
+  --choice-min-width: 4.25rem; /* Three choices normally; reflow when text is enlarged. */
   --control-padding-inline: var(--space-4);
   --control-padding-block: var(--space-3);
   --control-suffix-space: 2.25rem;
-  --button-height-small: 2.5rem;
+  --compact-control-min-height: 2.5rem; /* Icon-only and compact swatch controls. */
+  --button-height-small: 2.75rem; /* Text buttons: 44 / 48 / 52px; may grow for wrapped text. */
   --button-height-medium: 3rem;
   --button-height-large: 3.25rem;
   --floating-call-size: 3.75rem;
@@ -193,26 +230,33 @@
   --textarea-min-height: 8rem;
   --textarea-message-min-height: 5rem;
   --process-step-number-size: var(--space-10);
-  --calculator-card-min-height: 37rem; /* Initial desktop alignment; left never grows with saved items. */
-  --review-card-height: 18rem;
-  --review-meta-line-height: 1.25;
+  --calculator-card-min-height: 37.5rem; /* Initial desktop alignment; left never grows with saved items. */
+  --review-author-min-width: 8rem; /* Keep names readable before the source mark wraps. */
+  --review-card-min-height: 18rem; /* Preserve the normal card rhythm; enlarged text may grow. */
   --calculator-visual-max-width: 22rem;
-  --calculator-included-icon-size: 2.875rem;
   --control-line-height: 1.5;
   --border-width: 1px;
-  --border-focus-width: 0.125rem;
-  --border-dropzone-width: 0.125rem;
+  --border-emphasis-width: 0.125rem;
+  --border-focus-width: var(--border-emphasis-width);
+  --border-selected-width: var(--border-emphasis-width);
+  --border-dropzone-width: var(--border-emphasis-width);
   --border-accent-width: 0.375rem;
   --focus-gap: 0.125rem;
   --focus-width: 0.1875rem;
-  --focus-ring: 0 0 0 var(--focus-gap) var(--color-surface), 0 0 0 calc(var(--focus-gap) + var(--focus-width)) var(--color-brand-light);
+  --color-focus: var(--color-brand-light);
+  --color-focus-gap: var(--color-surface);
+  --disabled-opacity: 0.6;
+  --rating-outline-width: 1px;
   --primary-gradient: linear-gradient(110deg in srgb, var(--color-brand-light), var(--color-brand));
   --accent-gradient: linear-gradient(110deg in srgb, var(--color-accent-surface), var(--color-accent));
   --icon-inline: 1rem;
-  --icon-body-line-offset: 0.3125rem;
+  --icon-body-line-offset: calc((var(--text-body) * var(--text-body--line-height) - var(--icon-action)) / 2);
   --icon-action: 1.25rem;
   --icon-footer: 1.25rem;
   --icon-feature: 1.5rem;
+  --icon-disclosure: var(--icon-action);
+  --icon-badge-small: var(--space-10);
+  --icon-badge-medium: var(--space-12);
   --icon-process: 2rem;
   --icon-product-preview: 3rem;
   --icon-floating-call: 1.8rem;
@@ -246,4 +290,15 @@
     --leading-card: 1.333333;
     --leading-lead: 1.6;
   }
+}
+
+/* Focus is contextual: blue on light surfaces, white on brand panels.
+   Recompute the composite token in each scope so inherited aliases resolve
+   against that scope, not the root. Pointer-input borders stay mid blue. */
+:root, .site-banner, .contact-panel, .contact-page-form-panel {
+  --focus-ring: 0 0 0 var(--focus-gap) var(--color-focus-gap), 0 0 0 calc(var(--focus-gap) + var(--focus-width)) var(--color-focus);
+}
+.site-banner, .contact-panel, .contact-page-form-panel {
+  --color-focus: var(--color-surface);
+  --color-focus-gap: var(--color-brand);
 }

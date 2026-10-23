@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "@carbon/icons-react";
+import { ChevronDown } from "@boxicons/react";
 import { cn } from "@/lib/cn";
 import { Container, Heading } from "@/components/ui/layout";
 

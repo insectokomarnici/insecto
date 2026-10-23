@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@/lib/cn";
 import { Container, Heading } from "@/components/ui/layout";
+import { RadioChoice } from "@/components/ui/radio-choice";
 import { ProductAccordions } from "@/components/product-accordions";
 import { productColors, products, type ProductColor, type Product } from "@/lib/products";
 
@@ -36,20 +37,21 @@ function ProductCard({ product }: { product: Product }) {
 
         <div className="product-card-options">
           <p className="product-option-label">Boja</p>
-          <div className="product-color-list" role="group" aria-label={`Izaberi boju za ${product.title}`}>
+          <div className="product-color-list" role="radiogroup" aria-label={`Izaberi boju za ${product.title}`}>
             {productColors.map((option) => {
               const isSelected = option.id === selectedColor;
               return (
-                <button
+                <RadioChoice
                   key={option.id}
-                  type="button"
-                  className={cn("product-color-button", isSelected && "is-selected")}
-                  aria-pressed={isSelected}
-                  onClick={() => setSelectedColor(option.id)}
+                  name={`product-${product.slug}-color`}
+                  value={option.id}
+                  className="product-color-choice"
+                  checked={isSelected}
+                  onChange={() => setSelectedColor(option.id)}
                 >
                   <span className={cn("product-color-swatch", colorSwatchClasses[option.id])} aria-hidden="true" />
                   <span>{option.label}</span>
-                </button>
+                </RadioChoice>
               );
             })}
           </div>

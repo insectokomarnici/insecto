@@ -4,6 +4,7 @@ import Image from "next/image";
 import { CheckShield, Plus, Trash } from "@boxicons/react";
 import { useMemo, useState, type FormEvent } from "react";
 import { FixedScreenIcon, PleatedScreenIcon, RollerScreenIcon } from "@/components/calculator-type-icons";
+import { RadioChoice } from "@/components/ui/radio-choice";
 import { Button } from "@/components/ui/button";
 import { Card, Container, Heading } from "@/components/ui/layout";
 import { DrillIcon, StraightenIcon } from "@/components/measurement-icons";
@@ -167,11 +168,10 @@ export function PricingCalculator() {
                       {pricingOptions.map((option) => {
                         const Icon = calculatorTypeIcons[option.id];
                         return (
-                          <label className={`calculator-choice calculator-type-choice${type === option.id ? " is-selected" : ""}`} key={option.id}>
-                            <input type="radio" name="calculator-type" value={option.id} checked={type === option.id} onChange={() => setType(option.id)} />
+                          <RadioChoice className="calculator-choice calculator-type-choice" key={option.id} name="calculator-type" value={option.id} checked={type === option.id} onChange={() => setType(option.id)}>
                             <Icon className="calculator-type-icon" aria-hidden="true" />
                             <span>{option.label}</span>
-                          </label>
+                          </RadioChoice>
                         );
                       })}
                     </div>
@@ -180,11 +180,10 @@ export function PricingCalculator() {
                     <legend className="field-label">Boja</legend>
                     <div className="calculator-choice-list">
                       {colorOptions.map((option) => (
-                        <label className={`calculator-choice calculator-color-choice${color === option.id ? " is-selected" : ""}`} key={option.id}>
-                          <input type="radio" name="calculator-color" value={option.id} checked={color === option.id} onChange={() => setColor(option.id)} />
+                        <RadioChoice className="calculator-choice calculator-color-choice" key={option.id} name="calculator-color" value={option.id} checked={color === option.id} onChange={() => setColor(option.id)}>
                           <span className={`calculator-color-swatch ${calculatorColorSwatchClasses[option.id]}`} aria-hidden="true" />
                           <span>{option.label}</span>
-                        </label>
+                        </RadioChoice>
                       ))}
                     </div>
                   </fieldset>

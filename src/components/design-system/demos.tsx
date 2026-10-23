@@ -1,18 +1,27 @@
 "use client";
 import { useState } from "react";
 import { ArrowRight } from "@boxicons/react";
-import { PhoneFilled } from "@carbon/icons-react";
+import { PhoneFilledIcon } from "@/components/ui/phone-filled-icon";
 import { Button, ButtonLink, TextLink } from "@/components/ui/button";
 import { ContactForm } from "@/components/contact-form";
 
 export function ActionDemo() {
   return <div className="stack">
+    <p className="text-small">Text buttons: small 44px, medium 48px, large 52px at normal text size. Borders do not change dimensions; wrapped text can grow. Primary: main call to action. Brand: calculator action. Secondary: supporting action or submission on a blue panel.</p>
+    {(["small", "medium", "large"] as const).map((size) => (
+      <div className="ds-button-size-grid" key={size}>
+        {(["primary", "brand", "secondary"] as const).map((variant) => (
+          <div className="stack" key={variant}>
+            <p className="text-small">{size} · {variant}</p>
+            <Button size={size} variant={variant}><PhoneFilledIcon aria-hidden="true" />Zakaži merenje</Button>
+          </div>
+        ))}
+      </div>
+    ))}
     <div className="ds-button-size-grid">
-      <div className="stack"><p className="text-small">Button icon</p><ButtonLink size="small" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Pozovite nas</ButtonLink></div>
-      <div className="stack"><p className="text-small">Button brand</p><Button size="small" variant="brand">Dodaj komarnik</Button></div>
-      <div className="stack"><p className="text-small">Button secondary</p><ButtonLink size="medium" variant="secondary" href="#form">Pošaljite upit<ArrowRight aria-hidden="true" /></ButtonLink></div>
-      <div className="stack"><p className="text-small">Button primary</p><ButtonLink size="large" href="#form">Zakaži merenje</ButtonLink></div>
-      <div className="stack"><p className="text-small">Disabled</p><Button disabled size="small" variant="secondary">Nedostupno</Button></div>
+      <div className="stack"><p className="text-small">Disabled action</p><Button disabled size="small" variant="brand">Dodaj komarnik</Button></div>
+      <div className="stack"><p className="text-small">Loading · original width preserved</p><Button loading variant="secondary">Pošalji upit</Button></div>
+      <div className="stack"><p className="text-small">Link styled as an action</p><ButtonLink variant="secondary" href="#form">Pošaljite upit<ArrowRight aria-hidden="true" /></ButtonLink></div>
     </div>
     <p><TextLink href="#form">Pređite na kontakt formu</TextLink></p>
   </div>;

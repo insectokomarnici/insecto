@@ -1,5 +1,5 @@
+import { PhoneFilledIcon } from "@/components/ui/phone-filled-icon";
 import Link from "next/link";
-import { PhoneFilled } from "@carbon/icons-react";
 
 export function FloatingCallButton() {
   return <Link
@@ -7,6 +7,6 @@ export function FloatingCallButton() {
     href="tel:+381611321324"
     aria-label="Pozovite Insecto Komarnici na broj 061 132 1324"
   >
-    <PhoneFilled aria-hidden="true" />
+    <PhoneFilledIcon aria-hidden="true" />
   </Link>;
 }

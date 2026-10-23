@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Brush, CheckShield, Envelope, Message, Ruler } from "@boxicons/react";
-import { ArrowRight, PhoneFilled } from "@carbon/icons-react";
+import { ArrowRight, Brush, CheckShield, Envelope, Message, Ruler } from "@boxicons/react";
+import { MeasurementCta } from "@/components/measurement-cta";
 import { GoogleRating } from "@/components/google-rating";
 import { AboutTeamNote } from "@/components/about-team-note";
 import { ProcessSection } from "@/components/process-section";
@@ -128,7 +128,7 @@ export default function AboutV1Page() {
               <Heading as="h2" size="section" id="about-v1-work-title">Svaki prostor ima svoje mere</Heading>
               <p>Za prozor, vrata ili terasu biramo rešenje prema otvoru i načinu na koji ga koristiš. Izrađujemo fiksne, rolo i plise komarnike po meri.</p>
               <p>Ovo su neki od naših završenih radova. Više primera možeš da pogledaš u galeriji.</p>
-              <TextLink href="/#gallery" className={styles.galleryLink}>Pogledaj naše radove <ArrowRight aria-hidden="true" /></TextLink>
+              <TextLink href="/#gallery" className={`${styles.galleryLink} content-actions`}>Pogledaj naše radove <ArrowRight aria-hidden="true" /></TextLink>
             </div>
             <div className={styles.projects}>
               {projects.map(({ src, alt, caption }) => (
@@ -152,11 +152,10 @@ export default function AboutV1Page() {
                 <p>Nisi siguran koji ti odgovara? Pozovi nas ili pošalji upit. Saslušaćemo šta ti je potrebno i dogovoriti sledeći korak.</p>
               </div>
               <div className={styles.contactActions}>
-                <div className={styles.buttons}>
-                  <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
-                  <ButtonLink size="large" variant="secondary" href="/kontakt"><Envelope aria-hidden="true" />Pošalji upit</ButtonLink>
-                </div>
-                <GoogleRating />
+                <MeasurementCta
+                  rating={<GoogleRating />}
+                  secondaryAction={<ButtonLink size="large" variant="secondary" href="/kontakt"><Envelope aria-hidden="true" />Pošalji upit</ButtonLink>}
+                />
                 <p className="text-small">Tu smo svakog radnog dana, od 8h do 20h.</p>
               </div>
             </div>

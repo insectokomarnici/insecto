@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { PhoneFilled, ChevronDown } from "@carbon/icons-react";
+import { ChevronDown } from "@boxicons/react";
+import { PhoneFilledIcon } from "@/components/ui/phone-filled-icon";
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { cn } from "@/lib/cn";
 import { Container } from "@/components/ui/layout";
@@ -89,7 +90,7 @@ function MobileMenu() {
           <Link href="/kontakt">Kontakt</Link>
         </nav>
         <ButtonLink size="medium" className="site-menu-phone" href="tel:+381611321324" aria-label="Pozovite Insecto Komarnici na broj 061 132 1324">
-          <PhoneFilled aria-hidden="true" /><span>061 132 1324</span>
+          <PhoneFilledIcon aria-hidden="true" /><span>061 132 1324</span>
         </ButtonLink>
       </div>
     </div>
@@ -111,7 +112,7 @@ export function SiteHeader() {
 
       <div className="site-header-actions">
         <ButtonLink size="small" className="site-phone-link" href="tel:+381611321324" aria-label="Pozovite Insecto Komarnici na broj 061 132 1324">
-          <PhoneFilled aria-hidden="true" /><span>061 132 1324</span>
+          <PhoneFilledIcon aria-hidden="true" /><span>061 132 1324</span>
         </ButtonLink>
 
         <MobileMenu />

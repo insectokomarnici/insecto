@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight, Close, ZoomIn } from "@carbon/icons-react";
+import { ChevronLeft, ChevronRight, X, SearchPlus } from "@boxicons/react";
 import { useCallback, useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { Container, Heading } from "@/components/ui/layout";
 
@@ -154,7 +154,7 @@ export function GallerySection() {
               </button>
             ))}
           </div>
-          <div className="gallery-panel" id="gallery-tabpanel" role="tabpanel" aria-labelledby={`gallery-tab-${selectedCategory}`}>
+          <div className="gallery-panel section-block" id="gallery-tabpanel" role="tabpanel" aria-labelledby={`gallery-tab-${selectedCategory}`}>
             {filteredItems.length > 0 ? (
               <div className="gallery-frame">
                 <div ref={galleryRef} className="gallery-grid" id="gallery-photos" role="region" aria-label={`Fotografije: ${selectedTab.label.toLowerCase()}`} tabIndex={0}>
@@ -173,7 +173,7 @@ export function GallerySection() {
                             <span className="gallery-caption-category">{category}</span>
                             <span>{title}</span>
                           </span>
-                          <span className="gallery-zoom" aria-hidden="true"><ZoomIn /></span>
+                          <span className="gallery-zoom" aria-hidden="true"><SearchPlus /></span>
                         </span>
                       </button>
                     </div>
@@ -229,7 +229,7 @@ export function GallerySection() {
             <div className="gallery-lightbox-header">
               <h3 id="gallery-lightbox-title">{activeItem.title}</h3>
               <button className="gallery-control" type="button" aria-label="Zatvori fotografiju" onClick={() => setActiveIndex(null)}>
-                <Close aria-hidden="true" />
+                <X aria-hidden="true" />
               </button>
             </div>
             <div className="gallery-lightbox-media">

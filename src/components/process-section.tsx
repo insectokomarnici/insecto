@@ -1,6 +1,5 @@
 import { Phone } from "@boxicons/react";
-import { PhoneFilled } from "@carbon/icons-react";
-import { ButtonLink } from "@/components/ui/button";
+import { MeasurementCta } from "@/components/measurement-cta";
 import { Container, Heading } from "@/components/ui/layout";
 import { GoogleRating } from "@/components/google-rating";
 import { DrillIcon, StraightenIcon } from "@/components/measurement-icons";
@@ -52,12 +51,7 @@ export function ProcessSection() {
               </li>
             ))}
           </ol>
-          <div className="process-actions section-actions">
-            <div className="process-cta-group">
-              <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
-              <GoogleRating />
-            </div>
-          </div>
+          <MeasurementCta className="section-actions" rating={<GoogleRating />} />
         </div>
       </Container>
     </section>

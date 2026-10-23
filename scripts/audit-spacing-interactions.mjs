@@ -12,7 +12,7 @@ const assert=(x,msg)=>{if(!x)throw Error(msg)};
  const p=await b.newPage({reducedMotion:'reduce'});
  let requests=0;
  await p.route('**/api/contact',route=>{requests++;return route.fulfill({status:500,contentType:'application/json',body:JSON.stringify({error:'Local audit: simulated failure'})})});
- for(const width of [390,1440]){
+ for(const width of [390,768,1440]){
   await p.setViewportSize({width,height:1000});await p.goto(base,{waitUntil:'networkidle'});
   await p.evaluate(()=>document.fonts.ready);
   const initial=await p.locator('.calculator-copy').boundingBox();

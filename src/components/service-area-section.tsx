@@ -1,5 +1,5 @@
 import { Check } from "@boxicons/react";
-import { PhoneFilled } from "@carbon/icons-react";
+import { PhoneFilledIcon } from "@/components/ui/phone-filled-icon";
 import { ButtonLink } from "@/components/ui/button";
 import { Container, Heading } from "@/components/ui/layout";
 import { insectoMapsEmbedUrl } from "@/lib/insecto-location";
@@ -19,7 +19,7 @@ export function ServiceAreaSection() {
               <li><Check aria-hidden="true" />Merenje i ugradnja po dogovoru</li>
             </ul>
             <div className="service-area-actions content-actions">
-              <ButtonLink size="large" href="tel:+381611321324"><PhoneFilled aria-hidden="true" />Zakaži merenje</ButtonLink>
+              <ButtonLink size="large" href="tel:+381611321324"><PhoneFilledIcon aria-hidden="true" />Zakaži merenje</ButtonLink>
             </div>
           </div>
           <div className="service-area-map">

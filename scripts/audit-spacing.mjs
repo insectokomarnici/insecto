@@ -26,7 +26,7 @@ fs.mkdirSync(output, { recursive: true });
    await page.setViewportSize({width,height:1000});
    const result = await inspect(page,route,width,1);
    results.push(result); failures.push(...result.errors);
-   if ([390,1440].includes(width)) {
+   if ([390,768,1440].includes(width)) {
     const name=route==='/'?'home':route.slice(1);
     // Viewport tiles avoid compositor repetition in very tall full-page captures.
     // Scrolling also loads images before reviewing each part of the page.
@@ -78,12 +78,54 @@ async function inspect(page,route,width,scale) {
     const child=children[i],prev=children[i-1];
     let expected=parent.classList.contains('content-flow')?16:24;
     if(parent.classList.contains('content-flow')&&prev.classList.contains('heading'))expected=12;
-    if(child.matches('.content-group,.section-group,.section-controls-content'))expected=16;
+    if(child.matches('.content-group'))expected=16;
+    if(child.matches('.section-block'))expected=width>=768?24:16;
     if(child.matches('.content-actions,.section-actions'))expected=20;
     check(rect(child).top-rect(prev).bottom,expected*scale,`${parent.className} > ${child.className}`);
    }
   }
+  // Content decisions, not just token compliance: independent blocks use the
+  // peer-card rhythm; paragraphs and internal groups stay at 16px.
+  const sectionBlockGap=(width>=768?24:16)*scale;
+  const verticalChildren=(selector,expected)=>{
+   for(const parent of document.querySelectorAll(selector)) {
+    const children=[...parent.children].filter(visible);
+    for(let i=1;i<children.length;i++) {
+     const previous=rect(children[i-1]),current=rect(children[i]);
+     // A two-column composition has a layout gutter, not a vertical block gap.
+     if(current.top>=previous.bottom-1) check(current.top-previous.bottom,expected,selector);
+    }
+   }
+  };
+  verticalChildren('.contact-page-intro,.about-page-story-body,[class*="approachCopy"]',sectionBlockGap);
+  verticalChildren('.hero-description,.about-text,.about-page-story-text,.calculator-copy-intro,.product-card-body,.contact-form,.contact-page-form-panel',16*scale);
+  verticalChildren('.contact-intro,.contact-page-form-heading,.calculator-price-explanation',12*scale);
+  verticalChildren('.contact-panel',16*scale);
   if(route==='/') {
+   // Compare related visible geometry, not only declared CSS values.
+   const contactCards=rect(document.querySelector('.contact-actions'));
+   const contactForm=rect(document.querySelector('.contact-panel'));
+   check(contactForm.top-contactCards.bottom,sectionBlockGap,'contact cards / form block boundary');
+   const tabs=[...document.querySelectorAll('.gallery-tab')].map(rect);
+   const photos=[...document.querySelectorAll('.gallery-item')].map(rect);
+   check(tabs[1].left-tabs[0].right,photos[1].left-photos[0].right,'gallery tab / photo gutters');
+   if(width>=1024) {
+    tabs.forEach((tab,i)=>check(tab.left,photos[i].left,'gallery desktop column alignment'));
+    const guide=[...document.querySelector('.selection-guide-items').children].map(rect);
+    const calculator=[...document.querySelector('.calculator-content').children].map(rect);
+    check(guide[1].left-guide[0].right,calculator[1].left-calculator[0].right,'guide / calculator column gutters');
+   }
+   // Measurement fields are one group; type/color must never share a row with quantity.
+   const fieldGrid=document.querySelector('.calculator-field-grid');
+   const fields=[...fieldGrid.children].map(rect);
+   const grid=rect(fieldGrid);
+   check(fields[0].top,fields[1].top,'calculator width / height row');
+   if(width>=640) check(fields[0].top,fields[2].top,'calculator measurement row');
+   else check(fields[2].width,grid.width,'calculator mobile quantity width');
+   for(const index of [3,4]) {
+    check(fields[index].width,grid.width,'calculator full-width choice group');
+    if(fields[index].top<fields[index-1].bottom) fail('calculator-row-overlap',{index});
+   }
    const intro=document.querySelector('.calculator-description'),heading=document.querySelector('.calculator-price-heading');
    check(rect(heading).top-rect(intro).bottom,16*scale,'calculator instruction / explanation');
    for(const e of document.querySelectorAll('.product-card-body')) {

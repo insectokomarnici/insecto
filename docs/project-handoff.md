@@ -1,4 +1,12 @@
+> Icon library update: Boxicons supplies general UI icons; call actions use local `PhoneFilledIcon` with the original Carbon SVG path and its Apache-2.0 license. The Carbon dependency has been removed. Material measurement/drill, custom illustrations and Google artwork remain approved exceptions. See `docs/icon-surface-audit.md`.
+
 # Insecto Project Handoff
+
+> Current icon/surface contract: [icon-surface-audit.md](icon-surface-audit.md), with [surface-usage.md](surface-usage.md). This record supersedes historical radius, shadow and icon-size descriptions below.
+
+> Current shared-component contract: [component-audit.md](component-audit.md). This record supersedes historical button sizing, choice semantics and CTA composition below.
+
+> Current color/contrast contract: [color-contrast-audit.md](color-contrast-audit.md), with [verified ratios](contrast-ratios.md). Current typography contract and verification: [typography-audit.md](typography-audit.md), with [typography-usage.md](typography-usage.md). Current spacing verification: [spacing-audit.md](spacing-audit.md). Remaining design-system audits: [design-system-readiness.md](design-system-readiness.md). These current records supersede historical color, typography and spacing descriptions below.
 
 This document captures the current product and implementation decisions so work can continue from another local Codex project.
 
@@ -44,7 +52,7 @@ CONTACT_TO_EMAIL=insectokomarnici@gmail.com
 
 Canonical tokens live in `src/app/tokens.css`; shared global/component rules live in `src/app/globals.css`. Keep new values in the token layer before adding component-specific styling. Use `rem`, semantic tokens, and the existing spacing/radius/shadow system.
 
-The site-wide spacing contract is documented in `docs/spacing-audit.md`, with exact CSS consumers in `docs/spacing-usage.md`. `/design-system` displays live token values. Section edges are 32/40/48px, section heading/content 24px at every width, heading/body 12px, card title/body 8px, paragraphs and related groups 16px, CTA groups 20px from content and ratings 8px from buttons. Card padding is 20/24/24px; independent columns use the responsive 32/40/48px layout gap, while compact peer-card grids use 16/24/24px. Gallery tabs, photos and carousel controls use one shared responsive gap. Form rows use 16px and labels 8px. Use shared flow classes with one spacing owner per relationship. Token roles are documented in `src/app/tokens.css`; no component gap/margin/padding uses the primitive scale directly. Calculator desktop minimum is 37rem; the left panel stays top-aligned and saved rows grow only the right. See the audit for the source inventory, responsive checks and interaction checks.
+The site-wide spacing contract is documented in `docs/spacing-audit.md`, with exact CSS consumers in `docs/spacing-usage.md`. `/design-system` displays live token values. Section edges are 32/40/48px, section heading/content 24px at every width, heading/body 12px, card title/body 8px, paragraphs and related groups 16px, CTA groups 20px from content and ratings 8px from buttons. Card padding is 20/24/24px; independent columns use the responsive 32/40/48px layout gap, while compact peer-card grids use 16/24/24px. Gallery tabs, photos and carousel controls use one shared responsive gap. Form rows use 16px and labels 8px. Use shared flow classes with one spacing owner per relationship. Token roles are documented in `src/app/tokens.css`; no component gap/margin/padding uses the primitive scale directly. Calculator desktop minimum is 37.5rem; the left panel stays top-aligned and saved rows grow only the right. See the audit for the source inventory, responsive checks and interaction checks.
 
 Brand colors:
 
@@ -75,7 +83,7 @@ Breakpoints:
 
 Buttons use the shared `Button`/`ButtonLink` API with `small`, `medium`, and `large` sizes. Phone CTAs use Carbon `PhoneFilled` and `tel:+381611321324`, while the visible phone text is `061 132 1324`.
 
-Carbon is used for CTA phone icons and chevrons. Boxicons are used for the remaining shared visual icons, with local SVG wrappers where the package does not export an approved shape. Keep icon sizing through the existing semantic icon tokens, including `inline`, `action`, `footer`, `feature`, `process`, `floating-call`, `menu`, and `close`.
+The local Carbon SVG is used for CTA phone icons; chevrons use Boxicons. Boxicons are used for the remaining shared visual icons, with local SVG wrappers where the package does not export an approved shape. Keep icon sizing through the existing semantic icon tokens, including `inline`, `action`, `footer`, `feature`, `process`, `floating-call`, `menu`, and `close`.
 
 ## Homepage structure
 

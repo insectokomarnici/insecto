@@ -20,7 +20,7 @@ for(const file of files){
   for(const prop of props){
    if(/var\(--space-/.test(prop))errors.push(`${file}:${line} base scale used directly: ${prop}`);
    const stripped=prop.replace(/var\([^)]*\)/g,'');
-   if(/\b\d+(?:\.\d+)?(?:px|rem)\b/.test(stripped)&&!(selector==='.calculator-choice input'&&prop==='margin: -1px'))errors.push(`${file}:${line} unowned spacing: ${prop}`);
+   if(/\b\d+(?:\.\d+)?(?:px|rem)\b/.test(stripped)&&!(selector==='.radio-choice-input'&&prop==='margin: -1px'))errors.push(`${file}:${line} unowned spacing: ${prop}`);
   }
   out+=`| ${line} | \`${selector.replace(/\s+/g,' ')}\` | ${props.map(p=>'`'+p+'`').join('<br>')} |\n`;
  }
