@@ -7,34 +7,42 @@ import { Container, Heading } from "@/components/ui/layout";
 
 const faqItems = [
   {
+    category: "service",
     question: "Kako mogu da naručim komarnike?",
     answer: "Potrebno je da nam se javiš putem telefona ili e-maila. Naš tim će ti objasniti proceduru i zakazati termin za uzimanje mera na tvojoj adresi.",
   },
   {
+    category: "products",
     question: "Koji komarnik je najbolji za mene?",
     answer: "Naš tim će ti pomoći da se odlučiš za najbolji model komarnika prema dimenzijama, izgledu i funkcionalnosti tvojih prozora i vrata. U ponudi imamo fiksne, rolo i plise komarnike.",
   },
   {
+    category: "service",
     question: "Gde vršite merenje i ugradnju?",
     answer: "Ugradnju komarnika vršimo u Novom Sadu i bližoj okolini. Ukoliko ne znaš da li tvoja lokacija odgovara našem krugu poslovanja, slobodno nas kontaktiraj za više informacija.",
   },
   {
+    category: "service",
     question: "Da li se merenje plaća?",
     answer: "Dolazak na adresu radi uzimanja mera je besplatan. Naša ekipa dolazi na tvoju adresu, uzima potrebne dimenzije i daje ti ponudu na licu mesta. Ako se tada predomisliš, pa ipak ne želiš da sarađuješ sa nama – nije nikakav problem!",
   },
   {
+    category: "service",
     question: "Koliko traje izrada i ugradnja?",
     answer: "Proces ugradnje od dana uzimanja mera do dana montaže komarnika može varirati. Najčešće je to period između 3-5 radnih dana.",
   },
   {
+    category: "service",
     question: "Na koji način se vrši plaćanje?",
     answer: "Komarnike možeš platiti u gotovini ili uplatom na račun firme.",
   },
   {
+    category: "products",
     question: "Kako se održavaju komarnici?",
     answer: "Komarnici se lako čiste i održavaju – jednostavno uzmi vlažnu krpu i nežno prebriši mrežicu i okvir nekoliko puta.",
   },
   {
+    category: "products",
     question: "Da li postoji garancija?",
     answer: "Da, tvoji komarnici su pod garancijom naredne 2 godine. Ako imaš bilo kakvih poteškoća, slobodno nas kontaktiraj putem telefona ili e-maila. Naš tim će se pobrinuti da rešimo problem što pre.",
   },
@@ -84,32 +92,44 @@ function FaqItem({
 }
 
 export function FaqSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openByCategory, setOpenByCategory] = useState<Record<string, number | null>>({
+    products: null,
+    service: null,
+  });
+  const groups = [
+    { id: "products", title: "O komarnicima" },
+    { id: "service", title: "O usluzi" },
+  ];
 
   return (
     <section className="section faq-section" id="faq" aria-labelledby="faq-title">
       <Container>
         <div className="section-inner">
+          <div className="faq-heading content-flow">
+            <Heading as="h2" size="section" id="faq-title">Česta pitanja i odgovori</Heading>
+            <p className="faq-description">Sve što treba da znaš pre nego što zakažeš merenje.</p>
+          </div>
           <div className="faq-layout">
-            <div className="faq-left">
-              <div className="faq-left-copy content-flow">
-                <Heading as="h2" size="section" id="faq-title">Česta pitanja i odgovori</Heading>
-                <p className="faq-description">Sve što treba da znaš pre nego što zakažeš merenje.</p>
-              </div>
-
-            </div>
-
-            <div className="faq-list" aria-label="Česta pitanja">
-              {faqItems.map((item, index) => (
-                <FaqItem
-                  key={item.question}
-                  {...item}
-                  index={index}
-                  isOpen={openIndex === index}
-                  onToggle={() => setOpenIndex((current) => current === index ? null : index)}
-                />
-              ))}
-            </div>
+            {groups.map((group) => (
+              <section className="faq-group" key={group.id} aria-labelledby={`faq-${group.id}-title`}>
+                <Heading as="h3" size="compact" id={`faq-${group.id}-title`}>{group.title}</Heading>
+                <div className="faq-list">
+                  {faqItems.map((item, index) => item.category === group.id && (
+                    <FaqItem
+                      key={item.question}
+                      question={item.question}
+                      answer={item.answer}
+                      index={index}
+                      isOpen={openByCategory[group.id] === index}
+                      onToggle={() => setOpenByCategory((current) => ({
+                        ...current,
+                        [group.id]: current[group.id] === index ? null : index,
+                      }))}
+                    />
+                  ))}
+                </div>
+              </section>
+            ))}
           </div>
         </div>
       </Container>

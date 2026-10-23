@@ -33,7 +33,6 @@
   --color-error-surface: #fef3f2;
   --color-error-on-brand: #ffb4ab; /* Error boundary on blue, not text on white. */
   --color-rating-star: #fbbc04;
-  --color-rating-outline: #947000; /* Yellow fill retained; contour makes the five-star shape readable. */
   --color-google-blue: #4285f4;
   --color-product-white: #ffffff;
   --color-product-brown: #6b4f3a;
@@ -246,7 +245,6 @@
   --color-focus: var(--color-brand-light);
   --color-focus-gap: var(--color-surface);
   --disabled-opacity: 0.6;
-  --rating-outline-width: 1px;
   --primary-gradient: linear-gradient(110deg in srgb, var(--color-brand-light), var(--color-brand));
   --accent-gradient: linear-gradient(110deg in srgb, var(--color-accent-surface), var(--color-accent));
   --icon-inline: 1rem;
