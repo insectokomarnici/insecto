@@ -3,5 +3,5 @@ import type { BoxIconProps } from "@boxicons/react";
 
 /** Three-line Boxicons menu with the visible canvas cropped to the icon bounds. */
 export function MenuIcon(props: BoxIconProps) {
-  return <Menu removePadding {...props} />;
+  return <Menu {...props} viewBox="3 3 18 18" />;
 }

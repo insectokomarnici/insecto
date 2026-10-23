@@ -260,8 +260,8 @@
   --icon-process: 2rem;
   --icon-product-preview: 3rem;
   --icon-floating-call: 1.8rem;
-  --icon-menu: 1rem;
-  --icon-close: 1rem;
+  --icon-menu: var(--icon-feature);
+  --icon-close: var(--icon-action);
   --logo-width: 8.4rem;
   --header-logo-width: 7rem;
 }

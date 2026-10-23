@@ -11,7 +11,7 @@ export function IconSurfaceTokens() {
     <div className="ds-spec-grid">
       <div className="content-flow">
         <div className="ds-icon-samples ds-icon-samples-action"><PhoneFilledIcon aria-hidden="true" /><ChevronDown aria-hidden="true" /></div>
-        <p>Action / disclosure · 20px. Navigation chevrons remain 16px.</p>
+        <p>Action / disclosure · 20px. Navigation and accordion chevrons share the 20px disclosure size.</p>
       </div>
       <div className="content-flow">
         <div className="ds-icon-samples ds-icon-samples-feature"><WindowIcon aria-hidden="true" /><DoorOpen aria-hidden="true" /></div>

@@ -30,12 +30,12 @@ A 12px content card and 16px full form panel are different roles. Circular contr
 
 | Role | Size | Source / rationale |
 | --- | --- | --- |
-| Inline / navigation | 16px | Banner, compact trust/check text, rating summary and navigation chevrons. |
-| Action / disclosure / footer | 20px | Local Carbon filled call icon, action feedback, FAQ/product chevrons and footer contact/social icons. |
+| Inline / navigation | 16px | Banner, compact trust/check text, and rating summary. |
+| Action / disclosure / footer | 20px | Local Carbon filled call icon, action feedback, navigation/FAQ/product chevrons and footer contact/social icons. |
 | Feature | 24px | Boxicons information icons and custom `WindowIcon`; window and DoorOpen use compatible 24-unit canvases/line weight. |
 | Process / included service | 32px | Same Material Straighten and Drill assets in both sections; guarantee retains its approved shield. |
 | Calculator preview | 48px | Approved custom 64-unit pleated, roller and fixed drawings. Fine mesh/hardware strokes are illustration geometry, not global UI strokes. |
-| Menu / close | 16px | Existing cropped Boxicons artwork retains the approved visible canvas. |
+| Menu / close | 24 / 20px | Boxicons menu uses an 18-unit square canvas spanning x=3…21, so its bars reach the content edge. The 40px hit target extends 8px into the gutter; close remains centered in the same target. |
 | Floating call | 28.8px | Existing optical size inside the larger 60px floating control. |
 | Icon badge boxes | 40 / 48px | Named small/medium badge tokens. Contact-page detail row is compact; homepage contact/guide cards use the larger badge. |
 
@@ -48,7 +48,7 @@ Centered rows use flex/grid alignment. Multi-line supporting notices align their
 1. Replaced the misleading 8px `--radius-button` role with the actual pill shape; introduced a separate compact-control role so menu/remove/source controls retain their accepted rounded-square shape.
 2. Contact action cards now use the same 12px card radius as their peers instead of the large-panel radius. Icon badge radius/box sizes now have named shared roles across homepage, contact and alternative About.
 3. Review cards and blue form panels no longer carry redundant elevation shadows. The base `Card` is flat by default; opt-in soft/raised catalogue examples remain available. Desktop dropdown uses raised elevation like the other overlay menus.
-4. FAQ and product accordions use the same 20px disclosure-chevron token (products previously used 16px). Navigation remains deliberately compact at 16px.
+4. FAQ and product accordions use the same 20px disclosure-chevron token (products previously used 16px). Navigation now shares the 20px disclosure size at the user’s request.
 5. Removed the Hero checkmark's 1.6px downward transform. Replaced fixed notice/checklist offsets with line-height-derived offsets (1px supporting notice / 3px body checklist at the normal root).
 6. Contact-card hover now explicitly composes its raised shadow with the keyboard focus ring rather than overriding the ring.
 7. Selection no longer borrows a focus-named width; circle geometry has a dedicated radius token. Removed the unused included-icon-size token, which no longer described rendered artwork.
