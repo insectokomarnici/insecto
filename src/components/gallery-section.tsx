@@ -154,7 +154,7 @@ export function GallerySection() {
               </button>
             ))}
           </div>
-          <div className="gallery-panel section-controls-content" id="gallery-tabpanel" role="tabpanel" aria-labelledby={`gallery-tab-${selectedCategory}`}>
+          <div className="gallery-panel" id="gallery-tabpanel" role="tabpanel" aria-labelledby={`gallery-tab-${selectedCategory}`}>
             {filteredItems.length > 0 ? (
               <div className="gallery-frame">
                 <div ref={galleryRef} className="gallery-grid" id="gallery-photos" role="region" aria-label={`Fotografije: ${selectedTab.label.toLowerCase()}`} tabIndex={0}>

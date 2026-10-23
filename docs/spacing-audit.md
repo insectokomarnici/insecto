@@ -1,95 +1,125 @@
-# Site-wide spacing contract — 22 October 2026
+# Site-wide spacing contract — 23 October 2026
 
-## Scope and design decision
+## Scope and decision
 
-This is the current spacing contract for every implemented page: homepage, `/kontakt`, `/o-nama`, privacy policy, terms, alternative `/o-namav1`, shared header/footer, dialogs and `/design-system`. It supersedes the earlier token-only audit. The three reserved product routes return `null`; there is no product-page layout to inspect yet.
+This replaces the 22 October contract. The previous 24px content-group gap was consistently implemented but too strong for connected content. Consistency now means using the same distance for the same relationship, not using one distance for every relationship.
 
-The goal is a compact, connected reading rhythm: titles belong visibly to their content and actions belong to the content they follow. Large section gaps must not leak into card internals or CTA placement. Keep separate topics distinguishable instead of reducing every distance indiscriminately.
+Reviewed scope: every homepage section, shared header/banner/footer, `/kontakt`, `/o-nama`, `/o-namav1`, `/politika-privatnosti`, `/uslovi-koriscenja`, `/design-system`, form states, calculator rows/results, product/FAQ disclosures, gallery tabs/rail/lightbox and navigation. `/plise-komarnici`, `/rolo-komarnici` and `/fiksni-komarnici` currently return `null`; they have no page layout to audit. External Google Maps internals are not styled by this project.
 
-The principles follow [Carbon's spacing guidance](https://www.carbondesignsystem.com/building-blocks/foundations/spacing/overview) and [Atlassian's spacing foundation](https://atlassian.design/foundations/spacing/): limited spacing scales, proximity for related content, and larger separation between groups. The exact values below are decisions for Insecto's existing typography and layouts, not values prescribed by those systems.
+`src/app/tokens.css` is the only source of spacing values. Its comments explain roles. `globals.css` and the alternative About module consume semantic tokens. [spacing-usage.md](spacing-usage.md) records every spacing selector/property, including breakpoint overrides. `/design-system` reads the actual computed CSS values at the current viewport; it no longer maintains a second hard-coded numeric table.
 
-## Canonical scale and relationships
+## Visual hierarchy
 
-`src/app/tokens.css` owns all decisions. Layout uses rem; the table assumes the default 16px root. Tablet begins at 48rem, desktop at 64rem. Existing 40rem, 80rem and 96rem breakpoints remain available for component layout changes.
+| Relationship | Canonical token | Phone / tablet / desktop, px |
+| --- | --- | --- |
+| Compact metadata: stars, number/label, choice icon/label | `--metadata-gap` | 4 / 4 / 4 |
+| Card title to description | `--card-copy-gap` | 8 / 8 / 8 |
+| Inline icon/text | `--inline-gap` | 8 / 8 / 8 |
+| Image to caption | `--caption-gap` | 8 / 8 / 8 |
+| Heading to its accompanying body copy | `--heading-copy-gap` | 12 / 12 / 12 |
+| Larger icon/avatar to copy | `--icon-copy-gap` | 12 / 12 / 12 |
+| Blocks within an icon/review card | `--card-item-gap` | 12 / 12 / 12 |
+| Paragraphs | `--paragraph-gap` | 16 / 16 / 16 |
+| Related groups in one topic/panel | `--content-group-gap` | 16 / 16 / 16 |
+| Content to CTA + rating group | `--content-action-gap` | 20 / 20 / 20 |
+| CTA to its rating | `--action-rating-gap` | 8 / 8 / 8 |
+| Adjacent buttons | `--action-group-gap` | 12 / 12 / 12 |
+| Section heading/introduction to content | `--section-heading-gap` | 24 / 24 / 24 |
+| Independent columns / stacked panels | `--layout-gap` | 32 / 40 / 48 |
+| Peer card grid | `--card-grid-gap` | 16 / 24 / 24 |
+| Card/panel inset | `--card-padding` | 20 / 24 / 24 |
+| Each section's vertical edge | `--section-padding` | 32 / 40 / 48 |
+| Compact panel's vertical inset | `--section-padding-compact` | 24 / 32 / 40 |
+| Minimum viewport side gutter | `--page-gutter` | 20 / 24 / 32 |
 
-| Relationship | Token | Phone | Tablet | Desktop |
-| --- | --- | --- | --- | --- |
-| Section padding, **each** vertical edge | `--section-padding` | 32px | 40px | 48px |
-| Compact inset section/panel | `--section-padding-compact` | 24px | 32px | 40px |
-| Container side gutter, minimum | `--page-gutter` | 20px | 24px | 32px |
-| Section title/introduction to cards or content | `--section-intro-gap` | 24px | 24px | 32px |
-| Major columns / stacked halves | `--section-content-gap` | 32px | 40px | 48px |
-| Card grid | `--grid-gap` | 16px | 24px | 24px |
-| Card padding | `--card-padding` | 20px | 24px | 24px |
-| Heading to accompanying body copy | `--heading-copy-gap` | 12px | 12px | 12px |
-| Paragraph to paragraph | `--stack-gap` | 16px | 16px | 16px |
-| Separate groups inside a panel | `--content-group-gap` | 24px | 24px | 24px |
-| Card title to description | `--card-copy-gap` | 8px | 8px | 8px |
-| Card icon/title or review content groups | `--card-content-gap` | 12px | 12px | 12px |
-| Content to marketing CTA group | `--cta-gap` | 24px | 24px | 24px |
-| CTA to rating row | `--cta-review-gap` | 8px | 8px | 8px |
-| Inline icon to text | `--inline-gap` | 8px | 8px | 8px |
-| Larger icon/avatar to copy | `--icon-copy-gap` | 12px | 12px | 12px |
-| List items | `--list-gap` | 12px | 12px | 12px |
-| Image to caption | `--caption-gap` | 8px | 8px | 8px |
-| Disclosure vertical padding, each edge | `--disclosure-padding` | 12px | 12px | 12px |
-| Gallery tabs to results / carousel to controls | `--control-content-gap` | 16px | 16px | 16px |
-| Form rows and ordinary field columns | `--form-field-gap` | 20px | 20px | 20px |
-| Field label to control | `--field-label-gap` | 8px | 8px | 8px |
-| Calculator dimensions and choice columns | `--choice-gap` | 8px | 8px | 8px |
-| Desktop navigation items | `--navigation-gap` | — | 24px | 24px |
+Values assume a 16px root. CSS uses rem, so user text enlargement also enlarges spacing. Tablet changes start at 48rem; desktop changes at 64rem. A heading stays closer to its own text than a new content group. That hierarchy is intentional; the previous 24px jump within a topic has been reduced to 16px. Two adjacent sections contribute both their edges (64/80/96px total), without extra outside margins.
 
-Adjacent sections contribute both edges, giving 64/80/96px between their content boundaries. Do not add a second outside margin. A two-column layout's 48px desktop gap is intentionally larger than the 24px card-grid gap: columns contain independent topics; cards are peers within one group.
+## Controls, lists, dividers and overlays
 
-## Implementation contract
-
-- `.section-inner` / `.section-flow`: grid with zero gap; each subsequent child receives the semantic intro margin. `.section-actions` changes only its incoming distance to 24px. `.section-group` sets 24px between related groups; `.section-controls-content` sets 16px after gallery tabs.
-- `.content-flow`: paragraphs use 16px, a child immediately after `.heading` uses 12px, `.content-group` uses 24px, and `.content-actions` uses 24px. There is no parent gap to add accidentally to these margins.
-- `.stack`: uniform paragraph/component stacks only. Do not use it as a substitute for a mixed heading/body/action flow.
-- Incoming-spacing selectors are intentionally outside the component layer and more specific than list margin resets. Otherwise `.process-steps { margin: 0 }` silently erases heading-to-list space.
-- Component styles own display, alignment and appearance; shared flow classes own relationships. Avoid negative margins or arithmetic such as `cta-gap - stack-gap`.
-- Public spacing stays in CSS, not inline JSX. Inline styles in the internal token showcase demonstrate values; disclosure heights are animation measurements, not design decisions.
-
-## Coverage and decisions by area
-
-| Area | Applied / retained decision |
+| Relationship | Token / decision |
 | --- | --- |
-| Header, banner, menus | Desktop navigation 24px; dropdown distance reduced to 8px; 12px menu-row padding retained, as are compact icon gaps and full interaction targets. Mobile menu hierarchy keeps a 12px inset. |
-| Hero | H1/body 12px, body/benefits 16px, benefit rows 12px, benefits/CTA 24px. Removed the old 16px parent gap + 8px extra-margin construction. |
-| Products | Shared heading/grid distance; card padding 20/24px, title/body 8px, option groups 24px, swatches 8px; disclosure padding shared with FAQ. |
-| About homepage | Heading/body 12px; paragraphs 16px; stats separated by a 24px incoming gap and 16px after the divider. Value/label remain compact. |
-| Process and included services | Matching card padding, 12px icon/title, 8px title/body; equal space reserved for accent borders and bottom dividers. Process CTA is 24px after cards regardless of breakpoint. |
-| Reviews | Heading/grid 24/32px; grid/CTA 24px instead of up to 40px; button/rating 8px. Avatar/copy 12px, author/date stay together without an extra gap. Fixed review heights and expansion behavior retained. |
-| Guide | Two equal cards with shared grid/padding; icon/title 12px and title/body 8px. No content or images added. |
-| Calculator | Heading/explanation 12px; instruction/calculation group 24px; labels 8px from controls, rows 20px apart; all three dimension columns and choice columns use 8px. Desktop minimum reduced from 644px to 624px after measuring intrinsic content. Initial panels align; added items grow only the right panel. |
-| Gallery | Section title to tabs 24/32px; tabs to panel 16px, independent of section-intro spacing. Frame/controls 16px. The rail retains 4px top and 8px bottom for visual/focus/scrollbar clearance. |
-| Gallery lightbox | Page gutters bound the dialog; 12px toolbar/control padding retained to fit 48px buttons. Image sizing and scrolling remain independent of content gaps. |
-| Service area | Heading/body 12px, paragraphs 16px, list rows 12px, CTA 24px; map and copy share major column spacing. |
-| FAQ | Heading/body 12px; question rows use symmetric 12px padding and preserve the 40px toggle area; answer bottom padding 12px. No sticky movement or default open question. |
-| Homepage contact | Heading/cards 24/32px, cards/form 24px; larger icon/copy gap 12px, label/value together. Form intro/fields use 24px vertically and standard layout columns horizontally. |
-| Contact page | Centered introduction uses common title spacing; left body/details/map groups 24px; detail icon/copy 12px. Map bottom remains aligned with the form at desktop. |
-| Forms | Field rows 20px, label/control 8px, control padding 12px vertical /16px horizontal retained. Button/footer spacing remains a form relationship, not a marketing CTA. Feedback and upload lists keep 8–16px internal spacing. |
-| About page | Title/body uses section-intro distance; paragraphs 16px, image/body groups 24px, caption 8px. No redundant margins around the image. |
-| Legal pages | Title/content and legal-block separations use section-intro gap; heading/body 12px, paragraphs 16px, list rows 8px. Full standard container width preserved. |
-| Alternative About | Shared mixed content flow replaces uniform 24px gaps; card descriptions 8px, image captions 8px; contact CTA/reviews remain a single group. |
-| Footer | Shared outer section padding and major column gaps, heading/list 12px, list rows 12px, icon/text 8px. Bottom legal row retains 20px vertical padding. |
-| Design-system page | Live spacing table updated; its section spacing follows the same tokens. Demonstration-only gaps and scale bars stay explicitly illustrative. |
+| Form rows and ordinary columns | `--form-field-gap`: 16px; controls retain their 52px minimum height |
+| Label to control, control to help/error | `--field-label-gap`: 8px |
+| Calculator dimensions / peer choices / gallery tabs | `--choice-gap`: 8px |
+| Ordinary list rows / compact attachment or legal lists | `--list-gap`: 12px / `--list-compact-gap`: 8px |
+| Each accordion row's top/bottom inset | `--disclosure-padding`: 12px; both FAQ and product rows have a 52px minimum |
+| Expanded accordion answer's bottom inset | Same `--disclosure-padding`: 12px |
+| Content from a divider | `--divider-content-gap`: 16px; combined with card inset where the divider is inset |
+| Gallery tabs/photos/carousel controls | `--gallery-content-gap`: same as the photo-to-photo gap, 16px / 24px / 24px |
+| Desktop navigation links | `--navigation-gap`: 24px |
+| Menu shell / link row / nested list | `--menu-padding`: 8px; `--menu-item-padding-block`: 12px; `--menu-item-padding-inline`: 16px; `--menu-item-gap`: 4px; `--menu-indent`: 12px |
+| Compact controls | `--compact-control-padding-block`: 8px / `--compact-control-padding-inline`: 12px |
+| Product swatches | `--swatch-padding-block`: 4px / `--swatch-padding-inline`: 8px |
+| Lightbox toolbars | `--toolbar-padding`: 12px; text starts at `--toolbar-label-inset`: 20px |
+| Floating call button from viewport | `--floating-control-inset`: 20px |
+| Gallery's visible next-card hint | `--gallery-peek`: 32px, not a gap between cards |
+| Gallery rail scrollbar clearance | `--gallery-scrollbar-clearance`: 8px below the photos |
+| Footer legal strip inset | `--footer-legal-padding`: 16px |
 
-## Deliberate exceptions
+Button paddings, sizes, focus-ring clearance and control border compensation remain in their dedicated tokens. Geometry such as a hidden radio's `margin: -1px`, a zero reset, or `margin-inline: auto` is not an editorial gap. Animation transforms and font line-height are not gap tokens either. The FAQ anchor retains its header-clearance offset; native page/history scrolling remains unchanged.
 
-- Accessible control sizes and typography/line-height are not reduced as substitutes for spacing changes.
-- Contact label/value and review author/date are one metadata unit: no added gap is needed beyond line-height.
-- Calculator choice columns remain 8px by request, while ordinary form columns remain 20px.
-- Equal-height cards can contain unused space when text lengths differ; fixed review heights are an explicit product decision. The guide's placeholder copy is unchanged.
-- The calculator's desktop minimum accommodates the existing form and illustration while allowing content to grow. It is not a fixed height. At large text sizes layout stacks naturally.
-- Google rating can be absent if its server data is unavailable. The spacing rules still apply to each rendered CTA/rating pair; no ratings or business claims were invented.
+## One owner per relationship
 
-## Verification
+- Choose the token by the relationship: independent text/media or content columns use the larger responsive `--layout-gap`; peer cards in a compact repeated grid use `--card-grid-gap`. Do not shrink a two-column content layout just because its columns are visually card-shaped.
+- `.content-flow` owns mixed text flow through incoming margins: paragraph/group 16px, after a heading 12px, `.content-actions` 20px. Its grid gap is zero.
+- `.section-inner` / `.section-flow` use 24px for title/content; `.section-group` uses 16px; `.section-actions` uses 20px. The gallery explicitly shares its responsive gallery gap between tabs, the image rail, and controls.
+- Text flow grids use `align-content: start`: equal-height parent grids must not distribute spare height into text rows and create apparent gaps larger than their tokens.
+- `.stack` is a uniform paragraph/component stack using `--paragraph-gap`. It must not override a mixed heading/body/action flow.
+- Local layout classes may use a semantic `gap` for their children, but must not add margins to those same relationships. Shared flow selectors intentionally take precedence over list resets.
+- An action and its rating are one group. The outside 20px belongs to the group; the inside 8px belongs to the action/rating relation.
+- No component margin/padding/gap uses `--space-N` directly. Primitive scale values belong in the token file. Match the token's meaning, not just its numeric value.
 
-Browser verification uses Chromium with the actual local site and loaded fonts. It covers all seven implemented/review routes at 320, 390, 639, 640, 767, 768, 1023, 1024, 1280, 1440 and 1920px, plus six routes at 200% root text size at 390 and 1440px. Checks include document overflow, sampled heading/label clipping, section title gaps and initial calculator alignment.
+Example: `.calculator-copy-intro` uses `--content-group-gap` (16px) between “Unesi širinu…” and “Kako se računa cena?”. `.calculator-price-explanation` uses `--heading-copy-gap` (12px) between its short heading, formula and explanation. Product title/description uses `--card-copy-gap` (8px); description/colours/accordion groups use 16px.
 
-Interaction checks cover focus geometry, choice selection, adding three separate calculator items without growing the left side, gallery tabs/lightbox and FAQ expansion. No real inquiry is submitted. The local Google Maps frame is checked; Google controls and external content are not restyled.
+## Coverage by area
 
-Actual geometry checks verify heading/body 12px, hero/process/review CTA distance 24px, gallery tabs/panel 16px and section title spacing 24/32px. Screenshots are reviewed on phone and desktop. Required implementation checks: lint, nonincremental TypeScript check, production build and whitespace diff check.
+| Area | Result |
+| --- | --- |
+| Hero | Heading/body 12px, body/benefits 16px, benefit rows 12px, CTA 20px, rating 8px. Portrait layout preserved. |
+| Products | Title/description 8px; description/colours/disclosures 16px. Choice gaps 8px and independently named swatch padding. |
+| About homepage | Heading/body 12px, paragraphs 16px; stats have 16px before their divider and 16px from divider to values. |
+| Reviews | Title/grid 24px, CTA 20px. Card blocks 12px, author/date have no extra gap. Score/count now form a 4px group instead of using a negative margin. |
+| Selection guide | Title/cards 24px; independent left/right content columns use `--layout-gap` (32/40/48px); card icon/copy 12px; title/body 8px. Equal columns and authored copy preserved. |
+| Process and included services | Both use the same 20/24px card inset, 12px icon/title, 8px title/body and 16px reserved divider separation. |
+| Calculator | Content groups 16px, explanation 12px, form rows 16px, choice/dimension columns 8px. Removed auto margin above results. Desktop minimum is 37rem (592px); taller intrinsic copy is allowed. Initial panels align and saved rows grow only the right panel. |
+| Gallery | Heading/tabs 24px; tabs/photos, photos/controls and photo-to-photo spacing share `--gallery-content-gap` (16/24/24px). The rail has no extra top inset, so focus clearance does not make the first photo appear farther from its tab than neighboring photos are from each other. Whole bordered tabs, two-row mobile layout and carousel behavior preserved. Long tab text can wrap at enlarged text sizes. |
+| Service area | Heading/body 12px, paragraphs 16px, list rows 12px, CTA 20px; map is separated with the layout token. |
+| FAQ | Heading/body 12px. Stacked intro/list 24px, desktop columns 48px. Toggle's layout box no longer adds accidental row height. FAQ/product disclosure insets match; answer uses body line-height. |
+| Homepage contact | Heading/cards 24px; cards/form 16px; intro/form 16px when stacked. Cards keep icon/copy at 12px, title/value together. Icons can wrap above copy when enlarged text needs more width. |
+| Contact page | Title/columns 24px; text/details/map 16px; form heading/body 12px and intro/fields 16px. Map bottom follows the form on desktop. |
+| Forms | 16px rows, 8px label/help gaps; errors, upload rows, feedback and footer use named roles. Full control and button targets preserved. |
+| About page | Title/story 24px, paragraphs and image/text groups 16px, caption 8px. |
+| Alternative About | Same shared flow, 16px group/list spacing, icon/copy 12px, captions 8px, actions 20px with rating 8px. |
+| Privacy and terms | Title/content and independent legal topics 24px; heading/body 12px; paragraphs 16px; compact lists 8px. |
+| Header/footer | Navigation/menu distances explicitly named; footer heading/list 12px, rows 12px, legal strip 16px inset. Existing responsive column ordering preserved. |
+| Design system | Demonstrations use the same flows. Live token table reports actual values; raw Tailwind spacing overrides removed. |
 
-Final results: all 89 route/viewport checks passed without document overflow, sampled text clipping or browser JavaScript errors. All sampled homepage title-to-content gaps measured 24px below desktop and 32px on desktop, including the process list after its margin-reset correction. Initial calculator panels measured equal heights at 1024, 1280, 1440 and 1920px. CTA, rating and gallery relationship assertions passed at 390 and 1440px. Mobile nested navigation and desktop hover navigation were also exercised. ESLint, `npx tsc --noEmit --incremental false`, production build and `git diff --check` passed. No commit or push was made for this audit.
+## Token migration
+
+These ambiguous names have been removed from active source; do not reintroduce aliases:
+
+| Previous name | Current name |
+| --- | --- |
+| `--stack-gap` | `--paragraph-gap` |
+| `--section-content-gap` | `--layout-gap` |
+| `--section-intro-gap` | `--section-heading-gap` |
+| `--grid-gap` | `--card-grid-gap` |
+| `--card-content-gap` | `--card-item-gap` |
+| `--cta-gap` | `--content-action-gap` |
+| `--cta-review-gap` | `--action-rating-gap` |
+
+`--content-group-gap` stays as a role, now 16px instead of 24px. Separate roles may intentionally share a value; do not alias paragraphs, form rows and content groups to one another.
+
+## Verification and repeatability
+
+- `node scripts/spacing-inventory.mjs` validates token references and flags direct primitive/literal layout spacing, then regenerates the usage inventory.
+- `scripts/audit-spacing.mjs` checks all seven routes at 320, 390, 639, 640, 767, 768, 1023, 1024, 1280, 1440 and 1920px, plus 200% root text size at 390 and 1440px: 91 route/viewport combinations. It checks document overflow, sampled text clipping, actual flow gaps and initial calculator alignment. It captures phone/desktop screenshots.
+- `scripts/audit-spacing-interactions.mjs` checks calculator selection geometry and adding/removing three rows, unchanged left-panel height, FAQ/product expansion, gallery filters/lightbox, review expansion, mobile/desktop navigation, form validation, attachments and preserved input after a simulated failure. Contact requests are intercepted locally; no inquiry is sent.
+- Browser scripts require Playwright with Chrome available. Set `PLAYWRIGHT_MODULE_PATH` when using a bundled runtime, and optionally `AUDIT_BASE_URL` / `AUDIT_OUTPUT_DIR`. Defaults: localhost port 3000 and `/tmp/insecto-spacing-2026-10-23`.
+- Required code checks: `npm run lint`, `npm run typecheck`, `npm run build`, `git diff --check`.
+
+Browser checks are samples of geometry and interaction behavior, not a claim to certify every possible device or third-party map control. Text enlargement is an additional check, not a substitute for normal viewport review.
+
+### Results — 23 October 2026
+
+The final production build passed all 91 route/viewport geometry checks, including enlarged text and the check for stretched heading rows. The stateful checks passed at 390px and 1440px. Source inventory validation, ESLint, TypeScript, production build and `git diff --check` passed. Desktop and phone views were inspected; viewport captures were used for long pages to avoid full-page screenshot compositor repetition. Earlier overflow at enlarged text sizes in gallery tabs and contact cards was corrected. Local development remains available on port 3000. No commit or push was made for this revision.

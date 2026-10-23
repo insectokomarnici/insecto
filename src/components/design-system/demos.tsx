@@ -28,7 +28,7 @@ export function FormDemo() {
       </select>
     </div>
     <div className="ds-demo stack">
-      <div className="stack"><h3 className="heading heading-card">Pošaljite upit</h3><p>Ostavite broj telefona za dogovor o ugradnji.</p></div>
+      <div className="content-flow"><h3 className="heading heading-card">Pošaljite upit</h3><p>Ostavite broj telefona za dogovor o ugradnji.</p></div>
       <ContactForm submitContact={async () => {
         const result = outcome;
         await new Promise((resolve) => setTimeout(resolve, 1000));
@@ -41,7 +41,7 @@ export function FormDemo() {
 export function WeightDemo() {
   const [headingWeight, setHeadingWeight] = useState(700);
   const [bodyWeight, setBodyWeight] = useState(400);
-  return <div className="card stack">
+  return <div className="card content-flow">
     <div className="field-grid">
       <div className="field"><label className="field-label" htmlFor="heading-weight">Montserrat · weight</label><select className="control" id="heading-weight" value={headingWeight} onChange={(e) => setHeadingWeight(Number(e.target.value))}>{[100,200,300,400,500,600,700,800,900].map((weight) => <option key={weight}>{weight}</option>)}</select></div>
       <div className="field"><label className="field-label" htmlFor="body-weight">Manrope · weight</label><select className="control" id="body-weight" value={bodyWeight} onChange={(e) => setBodyWeight(Number(e.target.value))}>{[200,300,400,500,600,700,800].map((weight) => <option key={weight}>{weight}</option>)}</select></div>

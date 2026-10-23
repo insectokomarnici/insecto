@@ -36,8 +36,10 @@ export function GoogleRatingView({ place }: { place: PlaceRating | null }) {
         <span className="google-rating-stars" aria-hidden="true">
           {Array.from({ length: 5 }, (_, index) => <Star key={index} pack="filled" />)}
         </span>
-        <span className="google-rating-value">{place.rating.toFixed(1)}</span>
-        <span className="google-rating-count">({reviewCount})</span>
+        <span className="google-rating-score">
+          <span className="google-rating-value">{place.rating.toFixed(1)}</span>
+          <span className="google-rating-count">({reviewCount})</span>
+        </span>
       </a>
     </div>
   );

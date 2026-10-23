@@ -2,11 +2,13 @@
 
 Version 0.6 · 17 September 2026
 
-## Spacing audit — 22 October 2026
+## Spacing contract — 23 October 2026
 
-Current spacing decisions and verification are recorded in [spacing-audit.md](spacing-audit.md). This contract supersedes historical spacing proposals below. All implemented pages share section padding of 32/40/48px per edge, title-to-section-content spacing of 24/24/32px, heading-to-copy spacing of 12px, paragraph spacing of 16px, and content-to-CTA spacing of 24px at every breakpoint. CTA and rating remain one group, 8px apart. Cards use 20/24/24px padding and 16/24/24px grid gaps. Layout columns retain 32/40/48px. These are canonical semantic tokens, not per-section overrides.
+The current rules are in [spacing-audit.md](spacing-audit.md), with an exact selector/property index in [spacing-usage.md](spacing-usage.md). They supersede historical proposals below. Values live only in `src/app/tokens.css`; `/design-system` reads their computed values instead of duplicating them.
 
-Use `.content-flow` for mixed heading/body/action columns and `.section-inner` or `.section-flow` for section composition. `.content-actions` and `.section-actions` explicitly identify a CTA group; `.section-controls-content` pairs gallery controls and results. A relationship has one spacing owner: do not combine a parent gap and child margin to create it.
+The content rhythm is 8px card title/body, 12px heading/copy, 16px paragraphs and related groups, 20px content/CTA, 8px CTA/rating and 24px section heading/content at every breakpoint. Form rows are 16px, labels 8px from controls. Section edges remain 32/40/48px, layout columns 32/40/48px, card padding 20/24/24px and card grids 16/24/24px.
+
+Use `.content-flow` for mixed heading/body/action content and `.section-inner` or `.section-flow` for section composition. A relationship has one spacing owner: never combine a parent gap and child margin for the same distance. Canonical names describe roles (`--paragraph-gap`, `--layout-gap`, `--content-action-gap`); primitive `--space-N` references are confined to the token layer for layout spacing. See the contract for all roles, exceptions, migration names and browser audit commands.
 
 ## Local implementation
 
