@@ -132,7 +132,7 @@ export function PricingCalculator() {
                     <span className="field-label">Širina</span>
                     <span className="field-label">Visina</span>
                   </div>
-                  <Image className="calculator-diagram" src="/images/calculator-measurements.svg" alt="" width={236} height={150} />
+                  <Image className="calculator-diagram" src="/images/calculator-pvc-exterior-v2.png" alt="Zatvoren PVC prozor gledan spolja, sa krilom uvučenim u štok. Strelice označavaju širinu i visinu prozora." width={1200} height={693} sizes="(max-width: 639px) 80vw, 352px" />
                 </div>
               </div>
             </Card>
@@ -240,7 +240,7 @@ export function PricingCalculator() {
           </div>
 
           <section className="calculator-included" aria-labelledby="calculator-included-title">
-            <Heading as="h3" size="card" id="calculator-included-title">Šta je uključeno u cenu?</Heading>
+            <Heading as="h3" size="card" id="calculator-included-title">Šta je SVE uključeno u cenu?</Heading>
             <ul className="calculator-included-list" aria-labelledby="calculator-included-title">
               {includedItems.map(({ title, body, Icon }) => (
                 <li className="calculator-included-item" key={title}>
