@@ -10,14 +10,12 @@ Generated from current tokens by `node scripts/audit-colors.mjs`. Ratios are rou
 | placeholder text on surface | placeholder | surface | 4.81:1 | 4.5:1 | Pass |
 | Input boundary on surface | control-border | surface | 3.64:1 | 3:1 | Pass |
 | Keyboard / pointer focus on surface | brand-light | surface | 4.82:1 | 3:1 | Pass |
-| Rating contour on surface | rating-outline | surface | 4.59:1 | 3:1 | Pass |
 | heading text on surface-subtle | heading | surface-subtle | 17.75:1 | 4.5:1 | Pass |
 | body text on surface-subtle | body | surface-subtle | 8.60:1 | 4.5:1 | Pass |
 | brand text on surface-subtle | brand | surface-subtle | 10.33:1 | 4.5:1 | Pass |
 | placeholder text on surface-subtle | placeholder | surface-subtle | 4.52:1 | 4.5:1 | Pass |
 | Input boundary on surface-subtle | control-border | surface-subtle | 3.42:1 | 3:1 | Pass |
 | Keyboard / pointer focus on surface-subtle | brand-light | surface-subtle | 4.53:1 | 3:1 | Pass |
-| Rating contour on surface-subtle | rating-outline | surface-subtle | 4.31:1 | 3:1 | Pass |
 | White text on brand | surface | brand | 10.99:1 | 4.5:1 | Pass |
 | White text on brand-light | surface | brand-light | 4.82:1 | 4.5:1 | Pass |
 | Success notice | success | success-surface | 5.13:1 | 4.5:1 | Pass |

@@ -107,12 +107,11 @@ export function FaqSection() {
         <div className="section-inner">
           <div className="faq-heading content-flow">
             <Heading as="h2" size="section" id="faq-title">Česta pitanja i odgovori</Heading>
-            <p className="faq-description">Sve što treba da znaš pre nego što zakažeš merenje.</p>
           </div>
           <div className="faq-layout">
             {groups.map((group) => (
               <section className="faq-group" key={group.id} aria-labelledby={`faq-${group.id}-title`}>
-                <Heading as="h3" size="compact" id={`faq-${group.id}-title`}>{group.title}</Heading>
+                <Heading as="h3" size="compact" className="faq-group-title" id={`faq-${group.id}-title`}>{group.title}</Heading>
                 <div className="faq-list">
                   {faqItems.map((item, index) => item.category === group.id && (
                     <FaqItem

@@ -18,6 +18,9 @@ const productLinks = [
   ["/#product-fiksni", "Fiksni komarnici"],
 ] as const;
 
+// Brief pointer grace period when moving between the trigger and its links.
+const DROPDOWN_CLOSE_DELAY_MS = 100;
+
 function ProductLinks() {
   return <>{productLinks.map(([href, label]) => <Link key={href} href={href}>{label}</Link>)}</>;
 }
@@ -26,6 +29,7 @@ function ProductDropdown() {
   const [open, setOpen] = useState(false);
   const closeTimer = useRef<number | null>(null);
   const hovering = useRef(false);
+  const dropdownRef = useRef<HTMLDetailsElement>(null);
 
   const cancelClose = () => {
     if (closeTimer.current !== null) window.clearTimeout(closeTimer.current);
@@ -38,18 +42,26 @@ function ProductDropdown() {
   const scheduleClose = () => {
     cancelClose();
     closeTimer.current = window.setTimeout(() => {
-      if (!hovering.current) setOpen(false);
-    }, 250);
+      if (!hovering.current && !dropdownRef.current?.contains(document.activeElement)) setOpen(false);
+    }, DROPDOWN_CLOSE_DELAY_MS);
   };
 
   useEffect(() => () => cancelClose(), []);
 
   return <details
+    ref={dropdownRef}
     className="site-dropdown"
     open={open}
     onMouseEnter={() => { hovering.current = true; openMenu(); }}
     onMouseLeave={() => { hovering.current = false; scheduleClose(); }}
     onFocus={openMenu}
+    onKeyDown={(event) => {
+      if (event.key !== "Escape") return;
+      event.preventDefault();
+      cancelClose();
+      event.currentTarget.querySelector("summary")?.focus();
+      setOpen(false);
+    }}
     onBlur={(event) => {
       if (!event.currentTarget.contains(event.relatedTarget)) {
         hovering.current = false;
@@ -71,15 +83,28 @@ function ProductDropdown() {
 }
 
 function MobileMenu() {
-  const { isOpen, isClosing, contentRef, toggle, onTransitionEnd } = useAnimatedDisclosure<HTMLDivElement>();
+  const { isOpen, isClosing, contentRef, toggle, close, onTransitionEnd } = useAnimatedDisclosure<HTMLDivElement>();
 
-  return <details className={cn("site-menu", isOpen && "is-open", isClosing && "is-closing")} open={isOpen || isClosing}>
+  return <details className={cn("site-menu", isOpen && "is-open", isClosing && "is-closing")} open={isOpen || isClosing}
+    onKeyDown={(event) => {
+      if (event.key !== "Escape" || !isOpen) return;
+      event.preventDefault();
+      event.currentTarget.querySelector("summary")?.focus();
+      close();
+    }}
+    onBlur={(event) => {
+      if (!event.currentTarget.contains(event.relatedTarget)) close();
+    }}>
+
     <summary className="site-menu-trigger" aria-label="Otvori ili zatvori meni" aria-expanded={isOpen && !isClosing} onClick={(event) => { event.preventDefault(); toggle(); }}>
       <MenuIcon className="site-menu-icon site-menu-icon-menu" aria-hidden="true" />
       <CloseIcon className="site-menu-icon site-menu-icon-close" />
       <span className="sr-only">Meni</span>
     </summary>
-    <div ref={contentRef} className="site-menu-panel" onTransitionEnd={onTransitionEnd}>
+    <div ref={contentRef} className="site-menu-panel" inert={isClosing || !isOpen} onTransitionEnd={onTransitionEnd}
+      onClick={(event) => {
+        if (event.target instanceof Element && event.target.closest("a[href]")) close();
+      }}>
       <div className="site-menu-panel-inner">
         <nav aria-label="Glavna navigacija">
           <details className="site-menu-products">

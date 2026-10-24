@@ -8,39 +8,36 @@ export type FixedGoogleReview = {
   googleMapsUri: string;
 };
 
-export const fixedGoogleRating = {
-  rating: 4.9,
-  userRatingCount: 56,
-  googleMapsUri: "https://maps.google.com/?cid=9115323252925771981&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYBCAA",
-};
-
-// Edit this list manually whenever you want to change the displayed reviews.
+// Manually selected from the business's Google Maps profile on 2026-10-24.
+// Preserve original wording (including typos), rating and author attribution.
+// Relative publication ages are manually maintained; refresh them with the review selection.
+// CTA rating/count belong to GoogleRating and must not be hardcoded here.
 export const fixedGoogleReviews: FixedGoogleReview[] = [
   {
     rating: 5,
-    text: "Sve preporuke za ovog čoveka! Komarnici su urađeni savršeno, kvalitet vrhunski, a montaža brza i profesionalna. Dogovor je ispoštovan u minut, što se danas retko viđa. Ljubazan, korektan i pouzdan — sigurno ću ga preporučiti svima!",
-    relativePublishTimeDescription: "pre 5 meseci",
-    authorName: "Sara Gal",
-    authorUri: "https://www.google.com/maps/contrib/111922761894960813795/reviews",
-    authorPhotoUri: "https://lh3.googleusercontent.com/a/ACg8ocKzcg1q6kb2DUtLocf2O7rhyVktGC36FL1hPVW3u4_GrgB9WQ=s128-c0x00000000-cc-rp-mo",
-    googleMapsUri: "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xSTFZtcFZiMVpxUVRGUFlVWkxjWEZJUWpOUWRuYxAB!2m1!1s0x80b0687fa7a6efbd:0x7e802234177fb0cd",
+    text: "odličan izbor boja, kvqlitetni materijali, profesionalno izvedena montaža i vrlo stručno savetovanje pre kupovine",
+    relativePublishTimeDescription: "pre 2 nedelje",
+    authorName: "Milos Milosevic",
+    authorUri: "https://www.google.com/maps/contrib/111222766856095664140/reviews",
+    authorPhotoUri: "https://lh3.googleusercontent.com/a-/ALV-UjWYg4K9KzizIRMTrRO_z2Y2Ld7SjxPAWp2C9NVqT4dcITcpFRxP=w72-h72-p-rp-mo-ba12-br100",
+    googleMapsUri: "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2tjd1JFTlNURWhUVmxOb1UwMUdiSFpMVW1GdkxYYxAB!2m1!1s0x80b0687fa7a6efbd:0x7e802234177fb0cd",
   },
   {
     rating: 5,
-    text: "Super saradnja,sve urađeno kako treba,jako sam zadovoljan,preporučićemo firmu drugima.",
-    relativePublishTimeDescription: "pre 8 meseci",
-    authorName: "Goran Subic",
-    authorUri: "https://www.google.com/maps/contrib/108779899166386623168/reviews",
-    authorPhotoUri: "https://lh3.googleusercontent.com/a/ACg8ocKj0j_M45FJhKsGD_w4dfWXg6S9UOFREDsaUAEbPYXWS_gRxQ=s128-c0x00000000-cc-rp-mo",
-    googleMapsUri: "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2toUFQzWjBRVFJXVlU1SGMwcERRamx2Wmt0UFFrRRAB!2m1!1s0x80b0687fa7a6efbd:0x7e802234177fb0cd",
+    text: "Sve preporuke!\nProfesionalno, detaljno, sve po dogovoru.",
+    relativePublishTimeDescription: "pre mesec dana",
+    authorName: "biljana d",
+    authorUri: "https://www.google.com/maps/contrib/100345570852458017226/reviews",
+    authorPhotoUri: "https://lh3.googleusercontent.com/a/ACg8ocKIUyTMry71ZVN9h7KJqucbnhHsAPQJHOYqpOxHZgvlrrIjcQ=w72-h72-p-rp-mo-br100",
+    googleMapsUri: "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT21saFZEQnRVV2swUzBFNFEyRlpOWFV4VFY5RlRrRRAB!2m1!1s0x80b0687fa7a6efbd:0x7e802234177fb0cd",
   },
   {
     rating: 5,
-    text: "Divni mladi ljudi😊Sjajna saradnja od prvog poziva pa do konačne ugradnje.Topla preporuka🙂🙂🙂",
-    relativePublishTimeDescription: "pre 5 meseci",
-    authorName: "ivana vuksa",
-    authorUri: "https://www.google.com/maps/contrib/105360454855478514487/reviews",
-    authorPhotoUri: "https://lh3.googleusercontent.com/a/ACg8ocJVI0qejJTPg6JDjGPdg9x6OO7ebE9yrYabS7b4kAJAxiQ8Vg=s128-c0x00000000-cc-rp-mo",
-    googleMapsUri: "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT25WUmJXVkVNV0puVUZZelprTjRSM05qV1VWa01WRRAB!2m1!1s0x80b0687fa7a6efbd:0x7e802234177fb0cd",
+    text: "Jako dobri komarnici sa jako dobrim kvalitetom i jako brzom ugradnjom. Sve je proslo brzo i po dogovoru. Sve preporuke",
+    relativePublishTimeDescription: "pre 7 meseci",
+    authorName: "Igor Gut",
+    authorUri: "https://www.google.com/maps/contrib/114078085002658437631/reviews?hl=en",
+    authorPhotoUri: "https://lh3.googleusercontent.com/a/ACg8ocJx9cP2pdd7PUtx5LnaQs4mZxFyxVTCR2WQIsSvGPu-lYnEtg=w72-h72-p-rp-mo-br100",
+    googleMapsUri: "https://www.google.com/maps/reviews/data=!4m6!14m5!1m4!2m3!1sCi9DQUlRQUNvZENodHljRjlvT2xGclVtVm5RMWd5TTFsNGRFMVFWbTlKU0VsaFlYYxAB!2m1!1s0x80b0687fa7a6efbd:0x7e802234177fb0cd",
   },
 ];

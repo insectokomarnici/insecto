@@ -1,47 +1,39 @@
 # Insecto
 
-Local Next.js + TypeScript + Tailwind CSS project. The first homepage Hero, announcement banner and Header are implemented; remaining marketing sections and real form delivery are built section by section.
+Next.js App Router, TypeScript, React and Tailwind CSS website for Insecto Komarnici. The homepage, contact, about and legal pages are implemented. Product-detail routes remain reserved. Development and deployment are separate steps; push only when requested.
 
-## Run locally
-
-Node.js 20.9+ is required (Node 24 used for initial validation).
+## Run and validate
 
 ```sh
-npm install
+npm ci
 npm run dev
 ```
 
-Open http://localhost:3000/ to review the homepage, or http://localhost:3000/design-system for the token and component review page. The server binds to the local machine. If port 3000 is occupied, Next prints the selected alternate port.
+Open http://127.0.0.1:3000/ or http://127.0.0.1:3000/design-system. The development server binds locally; if port 3000 is occupied, read Next's reported port.
 
 ```sh
 npm run lint
-npm run typecheck
+npx tsc --noEmit --incremental false
 npm run build
-npm start
+git diff --check
 ```
 
-## Where to edit
+## Source of truth
 
-- `src/app/tokens.css`: canonical design tokens and Tailwind theme mappings.
-- `src/app/globals.css`: component and internal showcase styles.
-- `src/components/site-header.tsx`: reusable site Header with product dropdown and phone CTA.
-- `src/components/site-banner.tsx`: rotating contact-information banner above the Header.
-- `src/components/ui/`: shared buttons, links, fields, notices and layout primitives.
-- `src/components/contact-form.tsx`: reusable contact form. A submission callback is required; no fake success fallback.
-- `src/components/design-system/demos.tsx`: isolated local simulations and weight comparisons.
-- `src/app/design-system/page.tsx`: internal review page.
-- `src/app/page.tsx`: current homepage Header and Hero foundation.
-- `docs/design-system.md`: decision history and implementation notes.
-- `docs/google-rating.md`: server-side Google Places rating setup.
+- `src/app/tokens.css`: canonical visual roles and Tailwind mappings.
+- `src/app/globals.css`: shared layouts and component styles.
+- `src/components/ui/`: buttons, fields, feedback and layout primitives.
+- `src/app/page.tsx`: homepage composition.
+- `src/lib/products.ts`, `pricing.ts`, `google-reviews.ts`: product copy, calculator prices and manually maintained reviews.
+- `src/components/contact-form.tsx`: reusable form; public wrappers submit to `/api/contact`.
+- `/design-system`: live token previews, component variants and a local form simulation. No demo submissions or files leave that page.
 
-Montserrat Variable and Manrope Variable are self-hosted through Fontsource packages. Headings use Montserrat; CTA buttons use the dedicated `--font-button` token with Montserrat 600; body text, navigation and form controls use Manrope. No Google Fonts request is needed to build or view this project. All supported font weights are available.
+Montserrat headings/buttons and Manrope body/forms are self-hosted. General icons use Boxicons. Filled call icons use a licensed local Carbon SVG, without a Carbon package dependency; Material service icons, Google artwork and custom screen illustrations are approved exceptions.
 
-Carbon Design System icons from `@carbon/icons-react` are the shared icon source for navigation, calls and form feedback. The package's four-line `Menu` variant is replaced by a local three-line SVG on the same 16px visible canvas as the mobile menu close icon, so both states use the same size.
+Read [design-system.md](docs/design-system.md), [project-handoff.md](docs/project-handoff.md) and [design-system-readiness.md](docs/design-system-readiness.md) before changes. Latest verification: [final interaction audit](docs/interaction-audit.md).
 
-The shared button API supports `small`, `medium` and `large` sizes. Header uses `small`, standard actions and the form use `medium`, and the prominent Hero CTA uses `large`.
+## Integrations and launch limits
 
-The phone CTA is connected to `tel:+381611321324` and displays `061 132 1324`. The contact demo never sends or persists entered data; a form delivery service must be supplied before the public site is launched. The project is connected to the `insectokomarnici/insecto` GitHub repository; deployment, analytics and real form delivery remain separate setup steps.
+Optional server-only Google rating variables: `GOOGLE_MAPS_API_KEY`, `GOOGLE_PLACE_ID` (see [setup](docs/google-rating.md)). Public contact delivery uses `RESEND_API_KEY` and `CONTACT_TO_EMAIL`. Keep secrets in ignored `.env.local` / deployment configuration; never use `NEXT_PUBLIC_` for these keys.
 
-The optional Hero Google rating uses the server-side Places API (New) integration described in `docs/google-rating.md`. Configure `GOOGLE_MAPS_API_KEY` and `GOOGLE_PLACE_ID` in `.env.local` and Vercel Environment Variables; do not expose the API key with a `NEXT_PUBLIC_` prefix.
-
-The design-system page is `noindex`, not authenticated. Decide whether to remove or protect it before any public deployment. Revisit global robots metadata when the real homepage is ready.
+Review cards are fixed local data, independent of optional Places rating retrieval. Real email delivery was not exercised by the design audit. The current sender configuration, anti-spam protection, final product content and SEO indexing require a separate launch review. Public page metadata currently uses noindex. The internal design-system route is also noindex, but is not access-controlled.

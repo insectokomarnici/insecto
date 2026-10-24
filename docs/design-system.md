@@ -1,289 +1,92 @@
-# Insecto — design system working draft
+# Insecto design system — current contract
 
-> Current icon/surface contract: [icon-surface-audit.md](icon-surface-audit.md), with [surface-usage.md](surface-usage.md). This record supersedes historical radius, shadow and icon-size descriptions below.
+Updated: 24 October 2026. This document describes the implemented system, not an exploration proposal. Earlier versions remain in Git history. Canonical values are in `src/app/tokens.css`; component rules are in `src/app/globals.css` and scoped page styles. `/design-system` is the review surface.
 
-> Current shared-component contract: [component-audit.md](component-audit.md). This record supersedes historical button sizing, choice semantics and CTA composition below.
+## Ownership and naming
 
-> Current color/contrast contract: [color-contrast-audit.md](color-contrast-audit.md), with [verified ratios](contrast-ratios.md). Current typography contract and verification: [typography-audit.md](typography-audit.md), with [typography-usage.md](typography-usage.md). Current spacing verification: [spacing-audit.md](spacing-audit.md). Remaining design-system audits: [design-system-readiness.md](design-system-readiness.md). These current records supersede historical color, typography and spacing descriptions below.
+Use shared UI and semantic tokens. Names describe relationships or roles, not a convenient number. Keep primitive spacing references in the token layer. Use rem for layout/text, unitless line-height and em tracking; thin borders may use px. Runtime geometry (accordion height, carousel position) and token demonstrations may use inline values; static component design may not bypass tokens.
 
-Version 0.6 · 17 September 2026
-
-## Spacing contract — 23 October 2026
-
-The current rules are in [spacing-audit.md](spacing-audit.md), with an exact selector/property index in [spacing-usage.md](spacing-usage.md). They supersede historical proposals below. Values live only in `src/app/tokens.css`; `/design-system` reads their computed values instead of duplicating them.
-
-The content rhythm is 8px card title/body, 12px heading/copy, 16px paragraphs and related groups, 20px content/CTA, 8px CTA/rating and 24px section heading/content at every breakpoint. Form rows are 16px, labels 8px from controls. Section edges remain 32/40/48px, layout columns 32/40/48px, card padding 20/24/24px and card grids 16/24/24px.
-
-Use `.content-flow` for mixed heading/body/action content and `.section-inner` or `.section-flow` for section composition. A relationship has one spacing owner: never combine a parent gap and child margin for the same distance. Canonical names describe roles (`--paragraph-gap`, `--layout-gap`, `--content-action-gap`); primitive `--space-N` references are confined to the token layer for layout spacing. See the contract for all roles, exceptions, migration names and browser audit commands.
-
-## Calculator included services — 23 October 2026
-
-Included services form a borderless footer inside the calculator section, below both panels. The parent `.section-inner` owns the 24px panel-to-footer separation. One standard gray top divider uses `--divider-content-gap` (16px) of inner padding; the left-aligned subordinate H3 uses the shared card-heading size and `--content-group-gap` (16px) before the list. Three service items sit side by side from `md` and stack below it, using the shared card-grid gap. Each stacks a 32px approved service icon above a compact H4 and standard body description, aligned to the same left edge. Titles use a compact H4 and standard `--text-body` description (16px with the shared body line-height), separated by the shared content-group/card-copy gaps. Individual card backgrounds, borders, accent edges and dividers are removed, avoiding a second set of boxes beneath the calculator. Calculator behavior and approved service copy are unchanged.
-
-## Local implementation
-
-This document has been moved into the `insecto` project. The canonical tokens now live in `src/app/tokens.css`, and Tailwind uses the same values. Shared components are in `src/components/ui`, the contact form is in `src/components/contact-form.tsx`, and the review page is available at `/design-system`. The standalone CSS drafts referenced below are part of the decision history; the project uses the consolidated tokens and `src/app/globals.css`.
-
-Breakpoints: `sm` 40rem, `md` 48rem, `lg` 64rem, `xl` 80rem, `2xl` 96rem. The earlier local form breakpoint of 35rem was aligned with `sm` at 40rem. Fonts are served from the project through Fontsource packages, with all available variable weights and Serbian Latin support. Headings now use fluid sizes between the agreed minimum and maximum values.
-
-The first homepage foundation is now implemented with the announcement banner, Header, Hero, Products, three-step process, About and pricing calculator sections. The Hero uses the approved Serbian copy, a large phone CTA and the supplied mosquito-screen installation photo as a right-side background layer at desktop widths; on narrow screens the background layer moves to the lower half so the copy remains readable. The image is rendered through Next.js `Image` optimization, and the longer Hero description uses the existing `--text-body` token so it remains secondary to the H1 and CTA. Supporting text paired with a section heading also uses `--text-body`, keeping section introductions aligned with the Hero body scale. The shared `.section` primitive applies the responsive `--section-padding` token to every public section; `.section-inner` owns the internal intro-to-content gap, so future sections reuse the same spacing rules without adding one-off outer margins. The Hero mobile layout keeps its intentional flush bottom edge for the background image. The Hero badge uses the shared `Badge` error variant with `⛔ BUBE STOP!`, the existing error surface and error foreground tokens, and a text emoji instead of a separate icon. Products are rendered from one data-driven card component for Plise, Rolo and Fiksni komarnici; each card supports Bela, Braon and Antracit image variants, shared accordions, a phone CTA and a secondary product detail link with Carbon's `ArrowRight` icon. The new three-step process section uses the shared subtle section surface and three filled cards in the `surface`, `brand-light` and `brand` tokens; the soft first card also uses a `brand` border, while the blue cards use inherited white text. Its first heading uses the Boxicons phone icon, while the measurement and installation headings use the Google Material `Straighten` and `Drill` SVG shapes from the existing Insecto site; all three inherit the shared feature-icon size and card color. The section includes a shared phone CTA. The About section follows the reference content with the team image on the left at desktop widths and copy on the right; it uses the shared subtle surface, section spacing, body text and phone CTA tokens. The pricing calculator uses a left card with the main `Komarnici - Cena` heading, explanation and local width and height SVG illustration, alongside the form/results panel on the right. The illustration uses a transparent surrounding area and the shared typography and spacing tokens. Its explanation uses the shared `--text-body` token, while the calculation converts centimeters to square meters and uses color-aware prices: Plise 40 €/m² for Bela and 41 €/m² for Braon or Antracit, Rolo 42 €/m² for Bela and 43 €/m² for Braon or Antracit, and Fiksni 25 €/m² for Bela and 26 €/m² for Braon or Antracit. The minimum charge equals the selected product and color price per square meter. All calculator controls and results use the shared form, typography, surface, border and spacing tokens. Decimal measurements are supported. The price explanation tooltip stays inside the copy card at every breakpoint, opens through hover or keyboard focus on precise pointers and by tap on coarse pointers, and uses calculator-specific sizing tokens with the shared motion and reduced-motion rules. The reserved product routes are `/plise-komarnici`, `/rolo-komarnici` and `/fiksni-komarnici`; their page content is intentionally empty until the dedicated product pages are designed. Implemented secondary routes include `/o-nama`, `/kontakt`, `/politika-privatnosti` and `/uslovi-koriscenja`. The design-system review remains available at `/design-system`. The homepage form now submits to `/api/contact`, while the design-system demo keeps a local simulation. The phone CTA is connected to `tel:+381611321324`; the GitHub repository is connected, while Vercel deployment and real form delivery remain separate operational steps. Boxicons from `@boxicons/react` are the shared source for informational, feedback and social icons, plus the phone icon in the process section. Carbon supplies the `ChevronDown` navigation and accordion icon, the Products secondary CTA `ArrowRight`, and the filled `PhoneFilled` CTA icon. The announcement banner uses the brand color and a centered rotating contact item for phone, email and opening hours. Banner text uses the smaller `--text-banner` token and its informational icons use the shared `--icon-inline` token.
-
-The homepage Banner and Header are wrapped in a shared sticky site chrome so they follow the page scroll as one unit. The FAQ section uses a responsive split layout: a left bordered card with the shared phone CTA and a right card containing individually bordered accordion items. On desktop, the FAQ intro stays at the top of its column and does not stick while visitors move through the questions. The section collapses to a single column below the `lg` breakpoint while keeping the shared surface, typography, border, spacing and disclosure-motion tokens. The final homepage section is a responsive contact-form design with a brand-blue panel on the shared subtle section surface, a left introduction and a right two-column form. The live form posts to the server-only `/api/contact` route, which sends the submitted details through Resend to the configured Gmail recipient.
-
-The Hero and process-section CTAs use the same centered Google rating row below the action at every viewport width. The rating uses the shared `--text-small`, `--icon-inline`, spacing and rating-star color tokens, while the CTA uses the shared button size and action tokens.
-
-The three-step process is an ordered list in the document structure while its visible `01`–`03` markers remain decorative. Their circular markers use the dedicated `--process-step-number-size` token and the shared body text size for clearer emphasis. Cards use one column below `md` and three equal columns from `md`, with shared section, grid, card-padding, radius, typography, icon and border tokens. Every card reserves the same thicker left-border width; the blue cards use their own surface color for that border, so it blends into the card while all content keeps identical edge spacing. The custom colored cards include the same defensive text wrapping as the shared Card component. Their content is informational, so the cards remain still and have no hover treatment.
-
-The About section uses one column below `lg` and two equal columns from `lg`, with the team media preceding the copy in document order. Its layout, content width, heading, body text, CTA, Google rating and spacing all reuse shared tokens. The transparent team image keeps its natural `4 / 3` ratio and uses `contain`, avoiding crop while Next.js supplies responsive image widths through `sizes`. Two separate statistic cards overlap the lower image edge, reusing the shared border, radius, surface and raised shadow. Each card places an approved icon beside two compact text rows: a bold body-size value and a small label below it. The icon container matches the combined visual height of those rows. The two cards remain side by side below `sm`, with slightly unequal tokenized columns and compact padding to prevent horizontal overflow at 320px. The copy groups use `--space-6`, while the two body paragraphs retain the standard stack gap.
-
-The About experience stat uses the regular Boxicons `bx-award` path through the shared `AwardIcon` wrapper because the installed React package does not expose that icon as a named export.
-
-Product accordions and the mobile hamburger panel use the shared `--motion-transition-duration` token for matched open and close animations. The reduced-motion media query disables the transition while native `<details>` semantics and keyboard behavior remain intact.
-
-The gallery uses two hover-motion tokens: `--gallery-image-transition-duration` at `500ms` for the image zoom and `--gallery-transition-duration` at `300ms` for the overlay and caption. Its grid uses one column on narrow screens, two columns from `md`, and three columns from `lg`; the informational cards keep their soft shadow without a lift on hover, and reduced motion disables the hover transforms and transitions.
-
-Icon sizing is semantic: `--icon-inline` is `1rem` for icons beside text and navigation chevrons, `--icon-action` is `1.25rem` for buttons and feedback notices, `--icon-footer` is `1.25rem` for footer contact and social links, `--icon-feature` is `1.5rem` for feature and stat icons, `--icon-process` is `2rem` for process-card heading icons, `--icon-floating-call` is `1.8rem` for the mobile floating call button, `--icon-menu` is `1rem` for the standalone mobile menu trigger, and `--icon-close` is `1rem` for the mobile menu X. Boxicons menu and close paths use the same cropped visible canvas, while their size and weight remain controlled by the shared CSS tokens. CTA buttons use Carbon's filled `PhoneFilled` icon for action emphasis, while the informational banner uses Boxicons' basic `Phone`, `Envelope` and `Clock` icons.
-
-The product is a local business website for mosquito-screen installation. The primary action is a phone call, with a contact form that sends inquiries through the server route. Planned technology: Next.js, TypeScript and Tailwind CSS; hosting: Vercel.
-
-## Decision status
-
-- The existing logo, palette and font families are approved.
-- The primary CTA button with a blue gradient is approved.
-- The first site Header structure is approved for review: `Komarnici` product dropdown, `O nama`, `Kontakt` and the phone CTA.
-- The first Hero direction is approved for implementation review: left-aligned Serbian copy and phone CTA with the supplied installation photo on the right at desktop widths.
-- At the `md` breakpoint and above, Header uses inline navigation; the `Komarnici` product dropdown opens on hover, focus or click. Below `md`, the same icon-only hamburger opens a full-width overlay directly below Header. The mobile overlay keeps the same `--text-nav` link size and includes the phone CTA.
-- The typography scale is accepted as a starting point and can be refined while building individual sections.
-- Text sizes use `rem`, line-height is unitless, and letter-spacing uses `em`.
-- Spacing and content widths are initial proposals for use in sections.
-- Radii and shadows are defined as the current proposal for review; the primary button radius follows the previously approved visual.
-- Buttons, links, form fields and feedback messages have initial rules and an interactive example; submission in the example is a local simulation.
-
-## Colors
-
-| Purpose | Proposed token | Value |
-| --- | --- | --- |
-| Brand | `color-brand` | `#1E3B6F` |
-| Lighter blue for the gradient start | `color-brand-light` | `#3F73B8` |
-| Decorative accent | `color-accent` | `#E7A23B` |
-| Accent surface | `color-accent-background` | `#FEF2DF` |
-| Headings | `color-heading` | `#111111` |
-| Body text | `color-body` | `#484848` |
-| Placeholder text | `color-placeholder` | `#7B879A` |
-| Google rating star | `color-rating-star` | `#FBBC04` |
-| Product white swatch | `color-product-white` | `#FFFFFF` |
-| Product brown swatch | `color-product-brown` | `#6B4F3A` |
-| Product anthracite swatch | `color-product-anthracite` | `#3F454D` |
-| Subtle surface | `color-surface-subtle` | `#F6F8FB` |
-| Base surface / text on dark surfaces | `color-white` | `#FFFFFF` |
-| Subtle decorative border — proposal | `color-border-subtle` | `#E1E6EE` |
-| Required control border — added proposal | `color-border-control` | `#7B879A` |
-| Success text and icons | `success-foreground` | `#027A48` |
-| Success surface | `success-background` | `#ECFDF3` |
-| Error text and icons | `error-foreground` | `#B42318` |
-| Error surface | `error-background` | `#FEF3F2` |
-
-CTA: `linear-gradient(110deg in srgb, #3F73B8 0%, #1E3B6F 100%)`, with white text. The proposed hover state is solid brand blue. The 110deg angle comes from the approved visual example. Focus must remain clearly visible on the actual surface.
-
-Use orange sparingly. Text on the cream surface should be dark or dark blue. Orange is not used for small text on a light surface. The subtle border is not approved as the required border for form controls; those borders are checked while designing the form.
-
-Calculated contrast ratios: white on lighter blue 4.82:1; white on dark blue 10.99:1; success on its surface 5.13:1; error on its surface 6.05:1. Status always includes a clear text message. A submission confirmation is shown only after a real success response.
-
-## Current color contract — 23 October 2026
-
-Brand colors and decorative card borders are preserved. Placeholder text uses its own accessible `#657389` token. Focus is mid blue on light surfaces and white on brand panels; pointer-input focus remains mid blue. Gallery captions use a separate dark scrim, and yellow rating stars have a dark-gold contour. Numeric values, state rules and exclusions are in [color-contrast-audit.md](color-contrast-audit.md). Run `node scripts/audit-colors.mjs` whenever changing color tokens.
+Not every local behavior needs a global token. The dropdown's 100ms close grace and banner's 3000ms rotation interval remain named local constants. Reusable visual timing lives in motion tokens. Custom artwork geometry remains local to the artwork.
 
 ## Typography
 
-The current decisions and exceptions are in [typography-audit.md](typography-audit.md). Compact titles use Montserrat 16px/24px at 600; primary choices use Manrope 16px/24px. Semantic weight aliases are centralized in `tokens.css`.
+Self-hosted Montserrat Variable: headings and CTA buttons. Manrope Variable: prose, navigation, labels and inputs. Heading level follows document structure independently of visual size.
 
-Montserrat is used for headings and CTA buttons; Manrope is used for body text, navigation, form controls and supporting text. Available weight ranges: Montserrat 100–900, Manrope 200–800. The initial weights below can be changed consistently by role.
-
-Site base: `html { font-size: 100%; }`. `rem` follows the root font size. Initial conversions use the common 16px base; user font-size settings are respected. The layout must also be checked with enlarged text.
-
-| Role | Font | Mobile, rem | Desktop, rem | Mobile / desktop line-height | Weight | Letter-spacing |
-| --- | --- | --- | --- | --- | --- | --- |
-| Hero heading | Montserrat | 2 | 3 | 1.25 / 1.1667 | 700 | -0.025em |
-| Section heading | Montserrat | 1.75 | 2.5 | 1.2857 / 1.2 | 700 | -0.02em |
-| Card heading | Montserrat | 1.375 | 1.5 | 1.3636 / 1.3333 | 600 | -0.01em |
-| Lead text | Manrope | 1.125 | 1.25 | 1.5556 / 1.6 | 400 | 0 |
-| Body text / form input | Manrope | 1 | 1 | 1.625 / 1.625 | 400 | 0 |
-| Navigation | Manrope | 1 | 1 | 1.5 / 1.5 | 600 | 0 |
-| Banner text | Manrope | 0.875 | 0.875 | 1.5714 / 1.5714 | 600 | 0 |
-| Supporting text | Manrope | 0.875 | 0.875 | 1.5714 / 1.5714 | 400 | 0 |
-| Field label | Manrope | 0.875 | 0.875 | 1.4286 / 1.4286 | 600 | 0 |
-| Button | Montserrat | 1 | 1 | 1.5 / 1.5 | 600 | 0 |
-
-Line-height values in the table are rounded for readability. The visual sample keeps the exact relationships from the initial scale. Headings are planned to scale gradually between the endpoint sizes; exact formulas and wrapping are checked on real sections. The HTML heading level follows content structure independently from visual style. Navigation uses the base `1rem` size with weight 600; emphasized body text uses the dedicated 700 emphasis role. The shared `--text-nav` token keeps Header, dropdown and mobile menu links aligned, while the smaller `--text-banner` token keeps the announcement banner visually secondary.
-
-## Base spacing scale — proposal
-
-The base step is 0.25rem. Names follow the number of steps; components should prefer the semantic tokens in the next table.
-
-| Token | Value |
-| --- | --- |
-| `space-0` | 0 |
-| `space-1` | 0.25rem |
-| `space-2` | 0.5rem |
-| `space-3` | 0.75rem |
-| `space-4` | 1rem |
-| `space-5` | 1.25rem |
-| `space-6` | 1.5rem |
-| `space-8` | 2rem |
-| `space-10` | 2.5rem |
-| `space-12` | 3rem |
-| `space-16` | 4rem |
-| `space-20` | 5rem |
-| `space-24` | 6rem |
-
-## Spacing roles — proposal
-
-Mobile is the base layout. Tablet values begin at a 48rem viewport width, and desktop values at 64rem. These are starting points for layout changes; wrapping is checked against real content. Enlarged text can change effective dimensions, so the layout must remain flexible.
-
-| CSS token | Purpose | Mobile | Tablet | Desktop |
-| --- | --- | --- | --- | --- |
-| `--page-gutter` | Minimum side space around content | 1.25rem | 1.5rem | 2rem |
-| `--section-padding` | Section padding, top and bottom | 2.5rem | 3rem | 4rem |
-| `--section-intro-gap` | From the section intro to cards or the form | 1.5rem | 2rem | 2.5rem |
-| `--section-content-gap` | Between major layout columns | 2rem | 2.5rem | 3rem |
-| `--grid-gap` | Between cards, in both directions | 1rem | 1.5rem | 2rem |
-| `--card-padding` | Internal card padding | 1.5rem | 1.5rem | 2rem |
-| `--stack-gap` | Between a heading and supporting text | 1rem | 1rem | 1rem |
-| `--cta-gap` | From description to an action group | 1.5rem | 1.5rem | 1.5rem |
-| `--form-field-gap` | Between complete field groups | 1.25rem | 1.25rem | 1.25rem |
-| `--field-label-gap` | From the label to the control | 0.5rem | 0.5rem | 0.5rem |
-| `--field-hint-gap` | From the control to the supporting message | 0.5rem | 0.5rem | 0.5rem |
-
-Section padding is applied above and below each section; horizontal space is owned by the container gutter. Adjacent sections therefore combine their bottom and top padding; do not add another outer gap for the same boundary. If two blocks belong to the same section, use an internal gap.
-
-## Content widths — proposal
-
-| Token | Maximum width | Purpose |
+| Role | Size at normal root | Weight |
 | --- | --- | --- |
-| `--container-wide` | 75rem | Main content, navigation and card layouts |
-| `--container-narrow` | 45rem | Standalone contact form, single-column FAQ |
-| `--content-text` | 38rem | Introductory text and longer paragraphs |
-| `--grid-item-min` | 18rem | Starting minimum card width when space allows |
+| Hero | fluid 32–48px | 700 |
+| Section | fluid 28–40px | 700 |
+| Card | fluid 22–24px | 600 |
+| Compact heading | 16px | 600 |
+| Body / primary choices | 16px | 400 / role-specific emphasis |
+| Supporting text / labels | 14px | 400 / 600 |
+| CTA | 16px | 600 |
 
-These are maximum, not fixed, widths. A container uses the available space minus side gutters until it reaches its maximum, then remains centered. On very wide screens, outer space grows naturally. On narrow screens, content and the form use one column. Cards wrap according to the actual parent width, with protection against horizontal overflow. Text does not need to fill a wide container.
+Line-height and tracking are also role tokens. Do not turn main copy into small helper text. Allow wrapping; normal text zoom must not be constrained by fixed text-box heights. See [typography audit](typography-audit.md).
 
-A section background may extend edge to edge; content remains aligned to the shared container. Sections do not have a fixed height. Internal spacing and widths use `rem`; thin borders may use 1px.
+## Spacing and layout
 
-## Radii — proposal
-
-The visual direction is lightly rounded and orderly. Radii use `rem` and stay the same on mobile and desktop. A viewport change does not change the shape of the same component.
-
-| Base token | Value | Semantic usage |
+| Relationship | Semantic token | Phone / tablet / desktop (px) |
 | --- | --- | --- |
-| `--radius-none` | 0 | Sections that extend to the viewport edges |
-| `--radius-sm` | 0.25rem | Small badges: `--radius-badge` |
-| `--radius-md` | 0.5rem | Compact controls: `--radius-button`; form inputs: `--radius-input` |
-| `--radius-lg` | 0.75rem | Cards and standalone media: `--radius-card`, `--radius-media` |
-| `--radius-xl` | 1rem | Larger featured panel, such as contact: `--radius-panel` |
-| `--radius-pill` | 999rem | Fully rounded shared CTA buttons |
+| Page gutter | `--page-gutter` | 20 / 24 / 32 |
+| Section top and bottom | `--section-padding` | 32 / 40 / 48 |
+| Independent columns | `--layout-gap` | 32 / 40 / 48 |
+| Peer cards / separate section blocks | `--card-grid-gap` / `--section-block-gap` | 16 / 24 / 24 |
+| Card inset | `--card-padding` | 20 / 24 / 24 |
+| Section heading to content | `--section-heading-gap` | 24 |
+| Heading to body | `--heading-copy-gap` | 12 |
+| Card title to body | `--card-copy-gap` | 8 |
+| Paragraphs / related content groups | `--paragraph-gap` / `--content-group-gap` | 16 |
+| Content to action group | `--content-action-gap` | 20 |
+| Action to rating | `--action-rating-gap` | 8 |
+| Field rows / label to field | `--form-field-gap` / `--field-label-gap` | 16 / 8 |
+| Compact choices | `--choice-gap` | 8 |
 
-Shared CTA buttons use the pill radius; compact controls and form inputs keep their smaller radii. Apply each radius consistently by role. A media element that touches the top edge of a card inherits the card's outer radius; media inside a padded card follows that relationship. Use a wrapper for image clipping so an interactive card's focus ring is not cut off.
+Tablet starts at 48rem, desktop at 64rem; 40rem can change composition without creating a spacing scale. Additional named breakpoints are 80rem and 96rem. Maximum main/narrow/text widths are 75/45/38rem.
 
-## Shadows — proposal
+One owner per gap: do not combine parent gap and child margin for the same relationship. Use `.content-flow`, `.section-flow` and `.section-inner`. Two independent guide columns use layout gap; gallery tabs, images and controls share `--gallery-content-gap`. Contact cards to form use section-block gap, not the tighter prose group gap. Adjacent sections combine their respective top/bottom padding. See [spacing audit](spacing-audit.md) and [selector inventory](spacing-usage.md).
 
-There are three basic choices: no shadow, a soft shadow and a raised shadow. Both shadows use the existing brand blue at 6% and 12% opacity; no new palette color is added. Shadow dimensions use `rem`.
+## Colors, borders and elevation
 
-| Token | CSS value | Purpose |
-| --- | --- | --- |
-| `--shadow-none` | `none` | Buttons, controls and flat surfaces |
-| `--shadow-soft` | `0 0.125rem 0.5rem rgb(30 59 111 / 0.06)` | Cards and a featured contact panel |
-| `--shadow-raised` | `0 0.375rem 1.25rem -0.25rem rgb(30 59 111 / 0.12)` | An interactive card on hover |
+Primary brand is `#1e3b6f`, mid blue `#3f73b8`, heading `#111111`, body `#484848`, white surface and subtle `#f6f8fb`. Refer to tokens, not copied hex values. Decorative border and functional control border are different roles. Errors and success include explicit text.
 
-Semantic mappings: `--shadow-button` and `--shadow-input` use `--shadow-none`; `--shadow-card` and `--shadow-panel` use `--shadow-soft`; `--shadow-card-interactive-hover` uses `--shadow-raised`.
+Inputs retain mid-blue hover/focus. Links, navigation and FAQ use brand feedback. Calculator choices, product colors and gallery tabs intentionally have no hover-color effect; selected state and keyboard focus remain visible. Gallery selected tabs use a heavier full border, not an underline. Google stars remain yellow without outlines, accompanied by a textual rating; verification artwork is Google blue.
 
-Application rules:
+Keyboard focus is mid blue with white separation on light surfaces, white with brand separation on blue panels. A decorative shadow never substitutes for focus. Current numeric checks are in [contrast-ratios.md](contrast-ratios.md), with scope in [color-contrast-audit.md](color-contrast-audit.md).
 
-- For a standard card, the proposal is a subtle decorative border and a soft shadow. On the actual surface, check whether one is enough.
-- The primary button keeps the approved gradient and has no extra shadow.
-- Form controls have no shadow in their default state. Their borders and focus state are defined in the controls and contact-form sections.
-- Increase a shadow on hover only when a card leads to an action or page. An informational card remains still.
-- A shadow does not replace visible focus, an error message or a required control border.
-- Large sections are separated with spacing and surfaces. Shadows are reserved for smaller surfaces that need elevation.
+CTA buttons are pills. Inputs, tabs and icon badges use the compact 8px radius; cards 12px, panels 16px. Circular avatars/number markers use the circle role. Default content cards are flat; media/contact surfaces may use soft elevation, overlays raised elevation. See [icon/surface audit](icon-surface-audit.md).
 
-## Buttons and links — proposal
+## Components and icons
 
-The primary CTA is a phone call. The confirmed number is `061 132 1324`, represented by `tel:+381611321324`. The Header preview and Action demo use this real call link. A secondary action leads to the contact form. Form submission is the primary action inside that form.
+Use `Button` / `ButtonLink`: small/medium/large minimum heights 44/48/52px, growing for wrapped text. Primary is the gradient call CTA; brand is the calculator action; secondary supports actions on blue forms. Calls use real tel links. Disabled controls are unavailable; pending submission uses aria-disabled, a status label and a duplicate-request guard while preserving focus.
 
-| Component / state | Appearance and behavior |
-| --- | --- |
-| Primary button | Approved blue gradient, white Montserrat 600 via `--font-button`, fully rounded pill radius, no border or shadow |
-| Hover / pressed | Solid brand blue; no layout shift |
-| Brand button | Solid brand blue with white text and a matching brand border; the shared soft surface keeps the brand border and uses brand-blue text on hover and while pressed |
-| Secondary action | White surface, dark-blue border and text, fully rounded pill radius; light surface on hover |
-| Text link | Dark blue and always underlined; lighter blue on hover |
-| Keyboard focus | Preserve the native browser outline, with an additional blue ring and white gap |
-| Unavailable | Light surface and gray text; use native `disabled` when a button is genuinely unavailable |
-| Submission | Serbian UI label `Šalje se…`, `aria-disabled`, duplicate activation blocked; the button keeps focus |
+`MeasurementCta` owns the button-and-rating group. When included or removed, treat both as a unit. Do not add this CTA to every section automatically.
 
-Buttons use the `--font-button` token with Montserrat 600, have a minimum height of 3.25rem and use 1rem / 1.5 line-height text with 0.875rem vertical and 1.375rem horizontal padding. These control tokens preserve the proportions of the approved CTA. Height is a minimum, so text may wrap when enlarged. An icon is decorative next to clear text. Actions use `button`; navigation and calls use `a` with a real destination.
+General icons use Boxicons. Filled phone CTAs use `PhoneFilledIcon`, a local licensed Carbon path; the Carbon library is not installed. Material Straighten/Drill, Google artwork, matched custom menu/close icons and custom screen illustrations are approved exceptions. Icon size and badge dimensions follow semantic tokens; matched menu glyphs account for optical bounds rather than relying only on identical SVG boxes.
 
-Focus uses blue `#3F73B8`, a 0.125rem gap and a 0.1875rem ring. Do not remove the browser outline. This ring is separate from decorative shadows. During implementation, check visibility on the real surfaces.
+## Current section patterns
 
-### Button size scale
+- Hero: text, benefit list and CTA/rating; portrait installation photo.
+- Products: three color-selectable cards and disclosures, without an extra CTA/rating in each card.
+- About homepage: team image with copy followed by “Mali tim, ličan pristup”; no CTA.
+- Guide: equal text columns for windows and doors; no photo or CTA.
+- Calculator: centered section title; explanation and form panels aligned initially on desktop. Saved entries grow only the right panel. Dimensions and quantity share the desktop row; type and color have their own rows. Quantity adds individual list entries. No explanation tooltip remains. Included services belong below the panels in the same section, with one gray top divider, left H3 and three borderless icon/title/body items.
+- Gallery: three short full-bordered tabs (Plise, Rolo, Fiksni), including one row on phones; horizontal photos and modal lightbox. Captions are singular sentence case. The fixed-screen category is currently empty and has an explicit message.
+- FAQ: two equal groups, Komarnici and Naša usluga; no sticky introductory card, numbered questions or subtitle. Questions begin closed.
+- Contact: three contact cards followed by the blue Online upit panel. About page also reuses this section. Contact page uses the full form with surname, email and optional photos, plus the business map.
 
-Button sizes are semantic tokens rather than one-off dimensions. `small` is for compact Header actions, `medium` is the default for regular actions and forms, and `large` is reserved for a prominent Hero CTA.
+## Interaction contract
 
-| Size | Minimum height | Horizontal padding | Text |
-| --- | --- | --- | --- |
-| `small` | 2.5rem | 1rem | 1rem |
-| `medium` | 3rem | 1.25rem | 1rem |
-| `large` | 3.25rem | 1.375rem | 1rem |
+Desktop dropdown supports hover, click and keyboard; focus inside prevents pointer-leave closing. Escape returns focus to its summary. Mobile navigation closes with Escape, focus leaving or an activated link; closing content is inert. Disclosures settle if a CSS transition is cancelled by a breakpoint or reduced-motion change.
 
-All sizes use the same `1rem` font, weight, radius, focus ring and interaction rules. The size is selected through the shared `Button` or `ButtonLink` component, so individual sections do not duplicate control dimensions.
+Gallery tabs use arrow keys/Home/End; empty panels remain focusable. Recreating the carousel after the empty category reattaches its scroll observer. Lightbox contains focus, closes with Escape and restores focus to the originating photo. Calculator add/remove and attachment removal retain a meaningful keyboard destination.
 
-## Contact form — proposal
+Form errors identify fields and focus the first invalid control; failed submission preserves input. Pending state blocks duplicate requests. Photo limits: five files, 5 MiB each, 10 MiB combined; MIME allowlist matches the server. Rejected selections never enter accepted attachments and do not prevent submitting an otherwise valid form. `/design-system#form` covers local success/error/slow responses, full fields and attachments; it sends nothing.
 
-Proposed minimum field set:
+## Motion
 
-| Field | Required | Initial behavior |
-| --- | --- | --- |
-| Name | Required | Text, up to 80 characters; autocomplete `name` |
-| Phone | Required | Telephone input, up to 40 characters; autocomplete `tel` |
-| Message | Required | Multiline input, up to 1000 characters |
+Feedback 160ms, disclosure 240ms, media 300ms, through shared easing. Menu icons crossfade without scaling. Gallery zoom is 1.03. No entrance animations, parallax or moving contact cards. Reduced motion removes transitions/zoom and automatic banner rotation. Banner also stops when hidden, hovered or focused . See [motion audit](motion-audit.md).
 
-A phone number is enough for the business to respond to an inquiry. Email can be added if that channel is selected later. The form structure is a proposal, not an assumption about an existing business process.
+## Verification and remaining limits
 
-Controls use Manrope 400, 1rem, 1.625 line-height and a minimum height of 3.25rem with a 0.5rem radius. The textarea has a minimum height of 8rem and can grow vertically. Labels remain visible and are associated with controls; placeholders are supporting text only. Required fields use the native `required` attribute and a star beside the label instead of the word “obavezno”. Controls with a unit suffix reserve the shared `--control-suffix-space` token so the value and suffix remain readable at every breakpoint. Two short controls may use two columns; below 40rem they become one column.
-
-The added required control-border color is `#7B879A`. Its contrast is 3.64:1 against white and 3.42:1 against the light-gray `#F6F8FB`. This separates a functional control boundary from a subtle decorative card border. The proposal adds one neutral token to the palette.
-
-States:
-
-1. Default: white surface, neutral border, no error before the user's attempt.
-2. Hover: blue border. Focus: visible ring; the change does not alter control dimensions.
-3. Error: red border, concrete explanation below the field, `aria-invalid` and `aria-describedby`.
-4. Submission: controls temporarily readonly, form marked `aria-busy`; values and focus remain preserved. The handler rejects another submission while a request is active.
-5. Submission failure: red message with a retry path; entered values remain in the form.
-6. Success: green message only after confirmed success; use a status live region for the announcement.
-
-Phone validation in the demo accepts an initial `+`, spaces, parentheses, hyphens and periods, with 7–15 digits. This is only a basic format check; it does not confirm that the number exists. For an empty or invalid form, show a summary and focus the first invalid field. Corrections remove stale errors without moving focus while typing.
-
-The design-system interactive example does not use a network request, database or local persistence. After a short simulation it shows a labeled success or error example. The `Ishod sledećeg slanja` control is for reviewing both states. The homepage form uses server-side validation and sends confirmed submissions through `/api/contact`; rate limiting and additional anti-spam protection remain future hardening steps.
-
-Isolated browser checks cover an empty and invalid required field, focus on the error, submission locking, duplicate-activation blocking, success, failure with preserved input, widths 320/390/736px and text at 200%. No JavaScript errors were recorded. Desktop and mobile screenshots were reviewed. This checks the demo only; it is not a server-side submission test or a complete accessibility audit.
-
-## Application and next steps
-
-The canonical implementation is now in the project. `src/app/tokens.css` contains the design tokens for color, typography, spacing, widths, breakpoints, radii, shadows and controls. `src/app/globals.css` contains shared component and review-page styles. `src/components/ui` contains reusable UI primitives, and `src/components/contact-form.tsx` contains the reusable form.
-
-The earlier `insecto-layout-tokens.css`, `insecto-effects-tokens.css` and `insecto-controls.css` files were standalone exploration drafts. They remain useful as decision history, but are not the source of truth for the Next.js project. The visual examples were also exploratory and do not overwrite saved CSS tokens automatically.
-
-For every new section, review existing tokens, narrow-screen behavior, enlarged-text behavior, heading wrapping and CTA clarity. Add a token when it represents a reusable rule. A one-off illustration or a photo-specific aspect ratio does not need to become a global token.
-
-Next: review the Header and Hero foundation, then build the public site section by section. Confirm the form destination before connecting it.
-
-## Technical references
-
-- [MDN: relative units](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Values_and_units)
-- [MDN: gap](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/gap)
-- [MDN: padding](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/padding)
-- [W3C: minimum contrast](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum)
-- [W3C: form validation](https://www.w3.org/WAI/tutorials/forms/validation/)
-- [W3C: error and success notifications](https://www.w3.org/WAI/tutorials/forms/notifications/)
-- [Google Fonts: Montserrat](https://github.com/google/fonts/blob/main/ofl/montserrat/METADATA.pb)
-- [Google Fonts: Manrope](https://github.com/google/fonts/blob/main/ofl/manrope/METADATA.pb)
+Latest results: [interaction and browser audit](interaction-audit.md). Release status: [readiness](design-system-readiness.md). Existing audits document tested states, not universal certification. Final content, physical iOS/Android testing, actual mail delivery and indexing are separate launch gates. Run lint, nonincremental TypeScript, production build and diff checks after changes; reopen only affected visual/interaction checks.

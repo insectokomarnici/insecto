@@ -29,18 +29,21 @@ export function ActionDemo() {
 
 export function FormDemo() {
   const [outcome, setOutcome] = useState("success");
+  const [attempts, setAttempts] = useState(0);
   return <div className="stack ds-form-wrapper">
     <div className="field">
       <label htmlFor="demo-outcome" className="field-label">Simulation outcome</label>
       <select id="demo-outcome" className="control ds-select" value={outcome} onChange={(e) => setOutcome(e.target.value)}>
-        <option value="success">Successful submission</option><option value="error">Submission error</option>
+        <option value="success">Successful submission</option><option value="error">Submission error</option><option value="slow">Slow submission (5 seconds)</option>
       </select>
     </div>
+    <p className="text-small">Local simulation only — no data or files leave this page. Submission attempts: {attempts}.</p>
     <div className="ds-demo stack">
       <div className="content-flow"><h3 className="heading heading-card">Pošaljite upit</h3><p>Ostavite broj telefona za dogovor o ugradnji.</p></div>
-      <ContactForm submitContact={async () => {
+      <ContactForm includeSurname includeEmail includeAttachments submitContact={async () => {
+        setAttempts((current) => current + 1);
         const result = outcome;
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, result === "slow" ? 5000 : 1000));
         if (result === "error") throw new Error("Simulated delivery failure");
       }} successMessage="Simulacija uspeha: ovde će se pojaviti potvrda nakon stvarno uspešnog slanja." failureMessage="Simulacija greške: poruka nije poslata. Pokušajte ponovo. Unos je sačuvan u formi." />
     </div>

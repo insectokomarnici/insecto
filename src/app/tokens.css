@@ -220,10 +220,17 @@
   --text-nav: 1rem;
   --text-nav--line-height: 1.5;
   --banner-min-height: 3rem;
-  --banner-transition-duration: 320ms;
-  --motion-transition-duration: 420ms;
-  --gallery-transition-duration: 300ms;
-  --gallery-image-transition-duration: 500ms;
+  /* Motion roles: feedback is quick; disclosures reveal structure; media is gentle.
+     All durations become zero for reduced motion in globals.css. */
+  --motion-feedback-duration: 160ms;
+  --motion-disclosure-duration: 240ms;
+  --motion-media-duration: 300ms;
+  --motion-easing: cubic-bezier(0.2, 0, 0, 1);
+  --banner-transition-duration: var(--motion-disclosure-duration);
+  --motion-transition-duration: var(--motion-disclosure-duration);
+  --gallery-transition-duration: var(--motion-disclosure-duration);
+  --gallery-image-transition-duration: var(--motion-media-duration);
+  --gallery-hover-scale: 1.03;
   --gallery-lightbox-image-max-height: 42rem;
   --gallery-lightbox-toolbar-height: calc(var(--button-height-medium) + var(--toolbar-padding) * 2);
   --textarea-min-height: 8rem;

@@ -1,6 +1,6 @@
 # Google rating integration
 
-The homepage Hero can show the business's live Google rating and review count below the primary CTA. The data is requested server-side from the Google Places API (New) Place Details endpoint and is never exposed through a client-side environment variable.
+The homepage Hero, process and reviews-section CTAs share `GoogleRating` to show the business's live Google rating and review count below the primary CTA. The data is requested server-side from the Google Places API (New) Place Details endpoint and is never exposed through a client-side environment variable.
 
 ## Required environment variables
 
@@ -24,3 +24,9 @@ GOOGLE_PLACE_ID=your_business_place_id
 5. Add the key and Place ID to local `.env.local` and to Vercel Environment Variables for Preview and Production.
 
 The component requests only `rating`, `userRatingCount` and `googleMapsUri`, and revalidates the response every seven days. Revalidation happens on the next request after the interval expires, so it is an interval rather than an exact scheduled time. If credentials are missing or the API request fails, it renders nothing rather than showing stale or fabricated values. The rating row includes a visible Google mark and links to the source place page.
+
+## Manually selected review cards
+
+`src/lib/google-reviews.ts` contains three manually selected reviews from the Insecto Google Maps profile, reviewed on 24 October 2026: Milos Milosevic (materials, installation and advice), biljana d (detail and keeping agreements), and Igor Gut (mosquito-screen quality and installation). Preserve each review's original wording and author attribution. Each card retains its author and profile photograph; review links should point to the source review. Relative publication ages appear below author names and are manually maintained. Refresh these labels when reviewing the selection against Google Maps; they do not update automatically.
+
+The reviews-section CTA uses `<GoogleRating />`, exactly like the Hero and process CTAs. There is no fixed overall score/count fallback. Cards render independently when API credentials are unavailable; no API review-text request is made.

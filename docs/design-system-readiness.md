@@ -1,6 +1,6 @@
 # Design system readiness
 
-Updated: 23 October 2026
+Updated: 24 October 2026
 
 ## Current status
 
@@ -35,7 +35,7 @@ Completed the site-wide role audit, local font checks, normal-width matrix and 2
 
 ### 2. Color and contrast — implemented and verified in Chromium
 
-Completed the source/state inventory, 31 numeric token-pair checks and seven-route browser scan at 390/768/1440px. Fixed placeholders, inverse focus, photo captions, upload boundaries and rating contours without changing the brand palette. See [color-contrast-audit.md](color-contrast-audit.md), [contrast-ratios.md](contrast-ratios.md) and [color-usage.md](color-usage.md) for evidence and limits. The full keyboard/interaction and cross-browser stages below remain open.
+Completed the source/state inventory, 29 current numeric token-pair checks and seven-route browser scan at 390/768/1440px. Fixed placeholders, inverse focus, photo captions, upload boundaries (rating outlines were subsequently removed at the user’s request) without changing the brand palette. See [color-contrast-audit.md](color-contrast-audit.md), [contrast-ratios.md](contrast-ratios.md) and [color-usage.md](color-usage.md) for evidence and limits. The full keyboard/interaction and cross-browser stages below remain open.
 
 ### 3. Shared components — implemented and verified in Chromium
 
@@ -45,17 +45,17 @@ Completed the component-role inventory and seven-route responsive pass. Unified 
 
 Completed the source inventory and seven-route responsive review. Shape roles now distinguish CTA pills, compact controls/icon badges, cards, panels and circles. Default content surfaces are flat; media/contact cards retain soft elevation and overlays use raised elevation. Disclosure icons and line alignment are consistent; approved custom artwork is preserved. See [icon-surface-audit.md](icon-surface-audit.md) and [surface-usage.md](surface-usage.md) for changes, evidence and limits.
 
-### 5. Interaction and accessibility
+### 5. Interaction and accessibility — checked and corrected
 
-Perform a dedicated keyboard pass: navigation, focus order, visible focus, accordion state, tabs, lightbox focus trap/return, Escape and reduced motion. Check form loading/success/error/duplicate submission, attachments with long names and limit errors, and preserved input after failure. Use local simulation/interception; do not send test inquiries to the business. Finish with recorded outcomes and no known blocking accessibility or interaction defect.
+Keyboard navigation, Escape, mobile closing, gallery focus trap/return, tab keys and observer recovery, calculator focus and local form states were exercised. Corrected focus loss after removal, rejected-attachment submission blocking, MIME alignment and closing transitions cancelled by viewport changes. See [interaction-audit.md](interaction-audit.md) for exact state coverage. Screen-reader/forced-color certification is not claimed.
 
-### 6. Cross-browser and final content
+### 6. Cross-browser — available environments checked
 
-Check real iOS Safari and Android Chrome plus desktop Safari/Chrome, text zoom and orientation changes. Recheck layouts after actual copy/images replace placeholders; include late image/font loading and open validation states. Fixed-screen gallery content and reserved product routes are still content work, not spacing regressions.
+Chrome: seven routes across 320/390/768/1024/1440px, plus portrait/landscape transitions. Desktop Safari: homepage, navigation, contact and full form demo, real native file picker and enlarged page. Physical iOS Safari/Android Chrome and their HEIC pickers remain a device acceptance step. Final copy/photos may require rechecking affected layouts.
 
-### 7. Documentation and release closure
+### 7. Documentation — reconciled
 
-Reconcile historical passages in `design-system.md` and the handoff with the current implementation. Update `/design-system` examples and labels, remove obsolete rules only after proving they are unused, and document approved variants. Finish with lint, TypeScript, production build and the visual/state matrix passing for the actual release revision.
+Replaced obsolete proposal passages in `design-system.md`, README and the handoff with current contracts. Updated `/design-system` selection, icons, motion and full form examples. Removed the obsolete rating-outline showcase/check references without restoring the user-removed star border. Verification and launch limits are explicit in the final audit.
 
 ## Definition of done
 

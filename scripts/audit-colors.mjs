@@ -30,7 +30,6 @@ for (const bg of ['surface', 'surface-subtle']) {
   for (const fg of ['heading', 'body', 'brand', 'placeholder']) check(`${fg} text on ${bg}`, fg, bg, 4.5);
   check(`Input boundary on ${bg}`, 'control-border', bg, 3);
   check(`Keyboard / pointer focus on ${bg}`, 'brand-light', bg, 3);
-  check(`Rating contour on ${bg}`, 'rating-outline', bg, 3);
 }
 for (const bg of ['brand', 'brand-light']) check(`White text on ${bg}`, 'surface', bg, 4.5);
 check('Success notice', 'success', 'success-surface', 4.5);

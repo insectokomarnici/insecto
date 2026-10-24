@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { CheckShield, Plus, Trash } from "@boxicons/react";
-import { useMemo, useState, type FormEvent } from "react";
+import { useMemo, useRef, useState, type FormEvent } from "react";
 import { FixedScreenIcon, PleatedScreenIcon, RollerScreenIcon } from "@/components/calculator-type-icons";
 import { RadioChoice } from "@/components/ui/radio-choice";
 import { Button } from "@/components/ui/button";
@@ -52,6 +52,7 @@ const calculatorTypeIcons = {
 } as const;
 
 export function PricingCalculator() {
+  const calculatorRef = useRef<HTMLElement>(null);
   const [width, setWidth] = useState("");
   const [height, setHeight] = useState("");
   const [quantity, setQuantity] = useState("1");
@@ -100,14 +101,21 @@ export function PricingCalculator() {
     setWidth("");
     setHeight("");
     setQuantity("1");
+    requestAnimationFrame(() => calculatorRef.current?.querySelector<HTMLInputElement>("#calculator-width")?.focus({ preventScroll: true }));
   }
 
   function handleRemoveItem(id: number) {
+    const index = items.findIndex((item) => item.id === id);
     setItems((currentItems) => currentItems.filter((item) => item.id !== id));
+    requestAnimationFrame(() => {
+      const remaining = calculatorRef.current?.querySelectorAll<HTMLButtonElement>(".calculator-remove");
+      const next = remaining?.[Math.min(index, remaining.length - 1)];
+      (next ?? calculatorRef.current?.querySelector<HTMLInputElement>("#calculator-width"))?.focus({ preventScroll: true });
+    });
   }
 
   return (
-    <section className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
+    <section ref={calculatorRef} className="section calculator-section" id="calculator" aria-labelledby="calculator-title">
       <Container>
         <div className="section-inner">
           <div className="section-intro">
@@ -119,7 +127,7 @@ export function PricingCalculator() {
               <div className="calculator-copy-body stack">
                 <div className="calculator-copy-intro stack">
                   <p className="text-body calculator-description">
-                    Unesi širinu i visinu otvora u centimetrima, količinu, zatim izaberi tip i boju komarnika da dobiješ tačnu cenu.
+                    Unesi širinu i visinu otvora u centimetrima, količinu, zatim izaberi tip i boju komarnika da dobiješ cenu.
                   </p>
                   <div className="calculator-price-explanation">
                     <p className="text-body calculator-price-heading">Kako se računa cena?</p>

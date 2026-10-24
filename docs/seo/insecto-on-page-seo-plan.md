@@ -116,7 +116,7 @@ Kod Insecta početna treba da predstavlja ukupnu lokalnu ponudu, dok plise stran
 
 Kod Insecta treba proveriti i globalni `src/app/layout.tsx` i metadata u `page.tsx` fajlovima. **Promena samo globalnog podešavanja nije dovoljna** ako pojedinačne stranice i dalje imaju svoj `noindex`. Isto tako, promena homepage-a neće automatski rešiti kontakt i o nama.
 
-Razvojne rute, `/design-system` i probna `/o-namav1` ne treba pustiti u indeks samo zato što menjamo globalno pravilo. Ako je nova verzija o nama prihvaćena, sadržaj ide na odabrani javni URL; probna verzija se uklanja, preusmerava kada postoji jasan naslednik ili zadržava van indeksa.
+Razvojne rute i `/design-system` ne treba pustiti u indeks samo zato što menjamo globalno pravilo. Probna ruta `/o-namav1` je uklonjena; `/o-nama` ostaje javna stranica o nama.
 
 ## Robots fajl i sitemap imaju različite zadatke
 

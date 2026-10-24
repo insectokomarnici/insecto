@@ -9,7 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 const base = process.env.AUDIT_BASE_URL || 'http://127.0.0.1:3000';
 const output = process.env.AUDIT_OUTPUT_DIR || '/tmp/insecto-spacing-2026-10-23';
-const routes = ['/', '/kontakt', '/o-nama', '/o-namav1', '/politika-privatnosti', '/uslovi-koriscenja', '/design-system'];
+const routes = ['/', '/kontakt', '/o-nama', '/politika-privatnosti', '/uslovi-koriscenja', '/design-system'];
 const widths = [320,390,639,640,767,768,1023,1024,1280,1440,1920];
 const failures = [], results = [];
 fs.mkdirSync(output, { recursive: true });

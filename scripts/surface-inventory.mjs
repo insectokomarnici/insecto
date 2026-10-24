@@ -3,7 +3,7 @@ import postcss from 'postcss';
 
 // Source guard for visual chrome. SVG coordinates/strokes belong to the artwork,
 // not CSS layout units. Zero/none/inherit are explicit resets, not new design values.
-const files = ['src/app/globals.css', 'src/app/o-namav1/page.module.css'];
+const files = ['src/app/globals.css'];
 const rows = [], errors = [];
 for (const file of files) {
   postcss.parse(fs.readFileSync(file, 'utf8')).walkDecls(decl => {

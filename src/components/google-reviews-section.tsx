@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { Star, UserCircle } from "@boxicons/react";
-import { GoogleMark, GoogleRatingView } from "@/components/google-rating-view";
+import { GoogleMark } from "@/components/google-rating-view";
+import { GoogleRating } from "@/components/google-rating";
 import { GoogleReviewCopy } from "@/components/google-review-copy";
 import { MeasurementCta } from "@/components/measurement-cta";
 import { Container, Heading } from "@/components/ui/layout";
-import { fixedGoogleRating, fixedGoogleReviews } from "@/lib/google-reviews";
+import { fixedGoogleReviews } from "@/lib/google-reviews";
 
 function GoogleVerifiedMark() {
   return (
@@ -53,7 +54,7 @@ export function GoogleReviewsSection() {
             ))}
           </div>
 
-          <MeasurementCta className="section-actions" rating={<GoogleRatingView place={fixedGoogleRating} />} />
+          <MeasurementCta className="section-actions" rating={<GoogleRating />} />
         </div>
       </Container>
     </section>

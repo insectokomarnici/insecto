@@ -1,6 +1,10 @@
 # Color and contrast audit — 23 October 2026
 
-## Scope and result
+## Current amendment — 24 October 2026
+
+The user removed star outlines and changed gallery selection to a full heavier border. Those decisions are preserved. Yellow stars accompany textual rating information and are not the only rating indicator. The obsolete `rating-outline` showcase and two script checks have been removed; the current matrix has 29 pairs. Generated inventories reflect current CSS; counts in the original verification record below are historical. Desktop Safari and interaction results are now in [interaction-audit.md](interaction-audit.md).
+
+## Original scope and result
 
 Reviewed the existing seven rendered routes: `/`, `/kontakt`, `/o-nama`, `/o-namav1`, `/politika-privatnosti`, `/uslovi-koriscenja` and `/design-system`. This includes site chrome, footer, hero, products, about, process cards, calculator, included services, gallery, reviews, guide, service-area copy, FAQ and both forms. Reserved product routes have no page content yet. Google Maps UI and image/brand artwork are external or supplied content, not authored UI palette consumers.
 

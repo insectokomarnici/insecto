@@ -1,204 +1,73 @@
-> Icon library update: Boxicons supplies general UI icons; call actions use local `PhoneFilledIcon` with the original Carbon SVG path and its Apache-2.0 license. The Carbon dependency has been removed. Material measurement/drill, custom illustrations and Google artwork remain approved exceptions. See `docs/icon-surface-audit.md`.
+# Insecto project handoff
 
-# Insecto Project Handoff
+Updated: 24 October 2026. Read this together with `AGENTS.md` and [the current design contract](design-system.md). Historical layouts are retained in Git, not as competing instructions here.
 
-> Current icon/surface contract: [icon-surface-audit.md](icon-surface-audit.md), with [surface-usage.md](surface-usage.md). This record supersedes historical radius, shadow and icon-size descriptions below.
+## Project and working rules
 
-> Current shared-component contract: [component-audit.md](component-audit.md). This record supersedes historical button sizing, choice semantics and CTA composition below.
+Next.js App Router, TypeScript, React and Tailwind CSS. Repository: https://github.com/insectokomarnici/insecto.git, branch `main`. Develop locally; commit/push only when requested. Preserve approved Serbian Latin copy and layouts. Technical docs/comments are English. Reuse canonical tokens and shared UI; do not introduce one-off styling for an existing role.
 
-> Current color/contrast contract: [color-contrast-audit.md](color-contrast-audit.md), with [verified ratios](contrast-ratios.md). Current typography contract and verification: [typography-audit.md](typography-audit.md), with [typography-usage.md](typography-usage.md). Current spacing verification: [spacing-audit.md](spacing-audit.md). Remaining design-system audits: [design-system-readiness.md](design-system-readiness.md). These current records supersede historical color, typography and spacing descriptions below.
+Run `npm ci`, then `npm run dev`. Validate with `npm run lint`, `npx tsc --noEmit --incremental false`, `npm run build` and `git diff --check`. Keep `.env.local`, `.next`, dependencies and secrets out of commits. If `next-env.d.ts` changes only between generated dev/build type paths, restore that incidental diff.
 
-This document captures the current product and implementation decisions so work can continue from another local Codex project.
+## Source map
 
-## Project
+- `src/app/tokens.css`: typography, colors, spacing, surfaces, controls, icons and motion.
+- `src/app/globals.css`: shared layout and component rules; page CSS modules remain scoped.
+- `src/components/ui/`: shared layout, buttons, fields, notices and licensed SVG exceptions.
+- `src/components/measurement-cta.tsx`: CTA and rating are one group; do not separate them when adding/removing a section CTA.
+- `src/lib/products.ts`: product descriptions and color imagery.
+- `src/lib/pricing.ts`: calculator rates and calculation rules.
+- `src/lib/google-reviews.ts`: manually maintained review cards. CTA summary uses the shared GoogleRating API component.
+- `src/components/contact-form.tsx`: reusable form; public wrappers use `/api/contact`.
+- `/design-system`: live tokens, variants, motion rules and full local form simulation.
 
-- Product: Insecto Komarnici, a local mosquito-screen business serving Novi Sad and nearby areas.
-- Stack: Next.js App Router, TypeScript, Tailwind CSS, CSS custom properties, and Vercel deployment.
-- Repository: `https://github.com/insectokomarnici/insecto.git`
-- Main branch: `main`
-- Latest functional change before this handoff: product navigation order and homepage anchors.
+## Homepage order
 
-## Local development
+Banner/header → Hero → Products → About → Reviews → Selection guide → Three-step process → Price calculator including services → Gallery → Novi Sad/service area → FAQ → Contact → Footer. Floating call action remains available on mobile.
 
-```bash
-npm ci
-npm run dev
-```
+Product links point to `/#product-plise`, `/#product-rolo`, `/#product-fiksni`. Main section anchors include `products`, `about`, `calculator`, `gallery`, `faq`. Product-detail routes are reserved and need final content before launch.
 
-Validation commands:
+## Current patterns to preserve
 
-```bash
-npm run lint
-npx tsc --noEmit --incremental false
-git diff --check
-```
+- Hero uses portrait installation photography, the approved copy and four benefits. No eyebrow.
+- Product order is Plise/Rolo/Fiksni. Color order is Bela/Antracit/Braon; initial images are white/anthracite/brown respectively. No per-card CTA/rating remains.
+- Homepage About has team image and copy followed by the shared “Mali tim, ličan pristup” note, without CTA or image overlays.
+- Guide has two equal columns: windows and doors, no photo and no CTA.
+- Reviews are three fixed columns on desktop, with author/profile photo and manually maintained publication age, Google mark, yellow stars and Google-blue verification graphic. Long text expands in its card; read-more appears only for overflow. No API selects the review-card content.
+- Process is an ordered list, three columns from tablet, with consistent content insets despite the first card's accent edge. CTA/rating stays together.
+- Calculator has centered H2 and two initially aligned desktop panels. Only the right grows with saved entries. Desktop width/height/quantity share a row; type and color each have a separate row. Phone width/height stay together. Adding quantity N creates N individual removable entries. Initial area/total are zero; measurements clear after adding. The 1m² minimum charge remains calculation logic; there is no tooltip or minimum-measure explanation in the visible introduction. Included services sit inside this section below a gray divider, with a left H3 and three borderless service items.
+- Gallery has short single-row category tabs (including phones), full selected border, and native horizontal scrolling: one/two/three previews on phone/tablet/desktop. Fixed-screen photos are not supplied yet; the category has an explicit empty state. Photo captions are singular sentence case. Modal uses full-image containment, Escape, focus trap and return.
+- FAQ has equal Komarnici / Naša usluga groups, initially closed. No sticky intro, numbers, subtitle or contact card.
+- Contact section has three information cards then a full-width blue Online upit panel. Work hours card has no link. Compact form has name, phone and message.
 
-Do not commit `node_modules`, `.next`, `.env.local`, or API keys.
+## Pages and scrolling
 
-## Environment variables
+`/o-nama` is the canonical about page and uses the approved story/image/caption reading order with the shared ContactSection below it. The former `/o-namav1` review page has been removed. `/kontakt` has equal desktop columns: contact copy/details/map and the full form (name, surname, email, phone, message, optional photos). Legal pages use the normal site container without nested decorative boxes, centered H1 and body-sized introduction.
 
-The production values are configured in Vercel. The local file is ignored by Git and is only needed for local Google rating and contact-form testing.
+Public pages retain a normal-flow root div around sticky site chrome, main and footer. A Fragment with sticky siblings triggered a 45px Next navigation offset in this runtime. Do not reintroduce it or compensate with a global scroll-reset effect; preserve native hashes and history restoration.
+
+## Interactions
+
+General UI icons are Boxicons; filled call icons are local Carbon SVGs with license, no Carbon dependency. Material service icons, Google artwork, custom product illustrations and matched menu/close glyphs are intentional exceptions.
+
+Motion uses feedback/disclosure/media roles. Desktop dropdown close grace is a local named 100ms constant. The three-second banner pauses on hover/focus, hidden tabs and reduced motion. Navigation closes via Escape; mobile links close the menu. Disclosure fallback derives timing from computed CSS to settle a cancelled transition on resize.
+
+Form simulation includes full fields/photos, success/error/slow outcomes and attempt counter; no data leaves the demo. Failed requests preserve input, pending requests block duplicate activation. Limits match server: five files, 5 MiB/file, 10 MiB total, explicit MIME allowlist. Rejected selections do not block otherwise valid submission. Real HEIC pickers and actual mail delivery still need device/integration testing.
+
+## Integrations and deployment
+
+Server-only variable names (values must remain private):
 
 ```env
 GOOGLE_MAPS_API_KEY=
 GOOGLE_PLACE_ID=
 RESEND_API_KEY=
-CONTACT_TO_EMAIL=insectokomarnici@gmail.com
+CONTACT_TO_EMAIL=
 ```
 
-`GOOGLE_MAPS_API_KEY` and `RESEND_API_KEY` are server-only. Never rename them with a `NEXT_PUBLIC_` prefix or commit their values.
+Optional Google Places rating/count uses seven-day revalidation; fixed review cards do not depend on it. See [Google setup](google-rating.md). The map uses the approved business-profile embed. Public contact route sends through Resend; audit tests never send business inquiries. Verify production sender/domain, delivery and anti-spam separately before launch; client duplicate protection is not server spam protection.
 
-## Design system
+Public page metadata currently uses noindex. SEO launch/indexing and final copy are separate from design completion. `/design-system` is also noindex but not authenticated; decide whether to remove or protect it for launch.
 
-Canonical tokens live in `src/app/tokens.css`; shared global/component rules live in `src/app/globals.css`. Keep new values in the token layer before adding component-specific styling. Use `rem`, semantic tokens, and the existing spacing/radius/shadow system.
+## Verification status
 
-The site-wide spacing contract is documented in `docs/spacing-audit.md`, with exact CSS consumers in `docs/spacing-usage.md`. `/design-system` displays live token values. Section edges are 32/40/48px, section heading/content 24px at every width, heading/body 12px, card title/body 8px, paragraphs and related groups 16px, CTA groups 20px from content and ratings 8px from buttons. Card padding is 20/24/24px; independent columns use the responsive 32/40/48px layout gap, while compact peer-card grids use 16/24/24px. Gallery tabs, photos and carousel controls use one shared responsive gap. Form rows use 16px and labels 8px. Use shared flow classes with one spacing owner per relationship. Token roles are documented in `src/app/tokens.css`; no component gap/margin/padding uses the primitive scale directly. Calculator desktop minimum is 37.5rem; the left panel stays top-aligned and saved rows grow only the right. See the audit for the source inventory, responsive checks and interaction checks.
-
-Brand colors:
-
-- Brand primary: `#1E3B6F`
-- Brand light/mid: `#3F73B8`
-- Accent: `#E7A23B`
-- Accent surface: `#FEF2DF`
-- Heading: `#111111`
-- Body: `#484848`
-- Surface: `#FFFFFF`
-- Surface subtle: `#F6F8FB`
-- Success: `#027A48` / `#ECFDF3`
-- Error: `#B42318` / `#FEF3F2`
-
-Typography:
-
-- Manrope is the body/navigation/form font.
-- Montserrat is used for headings and the current button token.
-- Use the existing responsive text tokens rather than hard-coded sizes.
-
-Breakpoints:
-
-- `40rem` (`sm`)
-- `48rem` (`md`)
-- `64rem` (`lg`)
-- `80rem` (`xl`)
-- `96rem` (`2xl`)
-
-Buttons use the shared `Button`/`ButtonLink` API with `small`, `medium`, and `large` sizes. Phone CTAs use Carbon `PhoneFilled` and `tel:+381611321324`, while the visible phone text is `061 132 1324`.
-
-The local Carbon SVG is used for CTA phone icons; chevrons use Boxicons. Boxicons are used for the remaining shared visual icons, with local SVG wrappers where the package does not export an approved shape. Keep icon sizing through the existing semantic icon tokens, including `inline`, `action`, `footer`, `feature`, `process`, `floating-call`, `menu`, and `close`.
-
-## Homepage structure
-
-The homepage order is:
-
-1. Announcement banner
-2. Sticky Header
-3. Hero
-4. Products
-5. About/Insecto Komarnici
-6. How to get mosquito screens in three steps
-7. Price calculator
-8. Gallery
-9. FAQ
-10. Contact form
-11. Footer
-
-The main section IDs are `products`, `about`, `calculator`, `gallery`, and `faq`.
-
-## Header and navigation
-
-- Public pages keep one normal-flow root `<div>` around the sticky site chrome, main content and footer. This gives Next.js a scroll target at the document start. A root Fragment with sticky siblings triggers a 45px navigation offset in the current runtime, which a subsequent browser refresh preserves. Keep native hash navigation and history restoration; do not add a global scroll-reset effect to compensate.
-- Product navigation order is **Plise, Rolo, Fiksni** in both Header and Footer.
-- Product links use homepage anchors:
-  - `/#product-plise`
-  - `/#product-rolo`
-  - `/#product-fiksni`
-- Product cards in `src/components/products-section.tsx` have the matching IDs.
-- The `Saznaj više` button was removed from Product cards. Each card keeps the `Zakaži merenje` CTA and its accordion information.
-
-## Product cards
-
-Products are defined in `src/lib/products.ts`. Each product has three colors: Bela, Braon, and Antracit. Product accordions contain the agreed Serbian copy for description, colors/materials, and installation. Keep all product content centralized in that data file.
-
-## Hero
-
-- The hero keeps the approved copy and shared section spacing, with a content-driven height instead of a large minimum height.
-- Its installation photo uses the approved portrait `3 / 4` frame. The layout stacks below `lg`; the CTA remains before the image.
-
-## Gallery
-
-- Photographs use a native horizontal scroll area with scroll snap, one preview on phones, two from `md` and three from `lg`. Arrow controls below the images advance by one card and disable at the ends.
-- Category tabs filter the gallery to pleated, roller or fixed screens. The current installation-photo set has no fixed-screen photos, so that tab displays an explicit empty state until suitable images are added.
-- On phone widths the three tabs use two rows, with the third tab centered; wider screens keep all three on one row.
-- Each photograph opens a native modal dialog with the full image, previous/next controls and a counter. Escape or a backdrop click closes the dialog; keyboard focus stays inside and returns to the originating card on close.
-- The dialog locks background scrolling, uses the shared control and surface tokens, and contains the image without cropping. Reduced motion disables animated carousel scrolling and hover zoom.
-
-## Three-step process
-
-- The process section is implemented as an ordered list so assistive technology announces three sequential items.
-- It uses one column below `md` and three equal columns from `md`.
-- Step markers, icons, typography, card padding, borders, radii, colors and spacing use shared or semantic tokens.
-- Every card reserves the same thicker left-border width; the blue cards match that border to their surface so all content keeps identical edge spacing.
-- The cards are informational and intentionally have no hover motion.
-- The CTA and Google rating reuse the same shared components and tokenized spacing as the Hero.
-
-## About
-
-- The About section uses one column below `lg` and two equal columns from `lg`.
-- The transparent team image keeps its natural `4 / 3` presentation area and uses responsive Next.js image widths without crop.
-- The homepage About paragraphs lead directly into the CTA, with no team note or statistic cards. `AboutTeamNote` remains on `/o-namav1` with its tokenized icon and divider.
-- The copy and CTA reuse the shared heading, body, button, Google rating and spacing primitives.
-
-## About page
-
-- `/o-namav1` is an alternative About page for review. It adds the team introduction, working principles, the shared three-step process, two actual project photographs and contact actions. The existing `/o-nama` route and navigation stay in place. Styling is scoped in `src/app/o-namav1/page.module.css` and uses the canonical tokens; the page reuses the shared headings, section/container primitives, buttons, Google rating and site chrome. Copy uses only the existing company story and approved claims (five team members and a two-year product guarantee).
-- `/o-nama` uses the shared site chrome with the complete approved company story in a single focused section.
-- The page uses a single `h1`, a centered narrow story column and the same reading order as the reference page: title and introduction, the first two story paragraphs, team image with the `Insecto Komarnici` caption, then the remaining story copy.
-
-## Calculator
-
-The calculator is in `src/components/pricing-calculator.tsx`.
-
-- Prices are per m² and vary by type and color in `src/lib/pricing.ts`.
-- Brown and anthracite are €1/m² above the white price for each type.
-- The calculator supports adding multiple mosquito screens and totals all items.
-- Width and height fields accept decimal centimeter measurements.
-- Dimensions start empty. Area and total display a dash until both measurements are positive and produce a finite total. Adding an item clears the measurements while retaining the saved-item total; removing the last item restores the empty state. The existing minimum charge of 1 m² remains unchanged.
-- Item rows show dimensions, area, price per m², item total, item count, and a transparent remove control.
-- The price explanation tooltip stays within the copy card at every breakpoint. It opens on hover or keyboard focus for precise pointers and by tap on coarse pointers.
-- The left explanation card and right calculator panel have the same initial desktop height.
-- When items are added, only the right calculator panel grows. This uses `--calculator-card-min-height` and the desktop layout rule in `globals.css`.
-- Mobile layout stacks the two cards naturally.
-
-## Privacy page
-
-- `/politika-privatnosti` now contains the privacy and cookie-policy content from the reference site in the shared site chrome and legal-content layout.
-- `/uslovi-koriscenja` uses the same legal-content layout for the reference site's terms, intellectual-property, liability, link and dispute sections.
-- The page uses the shared heading, body, card, border, radius, surface, shadow and spacing tokens, and its external cookie-information links open in a new tab.
-
-## Contact page
-
-- `/kontakt` uses the shared site chrome and contact form/API flow in a dedicated responsive layout.
-- The page includes the reference contact copy, phone, e-mail and working hours, with the reference Google Maps location embedded below the left contact details.
-- The contact page enables surname and e-mail fields in the shared form; the compact homepage form keeps its shorter field set.
-- Contact details and the form panel use shared typography, spacing, color, border, radius and shadow tokens.
-
-## Integrations
-
-- Google Places API rating and review count are fetched server-side with a seven-day revalidation period.
-- The homepage review cards and rating row are fixed data in `src/lib/google-reviews.ts`; update them manually when the displayed reviews should change.
-- The rating link points to the Google Business Profile/Maps URL.
-- Contact form delivery uses the Resend API route at `src/app/api/contact/route.ts` and sends to `CONTACT_TO_EMAIL`.
-
-## Working rules
-
-- Keep technical documentation and code comments in English.
-- Keep user-facing website copy in Serbian Latin.
-- Reuse shared components and tokens; avoid one-off inline visual decisions.
-- After each section change, review token usage, responsive behavior, accessibility, lint, and TypeScript.
-- Push completed changes to `main` so Vercel can deploy automatically.
-
-## Next setup on a new Mac
-
-1. Clone the repository and run `npm ci`.
-2. Add the cloned folder as a local Codex Project.
-3. Run `npm run dev` to inspect the site locally.
-4. Use the existing Vercel environment variables for production; create `.env.local` only when local integrations need to be tested.
+See [readiness](design-system-readiness.md) and [interaction/browser audit](interaction-audit.md). Chrome responsive and desktop Safari checks are recorded; physical iOS/Android, screen-reader testing and real delivery are not certified. Future copy, photo or component changes reopen affected checks only.

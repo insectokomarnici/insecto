@@ -1,6 +1,6 @@
 "use client";
 import { useId, useRef, useState, type ChangeEvent, type FormEvent } from "react";
-import { ArrowFromBottom } from "@boxicons/react";
+import { ArrowFromBottom, Envelope } from "@boxicons/react";
 import { Button } from "@/components/ui/button";
 import { TextArea, TextField } from "@/components/ui/fields";
 import { Notice } from "@/components/ui/notice";
@@ -63,9 +63,10 @@ export function ContactForm({ submitContact, successMessage = "Poruka je uspešn
   function handleAttachmentsChange(event: ChangeEvent<HTMLInputElement>) {
     const selected = Array.from(event.target.files ?? []);
     event.target.value = "";
-    if (!selected.length) return;
+    if (sending.current || !selected.length) return;
+    setFeedback("idle");
 
-    const invalidType = selected.find((file) => !file.type.startsWith("image/") || !ACCEPTED_ATTACHMENT_EXTENSIONS.test(file.name));
+    const invalidType = selected.find((file) => !ACCEPTED_ATTACHMENT_TYPES.split(",").includes(file.type) || !ACCEPTED_ATTACHMENT_EXTENSIONS.test(file.name));
     if (invalidType) {
       setAttachmentError("Dodajte samo fotografije u JPG, PNG, WebP ili HEIC formatu.");
       return;
@@ -94,9 +95,15 @@ export function ContactForm({ submitContact, successMessage = "Poruka je uspešn
 
   function removeAttachment(index: number) {
     if (sending.current) return;
+    setFeedback("idle");
     setAttachments((current) => current.filter((_, attachmentIndex) => attachmentIndex !== index));
     setAttachmentError(undefined);
     if (attachmentInputRef.current) attachmentInputRef.current.value = "";
+    requestAnimationFrame(() => {
+      const remaining = formRef.current?.querySelectorAll<HTMLButtonElement>(".file-upload-remove");
+      const next = remaining?.[Math.min(index, remaining.length - 1)];
+      (next ?? formRef.current?.querySelector<HTMLButtonElement>(".file-upload-dropzone"))?.focus();
+    });
   }
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -105,14 +112,16 @@ export function ContactForm({ submitContact, successMessage = "Poruka je uspešn
     setPhoneTouched(true);
     const nextErrors = validateContact(values, { requireSurname: includeSurname, requireEmail: emailRequired });
     setErrors(nextErrors);
-    if (Object.keys(nextErrors).length || attachmentError) {
+    // Rejected selections never enter attachments; they must not block a valid inquiry.
+    if (Object.keys(nextErrors).length) {
       setFeedback("invalid");
       requestAnimationFrame(() => {
-        const firstInvalid = formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]') ?? (attachmentError ? formRef.current?.querySelector<HTMLElement>(".file-upload-dropzone") : null);
+        const firstInvalid = formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]');
         firstInvalid?.focus();
       });
       return;
     }
+    setAttachmentError(undefined);
     sending.current = true;
     setFeedback("sending");
     try {
@@ -141,17 +150,17 @@ export function ContactForm({ submitContact, successMessage = "Poruka je uspešn
       </button>
       <input ref={attachmentInputRef} className="file-upload-native" id={attachmentInputId} name="photos" type="file" accept={ACCEPTED_ATTACHMENT_TYPES} multiple disabled={busy} tabIndex={-1} aria-hidden="true" onChange={handleAttachmentsChange} />
       <p className="field-hint" id={`${attachmentInputId}-hint`}>Dodaj do 5 fotografija (JPG, PNG, WebP ili HEIC).</p>
-      {attachmentError && <p className="field-error" id={`${attachmentInputId}-error`}>{attachmentError}</p>}
+      {attachmentError && <p className="field-error" id={`${attachmentInputId}-error`} role="alert">{attachmentError}</p>}
       {attachments.length > 0 && <ul className="file-upload-list" aria-label="Dodate fotografije">
         {attachments.map((file, index) => <li className="file-upload-item" key={`${file.name}-${file.size}-${file.lastModified}`}>
           <span className="file-upload-name">{file.name} <span>({formatFileSize(file.size)})</span></span>
-          <button className="file-upload-remove" type="button" disabled={busy} onClick={() => removeAttachment(index)}>Ukloni</button>
+          <button className="file-upload-remove" type="button" disabled={busy} aria-label={`Ukloni fotografiju: ${file.name}`} onClick={() => removeAttachment(index)}>Ukloni</button>
         </li>)}
       </ul>}
     </div>}
     <div role="alert" aria-atomic="true" className="feedback">{feedback === "invalid" ? <Notice tone="error">Upit nije poslat. Proverite označeno polje.</Notice> : feedback === "error" ? <Notice tone="error">{failureMessage}</Notice> : null}</div>
     <div role="status" aria-live="polite" aria-atomic="true" className="feedback">{feedback === "sending" ? <Notice>Slanje je u toku…</Notice> : feedback === "success" ? <Notice tone="success">{successMessage}</Notice> : null}</div>
-    <div className="contact-form-footer">{footerNote && <p className="contact-form-note">{footerNote}</p>}<Button type="submit" loading={busy} variant={buttonVariant} size={buttonSize}>{submitLabel}</Button></div>
+    <div className="contact-form-footer">{footerNote && <p className="contact-form-note">{footerNote}</p>}<Button type="submit" loading={busy} variant={buttonVariant} size={buttonSize}><Envelope aria-hidden="true" />{submitLabel}</Button></div>
   </form>;
 }
 

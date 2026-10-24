@@ -20,14 +20,14 @@ const galleryItems: {
   categoryId: GalleryCategory;
   image: string;
 }[] = [
-  { id: "plise-3324", title: "Plise komarnici", category: "PLISE KOMARNIK", categoryId: "plise", image: "/images/gallery-plise-komarnik.jpg" },
-  { id: "plise-3307", title: "Plise komarnici", category: "PLISE KOMARNIK", categoryId: "plise", image: "/images/gallery-3307.jpg" },
-  { id: "plise-3609", title: "Plise komarnici", category: "PLISE KOMARNIK", categoryId: "plise", image: "/images/gallery-3609.jpg" },
-  { id: "plise-3612", title: "Plise komarnici", category: "PLISE KOMARNIK", categoryId: "plise", image: "/images/gallery-3612.jpg" },
-  { id: "plise-3663", title: "Plise komarnici", category: "PLISE KOMARNIK", categoryId: "plise", image: "/images/gallery-3663.jpg" },
-  { id: "rolo-5890", title: "Rolo komarnici", category: "ROLO KOMARNIK", categoryId: "rolo", image: "/images/gallery-5890.jpg" },
-  { id: "plise-6902", title: "Plise komarnici", category: "PLISE KOMARNIK", categoryId: "plise", image: "/images/gallery-6902.jpg" },
-  { id: "rolo-porch", title: "Rolo komarnici", category: "ROLO KOMARNIK", categoryId: "rolo", image: "/images/gallery-rolo-porch.jpg" },
+  { id: "plise-3324", title: "Plise komarnici", category: "Plise komarnik", categoryId: "plise", image: "/images/gallery-plise-komarnik.jpg" },
+  { id: "plise-3307", title: "Plise komarnici", category: "Plise komarnik", categoryId: "plise", image: "/images/gallery-3307.jpg" },
+  { id: "plise-3609", title: "Plise komarnici", category: "Plise komarnik", categoryId: "plise", image: "/images/gallery-3609.jpg" },
+  { id: "plise-3612", title: "Plise komarnici", category: "Plise komarnik", categoryId: "plise", image: "/images/gallery-3612.jpg" },
+  { id: "plise-3663", title: "Plise komarnici", category: "Plise komarnik", categoryId: "plise", image: "/images/gallery-3663.jpg" },
+  { id: "rolo-5890", title: "Rolo komarnici", category: "Rolo komarnik", categoryId: "rolo", image: "/images/gallery-5890.jpg" },
+  { id: "plise-6902", title: "Plise komarnici", category: "Plise komarnik", categoryId: "plise", image: "/images/gallery-6902.jpg" },
+  { id: "rolo-porch", title: "Rolo komarnici", category: "Rolo komarnik", categoryId: "rolo", image: "/images/gallery-rolo-porch.jpg" },
 ];
 
 export function GallerySection() {
@@ -63,7 +63,7 @@ export function GallerySection() {
       gallery.removeEventListener("scroll", updateScrollState);
       observer.disconnect();
     };
-  }, [updateScrollState]);
+  }, [selectedCategory, updateScrollState]);
 
   useEffect(() => {
     const gallery = galleryRef.current;
@@ -154,7 +154,7 @@ export function GallerySection() {
               </button>
             ))}
           </div>
-          <div className="gallery-panel section-block" id="gallery-tabpanel" role="tabpanel" aria-labelledby={`gallery-tab-${selectedCategory}`}>
+          <div className="gallery-panel section-block" id="gallery-tabpanel" role="tabpanel" tabIndex={filteredItems.length === 0 ? 0 : undefined} aria-labelledby={`gallery-tab-${selectedCategory}`}>
             {filteredItems.length > 0 ? (
               <div className="gallery-frame">
                 <div ref={galleryRef} className="gallery-grid" id="gallery-photos" role="region" aria-label={`Fotografije: ${selectedTab.label.toLowerCase()}`} tabIndex={0}>
@@ -226,7 +226,7 @@ export function GallerySection() {
         {activeItem && (
           <div className="gallery-lightbox-panel">
             <div className="gallery-lightbox-header">
-              <h3 id="gallery-lightbox-title">{activeItem.category}</h3>
+              <h3 id="gallery-lightbox-title">{activeItem.category.replace("komarnik", "komarnici")}</h3>
               <button className="gallery-control" type="button" aria-label="Zatvori fotografiju" onClick={() => setActiveIndex(null)}>
                 <X aria-hidden="true" />
               </button>

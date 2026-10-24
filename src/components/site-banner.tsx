@@ -31,33 +31,48 @@ function ContactItem({
 export function SiteBanner() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [previousIndex, setPreviousIndex] = useState<number | null>(null);
-  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const paused = hovered || focused;
 
   useEffect(() => {
     if (paused) return;
 
-    const interval = window.setInterval(() => {
-      setActiveIndex((current) => {
-        setPreviousIndex(current);
-        return (current + 1) % contactItems.length;
-      });
-    }, BANNER_ROTATION_INTERVAL_MS);
+    const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let interval: number | undefined;
+    const syncRotation = () => {
+      window.clearInterval(interval);
+      if (motionPreference.matches || document.hidden) return;
+      interval = window.setInterval(() => {
+        setActiveIndex((current) => {
+          setPreviousIndex(current);
+          return (current + 1) % contactItems.length;
+        });
+      }, BANNER_ROTATION_INTERVAL_MS);
+    };
+    syncRotation();
+    motionPreference.addEventListener("change", syncRotation);
+    document.addEventListener("visibilitychange", syncRotation);
 
-    return () => window.clearInterval(interval);
+    return () => {
+      window.clearInterval(interval);
+      motionPreference.removeEventListener("change", syncRotation);
+      document.removeEventListener("visibilitychange", syncRotation);
+    };
   }, [paused]);
 
   return <aside className="site-banner" aria-label="Kontakt informacije">
     <div className="site-banner-inner site-container">
       <div
         className="site-banner-viewport"
-        onMouseEnter={() => setPaused(true)}
-        onMouseLeave={() => setPaused(false)}
-        onFocus={() => setPaused(true)}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onFocus={() => setFocused(true)}
         onBlur={(event) => {
-          if (!event.currentTarget.contains(event.relatedTarget)) setPaused(false);
+          if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false);
         }}
       >
-        <div className="site-banner-slides" aria-live="polite">
+        <div className="site-banner-slides" aria-live="off">
           {contactItems.map((item, index) => {
             const slideState = index === activeIndex ? "is-active" : index === previousIndex ? "is-exiting" : "";
 

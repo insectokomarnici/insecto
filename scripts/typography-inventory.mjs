@@ -4,7 +4,7 @@ import postcss from 'postcss';
 
 // Source audit: typography values belong to tokens.css; intentional inherit,
 // normal tracking and zero line-height for image-only logo links are allowed.
-const files = ['src/app/globals.css', 'src/app/o-namav1/page.module.css'];
+const files = ['src/app/globals.css'];
 const properties = /^(font-family|font-size|font-weight|line-height|letter-spacing|font-variant-numeric|text-transform)$/;
 const rows = [];
 const errors = [];

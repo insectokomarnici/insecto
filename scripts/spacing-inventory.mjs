@@ -3,7 +3,7 @@
  * Zero/auto and the native visually-hidden -1px margin are intentional exceptions.
  */
 import fs from 'node:fs';
-const files=['src/app/globals.css','src/app/o-namav1/page.module.css'];
+const files=['src/app/globals.css'];
 const sources=['src/app/tokens.css',...files].map(f=>fs.readFileSync(f,'utf8'));
 const definitions=new Set(sources.join('\n').match(/--[\w-]+(?=\s*:)/g));
 const errors=[];
